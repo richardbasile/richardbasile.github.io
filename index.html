@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/11/06/Make-Password/" data-id="ck2nbabiy0000edm4uiqwyd3s" class="article-share-link">Share</a>
+      <a data-url="http://richardbasile.com/2019/11/06/Make-Password/" data-id="ck3yjvtlz0001iwm4qmsscl28" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unix/">unix</a></li></ul>
@@ -135,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/10/31/Sourcing-Scripts/" data-id="ck2nbabj60005edm4gscw7o4j" class="article-share-link">Share</a>
+      <a data-url="http://richardbasile.com/2019/10/31/Sourcing-Scripts/" data-id="ck3yjvtm20003iwm4e693hoiw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unix/">unix</a></li></ul>
@@ -172,21 +172,19 @@
         <p>The parameter store is painful to navigate in the AWS console. AWS has provided us with the CLI, but these commands may be just as opaque. I’ve written a few helper functions.</p>
 <p>I’m assuming you are using <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-organize.html" target="_blank" rel="noopener">hierarchical parameters</a> (as one should), have installed both the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html" target="_blank" rel="noopener">AWS CLI</a> and the <a href="https://stedolan.github.io/jq/" target="_blank" rel="noopener">jq</a> utility, and in fact have access to the parameter store.</p>
 <p>In my <code>.profile</code> on my Mac, I source <code>bin/functions</code> wherein I define several functions for my environment. You might source this file from <code>.bashrc</code>, depending on your platform. To source the file, start your command with a period, a space, and the path to your file, e.g., <code>. bin/functions</code>. I suppose you <em>could</em> define these functions directly in <code>.profile</code>, but I like to keep that file as clean as possible.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function aws-set-profile() &#123;</span><br><span class="line">  export AWS_DEFAULT_PROFILE=$1</span><br><span class="line">  export AWS_PROFILE=$1</span><br><span class="line">  export TF_VAR_turbot_account_id=$1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function aws-get-parameters() &#123;</span><br><span class="line">  aws ssm get-parameters-by-path --recursive --with-decryption --path &quot;/$1/$2&quot; --query &quot;Parameters[*].&#123;Name:Name,Value:Value&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function aws-get-values() &#123;</span><br><span class="line">  aws-get-parameters $1 $2 \</span><br><span class="line">  | jq --raw-output &apos;.[]| [.Name, .Value] | join(&quot;: &quot;)&apos; \</span><br><span class="line">  | grep -i $3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function aws-set-profile() &#123;</span><br><span class="line">  export AWS_DEFAULT_PROFILE=$1</span><br><span class="line">  export AWS_PROFILE=$1</span><br><span class="line">  export TF_VAR_turbot_account_id=$1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function aws-ssm-list() &#123;</span><br><span class="line">    path=&quot;/enterprise&quot;;</span><br><span class="line">    [ -z $1 ] || path=&quot;$&#123;path&#125;/$&#123;1&#125;&quot;;</span><br><span class="line">    [ -z $2 ] || path=&quot;$&#123;path&#125;/$&#123;2&#125;&quot;;</span><br><span class="line">    aws ssm get-parameters-by-path --recursive --with-decryption --path &quot;$&#123;path&#125;&quot; --query &quot;Parameters[*].&#123;Name:Name,Value:Value&#125;&quot; | jq --raw-output &apos;.[]| [.Name, .Value] | join(&quot;: &quot;)&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="aws-set-profile"><a href="#aws-set-profile" class="headerlink" title="aws-set-profile"></a>aws-set-profile</h4><p>I work with a number of AWS accounts and use named profiles to switch between each account. You can set up a named profile using the command <code>aws configure --profile &lt;name&gt;</code> (without the angled brackets). I then set my environment to use one of these profiles by calling the above function <code>aws-set-profile &lt;name&gt;</code>. The <code>TF_VAR_turbot_account_id</code> variable is for use with terraform; if you do not know, this may not apply to you.</p>
-<h4 id="aws-get-parameters"><a href="#aws-get-parameters" class="headerlink" title="aws-get-parameters"></a>aws-get-parameters</h4><p>The <code>aws-get-parameters</code> function wraps a call to the CLI to return a refined set of information, i.e., each parameter name and decrypted value. The function as written assumes parameters are defined using the construct of <code>/service/environment/parameter</code>, and your call would look like <code>aws-get-parameters &lt;service&gt; &lt;env&gt;</code>. For example, if you want all of the parameters for the widget service in your dev environment, your call would be <code>aws-get-parameters widget dev</code>. If you are using a different construct, you will need to modify this function accordingly.</p>
+<h4 id="aws-ssm-list"><a href="#aws-ssm-list" class="headerlink" title="aws-ssm-list"></a>aws-ssm-list</h4><p>The <code>aws-ssm-list</code> function wraps a call to the CLI to return a refined set of information, i.e., each parameter name and decrypted value. The function as written assumes parameters are defined using the construct of <code>/service/environment/parameter</code>, and your call would look like <code>aws-ssm-list &lt;service&gt; &lt;env&gt;</code>. For example, if you want all of the parameters for the widget service in your dev environment, your call would be <code>aws-ssm-list widget dev</code>. If you are using a different construct, you will need to modify this function accordingly.</p>
 <p>The <code>--recursive</code> flag tells the CLI to return all parameters within the hierarchy of the path you are inspecting.</p>
 <p>The <code>--with-decryption</code> flag tells the CLI to decrypt all encyrpted parameters.</p>
 <p>the <code>--path</code> flag defines the hierarchy to inspect. All parameters below this hierarchy will be returned.</p>
 <p>The <code>--query</code> flag tells the CLI which attributes to return for each parameter. In this case, we are returning the Name and Value attributes.</p>
-<p>The format of my result set is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;Name&quot;: &quot;/widget/dev/foo&quot;,</span><br><span class="line">    &quot;Value&quot;: &quot;bar&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;Name&quot;: &quot;/widget/dev/fizz&quot;,</span><br><span class="line">    &quot;Value&quot;: &quot;buzz&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<h4 id="aws-get-values"><a href="#aws-get-values" class="headerlink" title="aws-get-values"></a>aws-get-values</h4><p>For the many parameters I may have defined in a given environment, I may not want to scroll through each one. This function uses <code>jq</code> to format the list of parameters so that the name and value are on a single line. That result set is then filtered using the <code>grep</code> command. The format of my call is <code>aws-get-values &lt;service&gt; &lt;env&gt; &lt;filter&gt;</code>. This requires that you have some familiarity with your environment. For example, I know that my widget service uses spring boot. If I need to find the RDS endpoint, I might call <code>aws-get-values widget dev datasource</code> which will score a hit on <code>spring.datasource.url</code>.</p>
-<p>The format of my result set is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/widget/dev/foo: bar</span><br></pre></td></tr></table></figure></p>
+<p>The format of my result set is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/enterprise/widget/foo: bar</span><br><span class="line">/enterprise/widget/fizz: buzz</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/10/23/AWS-Parameter-Store/" data-id="ck2nbabj20002edm492ey2bm7" class="article-share-link">Share</a>
+      <a data-url="http://richardbasile.com/2019/10/23/AWS-Parameter-Store/" data-id="ck3yjvtlv0000iwm4i5euzdpl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li></ul>
@@ -229,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/08/26/What-is-running-in-my-DB-right-now/" data-id="ck2nbabj50004edm4i8cq3uy0" class="article-share-link">Share</a>
+      <a data-url="http://richardbasile.com/2019/08/26/What-is-running-in-my-DB-right-now/" data-id="ck3yjvtmg000aiwm4ddfyfz9e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dba/">dba</a></li></ul>
@@ -276,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2013/09/09/Rev3-Cedar-Point/" data-id="ck2nbabj70006edm40h66e1ia" class="article-share-link">Share</a>
+      <a data-url="http://richardbasile.com/2013/09/09/Rev3-Cedar-Point/" data-id="ck3yjvtm30004iwm4hgoucal3" class="article-share-link">Share</a>
       
       
     </footer>
