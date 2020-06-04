@@ -1,395 +1,177 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
+<head>
   <title>Richard Basile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Richard Basile">
-<meta property="og:url" content="http://richardbasile.com/index.html">
-<meta property="og:site_name" content="Richard Basile">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Richard Basile">
-<meta name="twitter:creator" content="@WildCardRunning">
-  
-    <link rel="alternate" href="/atom.xml" title="Richard Basile" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/images/cloud.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="cloud.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- https://fontawesome.com/v4.7.0/icons/ -->
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <script src="onload.js"></script>
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Richard Basile</a>
-      </h1>
-      
+
+<body onload="onLoad()">
+  <div id="sidenav" class="sidenav">
+    <a href="#"><img src="me.jpg" class="logo-portrait"></a>
+    <a href="#">Home</a>
+    <a href="#social">Social</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+    <div class="main" style="height: 100%;">
+      <h1>Richard Basile</h1>
+      <p id="intro"></p>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/resume">Resume</a>
-        
-          <a class="main-nav-link" href="/race-results">Race Results</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://richardbasile.com"></form>
-      </div>
+
+    <div class="main bgimg-1"></div>
+
+    <div id="social" class="main">
+      <h1>Social</h1>
+      <a href="https://linkedin.com/in/richardbasile"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/bohemianultra"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/bohemianultra"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+      <a href="https://facebook.com/bohemianultra"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+
     </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Make-Password" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/06/Make-Password/" class="article-date">
-  <time datetime="2019-11-06T13:05:09.000Z" itemprop="datePublished">2019-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/06/Make-Password/">Make Password</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Here is a shell script that will create a function in your nix environment for generating complex passwords. The function is added to your shell by sourcing the script. For instance, you might store the script as <code>~/bin/mkpw.sh</code> and source it from your <code>.profile</code>. </p>
-<p>Your new password will start with an alpha character, include lowercase, uppercase, numeric, and special characters, and must be at least eight characters in length with a default of 16 characters in length. This has satisfied most systems I’ve encountered, the exception being when a less secure identity system does not allow special characters (who does that anymore?!?).</p>
-<p>Call <code>mkpw</code> to invoke the command with the default password length of 16 characters. Call <code>mkpw [integer]</code> to create a password of a specified length (e.g., <code>mkpw 12</code>).<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">display_usage() &#123;</span><br><span class="line">  echo &quot;Usage : . ~/bin/mkpw.sh&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># check script is sourced</span><br><span class="line">if [[ $0 != &quot;-bash&quot; ]]; then</span><br><span class="line">        echo &quot;Script must be sourced!&quot;</span><br><span class="line">        echo &quot;&quot;</span><br><span class="line">        display_usage</span><br><span class="line">        exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">function mkpw() &#123;</span><br><span class="line">  # password will start with an alpha character</span><br><span class="line">  # password will include lowercase, uppercase, numeric, and special characters</span><br><span class="line">  # password must be at least 8 characters</span><br><span class="line">  # password length will default at 16 characters if no argument provided</span><br><span class="line"></span><br><span class="line">  local desiredLength</span><br><span class="line">  [ -z $1 ] &amp;&amp; desiredLength=16 || desiredLength=$1</span><br><span class="line"></span><br><span class="line">  local re=&apos;^[0-9]+$&apos;</span><br><span class="line">  if ! [[ $desiredLength =~ $re ]] ; then</span><br><span class="line">    echo &quot;Error: argument must be an integer!&quot;</span><br><span class="line">    return 1</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  local minLength=8</span><br><span class="line">  if [[ $desiredLength -lt $minLength ]] ; then</span><br><span class="line">    echo &quot;Error: passwords must be at least $minLength characters!&quot;</span><br><span class="line">    return 1</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  local uppercase=&apos;ABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;</span><br><span class="line">  local lowercase=&apos;abcdefghijklmnopqrstuvwxyz&apos;</span><br><span class="line">  local alpha=$&#123;uppercase&#125;$&#123;lowercase&#125;</span><br><span class="line">  local numbers=&apos;0123456789&apos;</span><br><span class="line">  local symbols=&apos;!@#%^*()_-+=&apos;</span><br><span class="line"></span><br><span class="line">  local all=$&#123;uppercase&#125;$&#123;lowercase&#125;$&#123;numbers&#125;$&#123;symbols&#125;</span><br><span class="line"></span><br><span class="line">  local satisfied=0</span><br><span class="line">  local pw</span><br><span class="line"></span><br><span class="line">  while [ $satisfied -lt 4 ] ; do</span><br><span class="line">    local i=1</span><br><span class="line">    local uppercaseFlag=0</span><br><span class="line">    local lowercaseFlag=0</span><br><span class="line">    local numbersFlag=0</span><br><span class="line">    local symbolsFlag=0</span><br><span class="line"></span><br><span class="line">    local pos=0</span><br><span class="line">    let pos=($RANDOM % $&#123;#alpha&#125;)+1</span><br><span class="line">    local chr=$(echo $&#123;alpha&#125; | cut -c$&#123;pos&#125;)</span><br><span class="line">    pw=$&#123;chr&#125;</span><br><span class="line">    </span><br><span class="line">    while [ $i -lt $desiredLength ] ; do</span><br><span class="line">      let i+=1</span><br><span class="line">      let pos=($RANDOM % $&#123;#all&#125;)+1</span><br><span class="line">      chr=$(echo $&#123;all&#125; | cut -c$&#123;pos&#125;)</span><br><span class="line">      pw=$&#123;pw&#125;$&#123;chr&#125;</span><br><span class="line">      [[ $uppercase == *&quot;$&#123;chr&#125;&quot;* ]] &amp;&amp; uppercaseFlag=1</span><br><span class="line">      [[ $lowercase == *&quot;$&#123;chr&#125;&quot;* ]] &amp;&amp; lowercaseFlag=1</span><br><span class="line">      [[ $numbers == *&quot;$&#123;chr&#125;&quot;* ]] &amp;&amp; numbersFlag=1</span><br><span class="line">      [[ $symbols == *&quot;$&#123;chr&#125;&quot;* ]] &amp;&amp; symbolsFlag=1</span><br><span class="line">    done</span><br><span class="line">    let satisfied=$(expr $uppercaseFlag + $lowercaseFlag + $numbersFlag + $symbolsFlag)</span><br><span class="line">  done</span><br><span class="line">  echo $pw</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <div class="main bgimg-2"></div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/11/06/Make-Password/" data-id="ck3ykfd9k0004p9m4ejvacwjp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unix/">unix</a></li></ul>
+    <div id="resume" class="main">
+      <h1>Resume</h1>
 
-    </footer>
-  </div>
-  
-</article>
+      <h2 id="Summary">Summary</h2>
+      <p>* Cloud and Data Architect * Team Lead * Project Management</p>
+      <p>* Amazon Web Services * Elasticsearch * Cassandra * Terraform * Java * Spring Boot</p>
+      <p>* Oracle * SQL Server * Aurora * MySQL * PostgreSQL * New Relic * Sumologic</p>
 
+      <h2 id="Certifications">Certifications</h2>
+      <p>2017 AWS Certified Developer - Associate
+      <br>2016 AWS Certified Solutions Architect - Associate
+      <br>2009 Oracle Certified Professional, DBA, Oracle 9i/10g
+      <br>2000 Oracle Certified Professional, DBA, Oracle 7.3/8/8i</p>
 
-  
-    <article id="post-Sourcing-Scripts" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/31/Sourcing-Scripts/" class="article-date">
-  <time datetime="2019-10-31T12:52:10.000Z" itemprop="datePublished">2019-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/31/Sourcing-Scripts/">Sourcing Scripts</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Some scripts were meant to be sourced so that the variables defined by the script live beyond the execution of the script. The following code snippet will help remind users that it must be sourced!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">display_usage() &#123;</span><br><span class="line">  echo &quot;Usage : . myscript.sh &lt;parameter&gt;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># check script is sourced</span><br><span class="line">if [[ $0 != &quot;-bash&quot; ]]; then</span><br><span class="line">        echo &quot;Script must be sourced!&quot;</span><br><span class="line">        echo &quot;&quot;</span><br><span class="line">        display_usage</span><br><span class="line">        exit 1</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/10/31/Sourcing-Scripts/" data-id="ck3ykfd9n0006p9m4gm0jc8xj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unix/">unix</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-AWS-Parameter-Store" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/23/AWS-Parameter-Store/" class="article-date">
-  <time datetime="2019-10-23T15:07:39.000Z" itemprop="datePublished">2019-10-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/23/AWS-Parameter-Store/">AWS Parameter Store</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The parameter store is painful to navigate in the AWS console. AWS has provided us with the CLI, but these commands may be just as opaque. I’ve written a few helper functions.</p>
-<p>I’m assuming you are using <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-organize.html" target="_blank" rel="noopener">hierarchical parameters</a> (as one should), have installed both the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html" target="_blank" rel="noopener">AWS CLI</a> and the <a href="https://stedolan.github.io/jq/" target="_blank" rel="noopener">jq</a> utility, and in fact have access to the parameter store.</p>
-<p>In my <code>.profile</code> on my Mac, I source <code>bin/functions</code> wherein I define several functions for my environment. You might source this file from <code>.bashrc</code>, depending on your platform. To source the file, start your command with a period, a space, and the path to your file, e.g., <code>. bin/functions</code>. I suppose you <em>could</em> define these functions directly in <code>.profile</code>, but I like to keep that file as clean as possible.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function aws-set-profile() &#123;</span><br><span class="line">  export AWS_DEFAULT_PROFILE=$1</span><br><span class="line">  export AWS_PROFILE=$1</span><br><span class="line">  export TF_VAR_turbot_account_id=$1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function aws-ssm-list() &#123;</span><br><span class="line">    path=&quot;/enterprise&quot;;</span><br><span class="line">    [ -z $1 ] || path=&quot;$&#123;path&#125;/$&#123;1&#125;&quot;;</span><br><span class="line">    [ -z $2 ] || path=&quot;$&#123;path&#125;/$&#123;2&#125;&quot;;</span><br><span class="line">    aws ssm get-parameters-by-path --recursive --with-decryption --path &quot;$&#123;path&#125;&quot; --query &quot;Parameters[*].&#123;Name:Name,Value:Value&#125;&quot; | jq --raw-output &apos;.[]| [.Name, .Value] | join(&quot;: &quot;)&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="aws-set-profile"><a href="#aws-set-profile" class="headerlink" title="aws-set-profile"></a>aws-set-profile</h4><p>I work with a number of AWS accounts and use named profiles to switch between each account. You can set up a named profile using the command <code>aws configure --profile &lt;name&gt;</code> (without the angled brackets). I then set my environment to use one of these profiles by calling the above function <code>aws-set-profile &lt;name&gt;</code>. The <code>TF_VAR_turbot_account_id</code> variable is for use with terraform; if you do not know, this may not apply to you.</p>
-<h4 id="aws-ssm-list"><a href="#aws-ssm-list" class="headerlink" title="aws-ssm-list"></a>aws-ssm-list</h4><p>The <code>aws-ssm-list</code> function wraps a call to the CLI to return a refined set of information, i.e., each parameter name and decrypted value. The function as written assumes parameters are defined using the construct of <code>/service/environment/parameter</code>, and your call would look like <code>aws-ssm-list &lt;service&gt; &lt;env&gt;</code>. For example, if you want all of the parameters for the widget service in your dev environment, your call would be <code>aws-ssm-list widget dev</code>. If you are using a different construct, you will need to modify this function accordingly.</p>
-<p>The <code>--recursive</code> flag tells the CLI to return all parameters within the hierarchy of the path you are inspecting.</p>
-<p>The <code>--with-decryption</code> flag tells the CLI to decrypt all encyrpted parameters.</p>
-<p>the <code>--path</code> flag defines the hierarchy to inspect. All parameters below this hierarchy will be returned.</p>
-<p>The <code>--query</code> flag tells the CLI which attributes to return for each parameter. In this case, we are returning the Name and Value attributes.</p>
-<p>The format of my result set is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/enterprise/widget/foo: bar</span><br><span class="line">/enterprise/widget/fizz: buzz</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/10/23/AWS-Parameter-Store/" data-id="ck3ykfd9h0002p9m4su6q146h" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-What-is-running-in-my-DB-right-now" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/26/What-is-running-in-my-DB-right-now/" class="article-date">
-  <time datetime="2019-08-26T18:58:29.000Z" itemprop="datePublished">2019-08-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/What-is-running-in-my-DB-right-now/">What is running in my DB right now?</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When you need to know what is executing in your database right now, these are the queries to execute.</p>
-<h2 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">-- rac</span><br><span class="line">SELECT s.inst_id</span><br><span class="line">     , s.SID</span><br><span class="line">     , s.SERIAL#</span><br><span class="line">     , s.username</span><br><span class="line">     , s.osuser</span><br><span class="line">     , s.machine</span><br><span class="line">     , s.program</span><br><span class="line">     , s.logon_time</span><br><span class="line">     , s.status</span><br><span class="line">     , c.sql_fulltext current_sql</span><br><span class="line">  FROM gv$session s</span><br><span class="line">  JOIN gv$sqlarea c ON c.inst_id = s.inst_id AND c.sql_id = s.sql_id</span><br><span class="line"> WHERE s.USERNAME IS NOT NULL</span><br><span class="line">   AND s.STATUS = &apos;ACTIVE&apos;</span><br><span class="line">   AND ( s.SQL_ID &lt;&gt; sys_context( &apos;userenv&apos;, &apos;sid&apos; ) OR s.INST_ID &lt;&gt; USERENV( &apos;Instance&apos; ) )</span><br><span class="line">;</span><br><span class="line"> </span><br><span class="line">-- single node</span><br><span class="line">SELECT s.SID</span><br><span class="line">     , s.SERIAL#</span><br><span class="line">     , s.username</span><br><span class="line">     , s.osuser</span><br><span class="line">     , s.machine</span><br><span class="line">     , s.program</span><br><span class="line">     , s.logon_time</span><br><span class="line">     , s.status</span><br><span class="line">     , c.sql_fulltext current_sql</span><br><span class="line">  FROM v$session s</span><br><span class="line">  JOIN v$sqlarea c ON c.sql_id = s.sql_id</span><br><span class="line"> WHERE s.USERNAME IS NOT NULL</span><br><span class="line">   AND s.STATUS = &apos;ACTIVE&apos;</span><br><span class="line">   AND s.sid &lt;&gt; sys_context( &apos;userenv&apos;, &apos;sid&apos; )</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
-<h2 id="PostgreSQL"><a href="#PostgreSQL" class="headerlink" title="PostgreSQL"></a>PostgreSQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">  FROM pg_stat_activity psa</span><br><span class="line"> WHERE state &lt;&gt; &apos;idle&apos;</span><br><span class="line">   AND pid &lt;&gt; pg_backend_pid( ) ;</span><br></pre></td></tr></table></figure>
-<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">  FROM information_schema.PROCESSLIST P</span><br><span class="line"> WHERE INFO IS NOT NULL</span><br><span class="line">   AND ID &lt;&gt; connection_id( ) ;</span><br></pre></td></tr></table></figure>
-<h2 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">SELECT db_name(st.dbid) as db</span><br><span class="line">     , object_name(st.objectid, st.dbid) as [object]</span><br><span class="line">     , st.text as query_text</span><br><span class="line">     , qp.query_plan</span><br><span class="line">     , req.session_id</span><br><span class="line">     , req.blocking_session_id</span><br><span class="line">     , req.cpu_time</span><br><span class="line">     , req.total_elapsed_time</span><br><span class="line">     , req.estimated_completion_time</span><br><span class="line">     , req.percent_complete</span><br><span class="line">     , req.wait_type</span><br><span class="line">     , req.wait_time</span><br><span class="line">     , req.last_wait_type</span><br><span class="line">     , req.wait_resource</span><br><span class="line">     , req.reads</span><br><span class="line">     , req.logical_reads</span><br><span class="line">     , req.row_count</span><br><span class="line">     , s.login_time</span><br><span class="line">     , s.host_name</span><br><span class="line">     , s.program_name</span><br><span class="line">     , s.host_process_id</span><br><span class="line">     , s.client_interface_name</span><br><span class="line">     , s.login_name</span><br><span class="line">     , s.nt_domain</span><br><span class="line">     , s.nt_user_name</span><br><span class="line">     , req.sql_handle</span><br><span class="line">     , req.plan_handle</span><br><span class="line">  FROM sys.dm_exec_requests req</span><br><span class="line">  JOIN sys.dm_exec_sessions s ON s.session_id = req.session_id</span><br><span class="line"> CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) st</span><br><span class="line"> CROSS APPLY sys.dm_exec_query_plan(req.plan_handle) qp</span><br><span class="line"> WHERE req.session_id &lt;&gt; @@spid ;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2019/08/26/What-is-running-in-my-DB-right-now/" data-id="ck3ykfd9p0007p9m4i570fq8h" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dba/">dba</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Rev3-Cedar-Point" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/09/Rev3-Cedar-Point/" class="article-date">
-  <time datetime="2013-09-09T20:57:42.000Z" itemprop="datePublished">2013-09-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/09/Rev3-Cedar-Point/">Rev3 Cedar Point</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>That was quite ostensibly the hardest thing I have ever done.</p>
-<p>On little sleep, I headed to the park. I noticed others who had their wetsuits on. That is when I realized I had forgotten my wetsuit. I didn’t panic, because I knew I could handle the swim without a wetsuit. Then I noticed the timing chips. Holy hell! I forgot my timing chip! My timing chip was back at the hotel sitting on top of my wetsuit! It would take me 20 minutes to get to the hotel, and transition would close in 45 minutes. Wearing my sandals, I ran to the car. On the way to the hotel, I realized I left my keycard and my driver’s license in my transition bag. Either the desk clerk lets me into my room or I’m hosed. I guess I have an honest face. I strapped my timing chip onto my ankle, grabbed my wetsuit, and headed back to the park. I coated myself in sunscreen and glide. Another participant noted that I must be optimistic for sun; I simply wasn’t taking any chances. On another note, you’re damn right I was optimistic. I was about to start a half ironman. You don’t do this with anything less than optimism and preparation!</p>
-<p>This was not the swim I had planned. With the time trial start on the swim, I was unable to position myself to draft. I was unfamiliar with the new course. I found my way to the canal, but it was not a straight shot to get there. Once out of the canal, I could fee the swells lifting me up and setting me down.Being unfamiliar with the course, I stopped several times along the way to find out where I should be sighting. I kept in mind the basics of my swim, relaxed and kept going. I knew if I could finish the swim that I would finish the race. I made it out of the water.</p>
-<p>The run from the marina to transition was about a half mile. I dried off my feet, put on my socks and helmet, grabbed my bike and went. I strapped my shoes once the bike was in motion. I played leap-frog with a few riders. I knew how to take advantage of the hills and took corners with intent, but my competitors could ride through the wind. I didn’t want to blow out my legs with 56 miles to go and a half marathon to run afterward. My plan was to take the bike easy so that I could save my legs for the run. Unfortunately, Mother Nature was in a mood; 17 mph winds took it out of me. The rain wasn’t so bad- it was more of a cooling mist. I took the course 10 miles at a time until I finished the course.</p>
-<p>I left transition as though on fresh legs. I felt good and could not believe I had just ridden my bike 56 miles. A half mile later, the cramping started. Mother trucker. I started walking and began to believe I would DNF. They would have to pull me off the course, but I wasn’t going to quit. I would “find a way” and continue with “relentless forward progress” knowing that “glory doesn’t tickle”. I walked most of the next mile and a half and encouraged a few other participants along the way who were suffering the same fate. Then my friend Beth showed up. It was about time for me to try running again, and so I ran with her. She had her watch set to beep every half mile. We would walk a 1/10th of a mile and run 4/10ths. We would continue this pattern as far as we needed. My heart and lungs were willing, my spirit even more so, but my legs fought with me till the end. We pushed each other. Then, with a mile to go, she made her way to the finish; I would kick the last half mile.</p>
-<p>The finish line was glorious. I felt victorious.</p>
-<p>The biggest problem that I had was my nutrition. I finished the nutrition bottle on my bike but only made it through two bottles of Osmo. On the run, nutrition wasn’t settling well with me. I needed to experiment in the hopes of finishing. They offered salt, water, coke, and ice on the run course, and I took advantage of all of this. The salt helped reduce my cramping, and the coke gave me the energy boosts I needed to keep running.</p>
-<p>I had set goals for myself. Overall, I had a gold medal goal of 6:30, silver for 7:00, and bronze for 7:30. In my two Olympic distance triathlons, I completed the 1500 meter swim in about 30 minutes; my goal for the 1.2 mile swim was 40-45 minutes. I knew I could bust out 19+ mph on the bike, but I wanted to take it easy so I would have something left for the run; my goal for the bike was 3-1/2 hours. My half marathon PR is 2:14:02; my goal for the run was 2-1/2 hours, although given the nature of the beast, I would have been happy with a sub 3 hour run. Given the windy conditions, I was entirely surprised to have met my goal on the bike; my swim and run both suffered. In the end, I met my bronze goal with a finish time of 7:23:41.</p>
-<p>I am glad I did this. I do consider the possibility that I could do better, that I could do more. I do want more, but it isn’t in triathlon. If this journey has taught me anything, it is that I can achieve that which I dream.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://richardbasile.com/2013/09/09/Rev3-Cedar-Point/" data-id="ck3ykfd9c0000p9m4kx2z195b" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/">aws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dba/">dba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unix/">unix</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/aws/" style="font-size: 10px;">aws</a> <a href="/tags/dba/" style="font-size: 10px;">dba</a> <a href="/tags/unix/" style="font-size: 20px;">unix</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
+      <h2 id="Professional-Experience">Professional Experience</h2>
+      <p><strong>McGraw-Hill Education, Columbus, Ohio</strong><br><em>2018 to Present Lead Software
+          Engineer</em><br>Lead engineer overseeing cloud strategy, data architecture, and engineering of platform
+        services including identity management, product, licensing, rostering, and search. Team lead for identity
+        management.</p>
       <ul>
-        
-          <li>
-            <a href="/2019/11/06/Make-Password/">Make Password</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/31/Sourcing-Scripts/">Sourcing Scripts</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/23/AWS-Parameter-Store/">AWS Parameter Store</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/26/What-is-running-in-my-DB-right-now/">What is running in my DB right now?</a>
-          </li>
-        
-          <li>
-            <a href="/2013/09/09/Rev3-Cedar-Point/">Rev3 Cedar Point</a>
-          </li>
-        
+        <li>Responsible for management of information architecture, data governance, and breaking down business
+          requirements into functional information models.</li>
+        <li>Implemented CI/CD for multiple platform services on AWS using Turbot, Terraform, and CircleCi.</li>
+        <li>Migrated multiple RDS instances using AWS Database Migration Service and developed a video presentation to
+          train other teams how to use DMS.</li>
+        <li>Supported and directed the work of DB engineers supporting multiple RDS instances include MySQL and
+          PostgreSQL.</li>
+        <li>Responded to P1 and P2 issues when SME support was required to resolve customer impacting issues. Further
+          supported RCA and resolution to prevent further occurrences.</li>
+        <li>Assisted DB and Java engineers in the review and tuning of DB queries.</li>
+        <li>Designed RESTful APIs for platform services.</li>
+      </ul>
+      <p><strong>Halo Communications, Columbus, Ohio</strong><br><em>2017 to 2018 Senior Data Architect</em><br>Senior
+        data architect and database administrator for secure clinical communication and scheduling platform with 24x7
+        uptime, HIPAA compliance, and HITRUST security requirements.</p>
+      <ul>
+        <li>Established strategic road map for stabilizing the platform for current state and future growth.</li>
+        <li>Identified and tuned key transactions reducing CPU load and improving response times to create a better user
+          experience.</li>
+        <li>Improved response times by up to 72% while managing 252% increase in customer load.</li>
+        <li>Migrated primary SQL Server database from single node SQL Server Standard to a three node SQL Server
+          Enterprise cluster utilizing AlwaysOn Availability Groups and Windows Server Failover Cluster technology.</li>
+        <li>Developed new and tuned existing customer facing reports and internal usage analytics.</li>
+        <li>Built solutions leveraging cloud technologies on the AWS platform.</li>
+        <li>Supported DevOps team by monitoring systems and triaging production issues</li>
+        <li>Supported Application teams by developing relational and object data models and data workflows.</li>
+        <li>Help mature organization by implementing change control processes, coding standards, code reviews, and
+          mentoring development teams.</li>
+      </ul>
+      <p><strong>McGraw-Hill Education, Columbus, Ohio</strong><br><em>2013 to 2017 Senior Database
+          Architect</em><br><em>2012 to 2013 Contract Database Engineer</em><br>Senior database engineer and architect
+        for online education platform.</p>
+      <ul>
+        <li>Provided oversight of key application database as it grew in size from 250G to 2TB on a four node RAC
+          cluster with utilization of up to 20K concurrent users, over 22M monthly user sessions, and over 11M
+          subscribed users.</li>
+        <li>Identified business requirements and downstream technical requirements necessary to meet MVP across
+          multiple, concurrent projects.</li>
+        <li>Guided the enterprise in adopting new industry standards in order to achieve strategic product
+          certification.</li>
+        <li>Developed and led a team of database engineers to keep up with growing project commitments and operational
+          support.</li>
+        <li>Developed new logical and physical data structures, including tables, indexes, views, and triggers,
+          identified caching opportunities, and developed content models to support products built on our digital
+          platform.</li>
+        <li>Developed data access and business solutions in Java and Oracle.</li>
+        <li>Supported quarterly releases and scheduled point releases.</li>
+        <li>Guided the migration from Oracle 10g to Oracle 11g.</li>
+        <li>Developed end-to-end solution to record and report on click stream events using AWS services including API
+          Gateway, Lambda, Kinesis, and Elasticsearch.</li>
+        <li>Developed tools for internal operations using Oracle, Java, and AngularJS.</li>
+        <li>Provided support to at-risk projects to guide them to on-time completion and improve the performance of key
+          product features.</li>
+        <li>Improved performance of critical application components by tuning database code and business processes.</li>
+      </ul>
+      <p><strong>Huntington National Bank, Columbus, Ohio</strong><br><em>2010 to 2012 IS Technical
+          Specialist</em><br><em>2008 to 2009 Senior Programmer Analyst</em> </p>
+      <ul>
+        <li>Supported Oracle e-Business Suite 11i/r12, including HR, Payroll, and Financials.</li>
+        <li>Debugged database packages and report queries and implemented code fixes</li>
+        <li>Created custom reports for routine and ad hoc business needs.</li>
+        <li>Resolved production support issues and critical outages.</li>
+      </ul>
+      <p><strong>James Group, Columbus, Ohio</strong><br><em>2009 to 2010 Solutions Architect and Oracle DBA</em> </p>
+      <ul>
+        <li>Developed ETL solutions in Oracle 10g and Oracle Applications Express.</li>
+        <li>Managed Oracle 10g on Linux platform.</li>
+      </ul>
+      <p><strong>Worthington Industries, Columbus, Ohio</strong><br><em>2007 to 2008 Oracle Developer and DBA
+          (Contract)</em></p>
+      <ul>
+        <li>Developed custom solutions in Oracle 10g SQL and PL/SQL packages and Forms 6i to extend Oracle Applications
+          11i and meet business requirements for a large manufacturing operation.</li>
+        <li>Implemented Oracle Streams as an active/active high availability solution for Oracle Applications 11i to
+          achieve 24x7 uptime of key manufacturing modules.</li>
+      </ul>
+      <p><strong>Nationwide Financial, Columbus, Ohio</strong><br><em>2004 to 2007 Oracle Developer (Contract)</em></p>
+      <ul>
+        <li>Contributed to all stages of development lifecycle including requirements review, resource planning, systems
+          analysis, design, coding, testing, debugging, documentation and version control of financial systems running
+          on Oracle 8i/9i, Oracle Forms 4.5/6i, UNIX and Perl.</li>
       </ul>
     </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 Richard Basile<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div class="main bgimg-3"></div>
+
+    <div id="contact" class="main">
+      <h1>Contact</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
     </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/resume" class="mobile-nav-link">Resume</a>
-  
-    <a href="/race-results" class="mobile-nav-link">Race Results</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <div class="main bgimg-4"></div>
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
+    <footer class="main">This is my footer.</footer>
 </body>
+
 </html>
