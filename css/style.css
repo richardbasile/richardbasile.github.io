@@ -13,6 +13,7 @@ html {
   width: 250px;
   top: 0;
   bottom: 0;
+  padding: 25px 10px;
   height: inherit;
 }
 
@@ -40,11 +41,6 @@ h1 {
   border-bottom: 1px solid;
 }
 /* The side navigation menu */
-
-.w3-sidebar {
-  transition: all 1s;
-  text-align: center;
-}
 
 @media screen and (min-width: 950px) {
   .logo-portrait {
