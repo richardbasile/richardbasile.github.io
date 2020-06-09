@@ -1,0 +1,57 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+
+body, html {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 0;
+  bottom: 0;
+  height: inherit;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 50%;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    background-attachment: scroll;
+  }
+}
+
+.w3-main {
+  margin-left:250px;
+}
+
+h1 {
+  border-bottom: 1px solid;
+}
+/* The side navigation menu */
+
+.w3-sidebar {
+  transition: all 1s;
+  text-align: center;
+}
+
+@media screen and (min-width: 950px) {
+  .logo-portrait {
+    border-radius: 100%;
+    border: .5rem solid #bac1c8;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+}

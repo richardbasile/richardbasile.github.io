@@ -1,100 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<title>Richard Basile</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="cloud.png">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-body, html {
-  height: 100%;
-}
-html {
-  scroll-behavior: smooth;
-}
 
-.w3-sidebar {
-  z-index: 3;
-  width: 250px;
-  top: 0;
-  bottom: 0;
-  height: inherit;
-}
+<head>
+  <title>Richard Basile</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="images/cloud.png">
+  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="css/w3-theme-black.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .bgimg-1 { background-image: url("images/1.jpg"); }
+    .bgimg-2 { background-image: url("images/2.jpg"); }
+    .bgimg-3 { background-image: url("images/3.jpg"); }
+    .bgimg-4 {
+      background-image: url("images/4.jpg");
+      min-height: 100%;
+    }
+  </style>
+</head>
 
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-  position: relative;
-  opacity: 0.65;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 50%;
-}
-
-.bgimg-1 {
-  background-image: url("1.jpg");
-}
-
-.bgimg-2 {
-  background-image: url("2.jpg");
-}
-
-.bgimg-3 {
-  background-image: url("3.jpg");
-}
-
-.bgimg-4 {
-  background-image: url("4.jpg");
-  min-height: 100%;
-}
-
-@media only screen and (max-device-width: 1024px) {
-  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-    background-attachment: scroll;
-  }
-}
-
-.w3-main {
-  margin-left:250px;
-}
-</style>
 <body>
 
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-    <i class="fa fa-remove"></i>
-  </a>
-  <h4 class="w3-bar-item"><b>Menu</b></h4>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">Home</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#social">Social</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#resume">Resume</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#contact">Contact</a>
-</nav>
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()"
+      class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <h4 class="w3-bar-item"><b>Menu</b></h4>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#intro">Home</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#social">Social</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#resume">Resume</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#contact">Contact</a>
+  </nav>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
 
-  <div class="w3-main w3-row w3-padding-64">
+  <div id="intro" class="w3-main w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Richard Basile</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1>Richard Basile</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
 
   <div class="w3-main bgimg-1"></div>
 
-  <div id="social" class="w3-main w3-row">
+  <div id="social" class="w3-main w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Social</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1>Social</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <a href="https://linkedin.com/in/richardbasile"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/bohemianultra"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+      <a href="https://instagram.com/bohemianultra"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+      <a href="https://facebook.com/bohemianultra"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
     </div>
   </div>
 
@@ -102,19 +73,120 @@ html {
 
   <div id="resume" class="w3-main w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Resume</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1>Resume</h1>
+
+      <h2 id="Summary">Summary</h2>
+      <p>* Cloud and Data Architect * Team Lead * Project Management
+        <br>* Amazon Web Services * Oracle * SQL Server * Aurora * MySQL * PostgreSQL
+        <br>* Elasticsearch * Cassandra * Terraform * Java * Spring Boot * New Relic * Sumologic</p>
+
+      <h2 id="Certifications">Certifications</h2>
+      <p>2017 AWS Certified Developer - Associate
+        <br>2016 AWS Certified Solutions Architect - Associate
+        <br>2009 Oracle Certified Professional, DBA, Oracle 9i/10g
+        <br>2000 Oracle Certified Professional, DBA, Oracle 7.3/8/8i</p>
+
+      <h2 id="Professional-Experience">Professional Experience</h2>
+      <p><strong>McGraw-Hill Education, Columbus, Ohio</strong><br><em>2018 to Present Lead Software
+          Engineer</em><br>Lead engineer overseeing cloud strategy, data architecture, and engineering of platform
+        services including identity management, product, licensing, rostering, and search. Team lead for identity
+        management.</p>
+      <ul>
+        <li>Responsible for management of information architecture, data governance, and breaking down business
+          requirements into functional information models.</li>
+        <li>Implemented CI/CD for multiple platform services on AWS using Turbot, Terraform, and CircleCi.</li>
+        <li>Migrated multiple RDS instances using AWS Database Migration Service and developed a video presentation to
+          train other teams how to use DMS.</li>
+        <li>Supported and directed the work of DB engineers supporting multiple RDS instances include MySQL and
+          PostgreSQL.</li>
+        <li>Responded to P1 and P2 issues when SME support was required to resolve customer impacting issues. Further
+          supported RCA and resolution to prevent further occurrences.</li>
+        <li>Assisted DB and Java engineers in the review and tuning of DB queries.</li>
+        <li>Designed RESTful APIs for platform services.</li>
+      </ul>
+      <p><strong>Halo Communications, Columbus, Ohio</strong><br><em>2017 to 2018 Senior Data Architect</em><br>Senior
+        data architect and database administrator for secure clinical communication and scheduling platform with 24x7
+        uptime, HIPAA compliance, and HITRUST security requirements.</p>
+      <ul>
+        <li>Established strategic road map for stabilizing the platform for current state and future growth.</li>
+        <li>Identified and tuned key transactions reducing CPU load and improving response times to create a better user
+          experience.</li>
+        <li>Improved response times by up to 72% while managing 252% increase in customer load.</li>
+        <li>Migrated primary SQL Server database from single node SQL Server Standard to a three node SQL Server
+          Enterprise cluster utilizing AlwaysOn Availability Groups and Windows Server Failover Cluster technology.</li>
+        <li>Developed new and tuned existing customer facing reports and internal usage analytics.</li>
+        <li>Built solutions leveraging cloud technologies on the AWS platform.</li>
+        <li>Supported DevOps team by monitoring systems and triaging production issues</li>
+        <li>Supported Application teams by developing relational and object data models and data workflows.</li>
+        <li>Help mature organization by implementing change control processes, coding standards, code reviews, and
+          mentoring development teams.</li>
+      </ul>
+      <p><strong>McGraw-Hill Education, Columbus, Ohio</strong><br><em>2013 to 2017 Senior Database
+          Architect</em><br><em>2012 to 2013 Contract Database Engineer</em><br>Senior database engineer and architect
+        for online education platform.</p>
+      <ul>
+        <li>Provided oversight of key application database as it grew in size from 250G to 2TB on a four node RAC
+          cluster with utilization of up to 20K concurrent users, over 22M monthly user sessions, and over 11M
+          subscribed users.</li>
+        <li>Identified business requirements and downstream technical requirements necessary to meet MVP across
+          multiple, concurrent projects.</li>
+        <li>Guided the enterprise in adopting new industry standards in order to achieve strategic product
+          certification.</li>
+        <li>Developed and led a team of database engineers to keep up with growing project commitments and operational
+          support.</li>
+        <li>Developed new logical and physical data structures, including tables, indexes, views, and triggers,
+          identified caching opportunities, and developed content models to support products built on our digital
+          platform.</li>
+        <li>Developed data access and business solutions in Java and Oracle.</li>
+        <li>Supported quarterly releases and scheduled point releases.</li>
+        <li>Guided the migration from Oracle 10g to Oracle 11g.</li>
+        <li>Developed end-to-end solution to record and report on click stream events using AWS services including API
+          Gateway, Lambda, Kinesis, and Elasticsearch.</li>
+        <li>Developed tools for internal operations using Oracle, Java, and AngularJS.</li>
+        <li>Provided support to at-risk projects to guide them to on-time completion and improve the performance of key
+          product features.</li>
+        <li>Improved performance of critical application components by tuning database code and business processes.</li>
+      </ul>
+      <p><strong>Huntington National Bank, Columbus, Ohio</strong><br><em>2010 to 2012 IS Technical
+          Specialist</em><br><em>2008 to 2009 Senior Programmer Analyst</em> </p>
+      <ul>
+        <li>Supported Oracle e-Business Suite 11i/r12, including HR, Payroll, and Financials.</li>
+        <li>Debugged database packages and report queries and implemented code fixes</li>
+        <li>Created custom reports for routine and ad hoc business needs.</li>
+        <li>Resolved production support issues and critical outages.</li>
+      </ul>
+      <p><strong>James Group, Columbus, Ohio</strong><br><em>2009 to 2010 Solutions Architect and Oracle DBA</em> </p>
+      <ul>
+        <li>Developed ETL solutions in Oracle 10g and Oracle Applications Express.</li>
+        <li>Managed Oracle 10g on Linux platform.</li>
+      </ul>
+      <p><strong>Worthington Industries, Columbus, Ohio</strong><br><em>2007 to 2008 Oracle Developer and DBA
+          (Contract)</em></p>
+      <ul>
+        <li>Developed custom solutions in Oracle 10g SQL and PL/SQL packages and Forms 6i to extend Oracle Applications
+          11i and meet business requirements for a large manufacturing operation.</li>
+        <li>Implemented Oracle Streams as an active/active high availability solution for Oracle Applications 11i to
+          achieve 24x7 uptime of key manufacturing modules.</li>
+      </ul>
+      <p><strong>Nationwide Financial, Columbus, Ohio</strong><br><em>2004 to 2007 Oracle Developer (Contract)</em></p>
+      <ul>
+        <li>Contributed to all stages of development lifecycle including requirements review, resource planning, systems
+          analysis, design, coding, testing, debugging, documentation and version control of financial systems running
+          on Oracle 8i/9i, Oracle Forms 4.5/6i, UNIX and Perl.</li>
+      </ul>
     </div>
   </div>
 
   <div class="w3-main bgimg-3"></div>
 
-  <div id="contact" class="w3-main w3-row">
+  <div id="contact" class="w3-main w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Contact</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h1>Contact</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
 
@@ -122,39 +194,35 @@ html {
 
   <footer id="myFooter">
     <div class="w3-main w3-container w3-theme-l2 w3-padding-32">
-      <h4>Footer</h4>
-    </div>
-
-    <div class="w3-container w3-theme-l1">
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <p>Handcrafted by a tribe of elves.</p>
     </div>
   </footer>
 
+  <script>
+    // Get the Sidebar
+    var mySidebar = document.getElementById("mySidebar");
 
-<script>
-// Get the Sidebar
-var mySidebar = document.getElementById("mySidebar");
+    // Get the DIV with overlay effect
+    var overlayBg = document.getElementById("myOverlay");
 
-// Get the DIV with overlay effect
-var overlayBg = document.getElementById("myOverlay");
+    // Toggle between showing and hiding the sidebar, and add overlay effect
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+      } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+      }
+    }
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-    overlayBg.style.display = "none";
-  } else {
-    mySidebar.style.display = 'block';
-    overlayBg.style.display = "block";
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-  mySidebar.style.display = "none";
-  overlayBg.style.display = "none";
-}
-</script>
+    // Close the sidebar with the close button
+    function w3_close() {
+      mySidebar.style.display = "none";
+      overlayBg.style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>
