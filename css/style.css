@@ -25,7 +25,11 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 50%;
+  min-height: 70%;
+}
+
+.bgimg-4 {
+  min-height: 90%;
 }
 
 @media only screen and (max-device-width: 1024px) {
