@@ -8,7 +8,6 @@ remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
-  - jekyll-paginate
 
 defaults:
   - scope:
@@ -16,9 +15,6 @@ defaults:
       type: posts
     values:
       layout: post
-
-paginate: 1
-paginate_path: "/page:num/"
 
 markdown: kramdown
 permalink: /:title/

@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-{% assign post = paginator.posts.first %}
+{% assign post = site.posts.first %}
 <article>
     <h1>{{ post.title }}</h1>
     <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
@@ -11,18 +11,7 @@ title: Home
 </article>
 
 <nav class="post-nav">
-    {% if paginator.previous_page %}
-    {% assign newer_index = paginator.page | minus: 2 %}
-    {% assign newer = site.posts[newer_index] %}
-    {% if paginator.previous_page == 1 %}
-    <a href="/" class="post-nav-newer">← {{ newer.title }}</a>
-    {% else %}
-    <a href="{{ paginator.previous_page_path }}" class="post-nav-newer">← {{ newer.title }}</a>
-    {% endif %}
-    {% endif %}
-    {% if paginator.next_page %}
-    {% assign older_index = paginator.page %}
-    {% assign older = site.posts[older_index] %}
-    <a href="{{ paginator.next_page_path }}" class="post-nav-older">{{ older.title }} →</a>
+    {% if site.posts[1] %}
+    <a href="{{ site.posts[1].url }}" class="post-nav-older">{{ site.posts[1].title }} →</a>
     {% endif %}
 </nav>
