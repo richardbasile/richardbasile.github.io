@@ -1,9 +1,13 @@
 title: Richard Basile
 description: Fueled by faith, family, and the long run.
+url: "https://richardbasile.github.io"
+baseurl: ""
+repository: richardbasile/richardbasile.github.io
 
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-remote-theme
+  - jekyll-feed
 
 author:
   name: Richard Basile
@@ -26,9 +30,7 @@ author:
       url: https://linkedin.com/in/richardbasile
 
 markdown: kramdown
-
-# Custom settings
-permalink: /:title/         # Use filename as URL
+permalink: /:title/
 header_pages:
   - index.md
-  - links.md
+  - connect.md

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Links
+title: Connect
 author_profile: true
 ---
 
