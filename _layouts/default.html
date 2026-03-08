@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    {% seo %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </head>
-  <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
+<html lang="{{ site.lang | default: " en-US" }}">
 
-    <header class="page-header" role="banner">
-      <h1 class="project-name"><a href="{{ '/' | relative_url }}" style="color: inherit; text-decoration: none;">{{ site.title
-          | default: site.github.repository_name }}</a></h1>
-<!--      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>-->
+<head>
+  <meta charset="UTF-8">
+  {% seo %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+  <header class="page-header" role="banner">
+    <div class="site-container">
+      <h1 class="project-name"><a href="{{ '/' | relative_url }}" style="color: inherit; text-decoration: none;">{{
+          site.title | default: site.github.repository_name }}</a></h1>
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
       {% if site.header_pages %}
-        <nav>
+      <nav>
+        <div class="nav-links">
           {% for node in site.header_pages %}
-            {% assign page_path = node %}
-            {% for p in site.pages %}
-              {% if p.path == page_path %}
-                <a href="{{ p.url | relative_url }}" class="btn">{{ p.title }}</a>
-              {% endif %}
-            {% endfor %}
+          {% assign page_path = node %}
+          {% for p in site.pages %}
+          {% if p.path == page_path %}
+          <a href="{{ p.url | relative_url }}" class="btn">{{ p.title }}</a>
+          {% endif %}
           {% endfor %}
-        </nav>
+          {% endfor %}
+        </div>
+        <form action="https://www.google.com/search" method="get" class="search-form">
+          <input type="hidden" name="sitesearch" value="richardbasile.github.io">
+          <input type="text" name="q" placeholder="Search...">
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </nav>
       {% endif %}
-    </header>
+    </div>
+  </header>
 
-    <main id="content" class="main-content" role="main">
+  <main id="content" class="main-content" role="main">
+    <div class="site-container">
       {{ content }}
 
       <footer class="site-footer">
-        <span class="site-footer-credits">{{ site.title }}</span>
+        <span class="site-footer-credits">© {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</span>
       </footer>
-    </main>
-  </body> 
+    </div>
+  </main>
+</body>
+
 </html>

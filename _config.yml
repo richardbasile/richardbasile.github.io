@@ -8,29 +8,21 @@ remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+  - jekyll-paginate
 
-author:
-  name: Richard Basile
-  bio: Fueled by faith, family, and the long run.
-  links:
-    - label: Facebook
-      icon: fab fa-facebook
-      url: https://facebook.com/buckeyestrides
-    - label: Instagram
-      icon: fab fa-instagram
-      url: https://instagram.com/buckeyestrides
-    - label: Pinterest
-      icon: fab fa-pinterest
-      url: https://pinterest.com/buckeyestrides
-    - label: YouTube
-      icon: fab fa-youtube
-      url: https://youtube.com/@buckeyestrides
-    - label: LinkedIn
-      icon: fab fa-linkedin
-      url: https://linkedin.com/in/richardbasile
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+paginate: 1
+paginate_path: "/page:num/"
 
 markdown: kramdown
 permalink: /:title/
 header_pages:
-  - index.md
+  - index.html
+  - archive.md
   - connect.md
