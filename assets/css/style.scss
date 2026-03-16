@@ -158,3 +158,27 @@
     margin-left: 0;
   }
 }
+
+// Borderless table
+.main-content table {
+  margin: 0 auto;
+  width: fit-content;  
+
+  th, td {
+    border: none;
+    padding: 0.4rem 0.75rem;
+    background: transparent !important;
+  }
+
+  // Subtle row striping for readability
+  tbody tr:nth-child(even) td {
+    background: rgba(0, 0, 0, 0.03) !important;
+  }
+
+  // Year header rows (italic cells = year dividers)
+  tbody tr td em {
+    font-style: italic;
+    font-weight: 600;
+    color: #555;
+  }
+}
