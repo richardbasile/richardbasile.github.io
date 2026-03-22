@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16-Week Half Marathon + Strength Plan</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --card: #16161f;
+      --border: #2a2a3e;
+      --accent: #eeff55;
+      --accent2: #ff7a45;
+      --accent3: #5ddcff;
+      --text: #f0f0f8;
+      --muted: #9898b0;
+      --easy: #5df288;
+      --mid: #74b8ff;
+      --quality: #ff80c8;
+      --long: #eeff55;
+      --strength: #c4aaff;
+      --bw: #ffaa60;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-size: 16px;
+    }
+
+    .hero {
+      position: relative;
+      padding: 80px 40px 60px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(232, 255, 71, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 9vw, 110px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 20px;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 18px 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin: 32px 40px 0;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+    }
+
+    .phase {
+      padding: 14px 20px;
+      background: var(--card);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .phase-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+    }
+
+    .phase-weeks {
+      font-size: 13px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted);
+    }
+
+    .phase.build .phase-name {
+      color: var(--easy);
+    }
+
+    .phase.peak .phase-name {
+      color: var(--accent);
+    }
+
+    .phase.taper .phase-name {
+      color: var(--accent2);
+    }
+
+    .plan-container {
+      padding: 0 40px 60px;
+      overflow-x: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 56px 1fr 1fr 1fr 1fr 1fr 1fr 96px;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      min-width: 960px;
+    }
+
+    .grid-header {
+      background: #0d0d15;
+      padding: 12px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .grid-header.day-header {
+      font-size: 13px;
+      color: var(--text);
+      letter-spacing: 0.06em;
+    }
+
+    .grid-header.strength-header {
+      color: var(--strength);
+    }
+
+    .grid-header.bw-header {
+      color: var(--bw);
+    }
+
+    .week-cell {
+      background: var(--card);
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .week-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--muted);
+      line-height: 1;
+    }
+
+    .week-tag {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .tag-build {
+      color: var(--easy);
+    }
+
+    .tag-deload {
+      color: var(--accent3);
+    }
+
+    .tag-peak {
+      color: var(--accent);
+    }
+
+    .tag-taper {
+      color: var(--accent2);
+    }
+
+    .tag-race {
+      color: var(--quality);
+    }
+
+    .workout-cell {
+      background: var(--card);
+      padding: 13px;
+      transition: background 0.15s;
+    }
+
+    .workout-cell:hover {
+      background: #1c1c28;
+    }
+
+    .row-deload .workout-cell {
+      background: color-mix(in srgb, #16161f 93%, #47d4ff 7%);
+    }
+
+    .row-deload .workout-cell:hover {
+      background: color-mix(in srgb, #1c1c28 91%, #47d4ff 9%);
+    }
+
+    .row-taper .workout-cell {
+      background: color-mix(in srgb, #16161f 93%, #ff6b35 7%);
+    }
+
+    .row-taper .workout-cell:hover {
+      background: color-mix(in srgb, #1c1c28 91%, #ff6b35 9%);
+    }
+
+    .row-race .workout-cell {
+      background: color-mix(in srgb, #16161f 91%, #e8ff47 9%);
+    }
+
+    .row-deload .week-cell {
+      background: color-mix(in srgb, #16161f 88%, #47d4ff 12%);
+    }
+
+    .row-taper .week-cell {
+      background: color-mix(in srgb, #16161f 88%, #ff6b35 12%);
+    }
+
+    .row-race .week-cell {
+      background: color-mix(in srgb, #16161f 86%, #e8ff47 14%);
+    }
+
+    .workout-type {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .type-easy {
+      color: var(--easy);
+    }
+
+    .type-mid {
+      color: var(--mid);
+    }
+
+    .type-quality {
+      color: var(--quality);
+    }
+
+    .type-long {
+      color: var(--long);
+    }
+
+    .type-rest {
+      color: var(--muted);
+    }
+
+    .type-race {
+      color: var(--accent2);
+    }
+
+    .type-strength {
+      color: var(--strength);
+    }
+
+    .type-bw {
+      color: var(--bw);
+    }
+
+    .workout-dist {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .workout-dist.rest-text {
+      font-size: 15px;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    .workout-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 5px;
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    .workout-note em {
+      color: var(--accent3);
+      font-style: normal;
+    }
+
+    .workout-note strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .total-cell {
+      background: var(--surface);
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .total-label {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .total-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .total-sub {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-top: 4px;
+    }
+
+    .row-deload .total-cell {
+      background: color-mix(in srgb, #111118 88%, #47d4ff 12%);
+    }
+
+    .row-taper .total-cell {
+      background: color-mix(in srgb, #111118 88%, #ff6b35 12%);
+    }
+
+    .row-race .total-cell {
+      background: color-mix(in srgb, #111118 86%, #e8ff47 14%);
+    }
+
+    /* STRENGTH LIFT DETAIL PANEL */
+    .lift-block {
+      margin-top: 5px;
+    }
+
+    .lift-line {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .lift-line span {
+      color: var(--strength);
+      font-weight: 500;
+    }
+
+    .bw-line {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .bw-line span {
+      color: var(--bw);
+      font-weight: 500;
+    }
+
+    /* NOTES */
+    .notes {
+      padding: 40px 40px 60px;
+    }
+
+    .notes-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .note-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .note-card-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .note-card-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .note-card-body strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .note-card:nth-child(1) .note-card-title {
+      color: var(--easy);
+    }
+
+    .note-card:nth-child(2) .note-card-title {
+      color: var(--mid);
+    }
+
+    .note-card:nth-child(3) .note-card-title {
+      color: var(--quality);
+    }
+
+    .note-card:nth-child(4) .note-card-title {
+      color: var(--long);
+    }
+
+    .note-card:nth-child(5) .note-card-title {
+      color: var(--strength);
+    }
+
+    .note-card:nth-child(6) .note-card-title {
+      color: var(--bw);
+    }
+
+    .note-card:nth-child(7) .note-card-title {
+      color: var(--accent3);
+    }
+
+    .note-card:nth-child(8) .note-card-title {
+      color: var(--accent2);
+    }
+
+    .long-run-bar {
+      margin: 0 40px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lrb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    .lrb-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .lrb-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      color: var(--bg);
+    }
+
+    .lrb-wk {
+      font-size: 9px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted);
+    }
+
+    .lrb-arrow {
+      font-size: 14px;
+      color: var(--border);
+      align-self: center;
+      margin-bottom: 14px;
+    }
+
+    .lrb-dot.deload {
+      background: var(--accent3);
+      opacity: 0.7;
+    }
+
+    .lrb-dot.build {
+      background: var(--easy);
+    }
+
+    .lrb-dot.peak {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .lrb-dot.taper {
+      background: var(--accent2);
+    }
+
+    .lrb-dot.race {
+      background: var(--accent2);
+      color: var(--text);
+      font-size: 11px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .legend {
+      animation: fadeUp 0.5s 0.08s ease both;
+    }
+
+    .long-run-bar {
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+
+    .phases {
+      animation: fadeUp 0.5s 0.14s ease both;
+    }
+
+    .plan-container {
+      animation: fadeUp 0.5s 0.18s ease both;
+    }
+
+    .notes {
+      animation: fadeUp 0.5s 0.22s ease both;
+    }
+
+    @media (max-width: 900px) {
+
+      .hero,
+      .legend,
+      .plan-container,
+      .notes {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .phases {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+
+      .long-run-bar {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+
+      .phases {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-label">Beginner Training Plan · 16 Weeks · Run + Strength</div>
+    <h1 class="hero-title">Half<span>Marathon</span></h1>
+    <p class="hero-sub">Six days per week · Mon/Wed/Thu/Sat running · Tue heavy lifting + cycling warmup · Fri
+      bodyweight · Three-week cycles · 10K tune-up Week 12 · Peak long run 12 mi Week 14 · Two-week taper</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-val">16</span><span class="stat-label">Weeks</span></div>
+      <div class="stat"><span class="stat-val">6</span><span class="stat-label">Days / Week</span></div>
+      <div class="stat"><span class="stat-val">13.1</span><span class="stat-label">Race Miles</span></div>
+      <div class="stat"><span class="stat-val">2</span><span class="stat-label">Strength Days</span></div>
+    </div>
+  </section>
+
+  <div class="legend">
+    <div class="legend-item"><span class="dot" style="background:var(--easy)"></span>Easy</div>
+    <div class="legend-item"><span class="dot" style="background:var(--mid)"></span>Mid Run</div>
+    <div class="legend-item"><span class="dot" style="background:var(--quality)"></span>Quality</div>
+    <div class="legend-item"><span class="dot" style="background:var(--long)"></span>Long Run</div>
+    <div class="legend-item"><span class="dot" style="background:var(--strength)"></span>Heavy Lift</div>
+    <div class="legend-item"><span class="dot" style="background:var(--bw)"></span>Bodyweight</div>
+    <div class="legend-item"><span class="dot" style="background:var(--accent3)"></span>Deload</div>
+    <div class="legend-item"><span class="dot" style="background:var(--accent2)"></span>Taper / Race</div>
+  </div>
+
+  <!-- LONG RUN PROGRESSION BAR -->
+  <div class="long-run-bar">
+    <div class="lrb-label">Long run<br>progression</div>
+    <div class="lrb-step">
+      <div class="lrb-dot build">4</div>
+      <div class="lrb-wk">Wk1</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot build">5</div>
+      <div class="lrb-wk">Wk2</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot deload">4</div>
+      <div class="lrb-wk">Wk3</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot build">6</div>
+      <div class="lrb-wk">Wk4</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot build">7</div>
+      <div class="lrb-wk">Wk5</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot deload">5</div>
+      <div class="lrb-wk">Wk6</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot build">8</div>
+      <div class="lrb-wk">Wk7</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot build">9</div>
+      <div class="lrb-wk">Wk8</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot deload">6</div>
+      <div class="lrb-wk">Wk9</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot peak">10</div>
+      <div class="lrb-wk">Wk10</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot peak">11</div>
+      <div class="lrb-wk">Wk11</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot race">10K</div>
+      <div class="lrb-wk">Wk12</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot peak">11</div>
+      <div class="lrb-wk">Wk13</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot peak">12</div>
+      <div class="lrb-wk">Wk14</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot taper">8</div>
+      <div class="lrb-wk">Wk15</div>
+    </div>
+    <div class="lrb-arrow">›</div>
+    <div class="lrb-step">
+      <div class="lrb-dot race">13.1</div>
+      <div class="lrb-wk">Wk16</div>
+    </div>
+  </div>
+
+  <div class="phases">
+    <div class="phase build">
+      <div class="phase-name">Base Building</div>
+      <div class="phase-weeks">Weeks 1-9 · Three 3-week cycles</div>
+    </div>
+    <div class="phase peak">
+      <div class="phase-name">Peak Phase</div>
+      <div class="phase-weeks">Weeks 10-14 · 10K + peak long</div>
+    </div>
+    <div class="phase taper">
+      <div class="phase-name">Taper &amp; Race</div>
+      <div class="phase-weeks">Weeks 15-16 · Two-week taper</div>
+    </div>
+  </div>
+
+  <div class="plan-container">
+    <div class="grid">
+
+      <!-- HEADERS -->
+      <div class="grid-header">Wk</div>
+      <div class="grid-header day-header">Mon<br><span style="color:var(--muted);font-size:9px">Easy Run</span></div>
+      <div class="grid-header day-header strength-header">Tue<br><span style="font-size:9px;opacity:0.7">Heavy
+          Lift</span></div>
+      <div class="grid-header day-header">Wed<br><span style="color:var(--muted);font-size:9px">Mid Run</span></div>
+      <div class="grid-header day-header">Thu<br><span style="color:var(--muted);font-size:9px">Quality</span></div>
+      <div class="grid-header day-header bw-header">Fri<br><span style="font-size:9px;opacity:0.7">Bodyweight</span>
+      </div>
+      <div class="grid-header day-header">Sat<br><span style="color:var(--muted);font-size:9px">Long Run</span></div>
+      <div class="grid-header">Total</div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 1 — Build -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">01</div>
+        <div class="week-tag tag-build">Build</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Conversational pace</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">Learn</div>
+        <div class="workout-note"><strong>20 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Squat</span> 3x8 goblet (light)</div>
+          <div class="lift-line"><span>Deadlift</span> 3x8 Romanian (light)</div>
+          <div class="lift-line"><span>Press</span> 3x8 dumbbell overhead</div>
+          <div class="lift-line"><span>Row</span> 3x8 dumbbell bent-over</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Easy-moderate effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">2 mi</div>
+        <div class="workout-note">No workout yet — easy only</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">20 min</div>
+        <div class="bw-line"><span>Glute bridge</span> 3x15</div>
+        <div class="bw-line"><span>Dead bug</span> 3x10/side</div>
+        <div class="bw-line"><span>Clamshell</span> 3x15/side</div>
+        <div class="bw-line"><span>Plank</span> 3x30s</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Easy; walk breaks OK</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">12 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 2 — Build -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">02</div>
+        <div class="week-tag tag-build">Build</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Conversational pace</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">Learn+</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Squat</span> 3x6 barbell (empty bar)</div>
+          <div class="lift-line"><span>Deadlift</span> 3x6 barbell (light)</div>
+          <div class="lift-line"><span>Press</span> 3x8 barbell overhead</div>
+          <div class="lift-line"><span>Row</span> 3x8 barbell bent-over</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Slightly stronger effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">2 mi</div>
+        <div class="workout-note">Easy shakeout</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">20 min</div>
+        <div class="bw-line"><span>Single-leg glute bridge</span> 3x10/side</div>
+        <div class="bw-line"><span>Bird dog</span> 3x10/side</div>
+        <div class="bw-line"><span>Side plank</span> 3x20s/side</div>
+        <div class="bw-line"><span>Bodyweight squat</span> 2x15</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note">Slow &amp; steady</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">14 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 3 — Deload -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell row-deload">
+        <div class="week-num">03</div>
+        <div class="week-tag tag-deload">Deload</div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>Back off — recover</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">Same</div>
+        <div class="workout-note"><strong>20 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Squat</span> 3x6 barbell</div>
+          <div class="lift-line"><span>Deadlift</span> 3x6 barbell</div>
+          <div class="lift-line"><span>Press</span> 3x8 barbell</div>
+          <div class="lift-line"><span>Row</span> 3x8 barbell</div>
+        </div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>Reduced volume</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">2 mi</div>
+        <div class="workout-note"><em>Short &amp; easy — active recovery</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">20 min</div>
+        <div class="bw-line"><span>Glute bridge</span> 3x15</div>
+        <div class="bw-line"><span>Dead bug</span> 3x10/side</div>
+        <div class="bw-line"><span>Clamshell</span> 3x15/side</div>
+        <div class="bw-line"><span>Plank</span> 3x30s</div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note"><em>Back to Wk 1 long</em></div>
+      </div>
+      <div class="total-cell row-deload">
+        <div class="total-label">Running</div>
+        <div class="total-val">12 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 4 — Build (Quality Begins) -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">04</div>
+        <div class="week-tag tag-build">Build</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Conversational pace</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">3x5</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 3x5 add weight</div>
+          <div class="lift-line"><span>Deadlift</span> 3x5 add weight</div>
+          <div class="lift-line"><span>Bench press</span> 3x5</div>
+          <div class="lift-line"><span>Power clean</span> 3x5 (light, learn)</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Moderate effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">4x5 min @ 10K effort, 90s jog</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">25 min</div>
+        <div class="bw-line"><span>Step-up</span> 3x10/leg</div>
+        <div class="bw-line"><span>Reverse lunge</span> 3x10/leg</div>
+        <div class="bw-line"><span>Push-up</span> 3x8</div>
+        <div class="bw-line"><span>Plank</span> 3x40s</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">6 mi</div>
+        <div class="workout-note">Easy long effort</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">16 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 5 — Build -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">05</div>
+        <div class="week-tag tag-build">Build</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Conversational pace</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">3x5</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 3x5 +5 lbs</div>
+          <div class="lift-line"><span>Deadlift</span> 3x5 +5-10 lbs</div>
+          <div class="lift-line"><span>Bench press</span> 3x5 +5 lbs</div>
+          <div class="lift-line"><span>Power clean</span> 3x5 add weight</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note">Moderate effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">5x5 min @ 10K effort, 90s jog</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">25 min</div>
+        <div class="bw-line"><span>Single-leg deadlift</span> 3x8/leg</div>
+        <div class="bw-line"><span>Lateral band walk</span> 3x15/side</div>
+        <div class="bw-line"><span>Push-up</span> 3x10</div>
+        <div class="bw-line"><span>Side plank</span> 3x25s/side</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">7 mi</div>
+        <div class="workout-note">Easy; practice fueling</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">19 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 6 — Deload -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell row-deload">
+        <div class="week-num">06</div>
+        <div class="week-tag tag-deload">Deload</div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>Easy recovery week</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">3x5</div>
+        <div class="workout-note"><strong>20 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 3x5 same wt</div>
+          <div class="lift-line"><span>Deadlift</span> 3x5 same wt</div>
+          <div class="lift-line"><span>Bench press</span> 3x5 same wt</div>
+          <div class="lift-line"><span>Power clean</span> 3x5 same wt</div>
+        </div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note"><em>Reduced effort</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">2 mi</div>
+        <div class="workout-note"><em>Short &amp; easy — active recovery</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">20 min</div>
+        <div class="bw-line"><span>Glute bridge</span> 3x15</div>
+        <div class="bw-line"><span>Bird dog</span> 3x10/side</div>
+        <div class="bw-line"><span>Dead bug</span> 3x10/side</div>
+        <div class="bw-line"><span>Plank</span> 3x40s</div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note"><em>Reduced long run</em></div>
+      </div>
+      <div class="total-cell row-deload">
+        <div class="total-label">Running</div>
+        <div class="total-val">14 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 7 — Build -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">07</div>
+        <div class="week-tag tag-build">Build</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Conversational pace</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">5x3</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 5x3 heavier</div>
+          <div class="lift-line"><span>Deadlift</span> 4x3 heavier</div>
+          <div class="lift-line"><span>Bench press</span> 5x3 heavier</div>
+          <div class="lift-line"><span>Hang clean</span> 4x3 (intro)</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note">Moderate effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">2x2 mi @ HMP, 2 min rest</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">25 min</div>
+        <div class="bw-line"><span>Bulgarian split squat</span> 3x8/leg</div>
+        <div class="bw-line"><span>Push-up</span> 3x12</div>
+        <div class="bw-line"><span>Copenhagen plank</span> 3x15s/side</div>
+        <div class="bw-line"><span>Dead bug</span> 3x10/side</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">8 mi</div>
+        <div class="workout-note">Easy effort throughout</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">21 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 8 — Build -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">08</div>
+        <div class="week-tag tag-build">Build</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Conversational</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">5x3</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 5x3 +5 lbs</div>
+          <div class="lift-line"><span>Deadlift</span> 4x3 +5-10 lbs</div>
+          <div class="lift-line"><span>Bench press</span> 5x3 +5 lbs</div>
+          <div class="lift-line"><span>Hang clean</span> 4x3 add weight</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">6 mi</div>
+        <div class="workout-note">Last mile comfortably hard</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">3x1 mi @ 10K effort, 2 min rest</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">25 min</div>
+        <div class="bw-line"><span>Single-leg deadlift</span> 3x10/leg</div>
+        <div class="bw-line"><span>Push-up</span> 3x12</div>
+        <div class="bw-line"><span>Side plank</span> 3x30s/side</div>
+        <div class="bw-line"><span>Calf raise</span> 3x20</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">9 mi</div>
+        <div class="workout-note">Easy; practice fueling</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">23 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 9 — Deload -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell row-deload">
+        <div class="week-num">09</div>
+        <div class="week-tag tag-deload">Deload</div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>Easy recovery</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">5x3</div>
+        <div class="workout-note"><strong>20 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 5x3 same wt</div>
+          <div class="lift-line"><span>Deadlift</span> 4x3 same wt</div>
+          <div class="lift-line"><span>Bench press</span> 5x3 same wt</div>
+          <div class="lift-line"><span>Hang clean</span> 4x3 same wt</div>
+        </div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note"><em>Moderate, relaxed</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>Short &amp; easy — active recovery</em></div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">20 min</div>
+        <div class="bw-line"><span>Glute bridge</span> 3x15</div>
+        <div class="bw-line"><span>Bird dog</span> 3x10/side</div>
+        <div class="bw-line"><span>Dead bug</span> 3x10/side</div>
+        <div class="bw-line"><span>Plank</span> 3x40s</div>
+      </div>
+      <div class="workout-cell row-deload">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">6 mi</div>
+        <div class="workout-note"><em>Reduced long run</em></div>
+      </div>
+      <div class="total-cell row-deload">
+        <div class="total-label">Running</div>
+        <div class="total-val">16 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 10 — Peak -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">10</div>
+        <div class="week-tag tag-peak">Peak</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Conversational</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">4x2</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 4x2 heavy</div>
+          <div class="lift-line"><span>Deadlift</span> 3x2 heavy</div>
+          <div class="lift-line"><span>Bench press</span> 4x2 heavy</div>
+          <div class="lift-line"><span>Power clean</span> 4x2 heavy</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">6 mi</div>
+        <div class="workout-note">Moderate effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note">4 mi @ HMP w/ 1 mi warmup</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">30 min</div>
+        <div class="bw-line"><span>Bulgarian split squat</span> 3x10/leg</div>
+        <div class="bw-line"><span>Push-up</span> 3x15</div>
+        <div class="bw-line"><span>Copenhagen plank</span> 3x20s/side</div>
+        <div class="bw-line"><span>Calf raise</span> 3x20</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">10 mi</div>
+        <div class="workout-note">Easy; test race gear</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">25 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 11 — Peak -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">11</div>
+        <div class="week-tag tag-peak">Peak</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Conversational</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">4x2</div>
+        <div class="workout-note"><strong>25 min bike WU</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 4x2 +5 lbs</div>
+          <div class="lift-line"><span>Deadlift</span> 3x2 +5 lbs</div>
+          <div class="lift-line"><span>Bench press</span> 4x2 +5 lbs</div>
+          <div class="lift-line"><span>Power clean</span> 4x2 +weight</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">6 mi</div>
+        <div class="workout-note">Last 2 mi moderate</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note">6x800m @ 10K pace, 90s rest</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">30 min</div>
+        <div class="bw-line"><span>Single-leg deadlift</span> 3x10/leg</div>
+        <div class="bw-line"><span>Push-up</span> 3x15</div>
+        <div class="bw-line"><span>Side plank</span> 3x30s/side</div>
+        <div class="bw-line"><span>Calf raise</span> 3x20</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">11 mi</div>
+        <div class="workout-note">Easy; longest so far</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">26 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 12 — 10K Race Week -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">12</div>
+        <div class="week-tag tag-race">10K</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Easy shakeout</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">Moderate</div>
+        <div class="workout-note"><strong>20 min bike WU · keep it sub-max</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 3x3 ~85% effort</div>
+          <div class="lift-line"><span>Deadlift</span> 2x3 ~85% effort</div>
+          <div class="lift-line"><span>Bench press</span> 3x3 ~85% effort</div>
+          <div class="lift-line"><span>Power clean</span> 3x2 light/sharp</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Easy — reduce load race week</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">2 mi</div>
+        <div class="workout-note">Easy — stay loose, off feet after</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-rest">Rest</div>
+        <div class="workout-dist rest-text">Rest</div>
+        <div class="workout-note">Off feet — race in two days</div>
+      </div>
+      <div class="workout-cell" style="background:color-mix(in srgb,#16161f 86%,#ff6b35 14%)">
+        <div style="padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid var(--border);">
+          <div class="workout-type type-easy">Sat · Shakeout</div>
+          <div class="workout-dist">2 mi</div>
+          <div class="workout-note">Very easy + 4x20s strides</div>
+        </div>
+        <div>
+          <div class="workout-type type-race">Sun · 🏁 10K</div>
+          <div class="workout-dist">6.2 mi</div>
+          <div class="workout-note">Tune-up race · race tomorrow</div>
+        </div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">~15 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 13 — Peak -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">13</div>
+        <div class="week-tag tag-peak">Peak</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-rest">Rest</div>
+        <div class="workout-dist rest-text">Rest</div>
+        <div class="workout-note">Post-race recovery — off feet</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Easy — first run back after 10K</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Easy — legs still recovering</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">2x1.5 mi @ HMP, 2 min rest</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">25 min</div>
+        <div class="bw-line"><span>Bulgarian split squat</span> 3x10/leg</div>
+        <div class="bw-line"><span>Push-up</span> 3x15</div>
+        <div class="bw-line"><span>Copenhagen plank</span> 3x25s/side</div>
+        <div class="bw-line"><span>Calf raise</span> 3x20</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">11 mi</div>
+        <div class="workout-note">Easy — back to long efforts</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">23 mi</div>
+        <div class="total-sub">no strength this week</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 14 — Peak Long Run -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell">
+        <div class="week-num">14</div>
+        <div class="week-tag tag-peak">Peak</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note">Easy effort</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">3x3</div>
+        <div class="workout-note"><strong>25 min bike WU · begin backing off</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 3x3 ~90% of best</div>
+          <div class="lift-line"><span>Deadlift</span> 2x3 ~90% of best</div>
+          <div class="lift-line"><span>Bench press</span> 3x3 ~90% of best</div>
+          <div class="lift-line"><span>Power clean</span> 3x2 sharp &amp; fast</div>
+        </div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">5 mi</div>
+        <div class="workout-note">Moderate, feel good</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">1 mi WU + 1 mi @ HMP + 1 mi CD</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">20 min</div>
+        <div class="bw-line"><span>Single-leg deadlift</span> 2x10/leg</div>
+        <div class="bw-line"><span>Glute bridge</span> 2x15</div>
+        <div class="bw-line"><span>Calf raise</span> 2x20</div>
+        <div class="bw-line"><span>Mobility / stretch</span> focus</div>
+      </div>
+      <div class="workout-cell">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">12 mi</div>
+        <div class="workout-note">⭐ Peak run · easy effort</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Running</div>
+        <div class="total-val">24 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 15 — Taper -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell row-taper">
+        <div class="week-num">15</div>
+        <div class="week-tag tag-taper">Taper</div>
+      </div>
+      <div class="workout-cell row-taper">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>Trust the taper</em></div>
+      </div>
+      <div class="workout-cell row-taper">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">2x3</div>
+        <div class="workout-note"><em><strong>20 min bike WU · reduce volume</strong></em></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Back squat</span> 2x3 lighter</div>
+          <div class="lift-line"><span>Deadlift</span> 2x2 lighter</div>
+          <div class="lift-line"><span>Bench press</span> 2x3 lighter</div>
+          <div class="lift-line"><span>Power clean</span> 2x2 light &amp; sharp</div>
+        </div>
+      </div>
+      <div class="workout-cell row-taper">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">4 mi</div>
+        <div class="workout-note"><em>Moderate, relaxed</em></div>
+      </div>
+      <div class="workout-cell row-taper">
+        <div class="workout-type type-quality">Quality</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note"><em>2x1 mi @ HMP, stay sharp</em></div>
+      </div>
+      <div class="workout-cell row-taper">
+        <div class="workout-type type-bw">Bodyweight</div>
+        <div class="workout-dist" style="font-size:15px">15 min</div>
+        <div class="bw-line"><span>Glute bridge</span> 2x15</div>
+        <div class="bw-line"><span>Calf raise</span> 2x20</div>
+        <div class="bw-line"><span>Mobility / stretch</span> focus</div>
+      </div>
+      <div class="workout-cell row-taper">
+        <div class="workout-type type-long">Long</div>
+        <div class="workout-dist">8 mi</div>
+        <div class="workout-note"><em>Pull back — trust training</em></div>
+      </div>
+      <div class="total-cell row-taper">
+        <div class="total-label">Running</div>
+        <div class="total-val">18 mi</div>
+        <div class="total-sub">+ 2 strength</div>
+      </div>
+
+      <!-- ══════════════════════════════════════════ -->
+      <!-- WEEK 16 — Race Week -->
+      <!-- ══════════════════════════════════════════ -->
+      <div class="week-cell row-race">
+        <div class="week-num">16</div>
+        <div class="week-tag tag-race">Race!</div>
+      </div>
+      <div class="workout-cell row-race">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Keep legs loose</div>
+      </div>
+      <div class="workout-cell row-race">
+        <div class="workout-type type-strength">Strength</div>
+        <div class="workout-dist" style="font-size:15px">Mini</div>
+        <div class="workout-note"><strong>15 min bike WU · last lift</strong></div>
+        <div class="lift-block">
+          <div class="lift-line"><span>Squat</span> 2x3 light — just move</div>
+          <div class="lift-line"><span>Bench press</span> 2x3 light</div>
+          <div class="lift-line"><span>Power clean</span> 2x2 fast &amp; snappy</div>
+          <div class="lift-line">No deadlift this week</div>
+        </div>
+      </div>
+      <div class="workout-cell row-race">
+        <div class="workout-type type-mid">Mid</div>
+        <div class="workout-dist">3 mi</div>
+        <div class="workout-note">Easy-moderate, feel fresh</div>
+      </div>
+      <div class="workout-cell row-race">
+        <div class="workout-type type-easy">Easy</div>
+        <div class="workout-dist">2 mi</div>
+        <div class="workout-note">Shakeout + strides</div>
+      </div>
+      <div class="workout-cell row-race">
+        <div class="workout-type type-rest">Rest</div>
+        <div class="workout-dist rest-text">Rest</div>
+        <div class="workout-note">Off feet — final prep</div>
+      </div>
+      <div class="workout-cell row-race" style="background:color-mix(in srgb,#16161f 86%,#ff6b35 14%)">
+        <div class="workout-type type-race">🏁 Race</div>
+        <div class="workout-dist">13.1 mi</div>
+        <div class="workout-note">Half Marathon! You've got this.</div>
+      </div>
+      <div class="total-cell row-race">
+        <div class="total-label">Running</div>
+        <div class="total-val">~21 mi</div>
+        <div class="total-sub">+ 1 strength</div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="notes">
+    <h2 class="notes-title">Training Notes</h2>
+    <div class="notes-grid">
+      <div class="note-card">
+        <div class="note-card-title">Easy Runs (Mon)</div>
+        <div class="note-card-body">Should feel <strong>fully conversational</strong> — full sentences without gasping.
+          These build aerobic base and aid recovery. Never push these.</div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Mid Runs (Wed)</div>
+        <div class="note-card-body">Moderate effort — <strong>comfortably hard</strong>, can speak a sentence or two.
+          Think 60-70% effort. Builds mid-week endurance.</div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Quality Days (Thu)</div>
+        <div class="note-card-body">Introduced Week 4. Includes <strong>intervals, tempo, and HMP work</strong>. Always
+          warm up 1 easy mile first. On deload weeks, Thu is a short easy run (2-3 mi).</div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Long Runs (Sat)</div>
+        <div class="note-card-body">The most important run of the week. <strong>Always easy pace</strong> — goal is time
+          on feet. Practice race-day fueling and gear from Week 8 onward.</div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Heavy Lifting (Tue)</div>
+        <div class="note-card-body">Always start with <strong>20-25 min easy cycling warmup</strong>. Weeks 1-3: learn
+          movement patterns with light load. Weeks 4-6: 3x5 linear progression. Weeks 7-11: 5x3 and 4x2 heavier loads.
+          Olympic work (power clean / hang clean) builds rate of force development which directly benefits running
+          economy. <strong>Add weight only when form is solid.</strong></div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Bodyweight (Fri)</div>
+        <div class="note-card-body">20-30 minutes, never exhausting. Focus on <strong>glutes, single-leg stability,
+            core, and hip strength</strong> — the things that keep runners healthy. Friday sits between Thursday's
+          quality run and Saturday's long run, so keep intensity low. Finish with mobility work.</div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Deload Weeks (3, 6, 9)</div>
+        <div class="note-card-body">Running volume drops ~30-40%. Thursday is a short easy run (2-3 mi).
+          <strong>Strength stays the same</strong> — the running reduction is the recovery mechanism. Do not skip
+          deloads.</div>
+      </div>
+      <div class="note-card">
+        <div class="note-card-title">Taper (Weeks 15-16)</div>
+        <div class="note-card-body">Running volume drops sharply. <strong>Strength reduces too</strong> — lower sets,
+          lower weight, keep it snappy. No deadlifts in Week 16. Feeling sluggish or restless is normal. Arrive at the
+          start line rested.</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
