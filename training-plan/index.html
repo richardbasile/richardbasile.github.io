@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Race Season Training Plan</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1a1a18;
+      --ink-mid: #4a4a46;
+      --ink-light: #8a8a84;
+      --ink-faint: #d4d4cc;
+      --paper: #f7f6f1;
+      --paper-warm: #eeede6;
+      --accent: #c84a1e;
+      --accent-soft: #f0ddd7;
+      --blue: #1e5a9e;
+      --blue-soft: #dae6f5;
+      --amber: #8a5c00;
+      --amber-soft: #f5e8c8;
+      --green: #2a6e3e;
+      --green-soft: #e8f0e0;
+      --purple: #5a3a8a;
+      --purple-soft: #ede8f5;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16.9px;
+      line-height: 1.6;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-top: 3px solid var(--ink);
+      padding-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .header-meta {
+      font-family: var(--mono);
+      font-size: 13.3px;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: 2.9rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .header-races {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1px;
+      background: var(--ink-faint);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+
+    .header-race {
+      background: var(--paper);
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 4px;
+    }
+
+    .header-race:hover {
+      background: var(--paper-warm);
+      box-shadow: 0 2px 8px rgba(26, 26, 24, 0.08);
+    }
+
+    .header-race:active {
+      background: var(--ink-faint);
+    }
+
+    .header-race .r-name {
+      font-weight: 500;
+      font-size: 15.7px;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .header-race .r-date {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      color: var(--ink-light);
+    }
+
+    .header-race .r-goal {
+      font-size: 14.5px;
+      color: var(--ink-mid);
+      margin-top: 2px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+      padding: 0.9rem 1.25rem;
+      background: var(--paper-warm);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 14.5px;
+      color: var(--ink-mid);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10.9px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .badge-deload {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .badge-race {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .badge-q {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .badge-rec {
+      background: var(--paper-warm);
+      color: var(--ink-mid);
+      border: 0.5px solid var(--ink-faint);
+    }
+
+    .badge-peak {
+      background: #f0e8f5;
+      color: var(--purple);
+    }
+
+    .badge-build {
+      background: #dae6f5;
+      color: var(--blue);
+    }
+
+    .phase-title {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 0.6rem 0 0.4rem;
+      margin: 2.5rem 0 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .phase-title::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--ink-faint);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+      table-layout: fixed;
+    }
+
+    thead th {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 0.6rem 0.5rem;
+      border-bottom: 1px solid var(--ink);
+      text-align: left;
+      font-weight: 400;
+    }
+
+    col.c-week {
+      width: 10%;
+    }
+
+    col.c-mon {
+      width: 11%;
+    }
+
+    col.c-tue {
+      width: 14%;
+    }
+
+    col.c-wed {
+      width: 11%;
+    }
+
+    col.c-thu {
+      width: 11%;
+    }
+
+    col.c-fri {
+      width: 15%;
+    }
+
+    col.c-sat {
+      width: 11%;
+    }
+
+    col.c-sun {
+      width: 11%;
+    }
+
+    col.c-tot {
+      width: 6%;
+    }
+
+    th.str-col,
+    td.str-col {
+      background: rgba(90, 58, 138, 0.04);
+    }
+
+    th.rest-col,
+    td.rest-col {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    tbody tr {
+      border-bottom: 0.5px solid var(--ink-faint);
+      transition: background 0.1s;
+    }
+
+    tbody tr:hover {
+      background: var(--paper-warm);
+    }
+
+    td {
+      padding: 0.55rem 0.5rem;
+      vertical-align: top;
+      font-size: 13.3px;
+      line-height: 1.45;
+    }
+
+    .wk-label {
+      font-family: var(--mono);
+      font-size: 13.3px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .wk-dates {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      color: var(--ink-light);
+      margin-top: 1px;
+    }
+
+    .wk-badges {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .s {
+      color: var(--blue);
+      font-size: 12.1px;
+      display: block;
+      margin-top: 1px;
+    }
+
+    .q {
+      color: var(--blue);
+      font-size: 12.1px;
+      display: block;
+      margin-top: 2px;
+      font-style: italic;
+    }
+
+    .rest {
+      color: var(--ink-light);
+      font-size: 12.1px;
+    }
+
+    .race-t {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 13.3px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .race-t:hover {
+      background-color: var(--accent-soft);
+      font-size: 14px;
+    }
+
+    .race-t::after {
+      content: ' ↗';
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .race-t-inactive {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 13.3px;
+    }
+
+    .note {
+      color: var(--ink-light);
+      font-size: 12.1px;
+      display: block;
+      margin-top: 1px;
+    }
+
+    .cond {
+      color: var(--amber);
+      font-size: 12.1px;
+      display: block;
+      margin-top: 1px;
+      font-style: italic;
+    }
+
+    /* Strength cell styling */
+    .str-week {
+      font-family: var(--mono);
+      font-size: 10.9px;
+      color: var(--purple);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .str-sets {
+      font-family: var(--mono);
+      font-size: 10.9px;
+      color: var(--ink-mid);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .str-lift {
+      font-size: 12.1px;
+      color: var(--ink);
+      display: block;
+      line-height: 1.4;
+    }
+
+    .str-acc {
+      font-size: 12.1px;
+      color: var(--ink-mid);
+      display: block;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    .str-intensity {
+      font-family: var(--mono);
+      font-size: 10.9px;
+      padding: 1px 5px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    .int-light {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .int-mod {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .int-heavy {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .int-vheavy {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .fri-ex {
+      font-size: 12.1px;
+      color: var(--ink);
+      display: block;
+      line-height: 1.4;
+    }
+
+    .fri-sets {
+      font-family: var(--mono);
+      font-size: 10.9px;
+      color: var(--ink-light);
+    }
+
+    .total-cell {
+      font-family: var(--mono);
+      font-size: 13.3px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Race strategy */
+    .race-section {
+      margin-top: 4rem;
+    }
+
+    .race-section h2 {
+      font-size: 1.28rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .race-date {
+      font-family: var(--mono);
+      font-size: 13.3px;
+      color: var(--ink-light);
+      font-weight: 400;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 1px;
+      background: var(--ink-faint);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .strategy-card {
+      background: var(--paper);
+      padding: 0.9rem 1.1rem;
+    }
+
+    .s-label {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.35rem;
+    }
+
+    .s-value {
+      font-size: 15.2px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .s-value strong {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 26, 24, 0.5);
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: var(--paper);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 2rem;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--ink-light);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--ink);
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      padding-right: 2rem;
+      line-height: 1.2;
+    }
+
+    .modal-title .race-date {
+      font-size: 0.55em;
+      color: var(--ink-light);
+      display: block;
+      font-weight: normal;
+    }
+
+    .race-note {
+      font-size: 14.5px;
+      color: var(--ink-mid);
+      padding: 0.75rem 1rem;
+      background: var(--paper-warm);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 3px 3px 0;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+
+    .race-note strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Strength reference section */
+    .strength-section {
+      margin-top: 4rem;
+    }
+
+    .strength-section h2 {
+      font-size: 1.28rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .strength-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .strength-card {
+      background: var(--paper);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: var(--border-radius-lg, 12px);
+      padding: 1rem 1.25rem;
+    }
+
+    .strength-card h3 {
+      font-size: 15.7px;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .strength-card table {
+      min-width: unset;
+      font-size: 14.5px;
+    }
+
+    .strength-card thead th {
+      font-size: 12.1px;
+      padding: 4px 8px;
+    }
+
+    .strength-card tbody td {
+      padding: 5px 8px;
+      font-size: 14px;
+    }
+
+    .prog-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 14px;
+    }
+
+    .prog-table th {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      padding: 4px 8px;
+      border-bottom: 0.5px solid var(--ink-faint);
+      text-align: left;
+      font-weight: 400;
+    }
+
+    .prog-table td {
+      padding: 5px 8px;
+      border-bottom: 0.5px solid var(--ink-faint);
+    }
+
+    .prog-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 0.5px solid var(--ink-faint);
+      font-family: var(--mono);
+      font-size: 12.1px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .strength-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 1cm;
+        font-size: 10.9px;
+      }
+
+      tbody tr:hover {
+        background: none;
+      }
+
+      .table-wrap {
+        overflow: visible;
+      }
+
+      table {
+        min-width: unset;
+        font-size: 9.7px;
+      }
+
+      .race-section,
+      .strength-section {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- NAVIGATION -->
+    <nav class="no-print" style="margin-top: -28px; margin-bottom: 24px;"><a href="/"
+        style="color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: 13px; text-decoration: none; letter-spacing: 1px;">
+        ← Home</a></nav>
+    <header>
+      <p class="header-meta">2026 Race Season &mdash; 33 weeks &mdash; Mar 30 through Nov 14</p>
+      <h1>2026 <em>Race Season</em><br>Training Plan</h1>
+      <div class="header-races">
+        <div class="header-race" onclick="document.getElementById('phase-1').scrollIntoView({behavior: 'smooth'})">
+          <div class="r-name">Lighthouse 5K</div>
+          <div class="r-date">Wednesday</div>
+          <div class="r-date">June 3, 2026</div>
+          <div class="r-date">Phase 1</div>
+        </div>
+        <div class="header-race" onclick="document.getElementById('phase-2').scrollIntoView({behavior: 'smooth'})">
+          <div class="r-name">Running Bear 5K</div>
+          <div class="r-date">Tuesday</div>
+          <div class="r-date">July 21, 2026</div>
+          <div class="r-date">Phase 2</div>
+        </div>
+        <div class="header-race" onclick="document.getElementById('phase-3').scrollIntoView({behavior: 'smooth'})">
+          <div class="r-name">Big Bad Wolfe 10 Miler</div>
+          <div class="r-date">Sunday</div>
+          <div class="r-date">September 27, 2026</div>
+          <div class="r-date">Phase 3</div>
+        </div>
+        <div class="header-race" onclick="document.getElementById('phase-4').scrollIntoView({behavior: 'smooth'})">
+          <div class="r-name">Columbus Half </div>
+          <div class="r-date">Sunday</div>
+          <div class="r-date">October 18, 2026</div>
+          <div class="r-date">Phase 4</div>
+        </div>
+        <div class="header-race" onclick="document.getElementById('phase-5').scrollIntoView({behavior: 'smooth'})">
+          <div class="r-name">Run to Feed the Hungry </div>
+          <div class="r-date">Saturday</div>
+          <div class="r-date">November 14, 2026</div>
+          <div class="r-date">Phase 5</div>
+        </div>
+        <div class="header-race"
+          onclick="document.getElementById('strength-program').scrollIntoView({behavior: 'smooth'})">
+          <div class="r-name">Strength Programming</div>
+          <div class="r-date">Tuesday - heavy compound</div>
+          <div class="r-date">Friday - bodyweight</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="legend">
+      <div class="legend-item"><span class="badge badge-build">build</span>&nbsp;Build week</div>
+      <div class="legend-item"><span class="badge badge-deload">deload</span>&nbsp;Reduced volume week</div>
+      <div class="legend-item"><span class="badge badge-peak">peak</span>&nbsp;Peak volume week</div>
+      <div class="legend-item"><span class="badge badge-rec">recovery</span>&nbsp;Post-race easy week</div>
+      <div class="legend-item"><span class="badge badge-race">race week</span>&nbsp;Week containing a race</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="c-week">
+          <col class="c-mon">
+          <col class="c-tue">
+          <col class="c-wed">
+          <col class="c-thu">
+          <col class="c-fri">
+          <col class="c-sat">
+          <col class="c-sun">
+          <col class="c-tot">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Mon</th>
+            <th class="str-col">Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th class="str-col">Fri</th>
+            <th>Sat</th>
+            <th class="rest-col">Sun</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- PHASE 1 -->
+          <tr>
+            <td colspan="9" style="padding:0;border:none;">
+              <div id="phase-1" class="phase-title">Phase 1 &mdash; Lighthouse 5K</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 1</div>
+              <div class="wk-dates">Mar 30 - Apr 5</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="rest">rest</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="rest">rest</span></td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">11 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 2</div>
+              <div class="wk-dates">Apr 6 - Apr 12</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy</td>
+            <td class="str-col"><span class="rest">rest</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="rest">rest</span></td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">12 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 3</div>
+              <div class="wk-dates">Apr 13 - Apr 19</div>
+              <div class="wk-badges"><span class="badge badge-deload">deload</span></div>
+            </td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Clean <span class="fri-sets">3x3</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">2x5</span></span>
+              <span class="fri-ex">Bench press <span class="fri-sets">2x5</span></span>
+              <span class="fri-ex">DB RDL <span class="fri-sets">2x10</span></span>
+              <span class="fri-ex">DB shoulder press <span class="fri-sets">2x10</span></span>
+              <span class="str-intensity int-light">technique</span>
+            </td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>3 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">10 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 4</div>
+              <div class="wk-dates">Apr 20 - Apr 26</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span><span class="note">strides: 20 second accelerations at end of
+                run, easy recovery between strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">3x5</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">3x5</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-mod">add weight</span></td>
+            <td>4 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">13 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 5</div>
+              <div class="wk-dates">Apr 27 - May 3</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x5</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x5</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-mod">add weight</span></td>
+            <td>4 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>5 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">14 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 6</div>
+              <div class="wk-dates">May 4 - May 10</div>
+              <div class="wk-badges"><span class="badge badge-deload">deload</span></div>
+            </td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x5</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x5</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>3 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">10 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 7</div>
+              <div class="wk-dates">May 11 - May 17</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x5</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x5</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-mod">add weight</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi<span class="q">1 mi easy warmup &rarr; 6 &times; 400m @ 5K effort, 90 sec rest &rarr; 0.5 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>5 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">15 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 8</div>
+              <div class="wk-dates">May 18 - May 24</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">3x5</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">3x5</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-mod">add weight</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi<span class="q">1 mi easy warmup &rarr; 4 &times; 600m @ 5K effort, 90 sec rest &rarr; 0.5 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>6 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">16 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 9</div>
+              <div class="wk-dates">May 25 - May 31</div>
+              <div class="wk-badges"><span class="badge badge-deload">taper</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">2x3</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">2x3</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">12 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 10</div>
+              <div class="wk-dates">Jun 1 - Jun 7</div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+            </td>
+            <td><span class="rest">rest</span></td>
+            <td class="str-col">2 mi easy<span class="s">+ 4 strides</span><span class="note">shakeout</span></td>
+            <td><span class="race-t" onclick="openModal('lighthouse-5k'); return false;"
+                style="cursor: pointer;">Lighthouse 5K</span><span class="note">Wed Jun 3</span><span class="note"
+                style="color:var(--green);">1 mi warmup + 4 strides, finish 10 min before gun</span></td>
+            <td><span class="rest">rest</span></td>
+            <td class="str-col">
+              2 mi easy<span class="note">easy recovery run, no strides</span>
+              <span class="fri-ex"><i>Optional Strength</i> </span>
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>Columbus 10K
+              <span class="note">Sat Jun 6</span>
+              <span class="note" style="color:var(--green);">Virtual race: keep at an easy, zone 2 effort for fun, no need to push hard</span>
+            </td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">~14 mi</td>
+          </tr>
+
+          <!-- PHASE 2 -->
+          <tr>
+            <td colspan="9" style="padding:0;border:none;">
+              <div id="phase-2" class="phase-title">Phase 2 &mdash; Running Bear 5K</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 11</div>
+              <div class="wk-dates">Jun 8 - Jun 14</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 6 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">3x5</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">3x5</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi<span class="q">1 mi easy warmup &rarr; 4 &times; 600m @ 5K effort, 90 sec rest &rarr; 0.5 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>5 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">15 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 12</div>
+              <div class="wk-dates">Jun 15 - Jun 21</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 6 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x5</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x5</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi<span class="q">1 mi easy warmup &rarr; 4 &times; 800m @ 5K effort, 90 sec rest &rarr; 0.5 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>6 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">16 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 13</div>
+              <div class="wk-dates">Jun 22 - Jun 28</div>
+              <div class="wk-badges"><span class="badge badge-deload">deload</span></div>
+            </td>
+            <td>3 mi easy</td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">12 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 14</div>
+              <div class="wk-dates">Jun 29 - Jul 5</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 6 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x5</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x5</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 2 &times; 1200m @ 5K effort, 90 sec rest &rarr; 1.5 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>6 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">17 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 15</div>
+              <div class="wk-dates">Jul 6 - Jul 12</div>
+              <div class="wk-badges"><span class="badge badge-peak">peak</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 6 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x5</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x5</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 2 &times; 1600m @ 5K effort, 90 sec rest &rarr; 1 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>7 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">18 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 16</div>
+              <div class="wk-dates">Jul 13 - Jul 19</div>
+              <div class="wk-badges"><span class="badge badge-deload">taper</span></div>
+            </td>
+            <td>2 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">12 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 17</div>
+              <div class="wk-dates">Jul 20 - Jul 26</div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+            </td>
+            <td>2 mi easy<span class="note">shakeout</span></td>
+            <td class="str-col"><span class="race-t" onclick="openModal('running-bear-5k'); return false;"
+                style="cursor: pointer;">Running Bear 5K</span><span class="note">Tue Jul 21</span><span class="note"
+                style="color:var(--green);">1 mi warmup + 4 strides, finish 10 min before gun</span>
+            </td>
+            <td><span class="rest">rest</span></td>
+            <td>3 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>4 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">~13 mi</td>
+          </tr>
+
+          <!-- PHASE 3 -->
+          <tr>
+            <td colspan="9" style="padding:0;border:none;">
+              <div id="phase-3" class="phase-title">Phase 3 &mdash; Big Bad Wolfe 10 Miler</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 18</div>
+              <div class="wk-dates">Jul 27 - Aug 2</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">3x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">3x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>7 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">17 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 19</div>
+              <div class="wk-dates">Aug 3 - Aug 9</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x3</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x3</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi<span class="q">1 mi easy warmup &rarr; 4 &times; 90 sec hill repeats easy down recovery &rarr; 1 mi
+                easy cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>8 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">18 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 20</div>
+              <div class="wk-dates">Aug 10 - Aug 16</div>
+              <div class="wk-badges"><span class="badge badge-deload">deload</span></div>
+            </td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x5</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x5</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>3 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>6 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">14 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 21</div>
+              <div class="wk-dates">Aug 17 - Aug 23</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>4 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x3</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x3</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>3 mi<span class="q">0.5 mi easy warmup &rarr; 6 &times; 400m @ 5K effort, 90 sec rest &rarr; remaining
+                distance easy cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>9 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">20 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 22</div>
+              <div class="wk-dates">Aug 24 - Aug 30</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>4 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">3x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">3x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 6 &times; 90 sec hill repeats easy down recovery &rarr; 1.5
+                mi easy cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>10 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">22 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 23</div>
+              <div class="wk-dates">Aug 31 - Sep 6</div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+            </td>
+            <td>3 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Clean <span class="fri-sets">2x2</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">2x3</span></span>
+              <span class="fri-ex">Bench press <span class="fri-sets">2x3</span></span>
+              <span class="fri-ex">DB RDL <span class="fri-sets">2x10</span></span>
+              <span class="fri-ex">DB shoulder press <span class="fri-sets">2x10</span></span>
+              <span class="str-intensity int-light">light</span>
+            </td>
+            <td>4 mi easy</td>
+            <td>3 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td><span class="race-t" onclick="openModal('donut-run'); return false;" style="cursor: pointer;">Donut Run
+                5K</span><span class="note">Sat Sep 5 — 5K</span><span class="note" style="color:var(--green);">1 mi
+                warmup + 4 strides, finish 10 min before gun,
+                race 5K, cooldown with easy run to 6 mi total</span></td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">16 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 24</div>
+              <div class="wk-dates">Sep 7 - Sep 13</div>
+              <div class="wk-badges"><span class="badge badge-build">build</span></div>
+            </td>
+            <td>4 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">3x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">3x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>5 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 2 mi @ HM pace &rarr; 1 mi easy
+                cooldown</span><span class="note">use Donut Run 5K result in VDOT / McMillan to set pace</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>11 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">24 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 25</div>
+              <div class="wk-dates">Sep 14 - Sep 20</div>
+              <div class="wk-badges"><span class="badge badge-peak">peak</span></div>
+            </td>
+            <td>4 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x3</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x3</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x3</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-heavy">heavy</span></td>
+            <td>4 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 6 &times; 90 sec hill repeats easy down recovery &rarr; 1.5
+                mi easy cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>12 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">24 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 26</div>
+              <div class="wk-dates">Sep 21 - Sep 27</div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+            </td>
+            <td>3 mi easy</td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td><span class="rest">rest</span></td>
+            <td class="rest-col"><span class="race-t" onclick="openModal('big-bad-wolfe'); return false;"
+                style="cursor: pointer;">Big Bad Wolfe</span><span class="note">Sun Sep 27 — 10
+                mi</span><span class="note" style="color:var(--green);">2 mi easy warmup &rarr; 6 mi @ HM pace &rarr; 2
+                mi easy cooldown
+                — dress rehearsal for Columbus strategy</span></td>
+            <td class="total-cell">18 mi</td>
+          </tr>
+
+          <!-- PHASE 4 -->
+          <tr>
+            <td colspan="9" style="padding:0;border:none;">
+              <div id="phase-4" class="phase-title">Phase 4 &mdash; Columbus Half Marathon</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 27</div>
+              <div class="wk-dates">Sep 28 - Oct 4</div>
+              <div class="wk-badges"><span class="badge badge-peak">peak</span></div>
+            </td>
+            <td><span class="rest">rest</span></td>
+            <td class="str-col">3 mi easy<span class="s">+ 4 strides</span></td>
+            <td>5 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 2 mi @ HM pace &rarr; 1 mi easy
+                cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>12 mi easy<span class="note">rehearse race nutrition — gel at miles 5 and 9, water throughout</span>
+            </td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">24 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 28</div>
+              <div class="wk-dates">Oct 5 - Oct 11</div>
+              <div class="wk-badges"><span class="badge badge-deload">taper</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-mod">moderate</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>8 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">16 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 29</div>
+              <div class="wk-dates">Oct 12 - Oct 18</div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">2x3</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">2x3</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="rest">rest</span></td>
+            <td>3 mi shakeout</td>
+            <td class="rest-col"><span class="race-t" onclick="openModal('columbus-half'); return false;"
+                style="cursor: pointer;">Columbus Half</span><span class="note">Sun Oct 18 — 13.1
+                mi</span><span class="note" style="color:var(--green);">10-15 min easy warmup, finish 10 min before
+                gun</span></td>
+            <td class="total-cell">~24 mi</td>
+          </tr>
+
+          <!-- PHASE 5 -->
+          <tr>
+            <td colspan="9" style="padding:0;border:none;">
+              <div id="phase-5" class="phase-title">Phase 5 &mdash; Run to Feed the Hungry Half Marathon</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 30</div>
+              <div class="wk-dates">Oct 19 - Oct 25</div>
+              <div class="wk-badges"><span class="badge badge-rec">recovery</span></div>
+            </td>
+            <td><span class="rest">rest</span></td>
+            <td class="str-col">3 mi easy</td>
+            <td>3 mi easy<span class="s">+ 4 strides (optional)</span></td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Plank <span class="fri-sets">3x30-60 sec</span></span>
+              <span class="fri-ex">Side plank <span class="fri-sets">3x20-30 sec</span></span>
+              <span class="fri-ex">Reverse lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg RDL <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>7 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">15 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 31</div>
+              <div class="wk-dates">Oct 26 - Nov 1</div>
+              <div class="wk-badges"><span class="badge badge-peak">peak</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">3x2</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">3x2</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">3x2</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">3x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">3x10</span></span><span class="str-intensity int-vheavy">very heavy</span></td>
+            <td>5 mi easy</td>
+            <td>4 mi<span class="q">1 mi easy warmup &rarr; 2 mi @ HM pace &rarr; 1 mi easy cooldown</span></td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Deadbug <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Birddog <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
+            </td>
+            <td>12 mi easy<span class="note">rehearse race nutrition — gel at miles 5 and 9, water throughout</span>
+            </td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">24 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 32</div>
+              <div class="wk-dates">Nov 2 - Nov 8</div>
+              <div class="wk-badges"><span class="badge badge-deload">taper</span></div>
+            </td>
+            <td>3 mi easy<span class="s">+ 4 strides</span></td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Deadlift <span class="fri-sets">2x3</span></span><span class="fri-ex">Overhead press
+                <span class="fri-sets">2x3</span></span><span class="fri-ex">DB Bulgarian split squat <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB bench press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-mod">moderate</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col">
+              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
+              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
+              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
+            </td>
+            <td>8 mi easy</td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">16 mi</td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="wk-label">Wk 33</div>
+              <div class="wk-dates">Nov 9 - Nov 15</div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+            </td>
+            <td>3 mi easy</td>
+            <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
+                class="fri-ex">Squat <span class="fri-sets">2x3</span></span><span class="fri-ex">Bench press <span
+                  class="fri-sets">2x3</span></span><span class="fri-ex">DB RDL <span
+                  class="fri-sets">2x10</span></span><span class="fri-ex">DB shoulder press <span
+                  class="fri-sets">2x10</span></span><span class="str-intensity int-light">light</span></td>
+            <td>3 mi easy</td>
+            <td>2 mi easy</td>
+            <td class="str-col"><span class="rest">rest</span></td>
+            <td><span class="race-t" onclick="openModal('run-to-feed'); return false;" style="cursor: pointer;">RTFTH
+                Half</span><span class="note">Sat Nov 14 — 13.1 mi</span><span class="note"
+                style="color:var(--green);">10-15 min easy warmup, finish 10 min before gun</span></td>
+            <td class="rest-col"><span class="rest">rest</span></td>
+            <td class="total-cell">~21 mi</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- STRENGTH REFERENCE -->
+    <div id="strength-program" class="strength-section">
+      <h2>Strength programming reference</h2>
+      <div class="strength-grid">
+        <div class="strength-card">
+          <h3>Tuesday — heavy compound</h3>
+          <table style="width:100%; border-collapse:collapse; font-size: 14px;">
+            <thead>
+              <tr>
+                <th
+                  style="text-align:left; padding:4px 8px; border-bottom:0.5px solid var(--ink-faint); font-family:var(--mono); font-size: 12.1px; color:var(--ink-light); font-weight:400;">
+                  Order</th>
+                <th
+                  style="text-align:left; padding:4px 8px; border-bottom:0.5px solid var(--ink-faint); font-family:var(--mono); font-size: 12.1px; color:var(--ink-light); font-weight:400;">
+                  Week A</th>
+                <th
+                  style="text-align:left; padding:4px 8px; border-bottom:0.5px solid var(--ink-faint); font-family:var(--mono); font-size: 12.1px; color:var(--ink-light); font-weight:400;">
+                  Week B</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">1</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">Power clean</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">Power clean</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">2</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">Back squat</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">Deadlift</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">3</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">Bench press</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">Overhead press</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">4</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">DB Romanian deadlift</td>
+                <td style="padding:5px 8px; border-bottom:0.5px solid var(--ink-faint);">DB Bulgarian split squat</td>
+              </tr>
+              <tr>
+                <td style="padding:5px 8px;">5</td>
+                <td style="padding:5px 8px;">DB shoulder press</td>
+                <td style="padding:5px 8px;">DB bench press</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 13.3px; color:var(--ink-light); margin-top:0.75rem;">Optional finisher: DB curl</p>
+
+        </div>
+        <div class="strength-card">
+          <h3>Sets &times; reps by phase</h3>
+          <table class="prog-table">
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Main lifts</th>
+                <th>Clean</th>
+                <th>Accessories</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Phases 1-3</td>
+                <td>3x5</td>
+                <td>3x3</td>
+                <td>3x10</td>
+              </tr>
+              <tr>
+                <td>Phases 4-5</td>
+                <td>3x2</td>
+                <td>3x2</td>
+                <td>3x10</td>
+              </tr>
+              <tr>
+                <td>Deload</td>
+                <td>2x5</td>
+                <td>3x3</td>
+                <td>2x10</td>
+              </tr>
+              <tr>
+                <td>Taper</td>
+                <td>2x3</td>
+                <td>2x2</td>
+                <td>2x10</td>
+              </tr>
+              <tr>
+                <td>Race week</td>
+                <td>2x3</td>
+                <td>2x2</td>
+                <td>2x10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="strength-card" style="margin-top:0;">
+        <h3>Friday — bodyweight / single-leg / core &nbsp;<span
+            style="font-weight:400; font-size: 14.5px; color:var(--ink-light);">choose one from each slot &mdash; rotate
+            A/B/C each week</span></h3>
+        <table class="prog-table" style="margin-top:0.75rem;">
+          <thead>
+            <tr>
+              <th>Slot</th>
+              <th>Option A</th>
+              <th>Option B</th>
+              <th>Option C</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--ink-mid); font-size: 12.8px; font-weight: 500;">Pushups (every workout)</td>
+              <td style="color:var(--ink); font-size: 13.3px;">Pushups <span
+                  style="color:var(--ink-light); font-size: 12.1px;">3x10-15</span></td>
+              <td style="color:var(--ink); font-size: 13.3px;">Pushups <span
+                  style="color:var(--ink-light); font-size: 12.1px;">3x10-15</span></td>
+              <td style="color:var(--ink); font-size: 13.3px;">Pushups <span
+                  style="color:var(--ink-light); font-size: 12.1px;">3x10-15</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink-mid); font-size: 12.8px;">Core — anti-extension</td>
+              <td>Plank <span style="color:var(--ink-light); font-size: 12.1px;">3x30-60 sec</span></td>
+              <td>Deadbug <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+              <td>Squat <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink-mid); font-size: 12.8px;">Core — lateral / hip</td>
+              <td>Side plank <span style="color:var(--ink-light); font-size: 12.1px;">3x20-30 sec each</span></td>
+              <td>Birddog <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+              <td>Lateral lunge <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink-mid); font-size: 12.8px;">Single-leg — knee dominant</td>
+              <td>Reverse lunge <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+              <td>Bulgarian split squat <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+              <td>Step-ups <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink-mid); font-size: 12.8px;">Single-leg — hip dominant</td>
+              <td>Single-leg RDL <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+              <td>Single-leg glute bridge <span style="color:var(--ink-light); font-size: 12.1px;">3x8-10 each</span></td>
+              <td>Single-leg calf raise <span style="color:var(--ink-light); font-size: 12.1px;">3x10-15 each</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 13.3px; color:var(--ink-light); margin-top:0.75rem;">Weighted vest optional on single-leg
+          exercises when bodyweight feels insufficient.</p>
+      </div>
+    </div>
+
+    <footer>
+      <span style="flex-basis:100%; margin-top:0.5rem; font-style:italic;">Autoregulate — a difficult week of sleep,
+        illness, or life stress is a valid reason to reduce Thursday quality to easy or cut Saturday mileage. The plan
+        is a guide, not a contract.</span>
+    </footer>
+
+  </div>
+
+  <!-- Strategy Modals -->
+  <div id="modal-donut-run" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('donut-run')">&times;</button>
+      <div class="modal-title">Donut Run 5K <span class="race-date">Saturday, June 28, 2026 &mdash; Week 13</span></div>
+      <div class="strategy-grid" id="grid-donut-run"></div>
+      <p class="race-note"><strong>Key principle:</strong> This race is your calibration tool. The result tells you what
+        you're capable of right now, which removes guesswork from goal-setting for the rest of the season. Run it
+        honestly — not a time trial, but a genuine effort that reflects your current fitness.</p>
+    </div>
+  </div>
+
+  <div id="modal-lighthouse-5k" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('lighthouse-5k')">&times;</button>
+      <div class="modal-title">Lighthouse 5K <span class="race-date">Wednesday, June 3, 2026 &mdash; goal:
+          tune-up, pace lock</span></div>
+      <div class="strategy-grid" id="grid-lighthouse-5k"></div>
+      <p class="race-note"><strong>Key principle:</strong> The 5K is a sustained hard effort from start to finish —
+        there is no comfortable middle section. Use this race to lock in 5K pace and gather data for Running Bear three
+        weeks later. Trust the work.</p>
+    </div>
+  </div>
+
+  <div id="modal-columbus-10k" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('columbus-10k')">&times;</button>
+      <div class="modal-title">Columbus 10K <span class="race-date">Sunday, June 7, 2026 &mdash; goal:
+          sub-11:00/mile</span></div>
+      <div class="strategy-grid" id="grid-columbus-10k"></div>
+      <p class="race-note"><strong>Key principle:</strong> This is an honest 10K early in the season. Your first race
+        tells you what you're working with. You'll have completed 9 weeks of base and short interval work. Run it smart:
+        negative splits are the goal. Going out too hard means you will feel it badly at mile 4 with nowhere to go.</p>
+    </div>
+  </div>
+
+  <div id="modal-running-bear-5k" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('running-bear-5k')">&times;</button>
+      <div class="modal-title">Running Bear 5K <span class="race-date">Tuesday, July 21, 2026 &mdash; goal:
+          sub-10:00/mile</span></div>
+      <div class="strategy-grid" id="grid-running-bear-5k"></div>
+      <p class="race-note"><strong>Key principle:</strong> The 5K is a sustained hard effort from start to finish —
+        there is no comfortable middle section. The Thursday interval sessions in weeks 12-16 have trained your body
+        specifically for this. Trust the work.</p>
+    </div>
+  </div>
+
+  <div id="modal-big-bad-wolfe" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('big-bad-wolfe')">&times;</button>
+      <div class="modal-title">Big Bad Wolfe 10 Miler <span class="race-date">Sunday, September 27, 2026 &mdash; paced
+          effort</span></div>
+      <div class="strategy-grid" id="grid-big-bad-wolfe"></div>
+      <p class="race-note"><strong>Key principle:</strong> You arrive at this race with a 12-mile long run and 24-mile
+        week just completed. The fitness is there. The goal is intelligence, not a time. A controlled 10-mile effort
+        three weeks before Columbus is the ideal dress rehearsal — run it smart and you'll know exactly what effort to
+        target on October 18.</p>
+    </div>
+  </div>
+
+  <div id="modal-columbus-half" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('columbus-half')">&times;</button>
+      <div class="modal-title">Columbus Half Marathon <span class="race-date">Sunday, October 18, 2026 &mdash; goal:
+          fitness will determine</span></div>
+      <div class="strategy-grid" id="grid-columbus-half"></div>
+      <p class="race-note"><strong>Key principle:</strong> You will arrive at Columbus with three long runs of 10-12
+        miles in the preceding four weeks, including the Big Bad Wolfe. That is an unusually strong preparation. The Big
+        Bad Wolfe data removes the guesswork — you know what a sustained hard effort feels like over distance. Run the
+        first half conservatively, run the second half with intent.</p>
+    </div>
+  </div>
+
+  <div id="modal-run-to-feed" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('run-to-feed')">&times;</button>
+      <div class="modal-title">Run to Feed the Hungry Half <span class="race-date">Saturday, November 14, 2026 &mdash;
+          goal: have fun</span></div>
+      <div class="strategy-grid" id="grid-run-to-feed"></div>
+      <p class="race-note"><strong>Key principle:</strong> This is the culmination of a 33-week season. You'll have run
+        two half marathons' worth of race experience, a 10-mile paced effort, a 5K, and a 10K. Your long run has reached
+        12 miles three times. The fitness is the deepest it has ever been. Run with the confidence that comes from
+        having done the work — and run the second half faster than the first.</p>
+    </div>
+  </div>
+
+  <script>
+    // Strategy content
+    const strategies = {
+      'donut-run': [
+        { label: 'Objective', value: 'Generate reliable pace data to set realistic goal paces for the rest of the season.' },
+        { label: 'Effort', value: 'Run an honest, well-paced 5K effort. Not a time trial, but not casual either. Sustainable hard effort from start to finish.' },
+        { label: 'Pacing', value: 'Follow the Running Bear 5K race strategy, but this is about <strong>data, not a time goal</strong>. Run what feels right based on your current fitness.' },
+        { label: 'Post-race', value: 'Enter your result into a VDOT calculator or McMillan pace predictor. <strong>This removes guesswork</strong> from goal-setting for Running Bear, Columbus Half, and Run to Feed.' },
+        { label: 'Have fun!', value: 'This is your fitness baseline. Own it, run smart, and trust the data it gives you.' }
+      ],
+      'lighthouse-5k': [
+        { label: 'Warmup', value: '<strong>1-1.5 mi easy run</strong> finishing 10 min before the gun, then 4 strides (20 sec, full recovery between). A 5K demands a thorough warmup — your body needs to be ready to race hard from the opening steps.' },
+        { label: 'Mile 1', value: 'Start <strong>comfortably hard</strong> — harder than tempo but with clear room to build. You should finish mile 1 thinking you could go harder. If you\'re already at your limit, you\'ve gone out too fast.' },
+        { label: 'Mile 2', value: '<strong>Lift your effort deliberately</strong> — not reactively. This is the hardest mile mentally; you\'re no longer fresh but the finish isn\'t close. Push to very hard and hold your form as fatigue builds.' },
+        { label: 'Mile 3 + finish', value: '<strong>Empty the tank</strong> — by mile 2.5 you should be at maximum sustainable effort. The final 400m is an all-out push with everything that remains. Leave nothing.' },
+        { label: 'Heart rate', value: 'Expect <strong>Zone 4-5</strong> throughout. A 5K is meant to hurt — feeling hard-pressed by mile 2 is correct, not a sign something is wrong.' },
+        { label: 'Day before', value: 'Tuesday is a shakeout only. <strong>Light, familiar meal</strong> Tuesday evening. Early bedtime — race is Wednesday morning.' },
+        { label: 'Have fun!', value: 'You\'ve trained well. This is a tune-up and pace lock. Trust the work, run smart, and enjoy the race.' }
+      ],
+      'columbus-10k': [
+        { label: 'Objective', value: 'This is an honest 10K early in the season. Your first race tells you what you\'re working with. You\'ll have completed 9 weeks of base and short interval work.' },
+        { label: 'Miles 1-2', value: 'Start <strong>comfortably hard</strong> — not all-out, but distinctly faster than tempo. You should finish mile 2 feeling strong, with room to accelerate.' },
+        { label: 'Miles 3-5', value: 'Increase effort deliberately. Breathing becomes deeper. This is where fatigue starts to accumulate, but you\'re still in control.' },
+        { label: 'Miles 6-10K', value: 'If you\'ve run the first miles correctly, <strong>lift effort gradually</strong> — increase cadence, not a surge. Save a true kick for the final 400m.' },
+        { label: 'Heart rate', value: 'Target <strong>Zone 3-4</strong>. A Zone 5 spike in the first two miles is a red flag — back off immediately.' },
+        { label: 'Pre-race nutrition', value: 'Light, familiar meal <strong>2-3 hours before</strong> the start. Sip water steadily in the hour prior. No gels needed for a 10K.' },
+        { label: 'Have fun!', value: 'You\'ve trained well. Trust the work, run smart, and enjoy the race.' }
+      ],
+      'running-bear-5k': [
+        { label: 'Warmup', value: '<strong>1-1.5 mi easy run</strong> finishing 10 min before the gun, then 4 strides (20 sec, full recovery between). A 5K demands a thorough warmup — your body needs to be ready to race hard from the opening steps.' },
+        { label: 'Mile 1', value: 'Start <strong>comfortably hard</strong> — harder than tempo but with clear room to build. You should finish mile 1 thinking you could go harder. If you\'re already at your limit, you\'ve gone out too fast.' },
+        { label: 'Mile 2', value: '<strong>Lift your effort deliberately</strong> — not reactively. This is the hardest mile mentally; you\'re no longer fresh but the finish isn\'t close. Push to very hard and hold your form as fatigue builds.' },
+        { label: 'Mile 3 + finish', value: '<strong>Empty the tank</strong> — by mile 2.5 you should be at maximum sustainable effort. The final 400m is an all-out push with everything that remains. Leave nothing.' },
+        { label: 'Heart rate', value: 'Expect <strong>Zone 4-5</strong> throughout. A 5K is meant to hurt — feeling hard-pressed by mile 2 is correct, not a sign something is wrong.' },
+        { label: 'Day before', value: 'Monday is a shakeout only. <strong>Light, familiar meal</strong> Sunday evening. Early bedtime — race is Tuesday morning.' },
+        { label: 'Have fun!', value: 'You\'ve trained hard. This race is your moment to let it out. Enjoy the effort.' }
+      ],
+      'big-bad-wolfe': [
+        { label: 'Objective', value: 'Not an all-out race. Run at a <strong>strong, sustained effort</strong> — hard enough to be meaningful, controlled enough to generate useful data for Columbus pacing.' },
+        { label: 'Miles 1-2', value: 'Easy, <strong>conversational pace</strong>. Get a feel for the course and settle your body in. No effort buildup yet.' },
+        { label: 'Miles 3-8', value: '<strong>Half marathon pace</strong> — this is your data-gathering zone. Six miles at the effort you\'re targeting for Columbus. Steady, committed, but not all-out. This is the core of the dress rehearsal.' },
+        { label: 'Miles 9-10', value: '<strong>Recovery effort</strong> — back off and cruise the final two miles. You\'ve gathered your data. Finish feeling fresh, not taxed.' },
+        { label: 'Heart rate', value: 'Target <strong>Zone 3 for miles 3-8</strong> — this is what Columbus effort feels like. Miles 1-2 should be Zone 2, miles 9-10 back to Zone 2. The data from the middle miles is what matters.' },
+        { label: 'Post-race', value: 'Note your average HR during miles 3-8, how the effort felt at miles 5 and 8, and how quickly you recovered. <strong>This data directly informs your Columbus pacing</strong> three weeks later.' },
+        { label: 'Have fun!', value: 'This is a dress rehearsal, but it\'s still a race. Run it with intention and enjoy the distance.' }
+      ],
+      'columbus-half': [
+        { label: 'Warmup', value: '10-15 min easy run finishing <strong>10 min before the gun</strong>. Light dynamic stretching. Use the Big Bad Wolfe data to set your opening effort confidently.' },
+        { label: 'Miles 1-3', value: 'Start <strong>deliberately easy</strong> — the half marathon is long enough that the first miles feel almost slow. Let the effort build naturally rather than forcing it.' },
+        { label: 'Miles 4-8', value: 'The <strong>heart of the race</strong> — settle into a hard but sustainable effort. Breathing is deeper, focused. This is where your tempo training pays off.' },
+        { label: 'Miles 9-13.1', value: 'If you\'ve run the first 8 miles correctly, <strong>you can push here</strong>. Increase effort incrementally. Save a final kick for the last half mile.' },
+        { label: 'Heart rate', value: 'Target <strong>Zone 3 for miles 1-8</strong>, allow Zone 4 in miles 9-13. Use your Big Bad Wolfe HR data as the primary reference point for calibration.' },
+        { label: 'Nutrition', value: 'Take water or sports drink at <strong>every aid station</strong>. Consider a gel at miles 5 and 9. Practice your nutrition plan on your Week 25 long run beforehand.' },
+        { label: 'Have fun!', value: 'You\'ve trained for this. Trust your preparation, enjoy the race, and run strong.' }
+      ],
+      'run-to-feed': [
+        { label: 'Warmup', value: '10-15 min easy run finishing <strong>10 min before the gun</strong>. Light dynamic stretching. You have a full season of race experience — trust your body\'s signals.' },
+        { label: 'Miles 1-3', value: 'Use Columbus as your reference. Start at the <strong>same opening effort that worked there</strong> — or marginally more aggressive if Columbus went well and recovery was complete.' },
+        { label: 'Miles 4-9', value: '<strong>Committed, controlled effort</strong> — Zone 3 throughout, breathing rhythmic. Don\'t let the effort drop; don\'t let it spike. You know what this pace feels like.' },
+        { label: 'Miles 10-13.1', value: 'This is where the season\'s training pays off. <strong>Raise effort progressively</strong> from mile 10. Give everything from mile 12 onward. Leave nothing.' },
+        { label: 'Heart rate', value: 'Target <strong>Zone 3 for miles 1-9</strong>, allow Zone 4 from mile 10. You\'ve run this effort twice — your body knows it. Run with confidence.' },
+        { label: 'Nutrition', value: 'Same plan as Columbus — <strong>no experimentation on race day</strong>. Aid station every mile, gel at miles 5 and 9. November weather may reduce fluid needs slightly.' },
+        { label: 'Have fun!', value: 'This is the culmination of 33 weeks of work. Run with joy, run smart, and leave it all out there.' }
+      ]
+    };
+
+    function openModal(raceId) {
+      const modal = document.getElementById('modal-' + raceId);
+      const gridId = 'grid-' + raceId;
+      const grid = document.getElementById(gridId);
+
+      // Clear and populate grid
+      grid.innerHTML = '';
+      strategies[raceId].forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'strategy-card';
+        card.innerHTML = `<div class="s-label">${item.label}</div><div class="s-value">${item.value}</div>`;
+        grid.appendChild(card);
+      });
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(raceId) {
+      const modal = document.getElementById('modal-' + raceId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', function (event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal with Escape key
+    window.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>

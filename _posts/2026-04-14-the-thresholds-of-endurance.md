@@ -1,0 +1,25 @@
+---
+title: The Thresholds of Endurance
+date: 2026-04-14
+categories: running
+tags: training, polarized training, heart rate zones, Zone 2, aerobic base, easy running, lactate threshold, endurance
+excerpt: Your training should feel almost too easy - except when it should feel too hard. Building fatigue without building fitness is a trap.
+---
+
+Building aerobic capacity at low intensity matters. Exercise physiologist Iñigo San Millán's work with Tour de France cyclists helped establish the science, showing that sustained easy aerobic work drives mitochondrial adaptation and metabolic efficiency. In popular conversation this has coalesced around Zone 2 in a five-zone model as the prescription for easy training.
+
+In a complementary body of research, Dr. Stephen Seiler spent his career studying how elite cross-country skiers, rowers, and runners actually train, and found something consistent across sports: they polarize their effort. Most sessions are genuinely easy. Hard sessions are genuinely hard. The moderate middle is minimized. Seiler's framework organizes this into three zones anchored by two physiological thresholds, and the research backs it up — a 2014 study by Stöggl and Sperlich found polarized training produced the greatest improvements in VO2max and time to exhaustion, a finding confirmed by a 2024 meta-analysis in Sports Medicine.
+
+The two frameworks aren't in conflict. San Millán describes the physiology of aerobic adaptation. Seiler describes how to structure training around it. Whether you follow a five-zone model or a three-zone model, both anchor to the same two boundaries: aerobic threshold (LT1), where easy effort tips into something harder, and lactate threshold (LT2), where hard effort becomes unsustainable. Knowing where your thresholds actually fall gives your training a precision that percentage-based formulas can't.
+
+A useful tool for any runner is Rate of Perceived Exertion, or RPE, a simple scale from 1 to 10 that describes how hard an effort feels. One is barely moving. Ten is an all-out sprint you couldn't sustain for another second. Seiler's research found RPE correlates closely with physiological thresholds, making it a practical guide to your zones without a heart rate monitor or a lab.
+
+**Easy effort** is everything below the aerobic threshold (LT1). This is your all day pace. Ask yourself if you could carry on a phone conversation at this effort. If the answer is yes, you're in the right place. You finish feeling like you could have gone harder and further. Seiler's research found that elite endurance athletes spend roughly 80 percent of their training time here. The adaptations accumulate through volume and consistency, not effort. Going harder today penalizes what you could have done tomorrow. RPE 2 or 3.
+
+**The black hole** is the band between the two thresholds. Harder than comfortable, not hard enough to produce a strong adaptation signal. Fatigue accumulates without a clean payoff. Here's the problem: popular heart rate percentage prescriptions can place your easy training above LT1 without feeling like it. You arrive at your hard days already compromised. RPE 4 to 6 — uncomfortable enough to feel productive, which is exactly what makes it dangerous.
+
+**Hard effort** is everything above lactate threshold (LT2). Labored breathing, no conversation, a clock running. While easy training builds the aerobic engine, hard effort raises the ceiling — improving VO2max and the ability to sustain faster paces. The two are designed to work together. Hard sessions are short and infrequent, but they're only productive if your easy runs have left you recovered enough to actually go there. Arrive fatigued and you can't go hard enough to get the adaptation. RPE 7 to 9.
+
+The most practical way to find your aerobic and lactate thresholds without a lab test is a 30-minute time trial, the standard field test used by most coaches. Run as hard and steady as you can sustain for 30 minutes, measuring your average heart rate for the final 20 minutes. That average is a reliable proxy for LT2. Your aerobic threshold sits between 80 and 90 percent of that number. If your lactate threshold heart rate (LTHR) comes in at 174, that's a range of 139 to 157, with 148 (85%) as a reasonable midpoint. Treat it as an estimate. How you feel is the more reliable indicator: if the effort is genuinely easy and you could hold a phone conversation, you're below LT1. Drift into discomfort and you're likely above it, regardless of what your watch or ego may tell you.
+
+The felt experience is the most reliable guide to your zones. Heart rate monitors and lactate threshold tests are useful tools for confirming what your body is telling you, but no percentage-based formula can replace paying attention to how you feel. If every run feels like a solid workout, you're probably living in the black hole — working hard enough to accumulate fatigue, not hard enough to drive the adaptations you're after. Most of your running should feel almost too easy. Your hard sessions should feel legitimately hard. Trust that distinction more than any formula.

@@ -1,0 +1,661 @@
+---
+layout: none
+title: Resume
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Richard Basile</title>
+    <meta name="description"
+        content="Engineering leader focused on applied AI, data analytics, and product management.">
+    <link rel="canonical" href="http://localhost:4000/resume/">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            @page {
+                margin: 0.5in;
+            }
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            background: #ffffff;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--crimson) 100%);
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--crimson);
+            padding: 52px 56px 44px 62px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            width: 280px;
+            height: 280px;
+            border: 40px solid rgba(128, 128, 128, 0.12);
+            border-radius: 50%;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            right: 60px;
+            bottom: -80px;
+            width: 180px;
+            height: 180px;
+            border: 28px solid rgba(128, 128, 128, 0.08);
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 3.25rem;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name span {
+            color: var(--accent);
+        }
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.8125rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8125rem;
+            font-weight: 400;
+            padding-right: 20px;
+            position: relative;
+            font-family: monospace;
+        }
+
+        .contact-item:not(:last-child)::after {
+            content: '·';
+            position: absolute;
+            right: 8px;
+            color: var(--accent);
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ── BODY ── */
+        .body {
+            padding: 0 56px 56px 62px;
+        }
+
+        /* ── SECTION ── */
+        .section {
+            margin-top: 44px;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .section:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--ink-faint);
+        }
+
+        /* ── INTRO ── */
+        .intro-text {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: #374151;
+            font-weight: 400;
+        }
+
+        /* ── JOB ── */
+        .job {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #f0ece4;
+        }
+
+        .job:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 3px;
+            gap: 16px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--crimson);
+            line-height: 1.3;
+        }
+
+        .job-dates {
+            font-size: 0.8rem;
+            color: var(--ink-mid);
+            font-weight: 500;
+            white-space: nowrap;
+            padding-top: 3px;
+            letter-spacing: 0.5px;
+            font-family: monospace;
+        }
+
+        .job-company {
+            font-size: 0.8rem;
+            color: var(--ink-mid);
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .job-summary {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #4b5563;
+            margin-bottom: 10px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .job-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-bullets li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #374151;
+            padding: 3px 0 3px 18px;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .job-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .job-stack {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--ink-mid);
+            font-style: italic;
+            font-weight: 300;
+            font-family: monospace;
+        }
+
+        .job-stack strong {
+            font-weight: 500;
+            font-style: normal;
+            color: var(--crimson);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Earlier roles compact */
+        .job-compact {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f2ed;
+            gap: 16px;
+        }
+
+        .job-compact:last-child {
+            border-bottom: none;
+        }
+
+        .job-compact-left {
+            flex: 1;
+        }
+
+        .job-compact-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--crimson);
+        }
+
+        .job-compact-co {
+            font-size: 0.85rem;
+            color: var(--ink-mid);
+            margin-top: 1px;
+        }
+
+        .job-compact-dates {
+            font-size: 0.8rem;
+            color: var(--ink-mid);
+            white-space: nowrap;
+            font-weight: 500;
+            font-family: monospace;
+        }
+
+        /* ── SKILLS GRID ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 32px;
+        }
+
+        .skill-row {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding: 10px 14px;
+            background: var(--paper);
+            border-left: 3px solid var(--ink-faint);
+        }
+
+        .skill-row.highlight {
+            border-left-color: var(--accent);
+        }
+
+        .skill-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--crimson);
+        }
+
+        .skill-value {
+            font-size: 0.85rem;
+            color: #374151;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* ── CERTS ── */
+        .certs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border: 1px solid var(--ink-faint);
+            gap: 12px;
+        }
+
+        .cert-name {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--crimson);
+        }
+
+        .cert-year {
+            font-size: 0.8rem;
+            color: var(--ink-mid);
+            font-weight: 500;
+            white-space: nowrap;
+            font-family: monospace;
+        }
+
+        /* ── PRINT BUTTON ── */
+        .print-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--crimson);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(139, 26, 26, 0.3);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .print-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">
+            <nav class="no-print" style="margin-top: -28px; margin-bottom: 24px;"><a href="/"
+                    style="color: var(--accent); font-size: 0.8125rem; text-decoration: none; letter-spacing: 1px;">
+                    ← Home</a></nav>
+            <div class="name">Richard <span>Basile</span></div>
+            <div class="tagline">Applied AI &nbsp;·&nbsp; Data Engineering &nbsp;·&nbsp; Product Management
+            </div>
+            <div class="contact-row">
+                <div class="contact-item">614-306-7784</div>
+                <div class="contact-item"><a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a></div>
+                <div class="contact-item"><a href="https://linkedin.com/in/richardbasile"
+                        target="_blank">linkedin.com/in/richardbasile</a></div>
+                <div class="contact-item">Columbus, Ohio</div>
+            </div>
+        </div>
+
+        <div class="body">
+
+            <div class="section">
+                <div class="section-label">Profile</div>
+                <p class="intro-text">Engineering leader at the intersection of applied AI, data engineering, and
+                    technical product strategy, delivering value through team leadership, driving roadmaps, and shipping capabilities that
+                    produce measurable business outcomes. A progression from database and pipeline engineering through technical
+                    and product leadership of large-scale enterprise platforms and AI-enabled features across a global EdTech
+                    company. Deep background in cloud-native data architecture, distributed systems, and real-time pipelines, with recent work
+                    encompassing Databricks platform governance, generative AI capability development, and the product strategy that
+                    brings these capabilities to market at scale.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-label">Experience</div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Principal Engineer, AI Platform &amp; Product Strategy</div>
+                        <div class="job-dates">Mar 2022 – Present</div>
+                    </div>
+                    <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
+                    <div class="job-summary">Engineering leader driving roadmap, delivery, and AI strategy across
+                        large-scale enterprise platforms and AI-enabled
+                        features — with hands-on technical depth across data architecture, cloud infrastructure, and
+                        applied AI.</div>
+
+                    <ul class="job-bullets">
+                        <li>Managed AI platform roadmap and feature prioritization — defining capability strategy, aligning delivery with
+                            executive priorities, and translating business goals into engineering outcomes across multiple product lines.</li>
+                        <li>Managed a distributed team of up to 9 individual contributors across two concurrent projects — including offshore and
+                            nearshore contractors and one remote FTE — coordinating delivery across time zones while maintaining alignment with
+                            executive priorities.</li>
+                        <li>Built analytics solutions measuring AI feature adoption, performance, and business impact
+                            across product lines — providing the data foundation for roadmap decisions and executive
+                            reporting.</li>
+                        <li>Engineered enterprise data platform on Databricks, including orchestration and governance of
+                            compute resources, user access, and data workflows — ensuring security, scalability, and
+                            operational efficiency across distributed engineering initiatives.</li>
+                        <li>Engineered scalable ETL pipelines in Scala and Python on Databricks to cleanse, transform,
+                            and operationalize large-scale historical event lake data feeding downstream AI features.</li>
+                        <li>Designed graph data integration workflows ingesting structured event data into Neo4j to
+                            support analysis of student learning journeys and educational outcomes.</li>
+                    </ul>
+                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · Azure · GCP · Databricks · Bedrock ·
+                        Foundry · Python · Scala · SQL</div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Lead Engineer, Platform Engineering</div>
+                        <div class="job-dates">May 2018 – Mar 2022</div>
+                    </div>
+                    <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
+                    <div class="job-summary">Technical leadership for cloud-native platform engineering supporting
+                        large-scale digital education infrastructure — managing database engineers, driving architecture
+                        decisions, and owning delivery practices across distributed teams.</div>
+                    <ul class="job-bullets">
+                        <li>Directed major database migrations to Amazon Aurora, improving scalability, performance, and
+                            reliability for high-traffic production systems serving millions of learners.</li>
+                        <li>Built CI/CD pipelines using Turbot, Terraform, and CircleCI, standardizing secure and
+                            consistent deployments across engineering teams and reducing deployment risk.</li>
+                        <li>Strengthened platform observability and proactive performance management using CloudWatch,
+                            Sumo Logic, and New Relic — reducing incident response time and improving production
+                            reliability.</li>
+                        <li>Contributed to real-time data pipeline development and internal tooling in Java, Scala, and
+                            Node.js to enhance platform extensibility.</li>
+                        <li>Directed RDS migrations and developed training and documentation supporting platform
+                            adoption across distributed teams.</li>
+                    </ul>
+                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · GCP · Aurora · Databricks · OpenSearch ·
+                        Terraform</div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Senior Data Architect</div>
+                        <div class="job-dates">Feb 2017 – May 2018</div>
+                    </div>
+                    <div class="job-company">Halo Communications &nbsp;·&nbsp; Columbus, Ohio</div>
+                    <div class="job-summary">Led modernization of a mission-critical clinical communication platform
+                        under HIPAA and HITRUST compliance requirements — defining and executing a strategic roadmap
+                        that delivered significant reliability and performance improvements while platform usage
+                        tripled.</div>
+                    <ul class="job-bullets">
+                        <li>Achieved up to 72% improvement in response times while platform usage increased 252% —
+                            through targeted optimization strategy and cross-functional execution with DevOps and
+                            application teams.</li>
+                        <li>Engineered a high-availability SQL Server architecture using AlwaysOn Availability Groups
+                            and Windows Server Failover Clustering across a three-node enterprise cluster.</li>
+                        <li>Defined and executed a strategic roadmap balancing platform stabilization with long-term
+                            scalability objectives, working directly with executive stakeholders.</li>
+                    </ul>
+                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · SQL Server · AlwaysOn Availability Groups
+                        · WSFC</div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Senior Database Architect</div>
+                        <div class="job-dates">Apr 2012 – Feb 2017</div>
+                    </div>
+                    <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
+                    <div class="job-summary">Led architecture and scaling of data infrastructure for a global digital
+                        education platform serving millions of users, directing a team of database engineers through
+                        sustained high-growth.</div>
+                    <ul class="job-bullets">
+                        <li>Technical lead for a team of 4 database engineers, directing architecture decisions and scaling strategy for a
+                            platform supporting 20K+ concurrent users.</li>
+                        <li>Scaled the core Oracle RAC application database from 250GB to 2TB on a four-node cluster,
+                            supporting 20K+ concurrent users and 22M+ monthly sessions — directly enabling product
+                            growth without platform constraint.</li>
+                        <li>Built a real-time clickstream analytics pipeline using AWS API Gateway, Lambda, Kinesis, and
+                            Elasticsearch — an early
+                            production streaming implementation on AWS-native architecture delivering visibility into
+                            EdTech usage metrics and user
+                            behavior.</li>
+                        <li>Designed scalable data models, caching strategies, and content structures to support a
+                            high-volume, user-facing digital platform.</li>
+                    </ul>
+                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · Oracle RAC · Kinesis · API Gateway ·
+                        Elasticsearch · Java · SQL · PL/SQL</div>
+                </div>
+
+                <div class="job-compact">
+                    <div class="job-compact-left">
+                        <div class="job-compact-title">Senior Programmer Analyst / IS Technical Specialist</div>
+                        <div class="job-compact-co">Huntington National Bank &nbsp;·&nbsp; Columbus, Ohio</div>
+                    </div>
+                    <div class="job-compact-dates">2008 – 2012</div>
+                </div>
+                <div class="job-compact">
+                    <div class="job-compact-left">
+                        <div class="job-compact-title">Oracle Applications Engineer</div>
+                        <div class="job-compact-co">Worthington Industries &nbsp;·&nbsp; Columbus, Ohio</div>
+                    </div>
+                    <div class="job-compact-dates">2007 – 2008</div>
+                </div>
+                <div class="job-compact">
+                    <div class="job-compact-left">
+                        <div class="job-compact-title">Oracle Applications Engineer</div>
+                        <div class="job-compact-co">Nationwide Financial &nbsp;·&nbsp; Columbus, Ohio</div>
+                    </div>
+                    <div class="job-compact-dates">2004 – 2007</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-label">Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-row">
+                        <div class="skill-label">Product &amp; Strategy</div>
+                        <div class="skill-value">Roadmap and Priority Management · Stakeholder Alignment · Business
+                            Partner Engagement</div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">AI Platform Engineering</div>
+                        <div class="skill-value">Applied AI · Generative AI Integration · RAG Architecture · Agentic
+                            Workflows · Bedrock · Foundry</div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Infrastructure</div>
+                        <div class="skill-value">AWS · Azure · GCP · Terraform · Datadog · New Relic · CloudWatch · Sumo
+                            Logic</div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Data Platforms</div>
+                        <div class="skill-value">Databricks · Medallion Architecture · ETL/ELT · Athena · QuickSight
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Databases</div>
+                        <div class="skill-value">Aurora · PostgreSQL · Oracle · SQL Server · DynamoDB · Elasticsearch ·
+                            OpenSearch · Neo4j</div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Languages</div>
+                        <div class="skill-value">Python · SQL · Scala · Java · PL/SQL · Node.js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-label">Certifications</div>
+                <div class="certs-list">
+                    <div class="cert-item">
+                        <div class="cert-name">AWS Certified Developer – Associate</div>
+                        <div class="cert-year">2017</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+                        <div class="cert-year">2016</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Oracle Certified Professional, DBA (9i/10g)</div>
+                        <div class="cert-year">2009</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
+
+</body>
+
+</html>

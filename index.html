@@ -1,0 +1,17 @@
+---
+layout: default
+title: Home
+---
+
+{% assign post = site.posts.first %}
+<article>
+    <h1>{{ post.title }}</h1>
+    <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+    {{ post.content }}
+</article>
+
+<nav class="post-nav">
+    {% if site.posts[1] %}
+    <a href="{{ site.posts[1].url }}" class="post-nav-older">{{ site.posts[1].title }} →</a>
+    {% endif %}
+</nav>

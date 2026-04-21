@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /editor.html
+Disallow: /googled8fdcf9bf2f485b1.html
+Sitemap: https://richardbasile.github.io/sitemap.xml

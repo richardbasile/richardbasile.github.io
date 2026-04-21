@@ -1,0 +1,18 @@
+# Bundler / Ruby gems
+/.bundle/
+/Gemfile.lock
+
+# Jekyll build output
+/_site/
+
+# macOS system files
+.DS_Store
+
+# Editor / IDE files (optional, adjust to your editor)
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs or temporary files
+*.log
