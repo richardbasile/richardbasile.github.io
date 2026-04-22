@@ -3,7 +3,7 @@ title: The Thresholds of Endurance
 date: 2026-04-14
 categories: running
 tags: training, polarized training, heart rate zones, Zone 2, aerobic base, easy running, lactate threshold, endurance
-excerpt: Your training should feel almost too easy - except when it should feel too hard. Building fatigue without building fitness is a trap.
+excerpt: Your training should feel almost too easy - except when it should feel hard. Building fatigue without building fitness is a trap.
 ---
 
 Building aerobic capacity at low intensity matters. Exercise physiologist Iñigo San Millán's work with Tour de France cyclists helped establish the science, showing that sustained easy aerobic work drives mitochondrial adaptation and metabolic efficiency. In popular conversation this has coalesced around Zone 2 in a five-zone model as the prescription for easy training.
@@ -14,7 +14,7 @@ The two frameworks aren't in conflict. San Millán describes the physiology of a
 
 A useful tool for any runner is Rate of Perceived Exertion, or RPE, a simple scale from 1 to 10 that describes how hard an effort feels. One is barely moving. Ten is an all-out sprint you couldn't sustain for another second. Seiler's research found RPE correlates closely with physiological thresholds, making it a practical guide to your zones without a heart rate monitor or a lab.
 
-**Easy effort** is everything below the aerobic threshold (LT1). This is your all day pace. Ask yourself if you could carry on a phone conversation at this effort. If the answer is yes, you're in the right place. You finish feeling like you could have gone harder and further. Seiler's research found that elite endurance athletes spend roughly 80 percent of their training time here. The adaptations accumulate through volume and consistency, not effort. Going harder today penalizes what you could have done tomorrow. RPE 2 or 3.
+**Easy effort** is everything below the aerobic threshold (LT1). This is your all-day pace. Low heart rate training is the objective. You finish feeling like you could have gone harder and further. Seiler's research found that elite endurance athletes spend roughly 80 percent of their training time here, where the adaptations accumulate through volume and consistency, not effort. Going harder today penalizes what you could have done tomorrow. RPE 2 or 3.
 
 **The black hole** is the band between the two thresholds. Harder than comfortable, not hard enough to produce a strong adaptation signal. Fatigue accumulates without a clean payoff. Here's the problem: popular heart rate percentage prescriptions can place your easy training above LT1 without feeling like it. You arrive at your hard days already compromised. RPE 4 to 6 — uncomfortable enough to feel productive, which is exactly what makes it dangerous.
 
