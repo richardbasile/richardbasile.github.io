@@ -1,3 +1,7 @@
+---
+layout: none
+title: Training Plan
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +9,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026 Race Season Training Plan</title>
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | relative_url }}">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
     rel="stylesheet">
@@ -765,9 +774,9 @@
           <div class="r-date">Phase 1</div>
         </div>
         <div class="header-race" onclick="document.getElementById('phase-2').scrollIntoView({behavior: 'smooth'})">
-          <div class="r-name">Running Bear 5K</div>
-          <div class="r-date">Tuesday</div>
-          <div class="r-date">July 21, 2026</div>
+          <div class="r-name">Lemon Trails 5K</div>
+          <div class="r-date">Saturday</div>
+          <div class="r-date">July 18, 2026</div>
           <div class="r-date">Phase 2</div>
         </div>
         <div class="header-race" onclick="document.getElementById('phase-3').scrollIntoView({behavior: 'smooth'})">
@@ -1092,7 +1101,7 @@
           <!-- PHASE 2 -->
           <tr>
             <td colspan="9" style="padding:0;border:none;">
-              <div id="phase-2" class="phase-title">Phase 2 &mdash; Running Bear 5K</div>
+              <div id="phase-2" class="phase-title">Phase 2 &mdash; Lemon Trails 5K</div>
             </td>
           </tr>
 
@@ -1234,7 +1243,7 @@
             <td>
               <div class="wk-label">Wk 16</div>
               <div class="wk-dates">Jul 13 - Jul 19</div>
-              <div class="wk-badges"><span class="badge badge-deload">taper</span></div>
+              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
             </td>
             <td>2 mi easy<span class="s">+ 4 strides</span></td>
             <td class="str-col"><span class="fri-ex">Clean <span class="fri-sets">2x2</span></span><span
@@ -1251,34 +1260,25 @@
               <span class="fri-ex">Bulgarian split squat <span class="fri-sets">3x8-10</span></span>
               <span class="fri-ex">Single-leg glute bridge <span class="fri-sets">3x8-10</span></span>
             </td>
-            <td>4 mi easy</td>
+            <td><span class="race-t" onclick="openModal('lemon-trails-5k'); return false;" style="cursor: pointer;">Lemon Trails 5K</span><span class="note">Sat Jul 18</span><span class="note" style="color:var(--green);">1 mi warmup + 4 strides, finish 10 min before gun</span></td>
             <td class="rest-col"><span class="rest">rest</span></td>
-            <td class="total-cell">12 mi</td>
+            <td class="total-cell">~14 mi</td>
           </tr>
 
           <tr>
             <td>
               <div class="wk-label">Wk 17</div>
               <div class="wk-dates">Jul 20 - Jul 26</div>
-              <div class="wk-badges"><span class="badge badge-race">race week</span></div>
+              <div class="wk-badges"><span class="badge badge-rec">recovery</span></div>
             </td>
-            <td>2 mi easy<span class="note">shakeout</span></td>
-            <td class="str-col"><span class="race-t" onclick="openModal('running-bear-5k'); return false;"
-                style="cursor: pointer;">Running Bear 5K</span><span class="note">Tue Jul 21</span><span class="note"
-                style="color:var(--green);">1 mi warmup + 4 strides, finish 10 min before gun</span>
-            </td>
-            <td><span class="rest">rest</span></td>
+            <td>2–3 mi easy<span class="note">all runs by feel, no structure</span></td>
+            <td class="str-col"><span class="rest">rest</span><span class="note">no strength this week</span></td>
+            <td>3–4 mi easy</td>
             <td>3 mi easy</td>
-            <td class="str-col">
-              <span class="fri-ex">Pushup <span class="fri-sets">3x10-15</span></span>
-              <span class="fri-ex">Squat <span class="fri-sets">3x8-10</span></span>
-              <span class="fri-ex">Lateral lunge <span class="fri-sets">3x8-10</span></span>
-              <span class="fri-ex">Step-ups <span class="fri-sets">3x8-10</span></span>
-              <span class="fri-ex">Single-leg calf raise <span class="fri-sets">3x10-15</span></span>
-            </td>
+            <td class="str-col"><span class="rest">rest</span></td>
             <td>4 mi easy</td>
             <td class="rest-col"><span class="rest">rest</span></td>
-            <td class="total-cell">~13 mi</td>
+            <td class="total-cell">12–14 mi</td>
           </tr>
 
           <!-- PHASE 3 -->
@@ -1904,7 +1904,7 @@
           tune-up, pace lock</span></div>
       <div class="strategy-grid" id="grid-lighthouse-5k"></div>
       <p class="race-note"><strong>Key principle:</strong> The 5K is a sustained hard effort from start to finish —
-        there is no comfortable middle section. Use this race to lock in 5K pace and gather data for Running Bear three
+        there is no comfortable middle section. Use this race to lock in 5K pace and gather data for Lemon Trails three
         weeks later. Trust the work.</p>
     </div>
   </div>
@@ -1921,17 +1921,18 @@
     </div>
   </div>
 
-  <div id="modal-running-bear-5k" class="modal">
+  <div id="modal-lemon-trails-5k" class="modal">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('running-bear-5k')">&times;</button>
-      <div class="modal-title">Running Bear 5K <span class="race-date">Tuesday, July 21, 2026 &mdash; goal:
+      <button class="modal-close" onclick="closeModal('lemon-trails-5k')">&times;</button>
+      <div class="modal-title">Lemon Trails 5K <span class="race-date">Saturday, July 18, 2026 &mdash; goal:
           sub-10:00/mile</span></div>
-      <div class="strategy-grid" id="grid-running-bear-5k"></div>
+      <div class="strategy-grid" id="grid-lemon-trails-5k"></div>
       <p class="race-note"><strong>Key principle:</strong> The 5K is a sustained hard effort from start to finish —
-        there is no comfortable middle section. The Thursday interval sessions in weeks 12-16 have trained your body
-        specifically for this. Trust the work.</p>
+        there is no comfortable middle section. The Thursday interval sessions in weeks 12–16 have trained your body
+        specifically for this. You arrive here tapered and rested off a lighter week. Trust the work.</p>
     </div>
   </div>
+
 
   <div id="modal-big-bad-wolfe" class="modal">
     <div class="modal-content">
@@ -1978,8 +1979,8 @@
       'donut-run': [
         { label: 'Objective', value: 'Generate reliable pace data to set realistic goal paces for the rest of the season.' },
         { label: 'Effort', value: 'Run an honest, well-paced 5K effort. Not a time trial, but not casual either. Sustainable hard effort from start to finish.' },
-        { label: 'Pacing', value: 'Follow the Running Bear 5K race strategy, but this is about <strong>data, not a time goal</strong>. Run what feels right based on your current fitness.' },
-        { label: 'Post-race', value: 'Enter your result into a VDOT calculator or McMillan pace predictor. <strong>This removes guesswork</strong> from goal-setting for Running Bear, Columbus Half, and Run to Feed.' },
+        { label: 'Pacing', value: 'Follow the Lemon Trails 5K race strategy, but this is about <strong>data, not a time goal</strong>. Run what feels right based on your current fitness.' },
+        { label: 'Post-race', value: 'Enter your result into a VDOT calculator or McMillan pace predictor. <strong>This removes guesswork</strong> from goal-setting for Lemon Trails, Columbus Half, and Run to Feed.' },
         { label: 'Have fun!', value: 'This is your fitness baseline. Own it, run smart, and trust the data it gives you.' }
       ],
       'lighthouse-5k': [
@@ -2000,13 +2001,13 @@
         { label: 'Pre-race nutrition', value: 'Light, familiar meal <strong>2-3 hours before</strong> the start. Sip water steadily in the hour prior. No gels needed for a 10K.' },
         { label: 'Have fun!', value: 'You\'ve trained well. Trust the work, run smart, and enjoy the race.' }
       ],
-      'running-bear-5k': [
+      'lemon-trails-5k': [
         { label: 'Warmup', value: '<strong>1-1.5 mi easy run</strong> finishing 10 min before the gun, then 4 strides (20 sec, full recovery between). A 5K demands a thorough warmup — your body needs to be ready to race hard from the opening steps.' },
         { label: 'Mile 1', value: 'Start <strong>comfortably hard</strong> — harder than tempo but with clear room to build. You should finish mile 1 thinking you could go harder. If you\'re already at your limit, you\'ve gone out too fast.' },
         { label: 'Mile 2', value: '<strong>Lift your effort deliberately</strong> — not reactively. This is the hardest mile mentally; you\'re no longer fresh but the finish isn\'t close. Push to very hard and hold your form as fatigue builds.' },
         { label: 'Mile 3 + finish', value: '<strong>Empty the tank</strong> — by mile 2.5 you should be at maximum sustainable effort. The final 400m is an all-out push with everything that remains. Leave nothing.' },
         { label: 'Heart rate', value: 'Expect <strong>Zone 4-5</strong> throughout. A 5K is meant to hurt — feeling hard-pressed by mile 2 is correct, not a sign something is wrong.' },
-        { label: 'Day before', value: 'Monday is a shakeout only. <strong>Light, familiar meal</strong> Sunday evening. Early bedtime — race is Tuesday morning.' },
+        { label: 'Day before', value: 'Friday is rest. <strong>Light, familiar meal</strong> Friday evening. Early bedtime — race is Saturday morning.' },
         { label: 'Have fun!', value: 'You\'ve trained hard. This race is your moment to let it out. Enjoy the effort.' }
       ],
       'big-bad-wolfe': [
