@@ -7,7 +7,7 @@ tags: health movement endurance
 
 How can I get fit? Your body and mind are built to heal, regulate, and thrive through motion. The most important question is not which movement you choose, but whether you move at all.
 
-For me that movement is running and strength training. For others it might be walking, hiking, swimming, cycling, yoga, or simple bodyweight exercises. The specific activity matters less than the habit itself. The best movement is the one you will return to tomorrow.
+For me that movement is running and strength training. For others it might be walking, hiking, swimming, cycling, yoga, or pickleball. The specific activity matters less than the habit itself. The best movement is the one you will return to tomorrow.
 
 When movement disappears from daily life, many systems gradually degrade. When it returns, in appropriate forms and doses, they recover. Strength returns. Balance returns. Adaptability returns. Movement isn't a lifestyle add-on. It's foundational.
 
