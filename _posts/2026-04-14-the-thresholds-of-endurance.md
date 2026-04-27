@@ -10,7 +10,9 @@ Building aerobic capacity at low intensity matters. Exercise physiologist Inigo 
 
 In a complementary body of research, Dr. Stephen Seiler spent his career studying how elite cross-country skiers, rowers, and runners actually train, and found something consistent across sports: they polarize their effort. Most sessions are genuinely easy. Hard sessions are genuinely hard. The moderate middle is minimized. Seiler's framework organizes this into three zones anchored by two physiological thresholds, and the research backs it up — a 2014 study by Stöggl and Sperlich found polarized training produced the greatest improvements in VO2max and time to exhaustion, a finding confirmed by a 2024 meta-analysis in Sports Medicine.
 
-The two frameworks aren't in conflict. San Millán describes the physiology of aerobic adaptation. Seiler describes how to structure training around it. Whether you follow a five-zone model or a three-zone model, both anchor to the same two boundaries: aerobic threshold (LT1), where easy effort tips into something harder, and lactate threshold (LT2), where hard effort becomes unsustainable. Knowing where your thresholds actually fall gives your training a precision that percentage-based formulas can't.
+The two frameworks aren't in conflict. San Millan describes the physiology of aerobic adaptation. Seiler describes how to structure training around it. Whether you follow a five-zone model or a three-zone model, both anchor to the same two boundaries: aerobic threshold (LT1), where easy effort tips into something harder, and lactate threshold (LT2), where hard effort becomes unsustainable. Knowing where your thresholds actually fall gives your training a precision that percentage-based formulas can't.
+
+<!--more-->
 
 A useful tool for any runner is Rate of Perceived Exertion, or RPE, a simple scale from 1 to 10 that describes how hard an effort feels. One is barely moving. Ten is an all-out sprint you couldn't sustain for another second. Seiler's research found RPE correlates closely with physiological thresholds, making it a practical guide to your zones without a heart rate monitor or a lab.
 

@@ -3,15 +3,28 @@ layout: default
 title: Home
 ---
 
-{% assign post = site.posts.first %}
-<article>
-    <h1>{{ post.title }}</h1>
-    <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-    {{ post.content }}
-</article>
+{% assign featured = site.posts.first %}
 
-<nav class="post-nav">
-    {% if site.posts[1] %}
-    <a href="{{ site.posts[1].url }}" class="post-nav-older">{{ site.posts[1].title }} →</a>
-    {% endif %}
-</nav>
+<section class="featured-post">
+  <h1><a href="{{ featured.url }}">{{ featured.title }}</a></h1>
+  <p class="post-date">{{ featured.date | date: "%B %d, %Y" }}</p>
+  <div class="featured-body">
+    {{ featured.content | split: '<!--more-->' | first }}
+  </div>
+  <a href="{{ featured.url }}" class="read-more">Read more →</a>
+</section>
+
+<section class="archive-section">
+  <h2 class="archive-heading">Archive</h2>
+  <ul class="post-list">
+    {% for post in site.posts offset: 1 %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+      <div class="post-details">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

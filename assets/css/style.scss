@@ -171,6 +171,62 @@ body {
 }
 
 /* =====================
+   Featured Post
+   ===================== */
+.featured-post {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--crimson-soft);
+
+  h1 {
+    margin-bottom: 0.4rem;
+
+    a {
+      text-decoration: none;
+      color: var(--crimson);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  .featured-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink-mid);
+    margin-bottom: 1rem;
+  }
+
+  .read-more {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--crimson);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+/* =====================
+   Archive Section
+   ===================== */
+.archive-section {
+  .archive-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-light) !important;
+    margin-bottom: 1rem;
+  }
+}
+
+/* =====================
    Archive List
    ===================== */
 .post-list {

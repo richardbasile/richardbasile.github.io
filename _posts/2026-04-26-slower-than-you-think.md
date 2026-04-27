@@ -11,6 +11,8 @@ excerpt: A true easy run feels unproductive, but this is where you build the eng
 
 The easy run is undeniably the foundation for running fitness, and many of us miss laying a solid foundation. A true easy run is ego crushing. It doesn't feel like training. It feels wrong. Pay attention to that feeling. It's the signal that affirms you're in the right zone.
 
+<!--more-->
+
 ## What easy actually means
 
 Easy running lives below your aerobic threshold (LT1), the point where comfortable effort tips into meaningful effort. Below this threshold, your body builds the aerobic engine. Mitochondria, the cellular engines that convert oxygen into energy, multiply and become more efficient. Your muscles get better at burning fat as fuel, sparing glycogen for when you actually need it. Capillary density increases, improving oxygen delivery to working muscle. None of this happens quickly, and none of it is driven by effort. It's driven by volume and consistency at the right intensity. Going harder doesn't accelerate development; it taxes the engine without building it.

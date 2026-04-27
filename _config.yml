@@ -19,10 +19,11 @@ defaults:
     values:
       layout: post
 
+excerpt_separator: "<!--more-->"
+
 markdown: kramdown
 permalink: /:title/
 header_pages:
   - index.html
-  - archive.md
+  - training-plan/index.html
   - connect.md
-  - resume/index.html

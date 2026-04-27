@@ -3,8 +3,6 @@ layout: default
 title: Archive
 ---
 
-## All Posts
-
 <ul class="post-list">
   {% for post in site.posts %}
     <li>
