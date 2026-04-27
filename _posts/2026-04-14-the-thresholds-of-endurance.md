@@ -6,7 +6,7 @@ tags: training, polarized training, heart rate zones, Zone 2, aerobic base, easy
 excerpt: Your training should feel almost too easy - except when it should feel hard. Building fatigue without building fitness is a trap.
 ---
 
-Building aerobic capacity at low intensity matters. Exercise physiologist Iñigo San Millán's work with Tour de France cyclists helped establish the science, showing that sustained easy aerobic work drives mitochondrial adaptation and metabolic efficiency. In popular conversation this has coalesced around Zone 2 in a five-zone model as the prescription for easy training.
+Building aerobic capacity at low intensity matters. Exercise physiologist Inigo San Millan's work with Tour de France cyclists helped establish the science, showing that sustained easy aerobic work drives mitochondrial adaptation and metabolic efficiency. In popular conversation this has coalesced around Zone 2 in a five-zone model as the prescription for easy training.
 
 In a complementary body of research, Dr. Stephen Seiler spent his career studying how elite cross-country skiers, rowers, and runners actually train, and found something consistent across sports: they polarize their effort. Most sessions are genuinely easy. Hard sessions are genuinely hard. The moderate middle is minimized. Seiler's framework organizes this into three zones anchored by two physiological thresholds, and the research backs it up — a 2014 study by Stöggl and Sperlich found polarized training produced the greatest improvements in VO2max and time to exhaustion, a finding confirmed by a 2024 meta-analysis in Sports Medicine.
 
