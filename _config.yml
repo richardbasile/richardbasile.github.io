@@ -26,4 +26,5 @@ permalink: /:title/
 header_pages:
   - index.html
   - training-plan/index.html
+  - resume/index.html
   - connect.md
