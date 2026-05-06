@@ -18,15 +18,9 @@ Push the effort too hard, and the last few miles become a grind. You spend the n
 
 Keep the effort easy. Target an RPE (rate of perceived exertion) of 4 at most on a 10-point scale. You're holding a conversational pace from beginning to end.
 
-## Duration
-
-Training plans prescribe the long run in miles. The problem is miles don't account for the variation in what those miles mean. A 10-mile long run takes an elite runner under an hour. For a recreational runner at a 12-minute pace, it's two hours of effort. Same prescription, fundamentally different stimulus.
-
-Duration is the honest unit. Time on feet at an easy aerobic effort produces a specific set of adaptations regardless of how many miles you cover. The distance is a byproduct of how fast you run. The goal is to support an adaptation response while avoiding injury. That balance depends on your goals.
-
 ## Build
 
-A cohort study of over 5,200 runners in the British Journal of Sports Medicine found that the strongest predictor of overuse injury wasn't weekly mileage or cumulative load. It was a sudden spike in a single run. Runners who increased their longest run by more than 10% compared to their longest run in the prior month faced a 64% higher injury risk. Build gradually. One to two miles per week is a reasonable progression.
+A cohort study of over 5,200 runners in the British Journal of Sports Medicine found that the strongest predictor of overuse injury wasn't weekly mileage or cumulative load. It was a sudden spike in a single run. Runners who increased their longest run by more than 10% compared to their longest run in the prior month faced a 64% higher injury risk. Build gradually. As a general rule, adding no more than one to two miles per week keeps progression within a range your tissues can absorb.
 
 ## The week around it
 
@@ -36,17 +30,17 @@ The long run can't do its job alone. An 18-mile long run inside a 25-mile week i
 
 ## By race distance
 
-**5K.** The long run builds both the aerobic base that supports quality workouts and the muscular endurance that prevents you from slowing down as you hammer the final stretch. Duration matters more than distance at this range, aiming for 45 to 75 minutes at easy effort. Beyond this, recovery cost starts to outweigh benefits for a race of this distance.
+**5K.** The long run builds both the aerobic base that supports quality workouts and the muscular endurance that prevents you from slowing down as you hammer the final stretch. Most beginner plans peak the long run between 3 and 4 miles. Experienced runners targeting a specific goal time can push the long run as high as 8 to 10 miles. Beyond this, recovery cost starts to outweigh benefits for a race of this distance.
 
 **10K.** The 10K sits between speed and endurance. Most recreational plans peak the long run between 6 and 8 miles. Experienced runners targeting a specific goal time can push the long run as high as 12 miles.
 
-**Half marathon.** A study published in the Scandinavian Journal of Medicine and Science in Sports found that weekly volume above 20 miles and a peak long run above 13 miles were both associated with faster finish times and less pace decline late in the race. Most recreational plans peak the long run between 10 and 12 miles before the taper, with weekly volume between 20 and 35 miles depending on goal.
+**Half marathon.** Recreational training plans peak the long run between 10 and 12 miles before the taper. For experienced runners, a study published in the Scandinavian Journal of Medicine and Science in Sports found that  a peak long run above 13 miles was associated with faster finish times and less pace decline late in the race. The long run should represent 30 to 40 percent of weekly volume. Where you land within that range depends on your experience, your goal, and how well you recover.
 
-**Marathon.** The popular three-hour cap is derived from physiological research on diminishing aerobic returns, applied to elite practice, and then extended to recreational runners without direct validation for that population. The data shows long runs under 16 miles are associated with slower finish times, with performance gains leveling off between 18 and 22 miles. Beyond 22, the research finds only rising injury risk.
+**Marathon.** Research on diminishing aerobic returns concludes that the cellular and cardiovascular adaptations that build a more efficient aerobic engine are informed in the first ninety minutes of effort. Race-specific stresses are different. Glycogen depletion, accumulated muscular fatigue, and the experience of running on empty don't accumulate in ninety minutes. They require sustained time on feet.
 
-Targeting a floor of 18 miles and a ceiling of 22, cap the long run at 3.5 hours. This figure is derived from the math, not the literature. At a 12-minute pace, 18 miles takes roughly 3:36. This is the distance floor supported by the research. Faster runners hit the distance ceiling before the time cap matters.
+The data shows long runs under 16 miles are associated with slower finish times, with performance gains leveling off between 18 and 22 miles. Beyond 22, the research finds only rising injury risk. Targeting a floor of 18 miles and a ceiling of 22, cap the long run at 3.5 hours. This figure is derived from the math, not the literature. At a 12-minute pace, 18 miles takes roughly 3:36. This is the distance floor supported by the research. Faster runners hit the distance ceiling before the time cap matters.
 
-The same research that established the distance floor found that weekly volume below 25 miles was associated with slower finish times, with adaptation accumulating above 40 miles per week. An 18-mile long run belongs inside a 40-mile week. Below that, the long run is carrying too much of the load, and the risk of breakdown outweighs the stimulus.
+The long run must be balanced with total weekly mileage. The same research that established the distance floor found that weekly volume below 25 miles was associated with slower finish times, with adaptation accumulating above 40 miles per week. At 40 miles, an 18-mile long run represents roughly 45 percent of weekly volume. Most coaches allow the long run to reach 35 to 40 percent of weekly volume, with 45 percent as a ceiling. Below 40 miles per week, the ratio tips, the long run carries too much of the load, and the risk of breakdown outweighs the stimulus.
 
 ## The payoff
 
