@@ -3,6 +3,7 @@ title: Movement as Medicine
 date: 2026-03-08
 categories: running
 tags: health movement endurance
+excerpt: Your body and mind are built to heal, regulate, and thrive through motion. The most important question isn't which movement you choose, but whether you move at all.
 ---
 
 Your body and mind are built to heal, regulate, and thrive through motion. The most important question isn't which movement you choose, but whether you move at all.

@@ -3,6 +3,7 @@ title: Rev3 Cedar Point
 date: 2013-09-09
 categories: triathlon
 tags: racing endurance
+excerpt: Racing a 70.3 triathlon was a fantastic challenge that proved I am capable of more than I imagined.
 ---
 
 “First you feel like dying. Then you feel reborn.”

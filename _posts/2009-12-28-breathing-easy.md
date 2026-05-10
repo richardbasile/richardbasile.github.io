@@ -3,6 +3,7 @@ title: Breathing Easy
 date: 2009-12-28
 categories: running
 tags: health movement endurance
+excerpt: Excersise was my gateway to quit smoking.
 ---
 
 Approaching 40 this past summer, I had smoked for 24 years and had never accomplished anything athletic in my life. A trip up the stairs would leave me winded. I had a pack a day habit and had unsuccessfully tried every pharmaceutical approach available to quit smoking. It was not until I tied on a pair of running shoes that I was finally able to quit.
