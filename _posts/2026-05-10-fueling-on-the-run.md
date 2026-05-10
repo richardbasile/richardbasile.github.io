@@ -101,4 +101,4 @@ For runners using a vest, a simpler option is combining everything, minus the pe
 
 Your training runs are the laboratory. Experiment with concentration, timing, and formulation. Arrive at race day with a strategy already proven on your own body.
 
-The [Run Nutrition Calculator](/run-nutrition-calculator/) is the practical companion to this article. Enter your run duration and carbohydrate target and it scales the gel and electrolyte recipes to exactly what you need to carry — no math required.
+The [Nutrition Calculator](/nutrition-calculator/) is the practical companion to this article. Enter your run duration and carbohydrate target and it scales the gel and electrolyte recipes to exactly what you need to carry — no math required.
