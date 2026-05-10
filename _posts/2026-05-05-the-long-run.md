@@ -38,13 +38,19 @@ The long run can't do its job alone. An 18-mile long run inside a 25-mile week i
 
 **Marathon.** Research on diminishing aerobic returns concludes that the cellular and cardiovascular adaptations that build a more efficient aerobic engine are informed in the first ninety minutes of effort. Race-specific stresses are different. Glycogen depletion, accumulated muscular fatigue, and the experience of running on empty don't accumulate in ninety minutes. They require sustained time on feet.
 
-The data shows long runs under 16 miles are associated with slower finish times, with performance gains leveling off between 18 and 22 miles. Beyond 22, the research finds only rising injury risk. Targeting a floor of 18 miles and a ceiling of 22, cap the long run at 3.5 hours. This figure is derived from the math, not the literature. At a 12-minute pace, 18 miles takes roughly 3:36. This is the distance floor supported by the research. Faster runners hit the distance ceiling before the time cap matters.
+A 2020 study by Fokkema et al. in the Scandinavian Journal of Medicine & Science in Sports examined training characteristics and outcomes in 441 recreational marathon runners. Runners with a peak long run below 25km (15.5 miles) were associated with slower finish times. Performance gains leveled off in the 30–35km range (18.5 to 22 miles). Runs beyond 35km showed no additional benefit compared to that range. The same study found no association between long run distance and injury risk at any distance.
 
-The long run must be balanced with total weekly mileage. The same research that established the distance floor found that weekly volume below 25 miles was associated with slower finish times, with adaptation accumulating above 40 miles per week. At 40 miles, an 18-mile long run represents roughly 45 percent of weekly volume. Most coaches allow the long run to reach 35 to 40 percent of weekly volume, with 45 percent as a ceiling. Below 40 miles per week, the ratio tips, the long run carries too much of the load, and the risk of breakdown outweighs the stimulus.
+## Duration
+
+The conventional 3-hour cap is a coaching heuristic, not a research finding. It makes sense for faster recreational runners. Three hours gets them to roughly 18–20 miles, squarely in the range the research supports. It breaks down when applied universally without adjustment for pace. The distance is the same. The demand is not.
+
+A 5K plan capping the long run at 8 miles asks a 10-minute pace runner for 80 minutes and a 14-minute pace runner for nearly two. A half marathon plan that peaks the long run at 12 miles puts a 9-minute pace runner on the road for under two hours and a 13-minute pace runner out there for two and a half.
+
+The gap is most notable in marathon training. A time cap applied uniformly cuts slower runners short of the distance floor the research supports. At a 10-minute pace, 18 miles takes three hours, which is where the conventional cap lands. At a 12-minute pace, it takes 3:36. At a 14-minute pace, it takes over four hours. A cap set in distance serves faster runners and quietly underserves everyone else. If you need a time ceiling, derive it from your goals and your recovery. For most recreational runners, 3.5 to 4 hours is a reasonable working range, enough time on feet to reach the distance floor supported by the research, while keeping the recovery cost manageable.
 
 ## The payoff
 
-You finish tired but not destroyed. Your easy pace the next day is slower than normal, but you're moving. By two days out, you feel recovered. The fatigue was real but it processed cleanly.
+The goal is to finish tired but not destroyed. Your easy pace the next day is slower than normal, but you're moving. By two days out, you feel recovered. The fatigue was real but it processed cleanly.
 
 When it's not working, you know. The final miles fall apart. Recovery takes four or five days. Your next quality session is flat. The effort was too high, the week before it was too hard, or both.
 
