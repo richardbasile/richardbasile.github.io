@@ -20,7 +20,7 @@ Keep the effort easy. Target an RPE (rate of perceived exertion) of 4 at most on
 
 ## Build
 
-A cohort study of over 5,200 runners in the British Journal of Sports Medicine found that the strongest predictor of overuse injury wasn't weekly mileage or cumulative load. It was a sudden spike in a single run. Runners who increased their longest run by more than 10% compared to their longest run in the prior month faced a 64% higher injury risk. Build gradually. As a general rule, adding no more than one to two miles per week keeps progression within a range your tissues can absorb.
+A 2025 cohort study of over 5,200 runners in the British Journal of Sports Medicine found that the strongest predictor of overuse injury wasn't weekly mileage or cumulative load. It was a sudden spike in a single run. Runners who increased their longest run by 10 to 30% compared to their longest run in the prior month faced a 64% higher injury risk — and the risk climbed from there. Build gradually. As a general rule, adding no more than one to two miles per week keeps progression within a range your tissues can absorb.
 
 ## The week around it
 
@@ -34,11 +34,11 @@ The long run can't do its job alone. An 18-mile long run inside a 25-mile week i
 
 **10K.** The 10K sits between speed and endurance. Most recreational plans peak the long run between 6 and 8 miles. Experienced runners targeting a specific goal time can push the long run as high as 12 miles.
 
-**Half marathon.** Recreational training plans peak the long run between 10 and 12 miles before the taper. For experienced runners, a study published in the Scandinavian Journal of Medicine and Science in Sports found that  a peak long run above 13 miles was associated with faster finish times and less pace decline late in the race. The long run should represent 30 to 40 percent of weekly volume. Where you land within that range depends on your experience, your goal, and how well you recover.
+**Half marathon.** Recreational training plans peak the long run between 10 and 12 miles before the taper. For experienced runners, a 2020 study in the Scandinavian Journal of Medicine and Science in Sports found that a peak long run above 13 miles was associated with faster finish times and less pace decline late in the race. The long run should represent 30 to 40 percent of weekly volume. Where you land within that range depends on your experience, your goal, and how well you recover.
 
 **Marathon.** Research on diminishing aerobic returns concludes that the cellular and cardiovascular adaptations that build a more efficient aerobic engine are informed in the first ninety minutes of effort. Race-specific stresses are different. Glycogen depletion, accumulated muscular fatigue, and the experience of running on empty don't accumulate in ninety minutes. They require sustained time on feet.
 
-A 2020 study by Fokkema et al. in the Scandinavian Journal of Medicine & Science in Sports examined training characteristics and outcomes in 441 recreational marathon runners. Runners with a peak long run below 25km (15.5 miles) were associated with slower finish times. Performance gains leveled off in the 30–35km range (18.5 to 22 miles). Runs beyond 35km showed no additional benefit compared to that range. The same study found no association between long run distance and injury risk at any distance.
+The Scandinavian Journal study also examined outcomes in 441 recreational marathon runners. Runners with a peak long run below 25km (15.5 miles) were associated with slower finish times. Performance gains leveled off in the 30–35km range (18.5 to 22 miles). Runs beyond 35km showed no additional benefit compared to that range. It also found no association between long run distance and injury risk at any distance.
 
 ## Duration
 
