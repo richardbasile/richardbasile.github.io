@@ -8,7 +8,7 @@ title: Nutrition Calculator
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Endurance Nutrition Calculator</title>
+  <title>Nutrition Calculator</title>
   <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
@@ -577,7 +577,8 @@ title: Nutrition Calculator
     </header>
 
     <p style="font-size: 14.5px; color: var(--ink-mid); margin-bottom: 1.5rem;">For the research and reasoning behind
-      these numbers, see <a href="/fueling-on-the-run" style="color: var(--accent); text-decoration: none;">Fueling On The Run</a>.</p>
+      these numbers, see <a href="/fueling-on-the-run" style="color: var(--accent); text-decoration: none;">Fueling On The
+        Run</a>.</p>
 
     <div
       style="background: var(--paper); border: 1px solid var(--ink-faint); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
@@ -668,7 +669,10 @@ title: Nutrition Calculator
         </div>
         <div class="ing-row">
           <div>
-            <div class="ing-name">Pectin</div>
+            <div class="ing-name">Pectin <span
+                style="font-family:var(--mono); font-size:11px; color:var(--ink-light); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
+            </div>
+            <div class="ing-sub">thickens the mixture — omit for a thinner consistency</div>
           </div>
           <div class="ing-val" id="g-pec">—</div>
         </div>
@@ -708,6 +712,11 @@ title: Nutrition Calculator
       <div id="aid-note" class="note-box" style="display:none;">
         Carrying this much gel requires a vest. Plan to supplement with aid station nutrition or sports drink in the
         back half.
+      </div>
+
+      <div class="note-box" style="margin-top:12px;">
+        Use boiled water when mixing. Boiling helps the powders dissolve fully without clumping and supports shelf life
+        when refrigerated. Allow to cool before filling flasks. Refrigerate for up to 5-7 days, or freeze in flasks for up to 3 months.
       </div>
 
     </div>
@@ -794,9 +803,7 @@ title: Nutrition Calculator
       </div>
 
       <div class="note-box">
-        Use 1/2 tsp fine-grain table salt per liter as your measuring baseline. If using kosher or coarse salt, measure
-        by weight instead — coarser salts run 25–35% less sodium per teaspoon. Heavy sweaters (white residue on skin or
-        kit) should trend toward the higher sodium end.
+        In hot and humid conditions above 77°F (25°C), scale sodium up toward 1,500 mg per liter.
       </div>
 
     </div>
