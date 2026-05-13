@@ -35,13 +35,13 @@ Dehydration and overhydration both degrade performance. The ACSM cites measurabl
 
 ### Sodium
 
-Sodium is the electrolyte that matters most, and the one most concentrated in sweat. The white crust on your skin and kit after a long run is a tell: if you see it regularly, you are a saltier sweater. Research supports 500–700 mg of sodium per liter of fluid as a baseline for efforts over 90 minutes. In hot and humid conditions above 77°F (25°C), sweat rate can double and sodium needs scale toward 1,500 mg per liter.
+Sodium is the electrolyte that matters most, and the one most concentrated in sweat. Research supports 500–700 mg of sodium per liter of fluid as a baseline for efforts over 90 minutes. In hot and humid conditions above 77°F (25°C), sweat rate can double and sodium needs scale toward 1,500 mg per liter.
 
-Watch for swollen hands or fingers mid-run. It signals sodium replacement is falling behind fluid intake.
+Watch for swollen hands or fingers mid-run. It can signal either sodium depletion or overhydration from plain water, and the two problems have different responses. If you have been drinking heavily without electrolytes, ease back on fluid intake first. If your electrolyte intake has been low, increase it.
 
 ### Potassium and other electrolytes
 
-Sweat contains roughly ten times more sodium than potassium, so potassium is a secondary concern during exercise. Most runners cover baseline potassium needs through diet. For runs under three hours, omitting potassium from your drink mix is entirely reasonable. Commercial products like Skratch, Tailwind, and Liquid IV contain only 88–176 mg of potassium per serving, which reflects this hierarchy. The adequate intake for potassium is 2,600–3,400 mg per day, and a single liter adding 700 mg on top of a normal diet is well within that range. Commercial products keep potassium low primarily for taste, and you may adjust according to your preferences.
+Sweat contains roughly ten times more sodium than potassium, so potassium is a secondary concern during exercise. Most runners cover baseline potassium needs through diet, and omitting it from your drink mix is entirely reasonable for runs under three hours. Commercial products like Skratch, Tailwind, and Liquid IV contain only 88–176 mg of potassium per serving, which reflects this hierarchy. The adequate intake for potassium is 2,600–3,400 mg per day, and a single liter adding 700 mg on top of a normal diet is well within that range. Commercial products keep potassium low primarily for taste, and you may adjust according to your preferences.
 
 For efforts beyond three hours, potassium chloride (sold as No Salt or Nu-Salt, approximately 700 mg per 1/4 teaspoon) provides useful insurance against cumulative depletion.
 
@@ -61,7 +61,7 @@ Scale sodium toward 1 tsp per liter in heat above 77°F (25°C) or if you are a 
 
 Your intestine absorbs carbohydrates through specific transporter proteins. Glucose and glucose polymers like maltodextrin use SGLT1, a sodium-dependent active transporter. Fructose uses a separate one, GLUT5. When you consume only glucose-based carbohydrates, SGLT1 saturates at around 60 g/hr. More glucose does not increase absorption. It sits in your gut, pulls in water, and causes bloating and GI distress.
 
-Jeukendrup's group at Birmingham demonstrated that combining glucose and fructose uses both transporters simultaneously, pushing oxidation rates to 1.75 g/min (105 g/hr), a 65% improvement over single-source carbohydrate. With both transporters working, more carbohydrate clears the intestine and reaches the muscle. Less accumulates in the gut, which is why GI distress drops at high intake rates when you combine sources.
+Jeukendrup's group at Birmingham demonstrated that combining glucose and fructose uses both transporters simultaneously, pushing oxidation rates to 1.75 g/min under laboratory conditions, a 65% improvement over single-source carbohydrate. With both transporters working, more carbohydrate clears the intestine and reaches the muscle. Less accumulates in the gut, which is why GI distress drops at high intake rates when you combine sources. The ACSM caps practical recommendations at 90 g/hr: the laboratory peak assumes optimal conditions, trained absorptive capacity, and carbohydrate sources dialed to the right ratio. For most athletes, 90 g/hr is the realistic ceiling and the appropriate target for gut training.
 
 This principle underlies three practical formulation approaches, each with solid scientific support.
 
@@ -79,20 +79,18 @@ Sucrose is a disaccharide that the enzyme sucrase cleaves in the intestine into 
 
 ### Choosing your ratio
 
-The practical difference between the three approaches comes down to two factors: sweetness and intake ceiling.
+The practical difference between the three approaches comes down to sweetness and intake ceiling. Fructose is sweeter than glucose, so the more fructose in your formula, the sweeter it tastes at equivalent concentrations. Below 80 g/hr this rarely matters and all three approaches perform comparably. Above it, a highly concentrated sweet solution over several hours becomes a palatability problem, and flavor fatigue can suppress drinking at exactly the moment you need it most.
 
-Fructose is sweeter than glucose. The more fructose in your formula, the sweeter it tastes at equivalent carbohydrate concentrations. Table sugar is the sweetest of the three, the 1:0.8 ratio slightly less so, and 2:1 with maltodextrin the least sweet. At 30–60 g/hr this rarely matters. At 80–90 g/hr, drinking a highly concentrated sweet solution for several hours is a real palatability challenge, and flavor fatigue can suppress drinking at exactly the moment you need it most. If you find yourself not wanting to drink late in a long effort, sweetness is often the culprit.
-
-Below 80 g/hr, all three approaches perform comparably. The transporters are not saturated and the ratio makes little practical difference. Above that threshold, the 1:0.8 ratio extracts more oxidation efficiency from GLUT5's remaining capacity, though the advantage is most meaningful for athletes sustaining very high intensities for several hours.
-
-For most runners, table sugar is the right starting point. If sweetness becomes a problem at higher concentrations, move to a maltodextrin-based formula at 2:1. If you are pushing toward the 90 g/hr ceiling and have already gut-trained at lower intakes, the 1:0.8 ratio is worth experimenting with.
+For most runners, table sugar is the right starting point. If sweetness becomes a problem at higher intakes, move to 2:1 maltodextrin/fructose. If you are pushing toward 90 g/hr and have already gut-trained at lower intakes, the 1:0.8 ratio is worth experimenting with.
 
 
-## Gut Training: The Skill Nobody Talks About
+## Gut Training
 
 The gut is trainable. With repeated exposure to carbohydrate during exercise, the intestine gets better at absorbing it. Athletes who practice fueling during training tolerate significantly more carbohydrate per hour than those who don't.
 
 90 g/hr requires months of deliberate practice. Starting there on race day is a reliable path to GI distress, regardless of how well-formulated your gel is. Begin around 30–45 g/hr on long runs and build gradually over weeks and months. Whatever you plan to race with, train with it first.
+
+In practice, add roughly 10g every two to three weeks, not every week. Test on efforts that approximate race conditions: similar pace, duration, and heat. A training run at easy effort on a cool morning tells you almost nothing about how your gut will respond on race day. If you experience bloating or distress at a given intake level, hold there for another two or three long runs before increasing. The gut adapts, but it adapts on its own schedule.
 
 
 ## The Homemade Advantage
@@ -101,37 +99,32 @@ The core ingredients of elite sports nutrition are bulk commodities. The differe
 
 ### The carbohydrate gel
 
-For runners targeting 80–90 g/hr or building toward ultra distances, a maltodextrin-fructose gel gives precise ratio control and high palatability at concentrated doses.
+All three formulas work as a gel. The process is the same regardless of carbohydrate source: mix dry ingredients, add boiled water gradually to your preferred consistency, allow to cool, and portion into reusable gel flasks. Boiling helps the powders dissolve fully without clumping. Refrigerate for up to 5–7 days, or freeze in flasks for up to 3 months. Take one flask every 30–45 minutes depending on your target intake rate.
 
-For a standard batch covering roughly 3.75 hours at 60 g/hr:
+For a standard batch covering roughly 3.75 hours at 60 g/hr, each formula yields 225g of carbohydrate and 375–425ml of gel, filling 3–4 standard flasks. For a marathon at 60 g/hr over 4.5 hours, scale any formula to 270g total carbohydrate:
 
+**2:1 maltodextrin/fructose**
 - 150g maltodextrin
 - 75g fructose
 - 1/4 tsp pectin (optional, thickens the mixture into a gel)
 - 150–200ml water
 
-Mix the dry ingredients first, then add boiled water gradually until you reach your preferred consistency. Boiling helps the powders dissolve fully without clumping and supports shelf life when refrigerated. Allow to cool. Portion into reusable gel flasks. The batch yields 225g of carbohydrate and 375–425ml of gel, filling 3–4 standard flasks. Take one flask every 30–45 minutes depending on your target intake rate. Refrigerate for up to 5–7 days, or freeze in flasks for up to 3 months.
-
-For a 1:0.8 ratio batch at the same total carbohydrate:
-
+**1:0.8 maltodextrin/fructose**
 - 125g maltodextrin
 - 100g fructose
+- 1/4 tsp pectin (optional)
+- 150–200ml water
 
-For a marathon at 60 g/hr over 4.5 hours, scale to 270g total carbohydrate.
+**Table sugar**
+- 225g table sugar
+- 1/4 tsp pectin (optional)
+- 150–200ml water
 
-### The table sugar drink
+### All in One
 
-Table sugar dissolved in water is a complete fueling solution. Sucrose hits both absorption transporters, costs almost nothing, and requires no specialty ingredients.
+Combine carbohydrate and electrolytes into a single bottle at roughly 6% concentration (about 60g carbohydrate per liter) with salt mixed in. Omit pectin; you want a drink, not a gel. This suits runners using a vest or anyone who prefers not to carry separate flasks. The tradeoff is that once mixed, hydration and carbohydrate are locked together: drinking more means taking in more carbohydrate, and you can't change the ratio mid-run.
 
-Per liter:
-
-- 5 tbsp table sugar (approximately 60g carbohydrate)
-- 1/2 tsp fine-grain table salt
-- Squeeze of lemon or lime, or a packet of True Lemon, to taste
-
-### Two products or one
-
-A gel flask for carbohydrate and a separate bottle for electrolytes lets you adjust hydration independently of fueling. Drink more on a hot day without changing your carbohydrate intake. For runners using a vest or preferring simplicity, combine everything into a single bottle at roughly 6% carbohydrate concentration, about 60g per liter, with salt mixed in.
+Per liter, a starting point: 5 tbsp table sugar (60g carbohydrate) and 1/2 tsp salt. Scale carbohydrate and salt to your target rate and conditions using the same ratios from the electrolyte section.
 
 ### Owning the Formula
 

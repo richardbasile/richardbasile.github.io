@@ -859,9 +859,18 @@ title: Nutrition Calculator
           <div class="ing-row">
             <div>
               <div class="ing-name">Table sugar (sucrose)</div>
-              <div class="ing-sub">~4 g carbs per tsp · engages both SGLT1 and GLUT5</div>
+              <div class="ing-sub">~12 g carbs per tbsp · engages both SGLT1 and GLUT5</div>
             </div>
             <div class="ing-val" id="g-sugar-tbsp">—</div>
+          </div>
+          <div class="ing-row">
+            <div>
+              <div class="ing-name">Pectin <span
+                  style="font-family:var(--mono); font-size:11px; color:var(--ink-light); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
+              </div>
+              <div class="ing-sub">thickens the mixture — omit for a thinner consistency</div>
+            </div>
+            <div class="ing-val" id="g-sugar-pec">—</div>
           </div>
           <div class="ing-row">
             <div>
@@ -889,26 +898,6 @@ title: Nutrition Calculator
             </div>
             <div class="ing-val" id="g-sugar-bottles">—</div>
           </div>
-          <div class="ing-row">
-            <div>
-              <div class="ing-name">Maple syrup equivalent</div>
-              <div class="ing-sub">~13 g carbs per tbsp — field-expedient option</div>
-            </div>
-            <div class="ing-val" id="g-maple-sugar">—</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Shared: maple syrup equivalent (malto formulas only) -->
-      <div id="gel-maple-section">
-        <div class="card">
-          <div class="ing-row">
-            <div>
-              <div class="ing-name">Maple syrup equivalent</div>
-              <div class="ing-sub">~13 g carbs per tbsp — field-expedient option</div>
-            </div>
-            <div class="ing-val" id="g-maple">—</div>
-          </div>
         </div>
       </div>
 
@@ -918,14 +907,13 @@ title: Nutrition Calculator
       </div>
 
       <div id="gel-note-malto" class="note-box" style="margin-top:12px;">
-        Use boiled water when mixing. Boiling helps the powders dissolve fully without clumping and supports shelf life
-        when refrigerated. Allow to cool before filling flasks. Refrigerate for up to 5–7 days, or freeze in flasks for
-        up to 3 months.
+        Use boiled water when mixing. Boiling helps the powders dissolve fully without clumping. Allow to cool before
+        filling flasks. Refrigerate for up to 5–7 days, or freeze in flasks for up to 3 months.
       </div>
 
       <div id="gel-note-sugar" class="note-box" style="margin-top:12px; display:none;">
-        Dissolve sugar in warm water and stir until clear. Taste and adjust lemon before heading out. Mix fresh — no
-        preservatives mean a shorter shelf life than powdered gel.
+        Dissolve sugar in boiled water and stir until clear. Allow to cool before filling flasks. Refrigerate for up to
+        5–7 days, or freeze in flasks for up to 3 months.
       </div>
 
       <div id="ratio-note-108" class="note-box" style="margin-top:8px; display:none;">
@@ -1137,7 +1125,8 @@ title: Nutrition Calculator
       </div>
 
       <div class="note-box" style="margin-top:12px;">
-        The all-in-one drink combines carbohydrate and electrolytes in a single bottle — no separate gel needed. Target
+        The all-in-one drink combines carbohydrate and electrolytes in a single bottle with no separate gel needed.
+        Target
         ~6% carbohydrate concentration (60 g per liter). Above that, GI distress risk rises and palatability drops.
         Carry enough volume to drink 500–1,000 ml per hour. Use a soft flask or hydration vest for runs beyond 90
         minutes.
@@ -1360,9 +1349,9 @@ title: Nutrition Calculator
 
       const totalCarbs = carbRate * h;
       const waterMl = totalCarbs * 0.7;   // gel-thickness water
-      const totalVol = totalCarbs * 1.7;  // gel total volume
+      const totalVol = totalCarbs * 1.7;  // gel total volume (malto/fructose only)
       const flasks = Math.ceil(totalVol / flaskSize);
-      const mapleTbsp = Math.round(totalCarbs / 13);
+      const sugarFlasks = Math.ceil(waterMl / flaskSize);
       const liters = Math.round(h * 0.5 * 10) / 10;
       const hot_liters = hot ? Math.round(h * 1.0 * 10) / 10 : liters;
       const naRate = sodiumRate(h, hot);
@@ -1388,7 +1377,7 @@ title: Nutrition Calculator
       // ── Summary metrics ──────────────────────────────────────────
       document.getElementById('m-carbs').textContent = noGel ? 'n/a' : fmt(totalCarbs, 'g');
       document.getElementById('m-vol').textContent = noGel ? 'n/a' : fmt(isSugar ? waterMl : totalVol, 'ml');
-      document.getElementById('m-flasks').textContent = noGel ? 'n/a' : flasks;
+      document.getElementById('m-flasks').textContent = noGel ? 'n/a' : (isSugar ? sugarFlasks : flasks);
       document.getElementById('m-sodium').textContent = naRate === 0 ? 'n/a' : fmt(naTotal, 'mg');
 
       // Restore metric labels (always gel-oriented in the top bar)
@@ -1402,7 +1391,6 @@ title: Nutrition Calculator
       const showSugar = isSugar && !noGel;
       document.getElementById('gel-malto-section').style.display = showMalto ? '' : 'none';
       document.getElementById('gel-sugar-section').style.display = showSugar ? '' : 'none';
-      document.getElementById('gel-maple-section').style.display = (showMalto && !noGel) ? '' : 'none';
       document.getElementById('gel-note-malto').style.display = showMalto ? '' : 'none';
       document.getElementById('gel-note-sugar').style.display = showSugar ? '' : 'none';
       document.getElementById('ratio-note-108').style.display = (currentRatio === '1:0.8' && !noGel) ? '' : 'none';
@@ -1431,17 +1419,16 @@ title: Nutrition Calculator
           document.getElementById('g-batches').textContent = flasks + ' flasks';
           document.getElementById('g-batches-sub').textContent = 'single batch · ' + flasks + ' flasks @ ' + flaskSize + ' ml';
         }
-        document.getElementById('g-maple').textContent = mapleTbsp + ' tbsp';
       }
 
       if (showSugar) {
         // Sugar gel: same gel-thickness water ratio as malto, just sucrose instead
-        const sugarTbsp = Math.round(totalCarbs / 4);  // ~4 g carbs per tsp → ~12 per tbsp; tbsp display
+        const sugarTbsp = Math.round(totalCarbs / 12);  // ~12 g carbs per tbsp (4 g/tsp × 3 tsp/tbsp)
         document.getElementById('g-sugar-tbsp').textContent = sugarTbsp + ' tbsp';
+        document.getElementById('g-sugar-pec').textContent = pectinLabel(totalCarbs / 225);
         document.getElementById('g-sugar-water').textContent = fmt(waterMl, 'ml');
-        document.getElementById('g-sugar-bottles').textContent = flasks + ' flasks @ ' + flaskSize + ' ml';
+        document.getElementById('g-sugar-bottles').textContent = sugarFlasks + ' flask' + (sugarFlasks !== 1 ? 's' : '') + ' @ ' + flaskSize + ' ml';
         document.getElementById('g-sugar-bottle-sub').textContent = 'gel consistency · boil water to dissolve fully';
-        document.getElementById('g-maple-sugar').textContent = mapleTbsp + ' tbsp';
       }
 
       // ── Hydration tab ─────────────────────────────────────────────
