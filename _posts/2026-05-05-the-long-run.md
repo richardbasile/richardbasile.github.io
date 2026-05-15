@@ -16,9 +16,7 @@ The purpose of the long run is time on feet: sustained aerobic effort that build
 
 Push the effort too hard, and the last few miles become a grind. You spend the next several days recovering from something that should have left you tired but functional.
 
-Keep the effort easy. Target an RPE (rate of perceived exertion) of 4 at most on a 10-point scale. You're holding a conversational pace from beginning to end.
-
-As covered in [Slower Than You Think](/slower-than-you-think/), cardiac drift pushes heart rate higher over time even when pace and effort stay flat. You may need to slow your pace or take walk breaks in the final miles to manage drift correctly. Starting well below your target effort early in the run also gives you the headroom to stay below aerobic threshold when drift peaks late in the run.
+Keep the effort easy. You're holding a conversational pace from beginning to end. You may need to slow your pace or take walk breaks in the final miles to manage cardiac drift. Starting well below your target effort early in the run also gives you the headroom to stay below aerobic threshold when drift peaks late in the run.
 
 ## Build
 
