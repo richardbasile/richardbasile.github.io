@@ -18,7 +18,7 @@ Research by Asker Jeukendrup and colleagues at the University of Birmingham esta
 
 **Under 45 minutes:** Water is sufficient. Glycogen is not a limiting factor.
 
-**45–75 minutes:** Carbohydrate produces a meaningful performance benefit through a neural mechanism, not metabolism. Research published in Nutrients found that carbohydrate detected in the mouth activates reward areas in the brain linked to motor control and motivation, producing performance improvements of 2–3% in high-intensity efforts without any carbohydrate being swallowed. A banana before heading out covers this. Mid-run, a 5–10 second mouth rinse with a carbohydrate solution delivers the same signal.
+**45–75 minutes:** Carbohydrate detected in the mouth activates reward areas in the brain linked to motor control and motivation through a neural mechanism rather than a metabolic one. A 5–10 second mouth rinse with a carbohydrate solution mid-run produces performance improvements of 2–3% in high-intensity efforts without any carbohydrate being swallowed. Alternatively, eating a banana before your run achieves the same effect.
 
 **75–90 minutes:** Carbohydrate intake has clear metabolic benefit. Target 30–60 g/hr. A single carbohydrate source works fine at this range. Electrolytes are not yet necessary but begin to offer a benefit, particularly in heat.
 
