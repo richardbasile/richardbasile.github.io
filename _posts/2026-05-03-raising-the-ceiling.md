@@ -26,7 +26,9 @@ You can only go genuinely hard if easy days have left you recovered enough to ge
 
 Quality sessions target an RPE 7 to 9. Labored but controlled. The feel differs by session. At tempo effort, you could answer a direct question in a few words, but you wouldn't want to sustain a conversation. At interval effort, speaking is genuinely impossible. If you're doing a tempo run and can't get a word out, you're working too hard. If you're doing intervals and could hold a sentence, you're not working hard enough. The upper end, RPE 9, is reserved for short, maximal efforts. Most quality work lives in the 7 to 8 range: hard enough to produce a strong adaptation signal, controlled enough to execute well.
 
-The common failure mode isn't going too hard. It's arriving fatigued, drifting into the black hole, and backing off the intensity to something manageable. You're spending the session at RPE 5 or 6, harder than easy, not hard enough to matter. If you're running intervals and could hold a conversation between reps, you're probably not working hard enough.
+The common failure mode isn't going too hard. It's arriving fatigued, drifting into the black hole, and backing off the intensity to something manageable. If you're running intervals and could hold a conversation between reps, you're probably not working hard enough.
+
+Quality workouts may not meet your expectations early in the session. The cardiovascular system takes a few minutes to catch up to the demand. Regard the opening intervals or early miles as an announcement and let the session find its rhythm.
 
 ## Types of quality work
 

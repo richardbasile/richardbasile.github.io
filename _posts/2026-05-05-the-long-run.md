@@ -18,6 +18,8 @@ Push the effort too hard, and the last few miles become a grind. You spend the n
 
 Keep the effort easy. Target an RPE (rate of perceived exertion) of 4 at most on a 10-point scale. You're holding a conversational pace from beginning to end.
 
+As covered in [Slower Than You Think](/slower-than-you-think/), cardiac drift pushes heart rate higher over time even when pace and effort stay flat. You may need to slow your pace or take walk breaks in the final miles to manage drift correctly. Starting well below your target effort early in the run also gives you the headroom to stay below aerobic threshold when drift peaks late in the run.
+
 ## Build
 
 A 2025 cohort study of over 5,200 runners in the British Journal of Sports Medicine found that the strongest predictor of overuse injury wasn't weekly mileage or cumulative load. It was a sudden spike in a single run. Runners who increased their longest run by 10 to 30% compared to their longest run in the prior month faced a 64% higher injury risk — and the risk climbed from there. Build gradually. As a general rule, adding no more than one to two miles per week keeps progression within a range your tissues can absorb.

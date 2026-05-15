@@ -35,6 +35,18 @@ There's also a longer arc worth understanding. As your aerobic fitness develops,
 
 Use the field test to establish a baseline. Use feel to govern every run. Watch the easy pace over months, not days. That's where the progress shows up.
 
+## Cardiac drift
+
+Even when effort stays constant, heart rate climbs. This is cardiac drift: as core temperature rises and fluid is lost through sweat, your heart beats faster to maintain the same output. The pace hasn't changed. The effort hasn't changed. But the monitor tells a different story by mile four than it did at mile one.
+
+Drift matters because you can start comfortably below LT1 and end up above it without doing anything wrong. The run that felt controlled at the outset quietly crosses into the black hole. The fatigue accumulates, the recovery cost rises, and because nothing felt hard, it's not obvious what happened.
+
+The mitigation is to start slower than your target easy effort. Bank headroom early so drift has room to run before it pushes you over the threshold. This collides directly with the ego problem described above. Your easy pace already feels embarrassingly slow. Starting even slower, for the first mile or two, before settling into something that still doesn't feel like training, is a hard sell.
+
+Do it anyway. A run that starts uncomfortably easy and finishes controlled is exactly right. One that starts comfortable and finishes in the black hole isn't an easy run. It's a moderate run wearing easy clothes.
+
+On efforts pushing ninety minutes or more, check in with your effort at regular intervals rather than holding a pace. The goal is consistent perceived effort, not consistent pace. As drift takes hold, pace comes down. That's not slowing down. That's doing it right.
+
 ## What to do when easy feels impossible
 
 Heat, fatigue, stress, poor sleep, all of it pushes your heart rate up at any given pace. On those days, easy effort might mean slowing down more than feels reasonable, or taking walk breaks. Both are correct responses. Run/walk intervals aren't a consolation prize. They're a tool for keeping your effort where it belongs when your body is working harder than usual just to maintain.
