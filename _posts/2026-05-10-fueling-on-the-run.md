@@ -18,7 +18,7 @@ Research by Asker Jeukendrup and colleagues at the University of Birmingham esta
 
 **Under 45 minutes:** Water is sufficient. Glycogen is not a limiting factor.
 
-**45–75 minutes:** Carbohydrate detected in the mouth activates reward areas in the brain linked to motor control and motivation through a neural mechanism rather than a metabolic one. A 5–10 second mouth rinse with a carbohydrate solution mid-run produces performance improvements of 2–3% in high-intensity efforts without any carbohydrate being swallowed. Alternatively, eating a banana before your run achieves the same effect.
+**45–75 minutes:** Carbohydrate detected in the mouth activates reward areas in the brain linked to motor control and motivation through a neural mechanism rather than a metabolic one. A 5–10 second mouth rinse with a carbohydrate solution mid-run produces performance improvements of 2–3% in high-intensity efforts without any carbohydrate being swallowed.
 
 **75–90 minutes:** Carbohydrate intake has clear metabolic benefit. Target 30–60 g/hr. A single carbohydrate source works fine at this range. Electrolytes are not yet necessary but begin to offer a benefit, particularly in heat.
 
@@ -35,15 +35,15 @@ Dehydration and overhydration both degrade performance. The ACSM cites measurabl
 
 ### Sodium
 
-Sodium is the electrolyte that matters most, and the one most concentrated in sweat. Research supports 500–700 mg of sodium per liter of fluid as a baseline for efforts over 90 minutes. In hot and humid conditions above 77°F (25°C), sweat rate can double and sodium needs scale toward 1,500 mg per liter.
+Sodium is the electrolyte that matters most, and the one most concentrated in sweat. Sweat sodium averages around 800–1,000 mg per liter, and a practical target of 1,000 mg per liter of drink replaces losses without overcorrecting. In hot and humid conditions above 77°F (25°C), sweat rate can double and sodium needs scale toward 1,500 mg per liter.
 
 Watch for swollen hands or fingers mid-run. It can signal either sodium depletion or overhydration from plain water, and the two problems have different responses. If you have been drinking heavily without electrolytes, ease back on fluid intake first. If your electrolyte intake has been low, increase it.
 
 ### Potassium and other electrolytes
 
-Sweat contains roughly ten times more sodium than potassium, so potassium is a secondary concern during exercise. Most runners cover baseline potassium needs through diet, and omitting it from your drink mix is entirely reasonable for runs under three hours. Commercial products like Skratch, Tailwind, and Liquid IV contain only 88–176 mg of potassium per serving, which reflects this hierarchy. The adequate intake for potassium is 2,600–3,400 mg per day, and a single liter adding 700 mg on top of a normal diet is well within that range. Commercial products keep potassium low primarily for taste, and you may adjust according to your preferences.
+Sweat contains roughly four to six times more sodium than potassium, so potassium is a secondary concern during exercise. Most runners cover baseline potassium needs through diet, and omitting it from your drink mix is entirely reasonable for runs under three hours. Commercial products like Skratch, Tailwind, and Liquid IV contain only 88–176 mg of potassium per serving, which reflects this hierarchy. The adequate intake for potassium is 2,600–3,400 mg per day, and a single liter adding 700 mg on top of a normal diet is well within that range. Commercial products keep potassium low primarily for taste, and you may adjust according to your preferences.
 
-For efforts beyond three hours, potassium chloride (sold as No Salt or Nu-Salt, approximately 700 mg per 1/4 teaspoon) provides useful insurance against cumulative depletion.
+For efforts beyond three hours, potassium chloride (sold as No Salt or Nu-Salt, approximately 350 mg per 1/8 teaspoon) provides useful insurance against cumulative depletion. For shorter efforts, omit it from your drink. Dietary potassium covers the baseline and sweat losses are too small to outpace it.
 
 Magnesium and calcium are better handled through daily supplementation than a run drink. Magnesium glycinate at 200–400 mg taken nightly supports sleep and muscle recovery. Calcium is best split across two meals, with absorption capped at around 500 mg at a time. Including either in a run drink introduces GI risk without meaningful benefit in acute performance.
 
@@ -51,17 +51,17 @@ Magnesium and calcium are better handled through daily supplementation than a ru
 
 Per liter of water:
 
-- 1/2 tsp fine-grain table salt (approximately 1,200 mg sodium)
-- 1/4 tsp No Salt or Nu-Salt, optional (approximately 700 mg potassium)
+- 1/2 tsp fine-grain table salt (approximately 1,150 mg sodium)
+- 1/8 tsp No Salt or Nu-Salt, optional (approximately 350 mg potassium)
 
-Scale sodium toward 1 tsp per liter in heat above 77°F (25°C) or if you are a salty sweater.
+Scale sodium toward 3/4 tsp per liter in heat above 77°F (25°C) or if you are a salty sweater.
 
 
 ## The Science of Carbohydrate Absorption
 
 Your intestine absorbs carbohydrates through specific transporter proteins. Glucose and glucose polymers like maltodextrin use SGLT1, a sodium-dependent active transporter. Fructose uses a separate one, GLUT5. When you consume only glucose-based carbohydrates, SGLT1 saturates at around 60 g/hr. More glucose does not increase absorption. It sits in your gut, pulls in water, and causes bloating and GI distress.
 
-Jeukendrup's group at Birmingham demonstrated that combining glucose and fructose uses both transporters simultaneously, pushing oxidation rates to 1.75 g/min under laboratory conditions, a 65% improvement over single-source carbohydrate. With both transporters working, more carbohydrate clears the intestine and reaches the muscle. Less accumulates in the gut, which is why GI distress drops at high intake rates when you combine sources. The ACSM caps practical recommendations at 90 g/hr: the laboratory peak assumes optimal conditions, trained absorptive capacity, and carbohydrate sources dialed to the right ratio. For most athletes, 90 g/hr is the realistic ceiling and the appropriate target for gut training.
+Jeukendrup's group at Birmingham demonstrated that combining glucose and fructose uses both transporters simultaneously, pushing oxidation rates to 1.75 g/min under laboratory conditions, a 50% improvement over single-source carbohydrate. With both transporters working, more carbohydrate clears the intestine and reaches the muscle. Less accumulates in the gut, which is why GI distress drops at high intake rates when you combine sources. The ACSM caps practical recommendations at 90 g/hr: the laboratory peak assumes optimal conditions, trained absorptive capacity, and carbohydrate sources dialed to the right ratio. For most athletes, 90 g/hr is the realistic ceiling and the appropriate target for gut training.
 
 This principle underlies three practical formulation approaches, each with solid scientific support.
 
@@ -124,7 +124,7 @@ For a standard batch covering roughly 3.75 hours at 60 g/hr, each formula yields
 
 Combine carbohydrate and electrolytes into a single bottle at roughly 6% concentration (about 60g carbohydrate per liter) with salt mixed in. Omit pectin; you want a drink, not a gel. This suits runners using a vest or anyone who prefers not to carry separate flasks. The tradeoff is that once mixed, hydration and carbohydrate are locked together: drinking more means taking in more carbohydrate, and you can't change the ratio mid-run.
 
-Per liter, a starting point: 5 tbsp table sugar (60g carbohydrate) and 1/2 tsp salt. Scale carbohydrate and salt to your target rate and conditions using the same ratios from the electrolyte section.
+Per liter, a starting point: 5 tbsp table sugar (60g carbohydrate) and 1/2 tsp salt. Scale carbohydrate, sodium, and potassium to your target rate and conditions.
 
 ### Owning the Formula
 

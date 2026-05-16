@@ -770,16 +770,12 @@ title: Nutrition Calculator
           <div class="metric-lbl">total carbs</div>
         </div>
         <div class="metric">
-          <div class="metric-val" id="m-vol">—</div>
-          <div class="metric-lbl">gel volume</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val" id="m-flasks">—</div>
-          <div class="metric-lbl">gel flasks</div>
-        </div>
-        <div class="metric">
           <div class="metric-val" id="m-sodium">—</div>
           <div class="metric-lbl">sodium target</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val" id="m-potassium">—</div>
+          <div class="metric-lbl">potassium target</div>
         </div>
       </div>
 
@@ -798,11 +794,8 @@ title: Nutrition Calculator
 
     <div id="gels" class="panel active">
 
-      <div id="carb-guidance" class="carb-guidance" style="display:none;"></div>
-
       <!-- Maltodextrin/fructose gel (2:1 and 1:0.8) -->
       <div id="gel-malto-section">
-        <p class="section-label">Carb gel ingredients</p>
         <div class="card">
           <div class="ing-row">
             <div>
@@ -844,17 +837,22 @@ title: Nutrition Calculator
         <div class="card">
           <div class="ing-row">
             <div>
-              <div class="ing-name">Full batches needed</div>
-              <div class="ing-sub" id="g-batches-sub">1 batch = 225 g carbs</div>
+              <div class="ing-name">Gel volume</div>
             </div>
-            <div class="ing-val" id="g-batches">—</div>
+            <div class="ing-val" id="g-vol">—</div>
+          </div>
+          <div class="ing-row">
+            <div>
+              <div class="ing-name">Flasks needed</div>
+              <div class="ing-sub" id="g-flasks-sub">—</div>
+            </div>
+            <div class="ing-val" id="g-flasks">—</div>
           </div>
         </div>
       </div>
 
       <!-- Table sugar section -->
       <div id="gel-sugar-section" style="display:none;">
-        <p class="section-label">Table sugar formula</p>
         <div class="card">
           <div class="ing-row">
             <div>
@@ -893,27 +891,18 @@ title: Nutrition Calculator
         <div class="card">
           <div class="ing-row">
             <div>
+              <div class="ing-name">Gel volume</div>
+            </div>
+            <div class="ing-val" id="g-sugar-vol">—</div>
+          </div>
+          <div class="ing-row">
+            <div>
               <div class="ing-name">Flasks needed</div>
-              <div class="ing-sub" id="g-sugar-bottle-sub">gel consistency</div>
+              <div class="ing-sub" id="g-sugar-bottle-sub">gel consistency · boil water to dissolve fully</div>
             </div>
             <div class="ing-val" id="g-sugar-bottles">—</div>
           </div>
         </div>
-      </div>
-
-      <div id="aid-note" class="note-box" style="display:none;">
-        Carrying this much gel requires a vest. Plan to supplement with aid station nutrition or sports drink in the
-        back half.
-      </div>
-
-      <div id="gel-note-malto" class="note-box" style="margin-top:12px;">
-        Use boiled water when mixing. Boiling helps the powders dissolve fully without clumping. Allow to cool before
-        filling flasks. Refrigerate for up to 5–7 days, or freeze in flasks for up to 3 months.
-      </div>
-
-      <div id="gel-note-sugar" class="note-box" style="margin-top:12px; display:none;">
-        Dissolve sugar in boiled water and stir until clear. Allow to cool before filling flasks. Refrigerate for up to
-        5–7 days, or freeze in flasks for up to 3 months.
       </div>
 
       <div id="ratio-note-108" class="note-box" style="margin-top:8px; display:none;">
@@ -921,95 +910,46 @@ title: Nutrition Calculator
         The practical advantage over 2:1 is modest below 80 g/hr and most meaningful at the 90 g/hr ceiling.
       </div>
 
+      <div id="gel-note-malto" class="note-box" style="margin-top:8px;"></div>
+      <div id="gel-note-sugar" class="note-box" style="margin-top:8px; display:none;"></div>
+
     </div>
 
     <div id="hydration" class="panel">
 
-      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
-        <span class="section-label" style="margin:0;">Electrolyte mix</span>
-        <div style="display:flex;">
-          <span
-            style="width:110px; padding: 0 14px; box-sizing:border-box; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-light); text-align:right; white-space:nowrap;">Per
-            liter</span>
-          <span
-            style="width:110px; padding: 0 14px; box-sizing:border-box; font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-light); text-align:right; white-space:nowrap;">Total
-            batch</span>
-        </div>
-      </div>
-      <div
-        style="border: 0.5px solid var(--ink-faint); border-radius:4px; overflow:hidden; margin-bottom:12px; background:var(--paper);">
-        <table style="width:100%; border-collapse:collapse;">
-          <colgroup>
-            <col style="width:auto;">
-            <col style="width:110px;">
-            <col style="width:110px;">
-          </colgroup>
-          <tbody>
-            <tr style="border-bottom: 0.5px solid var(--ink-faint);">
-              <td style="padding: 9px 14px;">
-                <div class="ing-name">Table salt (fine grain NaCl)</div>
-                <div class="ing-sub">~1,000 mg sodium · use 2.5 g by weight if kosher or coarse</div>
-              </td>
-              <td
-                style="padding: 9px 14px; font-family: var(--mono); font-size: 14.5px; color: var(--ink-mid); text-align: right; border-left: 0.5px solid var(--ink-faint);"
-                id="e-salt-pl">1/2 tsp</td>
-              <td
-                style="padding: 9px 14px; font-family: var(--mono); font-size: 14.5px; color: var(--ink-mid); text-align: right; border-left: 0.5px solid var(--ink-faint);"
-                id="e-salt-tsp">—</td>
-            </tr>
-            <tr style="border-bottom: 0.5px solid var(--ink-faint);">
-              <td style="padding: 9px 14px;">
-                <div class="ing-name">No Salt / Nu-Salt (KCl)</div>
-                <div class="ing-sub">~350 mg potassium</div>
-              </td>
-              <td
-                style="padding: 9px 14px; font-family: var(--mono); font-size: 14.5px; color: var(--ink-mid); text-align: right; border-left: 0.5px solid var(--ink-faint);"
-                id="e-kcl-pl">1/4 tsp</td>
-              <td
-                style="padding: 9px 14px; font-family: var(--mono); font-size: 14.5px; color: var(--ink-mid); text-align: right; border-left: 0.5px solid var(--ink-faint);"
-                id="e-kcl-total">—</td>
-            </tr>
-            <tr>
-              <td style="padding: 9px 14px;">
-                <div class="ing-name">Magnesium citrate powder</div>
-                <div class="ing-sub">~100 mg magnesium</div>
-              </td>
-              <td
-                style="padding: 9px 14px; font-family: var(--mono); font-size: 14.5px; color: var(--ink-mid); text-align: right; border-left: 0.5px solid var(--ink-faint);"
-                id="e-mag-pl">1/4 tsp</td>
-              <td
-                style="padding: 9px 14px; font-family: var(--mono); font-size: 14.5px; color: var(--ink-mid); text-align: right; border-left: 0.5px solid var(--ink-faint);"
-                id="e-mag-total">—</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
       <div class="card">
         <div class="ing-row">
           <div>
-            <div class="ing-name">Sodium target</div>
+            <div class="ing-name">Liters to prepare</div>
+            <div class="ing-sub" id="e-liters-sub">~500 ml/hr typical sweat rate</div>
           </div>
-          <div style="text-align:right">
-            <div class="ing-val" id="e-na-hr">—</div>
-            <div class="ing-note" id="e-na-total">—</div>
-          </div>
+          <div class="ing-val" id="e-liters">—</div>
         </div>
         <div class="ing-row">
           <div>
-            <div class="ing-name">Liters to prepare</div>
-            <div class="ing-sub">~500 ml/hr typical sweat rate</div>
+            <div class="ing-name">Table salt (fine grain NaCl)</div>
+            <div class="ing-sub" id="e-salt-rate">—</div>
           </div>
-          <div class="ing-val" id="e-liters">—</div>
+          <div class="ing-val" id="e-salt-tsp">—</div>
+        </div>
+        <div class="ing-row">
+          <div>
+            <div class="ing-name">No Salt / Nu-Salt (KCl)</div>
+            <div class="ing-sub" id="e-kcl-rate">—</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="ing-val" id="e-kcl-total">—</div>
+            <div class="ing-note" id="e-kcl-total-sub"></div>
+          </div>
         </div>
       </div>
 
       <div class="note-box" id="hydration-note-normal">
-        In hot and humid conditions above 77°F (25°C), scale sodium up toward 1,500 mg per liter.
+        In hot and humid conditions above 77°F (25°C), scale sodium to ~1,725 mg/L (3/4 tsp per liter).
       </div>
       <div class="note-box" id="hydration-note-hot"
         style="display:none; background:var(--accent-soft); border-left-color:var(--accent); color:var(--accent);">
-        Hot conditions: sodium scaled to ~1,200–1,500 mg/L. Sweat rate can double — drink more frequently and watch for
+        Hot conditions: sodium scaled to ~1,725 mg/L (3/4 tsp per liter). Sweat rate can double — drink more frequently and watch for
         swollen hands or fingers, a sign sodium replacement is falling behind fluid intake.
       </div>
 
@@ -1017,19 +957,41 @@ title: Nutrition Calculator
 
     <div id="allinone" class="panel">
 
-      <div id="aio-guidance" class="carb-guidance" style="display:none; margin-bottom:1rem;"></div>
-
-      <p class="section-label">Per liter of drink</p>
       <div class="card">
+        <div class="ing-row">
+          <div>
+            <div class="ing-name">Liters to prepare</div>
+            <div class="ing-sub" id="aio-liters-sub">~500 ml/hr typical sweat rate</div>
+          </div>
+          <div class="ing-val" id="aio-liters">—</div>
+        </div>
+
+        <div class="ing-row">
+          <div>
+            <div class="ing-name">Table salt (fine grain NaCl)</div>
+            <div class="ing-sub" id="aio-salt-rate">—</div>
+          </div>
+          <div class="ing-val" id="aio-total-salt">—</div>
+        </div>
+        <div class="ing-row">
+          <div>
+            <div class="ing-name">No Salt / Nu-Salt (KCl)</div>
+            <div class="ing-sub" id="aio-kcl-rate">—</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="ing-val" id="aio-kcl-total">—</div>
+            <div class="ing-note" id="aio-kcl-total-sub"></div>
+          </div>
+        </div>
 
         <!-- Carb source: sugar -->
         <div id="aio-sugar-rows">
-          <div class="ing-row">
+          <div class="ing-row" style="border-bottom: 0.5px solid var(--ink-faint);">
             <div>
               <div class="ing-name">Table sugar (sucrose)</div>
-              <div class="ing-sub">~6% solution · engages both SGLT1 and GLUT5</div>
+              <div class="ing-sub" id="aio-total-carb-sub">full run</div>
             </div>
-            <div class="ing-val" id="aio-sugar-per-l">—</div>
+            <div class="ing-val" id="aio-total-carb">—</div>
           </div>
         </div>
 
@@ -1038,99 +1000,20 @@ title: Nutrition Calculator
           <div class="ing-row">
             <div>
               <div class="ing-name">Maltodextrin</div>
-              <div class="ing-sub" id="aio-malto-sub">2 parts</div>
+              <div class="ing-sub" id="aio-malt-rate">—</div>
             </div>
-            <div class="ing-val" id="aio-malt-per-l">—</div>
+            <div class="ing-val" id="aio-malt-total">—</div>
           </div>
           <div class="ing-row">
             <div>
               <div class="ing-name">Fructose</div>
-              <div class="ing-sub" id="aio-fruc-sub">1 part</div>
+              <div class="ing-sub" id="aio-fruc-rate">—</div>
             </div>
-            <div class="ing-val" id="aio-fruc-per-l">—</div>
-          </div>
-        </div>
-
-        <!-- Electrolytes — always shown -->
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">Table salt (fine grain NaCl)</div>
-            <div class="ing-sub" id="aio-salt-sub">~1,000 mg sodium</div>
-          </div>
-          <div class="ing-val" id="aio-salt-per-l">—</div>
-        </div>
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">No Salt / Nu-Salt (KCl) <span
-                style="font-family:var(--mono); font-size:11px; color:var(--ink-light); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
-            </div>
-            <div class="ing-sub">~700 mg potassium per 1/4 tsp</div>
-          </div>
-          <div class="ing-val" id="aio-kcl-per-l">—</div>
-        </div>
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">Lemon or lime juice</div>
-            <div class="ing-sub">cuts sweetness — especially useful at higher carb concentrations</div>
-          </div>
-          <div class="ing-val" style="color:var(--ink-light);">to taste</div>
-        </div>
-
-        <div class="ratio-bar">
-          <div class="ratio-malt" id="aio-ratio-bar-malt" style="width:50%"></div>
-          <div class="ratio-fruc" id="aio-ratio-bar-fruc" style="width:50%"></div>
-        </div>
-        <div class="ratio-legend" id="aio-ratio-legend">
-          <span><span class="legend-dot" style="background:var(--blue);"></span>Glucose</span>
-          <span><span class="legend-dot" style="background:var(--green);"></span>Fructose</span>
-        </div>
-      </div>
-
-      <p class="section-label" style="margin-top:1rem;">Total batch</p>
-      <div class="card">
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">Total carb source</div>
-            <div class="ing-sub" id="aio-total-carb-sub">full run</div>
-          </div>
-          <div class="ing-val" id="aio-total-carb">—</div>
-        </div>
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">Total salt</div>
-          </div>
-          <div class="ing-val" id="aio-total-salt">—</div>
-        </div>
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">Liters to prepare</div>
-            <div class="ing-sub" id="aio-liters-sub">~500 ml/hr typical sweat rate</div>
-          </div>
-          <div class="ing-val" id="aio-liters">—</div>
-        </div>
-        <div class="ing-row">
-          <div>
-            <div class="ing-name">Sodium total</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="ing-val" id="aio-na-hr">—</div>
-            <div class="ing-note" id="aio-na-total"></div>
+            <div class="ing-val" id="aio-fruc-total">—</div>
           </div>
         </div>
       </div>
-
-      <div id="aio-sweetness-warn" class="warn-box" style="display:none; margin-top:12px;">
-        At 80–90 g/hr, sweetness can suppress drinking late in a long effort. Consider the maltodextrin/fructose formula
-        for better palatability at high concentrations.
-      </div>
-
-      <div class="note-box" style="margin-top:12px;">
-        The all-in-one drink combines carbohydrate and electrolytes in a single bottle with no separate gel needed.
-        Target
-        ~6% carbohydrate concentration (60 g per liter). Above that, GI distress risk rises and palatability drops.
-        Carry enough volume to drink 500–1,000 ml per hour. Use a soft flask or hydration vest for runs beyond 90
-        minutes.
-      </div>
+      <div class="note-box" id="aio-note" style="margin-top:12px;"></div>
 
     </div>
 
@@ -1280,14 +1163,16 @@ title: Nutrition Calculator
 
     function sodiumRate(h, hot) {
       if (h <= 0.75) return 0;
-      const base = h <= 2 ? 500 : h <= 3 ? 625 : 750;
-      return hot ? Math.round(base * 2.2) : base;
+      return hot ? 1725 : 1150;
     }
 
     function sodiumLabel(h, hot) {
       if (h <= 0.75) return 'water only';
-      if (hot) return h <= 2 ? '~1,100 mg/hr' : h <= 3 ? '~1,375 mg/hr' : '~1,650 mg/hr';
-      return h <= 2 ? '~500 mg/hr' : h <= 3 ? '500–750 mg/hr' : '~750 mg/hr';
+      return hot ? '~1,725 mg/L' : '~1,150 mg/L';
+    }
+
+    function potassiumLabel(h) {
+      return h > 3 ? '~350 mg/hr' : 'optional';
     }
 
     function pectinLabel(batches) {
@@ -1334,7 +1219,7 @@ title: Nutrition Calculator
 
     function carbGuidance(h, carbRate) {
       if (h <= 0.75) return { show: true, msg: 'Under 45 min: water is sufficient. Glycogen is not a limiting factor at this duration.' };
-      if (h <= 1.25) return { show: true, msg: '45–75 min: carbohydrate aids performance through a neural mechanism, not metabolism. A carb mouth rinse or banana before heading out is sufficient.' };
+      if (h <= 1.25) return { show: true, msg: '45–75 min: carbohydrate aids performance through a neural mechanism, not metabolism. A carb mouth rinse mid-run is sufficient — no need to swallow.' };
       if (h <= 1.5) return { show: true, msg: '75–90 min: carbohydrate has clear metabolic benefit. Target 30–60 g/hr. A single carbohydrate source works fine at this range.' };
       if (h <= 2.5) return { show: true, msg: '90 min – 2.5 hr: target 60 g/hr. Electrolyte replacement is necessary. Both glucose and fructose sources are recommended.' };
       return { show: true, msg: 'Beyond 2.5 hr: the ACSM recommends up to 90 g/hr. At this level, combining glucose and fructose is required — SGLT1 saturates at 60 g/hr with glucose alone.' };
@@ -1349,18 +1234,13 @@ title: Nutrition Calculator
 
       const totalCarbs = carbRate * h;
       const waterMl = totalCarbs * 0.7;   // gel-thickness water
-      const totalVol = totalCarbs * 1.7;  // gel total volume (malto/fructose only)
+      const totalVol = totalCarbs * 1.7;  // gel total volume
       const flasks = Math.ceil(totalVol / flaskSize);
-      const sugarFlasks = Math.ceil(waterMl / flaskSize);
+      const sugarFlasks = Math.ceil(totalVol / flaskSize);
       const liters = Math.round(h * 0.5 * 10) / 10;
       const hot_liters = hot ? Math.round(h * 1.0 * 10) / 10 : liters;
       const naRate = sodiumRate(h, hot);
-      const naTotal = h <= 0.75 ? 0 : (() => {
-        const baseRate = hot ? [1100, 1375, 1650] : [500, 625, 750];
-        if (h <= 2) return baseRate[0] * h;
-        if (h <= 3) return baseRate[0] * 2 + baseRate[1] * (h - 2);
-        return baseRate[0] * 2 + baseRate[1] * 1 + baseRate[2] * (h - 3);
-      })();
+      const naTotal = naRate * hot_liters;
 
       // Ratio-specific malto/fruc split
       let malt, fruc;
@@ -1376,30 +1256,22 @@ title: Nutrition Calculator
 
       // ── Summary metrics ──────────────────────────────────────────
       document.getElementById('m-carbs').textContent = noGel ? 'n/a' : fmt(totalCarbs, 'g');
-      document.getElementById('m-vol').textContent = noGel ? 'n/a' : fmt(isSugar ? waterMl : totalVol, 'ml');
-      document.getElementById('m-flasks').textContent = noGel ? 'n/a' : (isSugar ? sugarFlasks : flasks);
       document.getElementById('m-sodium').textContent = naRate === 0 ? 'n/a' : fmt(naTotal, 'mg');
-
-      // Restore metric labels (always gel-oriented in the top bar)
-      const volLabel = document.getElementById('m-vol').nextElementSibling;
-      if (volLabel) volLabel.textContent = 'gel volume';
-      const flaskLabel = document.getElementById('m-flasks').nextElementSibling;
-      if (flaskLabel) flaskLabel.textContent = 'gel flasks';
+      document.getElementById('m-potassium').textContent = naRate === 0 ? 'n/a' : (h > 3 ? fmt(liters * 350, 'mg') : 'optional');
 
       // ── Gels tab ─────────────────────────────────────────────────
-      const showMalto = !isSugar && !noGel;
-      const showSugar = isSugar && !noGel;
+      const showMalto = !isSugar;
+      const showSugar = isSugar;
       document.getElementById('gel-malto-section').style.display = showMalto ? '' : 'none';
       document.getElementById('gel-sugar-section').style.display = showSugar ? '' : 'none';
       document.getElementById('gel-note-malto').style.display = showMalto ? '' : 'none';
       document.getElementById('gel-note-sugar').style.display = showSugar ? '' : 'none';
       document.getElementById('ratio-note-108').style.display = (currentRatio === '1:0.8' && !noGel) ? '' : 'none';
-
       if (showMalto) {
-        document.getElementById('g-malt').textContent = fmt(malt, 'g');
-        document.getElementById('g-fruc').textContent = fmt(fruc, 'g');
-        document.getElementById('g-pec').textContent = pectinLabel(totalCarbs / (currentRatio === '2:1' ? 225 : totalCarbs));
-        document.getElementById('g-water').textContent = fmt(waterMl, 'ml');
+        document.getElementById('g-malt').textContent = noGel ? '—' : fmt(malt, 'g');
+        document.getElementById('g-fruc').textContent = noGel ? '—' : fmt(fruc, 'g');
+        document.getElementById('g-pec').textContent = noGel ? '—' : pectinLabel(totalCarbs / (currentRatio === '2:1' ? 225 : totalCarbs));
+        document.getElementById('g-water').textContent = noGel ? '—' : fmt(waterMl, 'ml');
 
         const maltPct = currentRatio === '2:1' ? 66 : Math.round(100 / 1.8);
         document.getElementById('ratio-bar-malt').style.width = maltPct + '%';
@@ -1409,106 +1281,93 @@ title: Nutrition Calculator
           document.getElementById('ratio-legend').innerHTML =
             '<span><span class="legend-dot" style="background:var(--blue);"></span>Maltodextrin (2 parts)</span>' +
             '<span><span class="legend-dot" style="background:var(--green);"></span>Fructose (1 part)</span>';
-          const batches = totalCarbs / 225;
-          document.getElementById('g-batches').textContent = fmtDec(batches, 1, 'batches');
-          document.getElementById('g-batches-sub').textContent = '1 batch = 225 g carbs · ' + flasks + ' flasks @ ' + flaskSize + ' ml';
         } else {
           document.getElementById('ratio-legend').innerHTML =
             '<span><span class="legend-dot" style="background:var(--blue);"></span>Maltodextrin (1 part)</span>' +
             '<span><span class="legend-dot" style="background:var(--green);"></span>Fructose (0.8 parts)</span>';
-          document.getElementById('g-batches').textContent = flasks + ' flasks';
-          document.getElementById('g-batches-sub').textContent = 'single batch · ' + flasks + ' flasks @ ' + flaskSize + ' ml';
         }
+
+        document.getElementById('g-vol').textContent = noGel ? '—' : fmt(totalVol, 'ml');
+        document.getElementById('g-flasks').textContent = noGel ? '—' : flasks + ' flask' + (flasks !== 1 ? 's' : '');
+        document.getElementById('g-flasks-sub').textContent = noGel ? '' : flaskSize + ' ml each';
       }
 
       if (showSugar) {
-        // Sugar gel: same gel-thickness water ratio as malto, just sucrose instead
-        const sugarTbsp = Math.round(totalCarbs / 12);  // ~12 g carbs per tbsp (4 g/tsp × 3 tsp/tbsp)
-        document.getElementById('g-sugar-tbsp').textContent = sugarTbsp + ' tbsp';
-        document.getElementById('g-sugar-pec').textContent = pectinLabel(totalCarbs / 225);
-        document.getElementById('g-sugar-water').textContent = fmt(waterMl, 'ml');
-        document.getElementById('g-sugar-bottles').textContent = sugarFlasks + ' flask' + (sugarFlasks !== 1 ? 's' : '') + ' @ ' + flaskSize + ' ml';
-        document.getElementById('g-sugar-bottle-sub').textContent = 'gel consistency · boil water to dissolve fully';
+        document.getElementById('g-sugar-tbsp').textContent = noGel ? '—' : Math.round(totalCarbs / 12) + ' tbsp';
+        document.getElementById('g-sugar-pec').textContent = noGel ? '—' : pectinLabel(totalCarbs / 225);
+        document.getElementById('g-sugar-water').textContent = noGel ? '—' : fmt(waterMl, 'ml');
+        document.getElementById('g-sugar-vol').textContent = noGel ? '—' : fmt(totalVol, 'ml');
+        document.getElementById('g-sugar-bottles').textContent = noGel ? '—' : sugarFlasks + ' flask' + (sugarFlasks !== 1 ? 's' : '');
       }
 
       // ── Hydration tab ─────────────────────────────────────────────
-      document.getElementById('e-salt-pl').textContent = naRate === 0 ? '—' : (hot ? '3/4–1 tsp' : '1/4–1/2 tsp');
-      document.getElementById('e-kcl-pl').textContent = naRate === 0 ? '—' : '1/4 tsp';
-      document.getElementById('e-mag-pl').textContent = naRate === 0 ? '—' : '1/4 tsp';
-      document.getElementById('e-salt-tsp').textContent = naRate === 0 ? '—' : tspFraction(hot_liters * (hot ? 0.875 : 0.375));
-      document.getElementById('e-na-hr').textContent = sodiumLabel(h, hot);
-      document.getElementById('e-na-total').textContent = naRate === 0 ? '' : fmt(naTotal, 'mg total');
       document.getElementById('e-liters').textContent = naRate === 0 ? '—' : fmtDec(hot_liters, 1, 'L');
-      document.getElementById('e-kcl-total').textContent = naRate === 0 ? '—' : tspFraction(hot_liters * 0.25);
-      document.getElementById('e-mag-total').textContent = naRate === 0 ? '—' : tspFraction(hot_liters * 0.25);
+      document.getElementById('e-liters-sub').textContent = hot ? '~1,000 ml/hr (hot conditions)' : '~500 ml/hr typical sweat rate';
+      const saltPerL_tsp = hot ? 0.75 : 0.5;
+      const saltEighths = Math.round(hot_liters * saltPerL_tsp * 8);
+      const kclEighths = Math.round(hot_liters * 0.125 * 8);
+
+      const showKcl = h >= 1.5;  // show No Salt at or beyond 90 minutes
+
+      document.getElementById('e-salt-tsp').textContent = naRate === 0 ? '—' : tspFromEighths(saltEighths);
+      document.getElementById('e-salt-rate').textContent = naRate === 0 ? '' : fmt(sodiumRate(h, hot), 'mg/L sodium');
+      document.getElementById('e-kcl-total').textContent = showKcl ? tspFromEighths(kclEighths) : '—';
+      document.getElementById('e-kcl-total-sub').textContent = (showKcl && h <= 3) ? 'optional' : '';
+      const kclRateLabel = hot ? '~350\u202fmg/hr potassium' : '~175\u202fmg/hr potassium';
+      document.getElementById('e-kcl-rate').textContent = showKcl ? (h > 3 ? kclRateLabel : kclRateLabel + ' (optional)') : '';
       document.getElementById('hydration-note-normal').style.display = hot ? 'none' : '';
       document.getElementById('hydration-note-hot').style.display = hot ? '' : 'none';
 
       // ── All in One tab ────────────────────────────────────────────
-      // AIO always uses ~6% concentration: 60 g carbs per liter
-      const aioCarbPerL = carbRate;                          // g carbs per liter (= carbRate, since 1 L/hr)
-      const aioLiters = hot_liters;                          // liters = sweat rate * h
-      const aioSaltPerL_tsp = hot ? 1.0 : 0.5;              // tsp NaCl per liter
-      const aioTotalSalt = tspFraction(aioLiters * aioSaltPerL_tsp);
+      const aioCarbPerL = carbRate;
+      const aioLiters = hot_liters;
 
-      // AIO carb source follows the Formula selector
       document.getElementById('aio-sugar-rows').style.display = isSugar ? '' : 'none';
       document.getElementById('aio-malto-rows').style.display = isSugar ? 'none' : '';
 
       if (isSugar) {
-        const sugarTbspPerL = Math.round(aioCarbPerL / 12);  // ~12 g per tbsp
-        document.getElementById('aio-sugar-per-l').textContent = sugarTbspPerL + ' tbsp (' + Math.round(aioCarbPerL) + '\u202fg)';
-        document.getElementById('aio-ratio-bar-malt').style.width = '50%';
-        document.getElementById('aio-ratio-bar-fruc').style.width = '50%';
-        document.getElementById('aio-ratio-legend').innerHTML =
-          '<span><span class="legend-dot" style="background:var(--blue);"></span>Glucose (sucrase-cleaved)</span>' +
-          '<span><span class="legend-dot" style="background:var(--green);"></span>Fructose (sucrase-cleaved)</span>';
-        document.getElementById('aio-total-carb').textContent = Math.round(sugarTbspPerL * aioLiters) + ' tbsp (' + fmt(totalCarbs, 'g') + ')';
-        document.getElementById('aio-total-carb-sub').textContent = 'table sugar';
+        const sugarTbspPerL = Math.round(aioCarbPerL / 12);
+        document.getElementById('aio-total-carb').textContent = noGel ? '—' : Math.round(sugarTbspPerL * aioLiters) + ' tbsp (' + fmt(totalCarbs, 'g') + ')';
+        document.getElementById('aio-total-carb-sub').textContent = noGel ? '' : fmt(carbRate, 'g/hr');
       } else {
         const ratio = currentRatio === '2:1' ? (2 / 3) : (1 / 1.8);
-        const maltPerL = aioCarbPerL * ratio;
-        const frucPerL = aioCarbPerL * (1 - ratio);
-        document.getElementById('aio-malt-per-l').textContent = fmt(maltPerL, 'g');
-        document.getElementById('aio-fruc-per-l').textContent = fmt(frucPerL, 'g');
-        document.getElementById('aio-malto-sub').textContent = currentRatio === '2:1' ? '2 parts' : '1 part';
-        document.getElementById('aio-fruc-sub').textContent = currentRatio === '2:1' ? '1 part' : '0.8 parts';
-        const maltPct = currentRatio === '2:1' ? 66 : Math.round(100 / 1.8);
-        document.getElementById('aio-ratio-bar-malt').style.width = maltPct + '%';
-        document.getElementById('aio-ratio-bar-fruc').style.width = (100 - maltPct) + '%';
-        document.getElementById('aio-ratio-legend').innerHTML =
-          '<span><span class="legend-dot" style="background:var(--blue);"></span>Maltodextrin</span>' +
-          '<span><span class="legend-dot" style="background:var(--green);"></span>Fructose</span>';
-        document.getElementById('aio-total-carb').textContent = fmt(totalCarbs, 'g');
-        document.getElementById('aio-total-carb-sub').textContent = currentRatio + ' maltodextrin / fructose';
+        document.getElementById('aio-malt-total').textContent = noGel ? '—' : fmt(totalCarbs * ratio, 'g');
+        document.getElementById('aio-fruc-total').textContent = noGel ? '—' : fmt(totalCarbs * (1 - ratio), 'g');
+        document.getElementById('aio-malt-rate').textContent = noGel ? '' : fmt(carbRate * ratio, 'g/hr');
+        document.getElementById('aio-fruc-rate').textContent = noGel ? '' : fmt(carbRate * (1 - ratio), 'g/hr');
       }
 
-      document.getElementById('aio-salt-per-l').textContent = aioSaltPerL_tsp === 1.0 ? '1 tsp' : '1/2 tsp';
-      document.getElementById('aio-salt-sub').textContent = hot ? '~1,150 mg sodium (hot)' : '~575 mg sodium';
-      document.getElementById('aio-kcl-per-l').textContent = h > 3 ? '1/4 tsp' : 'optional';
-      document.getElementById('aio-total-salt').textContent = aioTotalSalt;
-      document.getElementById('aio-liters').textContent = fmtDec(aioLiters, 1, 'L');
+      document.getElementById('aio-total-salt').textContent = noGel ? '—' : tspFromEighths(saltEighths);
+      document.getElementById('aio-salt-rate').textContent = noGel ? '' : fmt(sodiumRate(h, hot), 'mg/L sodium');
+      document.getElementById('aio-kcl-total').textContent = (noGel || !showKcl) ? '—' : tspFromEighths(kclEighths);
+      document.getElementById('aio-kcl-total-sub').textContent = (!noGel && showKcl && h <= 3) ? 'optional' : '';
+      document.getElementById('aio-kcl-rate').textContent = (!noGel && showKcl) ? (h > 3 ? kclRateLabel : kclRateLabel + ' (optional)') : '';
+      document.getElementById('aio-liters').textContent = noGel ? '—' : fmtDec(aioLiters, 1, 'L');
       document.getElementById('aio-liters-sub').textContent = hot ? '~1,000 ml/hr (hot conditions)' : '~500 ml/hr typical sweat rate';
-      document.getElementById('aio-na-hr').textContent = sodiumLabel(h, hot);
-      document.getElementById('aio-na-total').textContent = naRate === 0 ? '' : fmt(naTotal, 'mg total');
-
-      // Sweetness warning for AIO at high carb rates
-      document.getElementById('aio-sweetness-warn').style.display = (carbRate >= 75 && isSugar) ? 'block' : 'none';
-
-      // AIO guidance banner — same thresholds
-      const guidance = carbGuidance(h, carbRate);
-      const aioGuidanceEl = document.getElementById('aio-guidance');
-      aioGuidanceEl.style.display = guidance.show ? '' : 'none';
-      aioGuidanceEl.textContent = guidance.msg;
 
       // ── Shared warnings ───────────────────────────────────────────
       document.getElementById('gut-warn').style.display = carbRate >= 90 ? 'block' : 'none';
-      document.getElementById('aid-note').style.display = (!isSugar && totalCarbs > 300) ? 'block' : 'none';
 
-      // Carb guidance on Gels tab
-      const guidanceEl = document.getElementById('carb-guidance');
-      guidanceEl.style.display = guidance.show ? '' : 'none';
-      guidanceEl.textContent = guidance.msg;
+      // ── Unified notes (guidance + static) ────────────────────────
+      const guidance = carbGuidance(h, carbRate);
+      const staticAIO = noGel ? '' : ' The all-in-one drink combines carbohydrate and electrolytes in a single bottle with no separate gel needed. Target ~6% carbohydrate concentration (60\u202fg per liter). Carbohydrate targets above 60 g/hr require gut training — build gradually over weeks, not days.'
+        + (carbRate >= 75 && isSugar ? ' At 80–90 g/hr, sweetness can suppress drinking late in a long effort. Consider the maltodextrin/fructose formula for better palatability at high concentrations.' : '');
+      document.getElementById('aio-note').textContent = guidance.msg + staticAIO;
+
+      const staticGelMalto = noGel ? '' : ' Use boiled water when mixing. Boiling helps the powders dissolve fully without clumping. Allow to cool before filling flasks. Refrigerate for up to 5–7 days, or freeze in flasks for up to 3 months.';
+      const staticGelSugar = noGel ? '' : ' Dissolve sugar in boiled water and stir until clear. Allow to cool before filling flasks. Refrigerate for up to 5–7 days, or freeze in flasks for up to 3 months.';
+      document.getElementById('gel-note-malto').textContent = guidance.msg + staticGelMalto;
+      document.getElementById('gel-note-sugar').textContent = guidance.msg + staticGelSugar;
+    }
+
+    function tspFromEighths(eighths) {
+      if (eighths === 0) return '0';
+      const whole = Math.floor(eighths / 8);
+      const rem = eighths % 8;
+      const fracMap = { 1: '1/8', 2: '1/4', 3: '3/8', 4: '1/2', 5: '5/8', 6: '3/4', 7: '7/8' };
+      if (rem === 0) return whole + ' tsp';
+      if (whole === 0) return fracMap[rem] + ' tsp';
+      return whole + ' ' + fracMap[rem] + ' tsp';
     }
 
     function tspFraction(val) {
