@@ -785,7 +785,7 @@ title: 2026 Race Season
           <div class="r-date">Phase 1</div>
         </div>
         <div class="header-race" onclick="document.getElementById('phase-2').scrollIntoView({behavior: 'smooth'})">
-          <div class="r-name">Donut Run 5K</div>
+          <div class="r-name">Donut Run 10K</div>
           <div class="r-date">Saturday</div>
           <div class="r-date">September 5, 2026</div>
           <div class="r-date">Phase 2</div>
@@ -1024,10 +1024,10 @@ title: 2026 Race Season
             <td class="total-cell">~14 mi</td>
           </tr>
 
-          <!-- PHASE 2 — Donut Run 5K -->
+          <!-- PHASE 2 — Donut Run 10K -->
           <tr>
             <td colspan="9" style="padding:0;border:none;">
-              <div id="phase-2" class="phase-title">Phase 2 — Donut Run 5K</div>
+              <div id="phase-2" class="phase-title">Phase 2 — Donut Run 10K</div>
             </td>
           </tr>
 
@@ -1347,10 +1347,9 @@ title: 2026 Race Season
             <td>3 mi easy<span class="s">+ 4 strides</span></td>
             <td class="str-col"><span class="rest">rest</span></td>
             <td><span class="race-t" onclick="openModal('donut-run'); return false;" style="cursor:pointer;">Donut Run
-                5K</span><span class="note">Sat Sep 5 — tempo effort</span><span class="note"
-                style="color:var(--green);">Race 5K, then 3 mi easy cooldown — 6 mi total</span></td>
+                10K</span><span class="note">Sat Sep 5 — tempo effort</span></td>
             <td class="rest-col"><span class="rest">rest</span></td>
-            <td class="total-cell">16 mi</td>
+            <td class="total-cell">~16 mi</td>
           </tr>
 
           <!-- PHASE 2 — Big Bad Wolfe -->
@@ -1779,7 +1778,7 @@ title: 2026 Race Season
   <div id="modal-donut-run" class="modal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('donut-run')">&times;</button>
-      <div class="modal-title">Donut Run 5K <span class="race-date">Saturday, September 5, 2026 — tempo effort</span>
+      <div class="modal-title">Donut Run 10K <span class="race-date">Saturday, September 5, 2026 — tempo effort</span>
       </div>
       <div class="strategy-grid" id="grid-donut-run"></div>
       <p class="race-note"><strong>Key principle:</strong> This race is your calibration tool. The result tells you what
@@ -1795,8 +1794,8 @@ title: 2026 Race Season
           tune-up, pace lock</span></div>
       <div class="strategy-grid" id="grid-lighthouse-5k"></div>
       <p class="race-note"><strong>Key principle:</strong> The 5K is a sustained hard effort from start to finish —
-        there is no comfortable middle section. Use this race to lock in 5K pace and gather data for the Donut Run and
-        Big Bad Wolfe later in the season. Trust the work.</p>
+        there is no comfortable middle section. Use this race to lock in 5K pace and gather data for the Donut Run 10K
+        and Big Bad Wolfe later in the season. Trust the work.</p>
     </div>
   </div>
 
@@ -1845,7 +1844,7 @@ title: 2026 Race Season
     // Strategy content
     const strategies = {
       'donut-run': [
-        { label: 'Objective', value: 'Run a strong, honest 5K tempo effort. This is your fitness baseline and pace calibration tool for the rest of the season.' },
+        { label: 'Objective', value: 'Run a strong, honest 10K tempo effort. This is your fitness baseline and pace calibration tool for Big Bad Wolfe and RTFTH.' },
         { label: 'Effort', value: 'Tempo pace — comfortably hard, not all-out. You should be working but in control from start to finish. This is not a time trial.' },
         { label: 'Pacing', value: 'Start conservatively and build. The goal is a <strong>negative split or even pace</strong> — go out too fast and the data you collect is misleading.' },
         { label: 'Post-race', value: 'Enter your result into a VDOT calculator or McMillan pace predictor. <strong>This removes guesswork</strong> from goal-setting for Big Bad Wolfe and RTFTH. Then run 3 easy miles to complete the day.' },
