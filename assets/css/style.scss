@@ -1,4 +1,4 @@
---- 
+---
 --- 
 @import "{{ site.theme }}";
 
@@ -36,6 +36,34 @@
   margin: 1.5rem 1.5rem 0.25rem;
   border-radius: var(--border-radius-lg, 12px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+
+  // Large ghost circle — top-right corner, partially clipped
+  &::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 280px;
+    height: 280px;
+    border: 40px solid rgba(128, 128, 128, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  // Smaller ghost circle — lower-right, mostly clipped
+  &::before {
+    content: '';
+    position: absolute;
+    right: 60px;
+    bottom: -80px;
+    width: 180px;
+    height: 180px;
+    border: 28px solid rgba(128, 128, 128, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
 }
 
 body {
@@ -64,6 +92,12 @@ body {
   box-sizing: border-box;
 }
 
+// Only the header's container needs to sit above the pseudo-element circles
+.page-header .site-container {
+  position: relative;
+  z-index: 1;
+}
+
 .main-content {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -78,17 +112,62 @@ body {
   font-weight: 300;
   letter-spacing: -0.5px;
   color: var(--paper);
+
+  // Optional: wrap last word in <span> in _config.yml title for accent split
+  span {
+    color: var(--accent);
+  }
 }
 
 .page-header .project-tagline {
   margin-top: 0rem;
   margin-bottom: 2.75rem;
-  font-size: 1rem;
-  color: var(--paper) !important;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+// Nav links — monospace dot-separated, matching resume contact row
+.page-header nav .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .page-header .btn {
-  color: var(--paper) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 6px 20px 6px 0 !important;
+  position: relative;
+  font-family: monospace;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: color 0.15s ease;
+
+  // Accent dot separator between items
+  &:not(:last-child)::after {
+    content: '·';
+    position: absolute;
+    right: 8px;
+    color: var(--accent);
+  }
+
+  &:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  &.active {
+    color: var(--accent) !important;
+  }
 }
 
 /* =====================
