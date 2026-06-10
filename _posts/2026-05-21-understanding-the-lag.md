@@ -6,7 +6,7 @@ tags: training, polarized training, heart rate zones, Zone 2, aerobic base, easy
 excerpt: Your heart rate is always a step behind. Here's why that matters for intervals, and how to read it correctly.
 ---
 
-In [Raising the Ceiling](https://richardbasile.github.io/raising-the-ceiling/), I talked myself into what looked like a contradiction. In the polarized model, hard effort is defined as everything above lactate threshold (LT2). If your LT2 sits at a known number, the implication seems to follow: any effort that doesn't push your heart rate above that number isn't hard enough to produce the target adaptation. If 5K pace intervals never get you there, maybe they don't belong in the program.
+In [Raising the Ceiling](/raising-the-ceiling/), I talked myself into what looked like a contradiction. In the polarized model, hard effort is defined as everything above lactate threshold (LT2). If your LT2 sits at a known number, the implication seems to follow: any effort that doesn't push your heart rate above that number isn't hard enough to produce the target adaptation. If 5K pace intervals never get you there, maybe they don't belong in the program.
 
 It's an understandable but incorrect reading of the model.
 
