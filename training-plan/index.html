@@ -433,6 +433,69 @@ title: Training Plan
             text-decoration-style: dotted;
         }
 
+        /* ── STRENGTH CELLS ── */
+        td.day-cell.strength-cell {
+            background: #eef1ea;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.15s ease;
+        }
+
+        td.day-cell.strength-cell:hover {
+            background: #dbe2d2;
+        }
+
+        td.day-cell.strength-cell:focus-visible {
+            outline: 2px solid #5b7a4a;
+            outline-offset: -2px;
+        }
+
+        td.day-cell.strength-cell .lift-icon {
+            display: block;
+            font-size: 0.95rem;
+            color: #5b7a4a;
+            line-height: 1;
+        }
+
+        td.day-cell.strength-cell .session-name {
+            display: block;
+            font-size: 0.68rem;
+            color: #44593a;
+            font-weight: 500;
+            margin-top: 3px;
+            line-height: 1.25;
+        }
+
+        td.day-cell.strength-cell .expand-hint {
+            display: block;
+            font-size: 0.6rem;
+            color: #5b7a4a;
+            margin-top: 4px;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        .strength-detail-inner {
+            border-left: 3px solid #5b7a4a !important;
+        }
+
+        .strength-detail-inner h4 {
+            color: #44593a !important;
+        }
+
+        .strength-list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .strength-list li {
+            margin-bottom: 3px;
+        }
+
+        .legend-dot.strength {
+            background: #5b7a4a;
+        }
+
         tr.race-row td {
             background-color: #fbf1ed;
         }
@@ -608,9 +671,10 @@ title: Training Plan
                     <div class="legend-item"><span class="legend-dot easy"></span>Easy</div>
                     <div class="legend-item"><span class="legend-dot quality"></span>Quality (Wed)</div>
                     <div class="legend-item"><span class="legend-dot long"></span>Long run</div>
+                    <div class="legend-item"><span class="legend-dot strength"></span>Strength (Tue/Fri)</div>
                     <div class="legend-item"><span class="legend-dot race"></span>Race week</div>
-                    <div class="legend-item"><span class="legend-dot rest"></span>Walk / Rest</div>
-                    <div class="legend-hint">Click a Wednesday cell for the full session →</div>
+                    <div class="legend-item"><span class="legend-dot rest"></span>Rest</div>
+                    <div class="legend-hint">Click any Wed, Tue, or Fri cell for full details →</div>
                 </div>
 
                 <div class="scroll-shell">
@@ -644,7 +708,47 @@ title: Training Plan
                 </p>
             </div>
 
+            <div class="section">
+                <div class="section-label">Strength Program</div>
+                <p class="intro-text">Two sessions per week, built around the SI joint history and slotted into the
+                    two open days — Tuesday and Friday — so neither lift day touches Wednesday's quality session or
+                    Saturday's long run. Click any Tuesday or Friday cell in the grid above for that week's exercises,
+                    sets, and reps.</p>
+
+                <p class="rotation-note">
+                    <strong>Weeks 1&ndash;3 (Technique):</strong> Bodyweight and light dumbbell only. Both days run the
+                    same technique-first session — squat, hinge, push, pull, and core — to rebuild the patterns and
+                    confirm the SI joint stays quiet before any barbell load is added.<br><br>
+
+                    <strong>Weeks 4&ndash;14 (Foundation/Build):</strong> Barbell introduced. Tuesday alternates
+                    squat-emphasis and deadlift-emphasis week to week — one lift progresses in load while the other
+                    holds steady, so no single session stacks two near-max spinal-loading lifts. Friday is upper body
+                    and core only, with zero leg loading, because Friday sits the day before Saturday's long run and
+                    lower-body soreness peaks 24&ndash;48 hours after a session — exactly the window that would
+                    otherwise land on the long run.<br><br>
+
+                    <strong>Barbell deadlift escalation rule:</strong> Start at empty bar or bar + 10s for the first
+                    two weeks back, focused entirely on form. Add 10 lb in week 6 if pain-free, then 5&ndash;10 lb/wk
+                    after that — but only if the SI joint is silent the next day. Any twinge, tightness, or "off"
+                    feeling means dropping back to the prior week's weight, no exceptions. Elevating the bar on
+                    blocks or pins reduces range of motion and is worth using for the first several weeks if a rack
+                    is available.<br><br>
+
+                    <strong>Week 15 exception:</strong> Tuesday carries a 3-mile run that week instead of a rest/lift
+                    day, so Tuesday's strength session is dropped entirely rather than stacked with the run — Friday
+                    runs a single light upper/core session instead of two full sessions.<br><br>
+
+                    <strong>Weeks 16&ndash;19 (Peak):</strong> As running volume climbs to 22&ndash;26 mi/week,
+                    strength shifts to maintenance — same exercises and working weight, fewer sets. The goal is
+                    holding onto what's been built, not progressing further, while running takes priority.<br><br>
+
+                    <strong>Week 20 (Taper) and Week 21 (Race):</strong> One light Tuesday touch in taper week, no
+                    Friday session. Race week skips strength entirely — the race is that week's only output.
+                </p>
+            </div>
+
             <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
+
 
         </div>
     </div>
@@ -653,87 +757,87 @@ title: Training Plan
         const plan = [
             {
                 wk: 1, date: 'Jun 28', phase: 'Recovery', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 3, sun: 'rest', total: 10, race: null, raceCat: null,
-                wedSession: { key: 'reentry1' }
+                wedSession: { key: 'reentry1' }, strength: { tue: 'reentry', fri: 'reentry' }
             },
             {
                 wk: 2, date: 'Jul 5', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 12, race: null, raceCat: null,
-                wedSession: { key: 'reentry2' }
+                wedSession: { key: 'reentry2' }, strength: { tue: 'reentry', fri: 'reentry' }
             },
             {
                 wk: 3, date: 'Jul 12', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 3.1, sun: 'rest', total: 12.1, race: 'Darby Creek 5K (Easy)', raceCat: 'Easy',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'reentry', fri: 'reentry' }
             },
             {
                 wk: 4, date: 'Jul 19', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 4, sun: 'rest', total: 13, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 1 }
+                wedSession: { key: 'intervals', occ: 1 }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
                 wk: 5, date: 'Jul 26', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 5, sun: 'rest', total: 14, race: null, raceCat: null,
-                wedSession: { key: 'hills', occ: 1 }
+                wedSession: { key: 'hills', occ: 1 }, strength: { tue: 'dlEmph', fri: 'upper' }
             },
             {
                 wk: 6, date: 'Aug 2', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 3, sun: 'rest', total: 13, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 1 }
+                wedSession: { key: 'tempo', occ: 1 }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
                 wk: 7, date: 'Aug 9', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 5, sun: 'rest', total: 15, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 2 }
+                wedSession: { key: 'intervals', occ: 2 }, strength: { tue: 'dlEmph', fri: 'upper' }
             },
             {
                 wk: 8, date: 'Aug 16', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
-                wedSession: { key: 'hills', occ: 2 }
+                wedSession: { key: 'hills', occ: 2 }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
                 wk: 9, date: 'Aug 23', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 4, sun: 'rest', total: 14, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 2 }
+                wedSession: { key: 'tempo', occ: 2 }, strength: { tue: 'dlEmph', fri: 'upper' }
             },
             {
                 wk: 10, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 7, sun: 'rest', total: 17, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 3 }
+                wedSession: { key: 'intervals', occ: 3 }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
                 wk: 11, date: 'Sep 6', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 8, sun: 'rest', total: 18, race: 'Donut Run 10K (Tempo)', raceCat: 'Tempo',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'dlEmph', fri: 'upper' }
             },
             {
                 wk: 12, date: 'Sep 13', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 5, sun: 'rest', total: 15, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 3 }
+                wedSession: { key: 'tempo', occ: 3 }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
                 wk: 13, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 9, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 4 }
+                wedSession: { key: 'intervals', occ: 4 }, strength: { tue: 'dlEmph', fri: 'upper' }
             },
             {
                 wk: 14, date: 'Sep 27', phase: 'Race', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: null, sun: 10, total: 20, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
                 wk: 15, date: 'Oct 4', phase: 'Deload', mon: null, tue: 3, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 4 }
+                wedSession: { key: 'tempo', occ: 4 }, strength: { tue: null, fri: 'upperLight' }
             },
             {
                 wk: 16, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 5, thu: 3, fri: null, sat: 10, sun: 'rest', total: 22, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 5 }
+                wedSession: { key: 'intervals', occ: 5 }, strength: { tue: 'maintLower', fri: 'maintUpper' }
             },
             {
                 wk: 17, date: 'Oct 18', phase: 'Build', mon: 4, tue: null, wed: 5, thu: 4, fri: null, sat: 11, sun: 'rest', total: 24, race: null, raceCat: null,
-                wedSession: { key: 'hills', occ: 3 }
+                wedSession: { key: 'hills', occ: 3 }, strength: { tue: 'maintLower', fri: 'maintUpper' }
             },
             {
                 wk: 18, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 7, sun: 'rest', total: 17, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 5 }
+                wedSession: { key: 'tempo', occ: 5 }, strength: { tue: 'maintLower', fri: 'maintUpper' }
             },
             {
                 wk: 19, date: 'Nov 1', phase: 'Peak', mon: 4, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 26, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 6 }
+                wedSession: { key: 'tempo', occ: 6 }, strength: { tue: 'maintLower', fri: 'maintUpper' }
             },
             {
                 wk: 20, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 6 }
+                wedSession: { key: 'intervals', occ: 6 }, strength: { tue: 'taperTouch', fri: null }
             },
             {
                 wk: 21, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 21.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: null, fri: null }
             },
         ];
 
@@ -852,6 +956,95 @@ title: Training Plan
             },
         };
 
+        const STRENGTH = {
+            reentry: {
+                name: 'Technique', focus: 'Bodyweight / light load — full-body, both days identical',
+                main: [
+                    'Goblet squat (light DB) — 3 × 10, full depth, no pain',
+                    'DB Romanian deadlift — 3 × 10, light DB, hinge pattern only',
+                    'DB row — 3 × 10',
+                    'DB floor press — 3 × 10',
+                    'Band pull-apart — 3 × 15',
+                    'Bird dog — 3 × 8/side',
+                    'Dead bug — 3 × 8/side',
+                ],
+                note: 'No barbell yet. The goal is grooving the squat, hinge, push, and pull patterns and rebuilding trust in the SI joint — not load. Stop any set immediately if anything in the hip/SI complains.'
+            },
+            squatEmph: {
+                name: 'Squat-Emphasis', focus: 'Tuesday — squat progresses, deadlift holds steady',
+                main: [
+                    'Barbell back squat — 3 × 8, add ~5 lb/wk while form holds',
+                    'Barbell deadlift — 2 × 5 @ steady weight (not progressing this week)',
+                    'Plank — 3 × 30–45 sec',
+                    'Bird dog — 3 × 8/side',
+                ],
+                note: 'Squat is the lift trying to progress this week; deadlift stays at a comfortable, controlled weight just to keep the pattern alive. Deadlift load only increases per the escalation rule (see notes below the grid) — never on a squat-emphasis week.'
+            },
+            dlEmph: {
+                name: 'Deadlift-Emphasis', focus: 'Tuesday — deadlift progresses, squat holds steady',
+                main: [
+                    'Barbell deadlift — 3 × 5, escalate per the rule below if last week was pain-free',
+                    'Barbell back squat — 2 × 8 @ steady weight (not progressing this week)',
+                    'Plank — 3 × 30–45 sec',
+                    'Bird dog — 3 × 8/side',
+                ],
+                note: 'Deadlift is the lift trying to progress this week. Any twinge, tightness, or "off" feeling in the SI joint the day after \u2192 drop back to the prior week\u2019s deadlift weight, no exceptions.'
+            },
+            upper: {
+                name: 'Upper Body + Core', focus: 'Friday — no leg loading, protects Saturday\u2019s long run',
+                main: [
+                    'DB bench press — 3 × 8',
+                    'DB row — 3 × 10',
+                    'DB overhead press — 3 × 8',
+                    'Band face pull — 3 × 15',
+                    'Side plank — 3 × 20–30 sec/side',
+                    'Dead bug — 3 × 8/side',
+                ],
+                note: 'Deliberately zero leg loading. Lower-body DOMS peaks 24\u201348 hrs post-session \u2014 Friday leg work would land squarely on Saturday\u2019s long run. Upper body and core only.'
+            },
+            upperLight: {
+                name: 'Upper Body + Core (Light)', focus: 'Friday only this week — Tuesday is a running day',
+                main: [
+                    'DB bench press — 2 × 8',
+                    'DB row — 2 × 10',
+                    'Band face pull — 2 × 15',
+                    'Side plank — 2 × 20–30 sec/side',
+                ],
+                note: 'Tuesday carries a run this week, so strength volume drops to one light upper/core session rather than doubling up a run and a lift on the same day.'
+            },
+            maintLower: {
+                name: 'Lower Body (Maintenance)', focus: 'Tuesday — hold load, don\u2019t chase progress',
+                main: [
+                    'Barbell squat or deadlift (alternate weekly, as before) — 2 × 6 @ current working weight',
+                    'Plank — 2 × 30–45 sec',
+                ],
+                note: 'Running volume is peaking now (22\u201326 mi/wk). Strength shifts to maintenance \u2014 same weight, fewer sets. The goal is holding onto what\u2019s been built, not adding more.'
+            },
+            maintUpper: {
+                name: 'Upper Body + Core (Maintenance)', focus: 'Friday — reduced volume',
+                main: [
+                    'DB bench press — 2 × 8',
+                    'DB row — 2 × 10',
+                    'Band face pull — 2 × 15',
+                    'Side plank — 2 × 20–30 sec/side',
+                ],
+                note: 'Same exercises, fewer sets. Running takes priority through Peak \u2014 this session exists to maintain, not build.'
+            },
+            taperTouch: {
+                name: 'Light Maintenance Touch', focus: 'Tuesday only — Friday is skipped this week',
+                main: [
+                    'Barbell squat or deadlift @ light/moderate weight — 2 × 6',
+                    'Plank — 2 × 30 sec',
+                ],
+                note: 'One light touch early in taper week to feel normal, nothing more. No Friday session \u2014 legs stay fresh for race week.'
+            },
+        };
+
+        function getStrength(key) {
+            if (!key) return null;
+            return STRENGTH[key];
+        }
+
         function getSession(ws) {
             if (!ws) return null;
             if (ws.key === 'intervals' || ws.key === 'tempo' || ws.key === 'hills') {
@@ -875,6 +1068,19 @@ title: Training Plan
             return `<td class="day-cell ${cls}"><span class="mi">${value}</span>${tag ? `<span class="tag">${tag}</span>` : ''}</td>`;
         }
 
+        function strengthCell(strengthKey, idx, dayAbbr) {
+            const s = getStrength(strengthKey);
+            if (!s) {
+                return `<td class="day-cell walk-cell">Walk</td>`;
+            }
+            return `
+        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
+          <span class="lift-icon">&#9879;</span>
+          <span class="session-name">${s.name}</span>
+          <span class="expand-hint">details</span>
+        </td>`;
+        }
+
         const tbody = document.getElementById('planBody');
         let rowsHtml = '';
 
@@ -885,9 +1091,11 @@ title: Training Plan
             if (isRaceWeek) rowClasses.push('race-row');
 
             const monCell = dayCell(w.mon, { tag: w.mon ? 'easy' : '' });
-            const tueCell = dayCell(w.tue, { tag: w.tue ? 'easy' : '' });
+            const tueCell = w.tue
+                ? dayCell(w.tue, { tag: 'easy' })
+                : strengthCell(w.strength ? w.strength.tue : null, idx, 'Tue');
             const thuCell = dayCell(w.thu, { tag: w.thu ? 'easy' : '' });
-            const friCell = dayCell(w.fri);
+            const friCell = strengthCell(w.strength ? w.strength.fri : null, idx, 'Fri');
 
             let satCell, sunCell;
             if (w.wk === 14) {
@@ -915,6 +1123,26 @@ title: Training Plan
             const phaseClass = w.phase === 'Race' ? 'is-race' : (w.phase === 'Peak' ? 'is-peak' : '');
 
             const totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total}</span></td>`;
+
+            const tueStrength = w.tue ? null : getStrength(w.strength ? w.strength.tue : null);
+            const friStrength = getStrength(w.strength ? w.strength.fri : null);
+
+            function strengthDetailRow(s, dayKey, dayLabel) {
+                if (!s) return '';
+                return `
+        <tr class="detail-row strength-detail" id="detail-${idx}-${dayKey}">
+          <td colspan="9">
+            <div class="detail-inner strength-detail-inner">
+              <h4>${dayLabel} Strength &mdash; ${s.name}</h4>
+              <div class="detail-grid">
+                <div class="k">Focus</div><div class="v">${s.focus}</div>
+                <div class="k">Main set</div><div class="v"><ul class="strength-list">${s.main.map(item => `<li>${item}</li>`).join('')}</ul></div>
+              </div>
+              <div class="detail-note">${s.note}</div>
+            </div>
+          </td>
+        </tr>`;
+            }
 
             rowsHtml += `
         <tr class="${rowClasses.join(' ')}">
@@ -946,6 +1174,8 @@ title: Training Plan
             </div>
           </td>
         </tr>
+        ${strengthDetailRow(tueStrength, 'tue', 'Tuesday')}
+        ${strengthDetailRow(friStrength, 'fri', 'Friday')}
       `;
         });
 
@@ -960,6 +1190,26 @@ title: Training Plan
                 }
             });
         });
+
+        document.querySelectorAll('.strength-cell').forEach(cell => {
+            cell.addEventListener('click', () => toggleStrengthDetail(cell));
+            cell.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleStrengthDetail(cell);
+                }
+            });
+        });
+
+        function toggleStrengthDetail(cell) {
+            const idx = cell.getAttribute('data-idx');
+            const dayKey = cell.getAttribute('data-day').toLowerCase();
+            const row = document.getElementById(`detail-${idx}-${dayKey}`);
+            if (!row) return;
+            const isOpen = row.classList.contains('open');
+            row.classList.toggle('open', !isOpen);
+            cell.setAttribute('aria-expanded', String(!isOpen));
+        }
 
         function toggleDetail(cell) {
             const idx = cell.getAttribute('data-idx');
