@@ -233,7 +233,6 @@ title: Training Plan
         }
 
         .legend-hint {
-            margin-left: auto;
             font-style: italic;
             color: var(--ink-light);
             font-size: 0.78rem;
@@ -385,6 +384,19 @@ title: Training Plan
             background: #faf8f4;
         }
 
+        td.day-cell.race-day-cell {
+            background: var(--crimson-soft);
+        }
+
+        td.day-cell.race-day-cell .mi {
+            color: var(--crimson-dark);
+        }
+
+        td.day-cell.race-day-cell .tag {
+            color: var(--crimson-dark);
+            font-weight: 500;
+        }
+
         td.day-cell.total-cell {
             background: var(--paper);
             font-weight: 600;
@@ -511,6 +523,10 @@ title: Training Plan
         }
 
         tr.race-row td.wed-cell {
+            background-color: #e8caca !important;
+        }
+
+        tr.race-row td.race-day-cell {
             background-color: #e8caca !important;
         }
 
@@ -663,10 +679,9 @@ title: Training Plan
             <div class="section">
                 <div class="section-label">Overview</div>
                 <p class="intro-text">Weekly mileage by day, building toward the Run to Feed the Hungry Half
-                    Marathon on Nov 15. The first two weeks are strides only while volume and the SI joint rebuild.
-                    From there, Wednesdays carry the quality session — intervals and hills alternate on Build weeks,
-                    while every Deload week gets tempo, the lowest-novelty stimulus. Click any Wednesday cell below
-                    to expand the full session detail.</p>
+                    Marathon on Nov 15. The first three weeks program strides only on Wednesdays.
+                    From there, Wednesdays rotate intervals and hills on Build weeks,
+                    while every Deload week gets tempo, the lowest-novelty stimulus. 
             </div>
 
             <div class="section">
@@ -680,7 +695,7 @@ title: Training Plan
                     <table class="plan" id="planTable">
                         <thead>
                             <tr>
-                                <th class="col-week">Week</th>
+                                <th class="col-week">Week Ending</th>
                                 <th>Monday</th>
                                 <th>Tuesday</th>
                                 <th>Wednesday</th>
@@ -696,12 +711,12 @@ title: Training Plan
                 </div>
 
                 <p class="rotation-note">
-                    <strong>Wednesday structure:</strong> Strides only through week 2. From week 4 on, intervals and
+                    <strong>Wednesday structure:</strong> Strides only through week three. From week 4 on, intervals and
                     hills alternate on Build weeks while every Deload week gets tempo — the lowest-novelty session,
                     easiest to control on a lighter week. Intervals are run at 10K effort (9:35–9:45/mi) — a notch
                     easier than 5K effort. Hill reps stay in a 30–45 sec range throughout on whatever grade is
-                    available, progressing by rep count only, and are placed only on Build weeks given SI joint
-                    history. Race weeks override the structure with an easy run + strides — the race is that week's
+                    available, progressing by rep count only, and are placed only on Build weeks.
+                    Race weeks override the structure with an easy run + strides — the race is that week's
                     quality session. Taper week (Nov 8) holds intervals at the same effort but fewer reps. Paces are
                     derived from a 9:25/mi 5K (Jun 3) and a ~12:00/mi easy baseline.
                 </p>
@@ -709,15 +724,14 @@ title: Training Plan
 
             <div class="section">
                 <div class="section-label">Strength Program</div>
-                <p class="intro-text">Two sessions per week, built around the SI joint history and slotted into the
-                    two open days — Tuesday and Friday — so neither lift day touches Wednesday's quality session or
-                    Saturday's long run. Click any Tuesday or Friday cell in the grid above for that week's exercises,
+                <p class="intro-text">Two sessions per week, Tuesday and Friday. 
+                    Click any Tuesday or Friday cell in the grid above for that week's exercises,
                     sets, and reps.</p>
 
                 <p class="rotation-note">
                     <strong>Weeks 1&ndash;3 (Technique):</strong> Bodyweight and light dumbbell only. Both days run the
-                    same technique-first session — squat, hinge, push, pull, and core — to rebuild the patterns and
-                    confirm the SI joint stays quiet before any barbell load is added.<br><br>
+                    same technique-first session — squat, hinge, push, pull, and core — to rebuild the patterns before
+                    any barbell load is added.<br><br>
 
                     <strong>Weeks 4&ndash;14 (Foundation/Build):</strong> Barbell introduced. Tuesday alternates
                     squat-emphasis and deadlift-emphasis week to week — one lift progresses in load while the other
@@ -728,8 +742,7 @@ title: Training Plan
 
                     <strong>Barbell deadlift escalation rule:</strong> Start at empty bar or bar + 10s for the first
                     two weeks back, focused entirely on form. Add 10 lb in week 6 if pain-free, then 5&ndash;10 lb/wk
-                    after that — but only if the SI joint is silent the next day. Any twinge, tightness, or "off"
-                    feeling means dropping back to the prior week's weight, no exceptions. Elevating the bar on
+                    after that. Elevating the bar on
                     blocks or pins reduces range of motion and is worth using for the first several weeks if a rack
                     is available.<br><br>
 
@@ -807,11 +820,11 @@ title: Training Plan
                 wedSession: { key: 'intervals', occ: 4 }, strength: { tue: 'dlEmph', fri: 'upper' }
             },
             {
-                wk: 14, date: 'Sep 27', phase: 'Race', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: null, sun: 10, total: 20, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
+                wk: 14, date: 'Sep 27', phase: 'Race', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 'rest', sun: 10, total: 20, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
                 wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'squatEmph', fri: 'upper' }
             },
             {
-                wk: 15, date: 'Oct 4', phase: 'Deload', mon: null, tue: 3, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
+                wk: 15, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 4 }, strength: { tue: null, fri: 'upperLight' }
             },
             {
@@ -845,13 +858,13 @@ title: Training Plan
                 name: 'Strides', warmup: '15 min easy (12:00–12:30/mi or walk/jog as tolerated)',
                 main: '4 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
                 cooldown: 'Remainder easy to complete 3 mi total',
-                note: 'First quality day back. Stop the strides immediately if you feel anything in the SI joint/hip — this is about reintroducing turnover, not testing the joint.'
+                note: 'Strides only. Do not push. This is about reintroducing turnover.'
             },
             reentry2: {
                 name: 'Strides', warmup: '15 min easy',
                 main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
                 cooldown: 'Remainder easy to complete 3 mi total',
-                note: 'Last strides-only week. If this feels clean with no SI joint/hip reaction, you’re set up to resume real quality work in week 4.'
+                note: 'Continue with strides with a view to resume real quality work in week 4.'
             },
             intervals: {
                 1: {
@@ -934,7 +947,7 @@ title: Training Plan
                     name: 'Hills: 6 reps, 30–45 sec', warmup: '1.5 mi easy + 4 × 20 sec strides on flat ground',
                     main: 'Whatever hill you can find. 6 reps of 30–45 sec @ RPE 7/10 uphill (strong, not max), walk/jog down for full recovery',
                     cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'First hill session of the build, on a Build week. Conservative given SI joint history — if anything in the hip/SI complains on the climb or push-off, stop and finish easy, and substitute a tempo effort next time this slot comes around.'
+                    note: 'First hill session of the build, on a Build week.'
                 },
                 2: {
                     name: 'Hills: 7 reps, 30–45 sec', warmup: '1.5 mi easy + 4 × 20 sec strides on flat ground',
@@ -967,7 +980,7 @@ title: Training Plan
                     'Bird dog — 3 × 8/side',
                     'Dead bug — 3 × 8/side',
                 ],
-                note: 'No barbell yet. The goal is grooving the squat, hinge, push, and pull patterns and rebuilding trust in the SI joint — not load. Stop any set immediately if anything in the hip/SI complains.'
+                note: 'No barbell yet. The goal is setting technique for the squat, hinge, push, and pull patterns.'
             },
             squatEmph: {
                 name: 'Squat-Emphasis', focus: 'Tuesday — squat progresses, deadlift holds steady',
@@ -987,7 +1000,7 @@ title: Training Plan
                     'Plank — 3 × 30–45 sec',
                     'Bird dog — 3 × 8/side',
                 ],
-                note: 'Deadlift is the lift trying to progress this week. Any twinge, tightness, or "off" feeling in the SI joint the day after \u2192 drop back to the prior week\u2019s deadlift weight, no exceptions.'
+                note: 'Deadlift is the lift trying to progress this week.'
             },
             upper: {
                 name: 'Upper Body + Core', focus: 'Friday — no leg loading, protects Saturday\u2019s long run',
@@ -1099,12 +1112,12 @@ title: Training Plan
             let satCell, sunCell;
             if (w.wk === 14) {
                 satCell = dayCell(w.sat);
-                sunCell = `<td class="day-cell long-run"><span class="mi">${w.sun}</span><span class="tag">${w.race}</span></td>`;
+                sunCell = `<td class="day-cell race-day-cell"><span class="mi">${w.sun}</span><span class="tag">${w.race}</span></td>`;
             } else if (isRaceWeek && w.sat == null && w.sun === 'rest') {
                 satCell = dayCell(w.sat);
                 sunCell = dayCell(w.sun);
             } else if (isRaceWeek) {
-                satCell = `<td class="day-cell long-run"><span class="mi">${w.sat}</span><span class="tag">${w.race}</span></td>`;
+                satCell = `<td class="day-cell race-day-cell"><span class="mi">${w.sat}</span><span class="tag">${w.race}</span></td>`;
                 sunCell = dayCell(w.sun);
             } else {
                 satCell = dayCell(w.sat, { tag: w.sat ? 'long run' : '', cls: 'long-run' });
