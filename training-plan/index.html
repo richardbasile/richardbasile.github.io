@@ -451,10 +451,15 @@ title: Training Plan
         }
 
         td.day-cell.strength-cell .lift-icon {
-            display: block;
-            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            font-size: 1.05rem;
             color: #5b7a4a;
             line-height: 1;
+        }
+
+        td.day-cell.strength-cell .lift-icon svg {
+            display: block;
         }
 
         td.day-cell.strength-cell .session-name {
@@ -1069,7 +1074,7 @@ title: Training Plan
             }
             return `
         <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="lift-icon">&#9879;</span>
+          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
           <span class="session-name">${s.name}</span>
           <span class="expand-hint">details</span>
         </td>`;
@@ -1195,12 +1200,25 @@ title: Training Plan
             });
         });
 
+        function closeAllDetails(exceptRow) {
+            document.querySelectorAll('.detail-row.open').forEach(row => {
+                if (row === exceptRow) return;
+                row.classList.remove('open');
+            });
+            document.querySelectorAll('.wed-cell, .strength-cell').forEach(c => {
+                if (c.getAttribute('aria-expanded') === 'true') {
+                    c.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
         function toggleStrengthDetail(cell) {
             const idx = cell.getAttribute('data-idx');
             const dayKey = cell.getAttribute('data-day').toLowerCase();
             const row = document.getElementById(`detail-${idx}-${dayKey}`);
             if (!row) return;
             const isOpen = row.classList.contains('open');
+            closeAllDetails(isOpen ? null : row);
             row.classList.toggle('open', !isOpen);
             cell.setAttribute('aria-expanded', String(!isOpen));
         }
@@ -1209,6 +1227,7 @@ title: Training Plan
             const idx = cell.getAttribute('data-idx');
             const row = document.getElementById('detail-' + idx);
             const isOpen = row.classList.contains('open');
+            closeAllDetails(isOpen ? null : row);
             row.classList.toggle('open', !isOpen);
             cell.setAttribute('aria-expanded', String(!isOpen));
         }
