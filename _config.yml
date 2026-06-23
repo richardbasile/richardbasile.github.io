@@ -26,6 +26,5 @@ permalink: /:title/
 header_pages:
   - index.html
   - nutrition-calculator/index.html
-  - training-plan/index.html
   - resume/index.html
   - connect.md
