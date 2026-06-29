@@ -1,90 +1,25 @@
----
-layout: none
-title: Nutrition Calculator
----
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nutrition Calculator</title>
-  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | relative_url }}">
+  <title>Fuel Calculator — Richard Basile</title>
+  <meta name="description"
+    content="Enter your run duration and carbohydrate target to scale gel and electrolyte recipes to exactly what you need to carry.">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
     rel="stylesheet">
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --ink: #1a1a18;
-      --ink-mid: #4a4a46;
-      --ink-light: #8a8a84;
-      --ink-faint: #d4d4cc;
-      --paper: #f7f6f1;
-      --paper-warm: #eeede6;
-      --accent: #c84a1e;
-      --accent-soft: #f0ddd7;
-      --blue: #1e5a9e;
-      --blue-soft: #dae6f5;
-      --amber: #8a5c00;
-      --amber-soft: #f5e8c8;
-      --green: #2a6e3e;
-      --green-soft: #e8f0e0;
-      --mono: 'DM Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
-    }
-
     body {
-      font-family: var(--sans);
-      background: var(--paper-warm);
-      color: var(--ink);
-      font-size: 16.9px;
-      line-height: 1.6;
       padding: 3rem 1.5rem 6rem;
     }
 
     .page {
       max-width: 860px;
       margin: 0 auto;
-    }
-
-    header {
-      border-top: 3px solid var(--ink);
-      padding-top: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .header-meta {
-      font-family: var(--mono);
-      font-size: 13.3px;
-      color: var(--ink-light);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    h1 {
-      font-size: 2.9rem;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
     }
 
     /* Tabs */
@@ -544,16 +479,6 @@ title: Nutrition Calculator
       color: #0f6e56;
     }
 
-    footer {
-      margin-top: 4rem;
-      padding-top: 1rem;
-      border-top: 0.5px solid var(--ink-faint);
-      font-family: var(--mono);
-      font-size: 12.1px;
-      color: var(--ink-light);
-      letter-spacing: 0.06em;
-    }
-
     @media print {
       .no-print {
         display: none;
@@ -688,20 +613,19 @@ title: Nutrition Calculator
 <body>
   <div class="page">
 
-    <nav class="no-print" style="margin-top: -28px; margin-bottom: 24px;">
-      <a href="/"
-        style="color: var(--accent); font-family: var(--sans); font-size: 13px; text-decoration: none; letter-spacing: 1px;">←
-        Home</a>
+    <nav class="site-nav no-print">
+      <a class="back-link" href="/">← Home</a>
+      <span class="nav-mark">Fuel Calculator</span>
     </nav>
 
-    <header>
+    <header class="masthead">
       <p class="header-meta">Homemade gel &middot; electrolyte mix &middot; flavor reference</p>
-      <h1>Nutrition <em>Calculator</em></h1>
+      <h1>Fuel <em>Calculator</em></h1>
     </header>
 
     <p style="font-size: 14.5px; color: var(--ink-mid); margin-bottom: 1.5rem;">For the research and reasoning behind
-      these numbers, see <a href="/fueling-on-the-run" style="color: var(--accent); text-decoration: none;">Fueling On
-        The
+      these numbers, see <a href="/fueling-on-the-run.html" style="color: var(--accent); text-decoration: none;">Fueling
+        the
         Run</a>.</p>
 
     <div
@@ -1142,8 +1066,9 @@ title: Nutrition Calculator
 
     </div>
 
-    <footer>
-      <span>Fueling On The Run &middot; Nutrition Calculator</span>
+    <footer class="site-footer">
+      <span>Fuel Calculator &middot; Richard Basile</span>
+      <a href="/fueling-on-the-run.html">Fueling the Run →</a>
     </footer>
 
   </div>

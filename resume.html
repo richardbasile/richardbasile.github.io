@@ -1,7 +1,3 @@
----
-layout: none
-title: Resume
----
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +7,16 @@ title: Resume
     <title>Resume - Richard Basile</title>
     <meta name="description"
         content="Engineering leader focused on applied AI, data analytics, and product management.">
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
     <style>
+        body {
+            font-family: var(--sans);
+        }
+
         @media print {
             body {
                 background: white;
@@ -37,8 +40,8 @@ title: Resume
         .page {
             max-width: 900px;
             margin: 2.5rem auto;
-            background: #ffffff;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.18);
+            background: var(--paper);
+            box-shadow: 0 20px 80px rgba(26, 26, 24, 0.18);
             position: relative;
             overflow: hidden;
         }
@@ -50,92 +53,40 @@ title: Resume
             top: 0;
             bottom: 0;
             width: 6px;
-            background: linear-gradient(180deg, var(--accent) 0%, var(--crimson) 100%);
+            background: linear-gradient(180deg, var(--accent) 0%, var(--ink) 100%);
         }
 
         /* ── HEADER ── */
-        .header {
-            background: var(--crimson);
-            padding: 52px 56px 44px 62px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            right: -60px;
-            top: -60px;
-            width: 280px;
-            height: 280px;
-            border: 40px solid rgba(128, 128, 128, 0.12);
-            border-radius: 50%;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            right: 60px;
-            bottom: -80px;
-            width: 180px;
-            height: 180px;
-            border: 28px solid rgba(128, 128, 128, 0.08);
-            border-radius: 50%;
-        }
-
-        .name {
-            font-size: 3.25rem;
-            font-weight: 300;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-            line-height: 1;
-            margin-bottom: 6px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .name span {
-            color: var(--accent);
-        }
-
-        .tagline {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 0.8125rem;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 28px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-row {
+        .resume-contact-row {
             display: flex;
             flex-wrap: wrap;
             gap: 6px 0;
-            position: relative;
-            z-index: 1;
+            margin-top: 1.25rem;
         }
 
-        .contact-item {
-            color: rgba(255, 255, 255, 0.7);
+        .resume-contact-item {
+            color: var(--ink-mid);
             font-size: 0.8125rem;
             font-weight: 400;
             padding-right: 20px;
             position: relative;
-            font-family: monospace;
+            font-family: var(--mono);
         }
 
-        .contact-item:not(:last-child)::after {
+        .resume-contact-item:not(:last-child)::after {
             content: '·';
             position: absolute;
             right: 8px;
             color: var(--accent);
         }
 
-        .contact-item a {
+        .resume-contact-item a {
             color: inherit;
             text-decoration: none;
+        }
+
+        .resume-contact-item a:hover {
+            color: var(--accent);
         }
 
         /* ── BODY ── */
@@ -179,6 +130,7 @@ title: Resume
         }
 
         .section-label {
+            font-family: var(--mono);
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 4px;
@@ -201,7 +153,7 @@ title: Resume
         .intro-text {
             font-size: 0.9rem;
             line-height: 1.75;
-            color: #374151;
+            color: var(--ink-mid);
             font-weight: 400;
         }
 
@@ -209,7 +161,7 @@ title: Resume
         .job {
             margin-bottom: 32px;
             padding-bottom: 32px;
-            border-bottom: 1px solid #f0ece4;
+            border-bottom: 1px solid var(--ink-faint);
         }
 
         .job:last-child {
@@ -229,7 +181,7 @@ title: Resume
         .job-title {
             font-size: 1.2rem;
             font-weight: 500;
-            color: var(--crimson);
+            color: var(--accent);
             line-height: 1.3;
         }
 
@@ -240,7 +192,7 @@ title: Resume
             white-space: nowrap;
             padding-top: 3px;
             letter-spacing: 0.5px;
-            font-family: monospace;
+            font-family: var(--mono);
         }
 
         .job-company {
@@ -254,7 +206,7 @@ title: Resume
         .job-summary {
             font-size: 0.95rem;
             line-height: 1.65;
-            color: #4b5563;
+            color: var(--ink-mid);
             margin-bottom: 10px;
             font-weight: 400;
             font-style: italic;
@@ -268,7 +220,7 @@ title: Resume
         .job-bullets li {
             font-size: 0.9rem;
             line-height: 1.6;
-            color: #374151;
+            color: var(--ink-mid);
             padding: 3px 0 3px 18px;
             position: relative;
             font-weight: 400;
@@ -292,54 +244,16 @@ title: Resume
             color: var(--ink-mid);
             font-style: italic;
             font-weight: 300;
-            font-family: monospace;
+            font-family: var(--mono);
         }
 
         .job-stack strong {
             font-weight: 500;
             font-style: normal;
-            color: var(--crimson);
+            color: var(--accent);
             font-size: 0.8rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        /* Earlier roles compact */
-        .job-compact {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 8px 0;
-            border-bottom: 1px solid #f5f2ed;
-            gap: 16px;
-        }
-
-        .job-compact:last-child {
-            border-bottom: none;
-        }
-
-        .job-compact-left {
-            flex: 1;
-        }
-
-        .job-compact-title {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--crimson);
-        }
-
-        .job-compact-co {
-            font-size: 0.85rem;
-            color: var(--ink-mid);
-            margin-top: 1px;
-        }
-
-        .job-compact-dates {
-            font-size: 0.8rem;
-            color: var(--ink-mid);
-            white-space: nowrap;
-            font-weight: 500;
-            font-family: monospace;
         }
 
         /* ── SKILLS GRID ── */
@@ -354,7 +268,7 @@ title: Resume
             flex-direction: column;
             gap: 3px;
             padding: 10px 14px;
-            background: var(--paper);
+            background: var(--paper-warm);
             border-left: 3px solid var(--ink-faint);
         }
 
@@ -363,16 +277,17 @@ title: Resume
         }
 
         .skill-label {
+            font-family: var(--mono);
             font-size: 0.65rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--crimson);
+            color: var(--accent);
         }
 
         .skill-value {
             font-size: 0.85rem;
-            color: #374151;
+            color: var(--ink-mid);
             font-weight: 400;
             line-height: 1.5;
         }
@@ -396,7 +311,7 @@ title: Resume
         .cert-name {
             font-size: 0.8rem;
             font-weight: 400;
-            color: var(--crimson);
+            color: var(--accent);
         }
 
         .cert-year {
@@ -404,7 +319,7 @@ title: Resume
             color: var(--ink-mid);
             font-weight: 500;
             white-space: nowrap;
-            font-family: monospace;
+            font-family: var(--mono);
         }
 
         /* ── PRINT BUTTON ── */
@@ -412,7 +327,7 @@ title: Resume
             position: fixed;
             bottom: 32px;
             right: 32px;
-            background: var(--crimson);
+            background: var(--ink);
             color: #ffffff;
             border: none;
             padding: 12px 24px;
@@ -421,7 +336,7 @@ title: Resume
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 8px 32px rgba(139, 26, 26, 0.3);
+            box-shadow: 0 8px 32px rgba(26, 26, 24, 0.3);
             transition: background 0.2s, transform 0.1s;
         }
 
@@ -431,32 +346,27 @@ title: Resume
             transform: translateY(-2px);
         }
     </style>
-    <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
-    <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | relative_url }}">
 </head>
 
 <body>
     <div class="page">
-        <div class="header">
-            <nav class="no-print" style="margin-top: -28px; margin-bottom: 24px;"><a href="/"
-                    style="color: var(--accent); font-size: 0.8125rem; text-decoration: none; letter-spacing: 1px;">
-                    ← Home</a></nav>
-            <div class="name">Richard <span>Basile</span></div>
-            <div class="tagline">Data Engineering &nbsp;·&nbsp;Applied AI &nbsp;·&nbsp; Product Management
-            </div>
-            <div class="contact-row">
-                <div class="contact-item">614-306-7784</div>
-                <div class="contact-item"><a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a></div>
-                <div class="contact-item"><a href="https://linkedin.com/in/richardbasile"
-                        target="_blank">linkedin.com/in/richardbasile</a></div>
-                <div class="contact-item">Columbus, Ohio</div>
-            </div>
-        </div>
+        <div class="body" style="padding-top: 2.5rem;">
+            <nav class="site-nav no-print" style="margin-bottom: 1rem;">
+                <a class="back-link" href="/">← Home</a>
+                <span class="nav-mark">Resume</span>
+            </nav>
 
-        <div class="body">
+            <header class="masthead" style="margin-bottom: 0;">
+                <p class="header-meta">Data Engineering &middot; Applied AI &middot; Product Management</p>
+                <h1>Richard <em>Basile</em></h1>
+                <div class="resume-contact-row">
+                    <div class="resume-contact-item">614-306-7784</div>
+                    <div class="resume-contact-item"><a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a></div>
+                    <div class="resume-contact-item"><a href="https://linkedin.com/in/richardbasile"
+                            target="_blank">linkedin.com/in/richardbasile</a></div>
+                    <div class="resume-contact-item">Columbus, Ohio</div>
+                </div>
+            </header>
 
             <div class="section">
                 <div class="section-label">Profile</div>

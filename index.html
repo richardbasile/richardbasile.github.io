@@ -1,30 +1,196 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
 
-{% assign featured = site.posts.first %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Richard Basile</title>
+  <meta name="description" content="Richard Basile — engineering leader, endurance athlete, and runner.">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    .home-shell {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 6rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-<section class="featured-post">
-  <h1><a href="{{ featured.url }}">{{ featured.title }}</a></h1>
-  <!-- <p class="post-date">{{ featured.date | date: "%B %d, %Y" }}</p> -->
-  <div class="featured-body">
-    {{ featured.content | split: '<!--more-->' | first }}
+    .home-eyebrow {
+      font-family: var(--mono);
+      font-size: 12.6px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.9rem;
+    }
+
+    .home-eyebrow::before {
+      content: '●';
+      color: var(--accent);
+      margin-right: 8px;
+      font-size: 9px;
+      vertical-align: middle;
+    }
+
+    h1.home-name {
+      font-size: 3.4rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+    }
+
+    h1.home-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .home-tagline {
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      max-width: 30rem;
+      margin-bottom: 2.75rem;
+      line-height: 1.65;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--ink-faint);
+    }
+
+    .link-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 1.15rem 0;
+      border-bottom: 1px solid var(--ink-faint);
+      text-decoration: none;
+      color: var(--ink);
+      transition: padding-left 0.15s ease, color 0.15s ease;
+    }
+
+    .link-row:hover {
+      padding-left: 8px;
+      color: var(--accent);
+    }
+
+    .link-row:hover .link-arrow {
+      transform: translateX(3px);
+      opacity: 1;
+    }
+
+    .link-main {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .link-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .link-desc {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      color: var(--ink-light);
+      letter-spacing: 0.02em;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .link-arrow {
+      display: none;
+    }
+
+    @media (min-width: 480px) {
+      .link-arrow {
+        display: inline-block;
+        font-family: var(--mono);
+        opacity: 0;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+        margin-left: 6px;
+      }
+    }
+
+    .home-footer {
+      margin-top: 3rem;
+      font-family: var(--mono);
+      font-size: 12.1px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      display: flex;
+      gap: 18px;
+    }
+
+    .home-footer a {
+      color: var(--ink-light);
+      text-decoration: none;
+    }
+
+    .home-footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 480px) {
+      h1.home-name {
+        font-size: 2.5rem;
+      }
+
+      .link-desc {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="home-shell">
+    <p class="home-eyebrow">Columbus, Ohio</p>
+    <h1 class="home-name">Richard <em>Basile</em></h1>
+    <p class="home-tagline">First Mate, Pirate Ship Revenge</p>
+
+    <nav class="link-list" aria-label="Site navigation">
+      <a class="link-row" href="/resume.html">
+        <span class="link-main">
+          <span class="link-title">Resume</span>
+        </span>
+        <span class="link-desc">Experience &amp; background <span class="link-arrow">→</span></span>
+      </a>
+      <a class="link-row" href="/fueling-on-the-run.html">
+        <span class="link-main">
+          <span class="link-title">Fueling the Run</span>
+        </span>
+        <span class="link-desc">Carb &amp; electrolyte strategy <span class="link-arrow">→</span></span>
+      </a>
+      <a class="link-row" href="/fuel-calculator.html">
+        <span class="link-main">
+          <span class="link-title">Fuel Calculator</span>
+        </span>
+        <span class="link-desc">Gel &amp; hydration recipes <span class="link-arrow">→</span></span>
+      </a>
+      <a class="link-row" href="/connect.html">
+        <span class="link-main">
+          <span class="link-title">Connect</span>
+        </span>
+        <span class="link-desc">Find me elsewhere <span class="link-arrow">→</span></span>
+      </a>
+    </nav>
+
+    <div class="home-footer">
+      <a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a>
+      <a href="https://linkedin.com/in/richardbasile" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
   </div>
-  <a href="{{ featured.url }}" class="read-more">Read more →</a>
-</section>
+</body>
 
-<section class="archive-section">
-  <h2 class="archive-heading">Dispatches</h2>
-  <ul class="post-list">
-    {% for post in site.posts offset: 1 %}
-    <li>
-      <!-- <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span> -->
-      <div class="post-details">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+</html>

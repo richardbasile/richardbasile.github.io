@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect — Richard Basile</title>
+  <meta name="description" content="Find Richard Basile on social platforms and professional networks.">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    .connect-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--ink-faint);
+      margin-top: 1.5rem;
+    }
+
+    .connect-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--ink-faint);
+      text-decoration: none;
+      color: var(--ink);
+      transition: padding-left 0.15s ease, color 0.15s ease;
+    }
+
+    .connect-row:hover {
+      padding-left: 8px;
+      color: var(--accent);
+    }
+
+    .connect-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 1px solid var(--ink-faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      color: var(--ink-mid);
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .connect-row:hover .connect-icon {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .connect-platform {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .connect-handle {
+      font-family: var(--mono);
+      font-size: 12.1px;
+      color: var(--ink-light);
+      margin-top: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <nav class="site-nav no-print">
+      <a class="back-link" href="/">← Home</a>
+      <span class="nav-mark">Connect</span>
+    </nav>
+
+    <header class="masthead">
+      <p class="header-meta">Social &amp; professional</p>
+      <h1>Let's <em>Connect</em></h1>
+      <p class="lede">Find me across these platforms — running content, professional updates, and the
+        occasional photo.</p>
+    </header>
+
+    <nav class="connect-list" aria-label="Social links">
+      <a class="connect-row" href="https://facebook.com/buckeyestrides" target="_blank" rel="noopener">
+        <span class="connect-icon" aria-hidden="true">f</span>
+        <span>
+          <div class="connect-platform">Facebook</div>
+          <div class="connect-handle">facebook.com/buckeyestrides</div>
+        </span>
+      </a>
+      <a class="connect-row" href="https://instagram.com/buckeyestrides" target="_blank" rel="noopener">
+        <span class="connect-icon" aria-hidden="true">◎</span>
+        <span>
+          <div class="connect-platform">Instagram</div>
+          <div class="connect-handle">instagram.com/buckeyestrides</div>
+        </span>
+      </a>
+      <a class="connect-row" href="https://youtube.com/@buckeyestrides" target="_blank" rel="noopener">
+        <span class="connect-icon" aria-hidden="true">▶</span>
+        <span>
+          <div class="connect-platform">YouTube</div>
+          <div class="connect-handle">youtube.com/@buckeyestrides</div>
+        </span>
+      </a>
+      <a class="connect-row" href="https://linkedin.com/in/richardbasile" target="_blank" rel="noopener">
+        <span class="connect-icon" aria-hidden="true">in</span>
+        <span>
+          <div class="connect-platform">LinkedIn</div>
+          <div class="connect-handle">linkedin.com/in/richardbasile</div>
+        </span>
+      </a>
+    </nav>
+
+    <footer class="site-footer">
+      <span>Richard Basile</span>
+      <a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a>
+    </footer>
+  </div>
+</body>
+
+</html>

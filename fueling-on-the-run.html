@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fueling the Run — Richard Basile</title>
+  <meta name="description"
+    content="Not every run needs a gel. Not every run needs a sports drink. But some runs demand a fueling strategy as deliberate as your training plan.">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    article {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+    }
+
+    article h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 2.75rem 0 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    article h3 {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 2rem 0 0.75rem;
+    }
+
+    article p {
+      margin-bottom: 1.1rem;
+    }
+
+    article strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    article ul,
+    article ol {
+      margin: 0 0 1.1rem 1.3rem;
+    }
+
+    article li {
+      margin-bottom: 0.4rem;
+    }
+
+    article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: var(--ink-faint);
+    }
+
+    article a:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    .excerpt {
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      max-width: 38rem;
+      line-height: 1.65;
+      margin-top: 0.75rem;
+    }
+
+    .threshold-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0 1.75rem;
+      font-size: 0.92rem;
+      background: var(--paper);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .threshold-table th,
+    .threshold-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 0.5px solid var(--ink-faint);
+      vertical-align: top;
+    }
+
+    .threshold-table th {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      background: var(--paper-warm);
+    }
+
+    .threshold-table td:first-child {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .threshold-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .recipe-card {
+      background: var(--paper);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .recipe-card .recipe-name {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .recipe-card ul {
+      margin: 0 0 0 1.1rem;
+      font-size: 0.92rem;
+    }
+
+    .cta-box {
+      background: var(--accent-soft);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 2rem 0;
+    }
+
+    .cta-box p {
+      color: var(--ink);
+      margin-bottom: 0;
+    }
+
+    .cta-box a {
+      font-weight: 500;
+    }
+
+    .toc {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      border: 0.5px solid var(--ink-faint);
+      border-radius: 4px;
+      padding: 1rem 1.3rem;
+      margin: 1.75rem 0 0;
+      background: var(--paper);
+    }
+
+    .toc-label {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: var(--ink-light);
+      margin-bottom: 0.6rem;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .toc li {
+      margin-bottom: 0.35rem;
+    }
+
+    .toc a {
+      color: var(--ink-mid);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <nav class="site-nav no-print">
+      <a class="back-link" href="/">← Home</a>
+      <span class="nav-mark">Fueling the Run</span>
+    </nav>
+
+    <header class="masthead">
+      <p class="header-meta">Running &middot; Endurance &middot; Fueling &middot; Hydration</p>
+      <h1>Fueling <em>the Run</em></h1>
+      <p class="excerpt">Not every run needs a gel. Not every run needs a sports drink. But some runs demand a
+        fueling strategy as deliberate as your training plan. Your goal is to give your body the fuel and
+        electrolytes it needs to perform and recover at its best.</p>
+    </header>
+
+    <div class="toc no-print">
+      <p class="toc-label">On this page</p>
+      <ol>
+        <li><a href="#when-fueling-matters">When does fueling matter?</a></li>
+        <li><a href="#hydration">Hydration &amp; electrolytes</a></li>
+        <li><a href="#absorption">The science of carbohydrate absorption</a></li>
+        <li><a href="#gut-training">Gut training</a></li>
+        <li><a href="#homemade">The homemade advantage</a></li>
+      </ol>
+    </div>
+
+    <article>
+
+      <h2 id="when-fueling-matters">When Does Fueling Matter?</h2>
+
+      <p>Your muscles and liver store carbohydrate as glycogen, roughly 400&ndash;500 grams total in a
+        well-fueled athlete. At moderate to high intensity, that supply runs out after 90&ndash;120 minutes.
+        When it does, performance collapses. Runners know this as hitting the wall.</p>
+
+      <p>Research by Asker Jeukendrup and colleagues at the University of Birmingham established a
+        duration-based framework for carbohydrate intake during exercise, since adopted by the American
+        College of Sports Medicine (ACSM).</p>
+
+      <table class="threshold-table">
+        <thead>
+          <tr>
+            <th>Duration</th>
+            <th>Guidance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Under 45 min</td>
+            <td>Water is sufficient. Glycogen is not a limiting factor.</td>
+          </tr>
+          <tr>
+            <td>45&ndash;75 min</td>
+            <td>Carbohydrate detected in the mouth activates reward areas in the brain linked to motor
+              control and motivation through a neural mechanism rather than a metabolic one. A 5&ndash;10
+              second mouth rinse with a carbohydrate solution mid-run produces performance improvements of
+              2&ndash;3% in high-intensity efforts without any carbohydrate being swallowed.</td>
+          </tr>
+          <tr>
+            <td>75&ndash;90 min</td>
+            <td>Carbohydrate intake has clear metabolic benefit. Target 30&ndash;60 g/hr. A single
+              carbohydrate source works fine at this range. Electrolytes are not yet necessary but begin to
+              offer a benefit, particularly in heat.</td>
+          </tr>
+          <tr>
+            <td>90 min&ndash;2.5 hr</td>
+            <td>Target 60 g/hr. At this level the type of carbohydrate matters. Electrolyte replacement is
+              necessary.</td>
+          </tr>
+          <tr>
+            <td>Beyond 2.5 hr</td>
+            <td>The ACSM recommends up to 90 g/hr. At these intakes, glucose alone cannot be oxidized above
+              60 g/hr regardless of how much you consume. SGLT1 is saturated. To absorb more, you must
+              engage both intestinal transporters simultaneously by combining glucose and fructose. Table
+              sugar does this in a single ingredient. Maltodextrin and fructose do it with more control over
+              the ratio and less sweetness at high concentrations.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>These thresholds are calibrated to moderate-to-high intensity. At an easy recovery pace, glycogen
+        depletion is slower and fat oxidation carries more of the load. You have more margin than at tempo
+        effort.</p>
+
+      <h2 id="hydration">Hydration and Electrolytes</h2>
+
+      <p>Dehydration and overhydration both degrade performance. The ACSM cites measurable performance
+        decline at fluid loss of 2% of body weight, with heat strain rising sharply above 4%. Overhydration
+        carries its own risk: exercise-associated hyponatremia, a dangerous drop in blood sodium caused by
+        excessive plain water consumption. Target 600&ndash;1,200 ml/hr during exercise, scaled to
+        conditions and individual sweat rate.</p>
+
+      <h3>Sodium</h3>
+
+      <p>Sodium is the electrolyte that matters most, and the one most concentrated in sweat. Sweat sodium
+        averages around 800&ndash;1,000 mg per liter, and a practical target of 1,000 mg per liter of drink
+        replaces losses without overcorrecting. In hot and humid conditions above 77&deg;F (25&deg;C), sweat
+        rate can double and sodium needs scale toward 1,500 mg per liter.</p>
+
+      <p>Watch for swollen hands or fingers mid-run. It can signal either sodium depletion or overhydration
+        from plain water, and the two problems have different responses. If you have been drinking heavily
+        without electrolytes, ease back on fluid intake first. If your electrolyte intake has been low,
+        increase it.</p>
+
+      <h3>Potassium and other electrolytes</h3>
+
+      <p>Sweat contains roughly four to six times more sodium than potassium, so potassium is a secondary
+        concern during exercise. Most runners cover baseline potassium needs through diet, and omitting it
+        from your drink mix is entirely reasonable for runs under three hours. Commercial products like
+        Skratch, Tailwind, and Liquid IV contain only 88&ndash;176 mg of potassium per serving, which
+        reflects this hierarchy. The adequate intake for potassium is 2,600&ndash;3,400 mg per day, and a
+        single liter adding 700 mg on top of a normal diet is well within that range. Commercial products
+        keep potassium low primarily for taste, and you may adjust according to your preferences.</p>
+
+      <p>For efforts beyond three hours, potassium chloride (sold as No Salt or Nu-Salt, approximately 350
+        mg per 1/8 teaspoon) provides useful insurance against cumulative depletion. For shorter efforts,
+        omit it from your drink. Dietary potassium covers the baseline and sweat losses are too small to
+        outpace it.</p>
+
+      <p>Magnesium and calcium are better handled through daily supplementation than a run drink. Magnesium
+        glycinate at 200&ndash;400 mg taken nightly supports sleep and muscle recovery. Calcium is best
+        split across two meals, with absorption capped at around 500 mg at a time. Including either in a run
+        drink introduces GI risk without meaningful benefit in acute performance.</p>
+
+      <h3>A practical electrolyte mix</h3>
+
+      <p>Per liter of water:</p>
+      <ul>
+        <li>1/2 tsp fine-grain table salt (approximately 1,150 mg sodium)</li>
+        <li>1/8 tsp No Salt or Nu-Salt, optional (approximately 350 mg potassium)</li>
+      </ul>
+      <p>Scale sodium toward 3/4 tsp per liter in heat above 77&deg;F (25&deg;C) or if you are a salty
+        sweater.</p>
+
+      <h2 id="absorption">The Science of Carbohydrate Absorption</h2>
+
+      <p>Your intestine absorbs carbohydrates through specific transporter proteins. Glucose and glucose
+        polymers like maltodextrin use SGLT1, a sodium-dependent active transporter. Fructose uses a
+        separate one, GLUT5. When you consume only glucose-based carbohydrates, SGLT1 saturates at around 60
+        g/hr. More glucose does not increase absorption. It sits in your gut, pulls in water, and causes
+        bloating and GI distress.</p>
+
+      <p>Jeukendrup's group at Birmingham demonstrated that combining glucose and fructose uses both
+        transporters simultaneously, pushing oxidation rates to 1.75 g/min under laboratory conditions, a
+        50% improvement over single-source carbohydrate. With both transporters working, more carbohydrate
+        clears the intestine and reaches the muscle. Less accumulates in the gut, which is why GI distress
+        drops at high intake rates when you combine sources. The ACSM caps practical recommendations at 90
+        g/hr: the laboratory peak assumes optimal conditions, trained absorptive capacity, and carbohydrate
+        sources dialed to the right ratio. For most athletes, 90 g/hr is the realistic ceiling and the
+        appropriate target for gut training.</p>
+
+      <p>This principle underlies three practical formulation approaches, each with solid scientific
+        support.</p>
+
+      <h3>The 2:1 ratio (glucose:fructose)</h3>
+
+      <p>The original Jeukendrup formulation, and still the most widely cited. Two parts glucose or
+        maltodextrin to one part fructose saturates SGLT1 while engaging GLUT5, pushing absorption well past
+        the 60 g/hr single-source ceiling. It is the basis of most commercial endurance products and has the
+        largest body of research behind it. Maltodextrin is nearly tasteless, making high-carb drinks
+        palatable at concentrations that would otherwise be excessively sweet.</p>
+
+      <h3>The 1:0.8 ratio (glucose:fructose)</h3>
+
+      <p>More recent research suggests that increasing the fructose proportion further improves oxidation
+        efficiency and reduces GI distress at high intake rates. GLUT5 has more capacity than the 2:1 ratio
+        exploits. Studies comparing the two ratios at intakes above 80 g/hr favor 1:0.8, with equal or
+        better performance and comparable gut tolerance in trained athletes. The practical difference is
+        modest at 60 g/hr and more meaningful at the upper ceiling.</p>
+
+      <h3>Table sugar (sucrose)</h3>
+
+      <p>Sucrose is a disaccharide that the enzyme sucrase cleaves in the intestine into one glucose molecule
+        and one fructose molecule, producing a 1:1 ratio that engages both SGLT1 and GLUT5. At the
+        30&ndash;60 g/hr range typical of half marathon and marathon efforts, the difference between 1:1 and
+        the optimized ratios above is negligible. Table sugar costs a fraction of bulk maltodextrin or
+        fructose, is available in any grocery store, dissolves cleanly in water, and works exactly as the
+        science predicts.</p>
+
+      <h3>Choosing your ratio</h3>
+
+      <p>The practical difference between the three approaches comes down to sweetness and intake ceiling.
+        Fructose is sweeter than glucose, so the more fructose in your formula, the sweeter it tastes at
+        equivalent concentrations. Below 80 g/hr this rarely matters and all three approaches perform
+        comparably. Above it, a highly concentrated sweet solution over several hours becomes a palatability
+        problem, and flavor fatigue can suppress drinking at exactly the moment you need it most.</p>
+
+      <p>For most runners, table sugar is the right starting point. If sweetness becomes a problem at higher
+        intakes, move to 2:1 maltodextrin/fructose. If you are pushing toward 90 g/hr and have already
+        gut-trained at lower intakes, the 1:0.8 ratio is worth experimenting with.</p>
+
+      <h2 id="gut-training">Gut Training</h2>
+
+      <p>The gut is trainable. With repeated exposure to carbohydrate during exercise, the intestine gets
+        better at absorbing it. Athletes who practice fueling during training tolerate significantly more
+        carbohydrate per hour than those who don't.</p>
+
+      <p>90 g/hr requires months of deliberate practice. Starting there on race day is a reliable path to GI
+        distress, regardless of how well-formulated your gel is. Begin around 30&ndash;45 g/hr on long runs
+        and build gradually over weeks and months. Whatever you plan to race with, train with it first.</p>
+
+      <p>In practice, add roughly 10g every two to three weeks, not every week. Test on efforts that
+        approximate race conditions: similar pace, duration, and heat. A training run at easy effort on a
+        cool morning tells you almost nothing about how your gut will respond on race day. If you experience
+        bloating or distress at a given intake level, hold there for another two or three long runs before
+        increasing. The gut adapts, but it adapts on its own schedule.</p>
+
+      <h2 id="homemade">The Homemade Advantage</h2>
+
+      <p>The core ingredients of elite sports nutrition are bulk commodities. The difference in cost over a
+        full training block is real. More importantly, making your own puts you in control of concentration,
+        flavor, and format in a way no packaged product can match.</p>
+
+      <h3>The carbohydrate gel</h3>
+
+      <p>All three formulas work as a gel. The process is the same regardless of carbohydrate source: mix
+        dry ingredients, add boiled water gradually to your preferred consistency, allow to cool, and portion
+        into reusable gel flasks. Boiling helps the powders dissolve fully without clumping. Refrigerate for
+        up to 5&ndash;7 days, or freeze in flasks for up to 3 months. Take one flask every 30&ndash;45
+        minutes depending on your target intake rate.</p>
+
+      <p>For a standard batch covering roughly 3.75 hours at 60 g/hr, each formula yields 225g of carbohydrate
+        and 375&ndash;425ml of gel, filling 3&ndash;4 standard flasks. For a marathon at 60 g/hr over 4.5
+        hours, scale any formula to 270g total carbohydrate:</p>
+
+      <div class="recipe-card">
+        <div class="recipe-name">2:1 Maltodextrin / Fructose</div>
+        <ul>
+          <li>150g maltodextrin</li>
+          <li>75g fructose</li>
+          <li>1/4 tsp pectin (optional, thickens the mixture into a gel)</li>
+          <li>150&ndash;200ml water</li>
+        </ul>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-name">1:0.8 Maltodextrin / Fructose</div>
+        <ul>
+          <li>125g maltodextrin</li>
+          <li>100g fructose</li>
+          <li>1/4 tsp pectin (optional)</li>
+          <li>150&ndash;200ml water</li>
+        </ul>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-name">Table Sugar</div>
+        <ul>
+          <li>225g table sugar</li>
+          <li>1/4 tsp pectin (optional)</li>
+          <li>150&ndash;200ml water</li>
+        </ul>
+      </div>
+
+      <h3>All in One</h3>
+
+      <p>Combine carbohydrate and electrolytes into a single bottle at roughly 6% concentration (about 60g
+        carbohydrate per liter) with salt mixed in. Omit pectin; you want a drink, not a gel. This suits
+        runners using a vest or anyone who prefers not to carry separate flasks. The tradeoff is that once
+        mixed, hydration and carbohydrate are locked together: drinking more means taking in more
+        carbohydrate, and you can't change the ratio mid-run.</p>
+
+      <p>Per liter, a starting point: 5 tbsp table sugar (60g carbohydrate) and 1/2 tsp salt. Scale
+        carbohydrate, sodium, and potassium to your target rate and conditions.</p>
+
+      <h3>Owning the Formula</h3>
+
+      <p>Your training runs are the laboratory. Experiment with concentration, timing, and formulation.
+        Arrive at race day with a strategy already proven on your own body.</p>
+
+      <div class="cta-box">
+        <p>The <a href="/fuel-calculator.html">Fuel Calculator</a> is the practical companion to this
+          article. Enter your run duration and carbohydrate target and it scales the gel and electrolyte
+          recipes to exactly what you need to carry &mdash; no math required.</p>
+      </div>
+
+    </article>
+
+    <footer class="site-footer">
+      <span>Fueling the Run &middot; May 10, 2026</span>
+      <a href="/">richardbasile.com</a>
+    </footer>
+  </div>
+</body>
+
+</html>

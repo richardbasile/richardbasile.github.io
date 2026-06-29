@@ -1,0 +1,187 @@
+/* ===========================================================
+   Richard Basile — site-wide styles
+   Shared theme used across index, resume, connect, fueling
+   article, and fuel calculator.
+   =========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #1a1a18;
+  --ink-mid: #4a4a46;
+  --ink-light: #8a8a84;
+  --ink-faint: #d4d4cc;
+  --paper: #f7f6f1;
+  --paper-warm: #eeede6;
+  --accent: #c84a1e;
+  --accent-soft: #f0ddd7;
+  --blue: #1e5a9e;
+  --blue-soft: #dae6f5;
+  --amber: #8a5c00;
+  --amber-soft: #f5e8c8;
+  --green: #2a6e3e;
+  --green-soft: #e8f0e0;
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-size: 16.9px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ── Site header / nav, shared across all pages ── */
+
+.site-shell {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.site-nav a.back-link {
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-nav a.back-link:hover {
+  text-decoration: underline;
+}
+
+.site-nav .nav-mark {
+  font-family: var(--mono);
+  font-size: 12.1px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+header.masthead {
+  border-top: 3px solid var(--ink);
+  padding-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.header-meta {
+  font-family: var(--mono);
+  font-size: 13.3px;
+  color: var(--ink-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2.9rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.lede {
+  font-size: 1.05rem;
+  color: var(--ink-mid);
+  max-width: 36rem;
+  margin-top: 0.75rem;
+}
+
+/* ── Footer, shared ── */
+
+footer.site-footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 12.1px;
+  color: var(--ink-light);
+  letter-spacing: 0.06em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+footer.site-footer a {
+  color: var(--ink-light);
+  text-decoration: none;
+}
+
+footer.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* ── Card primitive, reused in lists, links, etc ── */
+
+.card {
+  background: var(--paper);
+  border: 0.5px solid var(--ink-faint);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.note-box {
+  background: var(--paper-warm);
+  border-left: 2px solid var(--ink-faint);
+  border-radius: 0 3px 3px 0;
+  padding: 10px 14px;
+  font-size: 14.5px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.divider {
+  border: none;
+  border-top: 0.5px solid var(--ink-faint);
+  margin: 1.5rem 0 1rem;
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .site-shell {
+    padding: 2rem 1.25rem 4rem;
+  }
+}
