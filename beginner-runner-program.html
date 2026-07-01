@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Runner Program - Richard Basile</title>
+    <meta name="description" content="Build from zero to 40 minutes of continuous running in 12 weeks.">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <style>
+        /* Fallback tokens — used only if /assets/css/style.css fails to load
+           (e.g. previewing this file outside the Jekyll build). When deployed,
+           the real stylesheet below loads after this and overrides these. */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --ink: #1a1a18;
+            --ink-mid: #4a4a46;
+            --ink-light: #8a8a84;
+            --ink-faint: #d4d4cc;
+            --paper: #f7f6f1;
+            --paper-warm: #eeede6;
+            --accent: #c84a1e;
+            --accent-soft: #f0ddd7;
+            --crimson: #8b1a1a;
+            --crimson-dark: #5f1211;
+            --crimson-soft: #f0d7d7;
+            --green: #2a6e3e;
+            --mono: 'DM Mono', monospace;
+            --sans: 'DM Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper-warm);
+            color: var(--ink);
+            font-size: 16.9px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        a {
+            color: var(--accent);
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            .scroll-shell {
+                overflow: visible !important;
+            }
+
+            table.plan {
+                min-width: 0 !important;
+            }
+
+            @page {
+                margin: 0.4in;
+            }
+        }
+
+        body {
+            padding: 0 20px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            background: #ffffff;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--crimson) 100%);
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--crimson);
+            padding: 52px 56px 40px 62px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            width: 280px;
+            height: 280px;
+            border: 40px solid rgba(128, 128, 128, 0.12);
+            border-radius: 50%;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            right: 60px;
+            bottom: -80px;
+            width: 180px;
+            height: 180px;
+            border: 28px solid rgba(128, 128, 128, 0.08);
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 2.6rem;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1.05;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name span {
+            color: var(--accent);
+        }
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.8125rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── BODY ── */
+        .body {
+            padding: 0 56px 56px 62px;
+        }
+
+        .section {
+            margin-top: 40px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--ink-faint);
+        }
+
+        .intro-text {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: #374151;
+            font-weight: 400;
+        }
+
+        .intro-text+.intro-text {
+            margin-top: 14px;
+        }
+
+        /* ── FACT GRID (program basics) ── */
+        .fact-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 12px 18px;
+            font-size: 0.88rem;
+            margin-top: 4px;
+        }
+
+        .fact-grid .k {
+            font-family: monospace;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--crimson);
+            padding-top: 2px;
+            font-weight: 500;
+        }
+
+        .fact-grid .v {
+            color: #374151;
+            line-height: 1.65;
+        }
+
+        .fact-grid .v ul {
+            margin: 4px 0 0 18px;
+        }
+
+        .fact-grid .v li {
+            margin-bottom: 3px;
+        }
+
+        .fact-grid a {
+            color: var(--accent);
+        }
+
+        /* ── TABLE ── */
+        .scroll-shell {
+            overflow-x: auto;
+            border: 1px solid var(--ink-faint);
+            border-radius: 6px;
+        }
+
+        table.plan {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 560px;
+            font-size: 0.9rem;
+        }
+
+        table.plan thead tr {
+            background: var(--crimson);
+            color: #ffffff;
+        }
+
+        table.plan th {
+            padding: 11px 10px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        table.plan tbody tr {
+            border-bottom: 1px solid var(--ink-faint);
+        }
+
+        table.plan tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        table.plan tbody td {
+            padding: 10px 8px;
+            line-height: 1.6;
+            vertical-align: top;
+            color: var(--ink-mid);
+        }
+
+        table.plan tbody td:first-child {
+            font-weight: 600;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: monospace;
+            text-align: center;
+            border-right: 2px solid var(--ink-faint);
+        }
+
+        table.plan tbody td.goal-cell {
+            background: var(--crimson-soft);
+        }
+
+        .workout-note {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--ink-light);
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .workout-milestone {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--green);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .closing-line {
+            margin-top: 28px;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--crimson);
+            text-align: center;
+            letter-spacing: 0.2px;
+        }
+
+        /* ── PRINT BUTTON ── */
+        .print-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--crimson);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(139, 26, 26, 0.3);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .print-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 0 10px;
+            }
+
+            .body {
+                padding: 0 24px 40px 28px;
+            }
+
+            .header {
+                padding: 40px 24px 32px 28px;
+            }
+
+            .fact-grid {
+                grid-template-columns: 1fr;
+                gap: 4px 0;
+            }
+
+            .fact-grid .k {
+                margin-top: 10px;
+            }
+
+            .print-btn {
+                position: static;
+                display: block;
+                width: fit-content;
+                margin: 24px auto 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+    <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">
+            <nav class="no-print" style="margin-top: -28px; margin-bottom: 24px;"><a href="/"
+                    style="color: var(--accent); font-size: 0.8125rem; text-decoration: none; letter-spacing: 1px;">
+                    ← Home</a></nav>
+            <div class="name">Beginner Runner <span>Program</span></div>
+            <div class="tagline">12-Week Build &nbsp;·&nbsp; Zero to 40 Minutes Continuous</div>
+        </div>
+
+        <div class="body">
+
+            <div class="section">
+                <div class="section-label">Overview</div>
+                <p class="intro-text">The Beginner Runner Program offers a thoughtful alternative for those seeking
+                    a more comprehensive foundation as a new runner. By prioritizing time-on-feet over distance
+                    targets, it allows runners to build genuine aerobic capacity and running economy before chasing
+                    speed. Cross-training and strength work addresses mobility and core stability early — areas that
+                    prevent many runners from progressing smoothly. The structured progression, with built-in easy
+                    days, creates natural recovery windows that help sustain motivation over the full 12 weeks. For
+                    runners who've experienced injury in the past, or those who prefer a gradual, holistic approach
+                    to fitness rather than a quick sprint to a 5K, this program's timeline and emphasis on movement
+                    quality may feel like a better match for their goals and lifestyle.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-label">Program Basics</div>
+                <div class="fact-grid">
+                    <div class="k">The Goal</div>
+                    <div class="v">Build from zero to 40 minutes of continuous running in 12 weeks.</div>
+
+                    <div class="k">Structure</div>
+                    <div class="v">Each workout begins with a warm-up and ends with a cooldown.</div>
+
+                    <div class="k">Pacing</div>
+                    <div class="v">Keep these runs at an easy pace. If you feel like you are running too slow,
+                        good! If you feel good about your pace, slow down! Speed will come in due time. The
+                        objective here is time on feet to build a foundation.</div>
+
+                    <div class="k">Schedule</div>
+                    <div class="v">You will be running three days a week. Choose a cross training option on the
+                        days between, two days a week. This could be 30 minutes on a spin bike, 1,000 yards in
+                        the pool, or even walking for 2 miles.</div>
+
+                    <div class="k">Strength</div>
+                    <div class="v">Consider including light strength workouts two days a week to build your core.
+                        The following routines are great options for the new athlete:
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=Mj8uZ1Qtx3M" target="_blank">The Myrtl
+                                    Routine</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=NFvqLcOEOQw" target="_blank">8-Minute Speed
+                                    Legs</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="k">Recovery</div>
+                    <div class="v">Consider walking on rest days for active recovery.</div>
+
+                    <div class="k">Starting Point</div>
+                    <div class="v">You're ready to start this program when you can comfortably walk 30 minutes.
+                        For some people, it may take a season of walking before you can begin running. I walked
+                        five days a week for three months following an injury before I resumed running.</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-label">Training Schedule</div>
+
+                <div class="scroll-shell">
+                    <table class="plan">
+                        <thead>
+                            <tr>
+                                <th>Week</th>
+                                <th>Day 1</th>
+                                <th>Day 2</th>
+                                <th>Day 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><strong>14x (30s run, 1m walk)</strong><span class="workout-note">5 min walk warm-up
+                                        & cool-down</span></td>
+                                <td><strong>14x (30s run, 1m walk)</strong><span class="workout-note">5 min walk warm-up
+                                        & cool-down</span></td>
+                                <td><strong>14x (30s run, 1m walk)</strong><span class="workout-note">5 min walk warm-up
+                                        & cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><strong>9x (1m run, 1m walk)</strong><span class="workout-note">5 min walk warm-up &
+                                        cool-down</span></td>
+                                <td><strong>14x (30s run, 1m walk)</strong><span class="workout-note">5 min walk warm-up
+                                        & cool-down • Active recovery</span></td>
+                                <td><strong>9x (1m run, 1m walk)</strong><span class="workout-note">5 min walk warm-up &
+                                        cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><strong>7x (2m run, 1m walk)</strong><span class="workout-note">4 min walk warm-up &
+                                        cool-down</span></td>
+                                <td><strong>9x (1m run, 1m walk)</strong><span class="workout-note">4 min walk warm-up &
+                                        cool-down • Active recovery</span></td>
+                                <td><strong>7x (2m run, 1m walk)</strong><span class="workout-note">4 min walk warm-up &
+                                        cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><strong>6x (3m run, 1m walk)</strong><span class="workout-note">4 min walk warm-up &
+                                        cool-down</span></td>
+                                <td><strong>9x (1m run, 1m walk)</strong><span class="workout-note">4 min walk warm-up &
+                                        cool-down • Active recovery</span></td>
+                                <td><strong>6x (3m run, 1m walk)</strong><span class="workout-note">4 min walk warm-up &
+                                        cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><strong>6x (3m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down</span></td>
+                                <td><strong>5x (5m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down • Active recovery</span></td>
+                                <td><strong>6x (3m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><strong>3x (10m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down</span></td>
+                                <td><strong>6x (3m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down • Active recovery</span></td>
+                                <td><strong>3x (10m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><strong>3x (8m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down • Active recovery</span></td>
+                                <td><strong>3x (12m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down</span></td>
+                                <td><strong>2x (15m run, 2m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down</span><span class="workout-milestone">First 15m continuous!</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><strong>3x (12m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down • Active recovery</span></td>
+                                <td><strong>2x (15m run, 2m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down</span></td>
+                                <td><strong>20m run, 2m walk, 10m run</strong><span class="workout-note">3 min walk
+                                        warm-up & cool-down</span></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><strong>3x (12m run, 1m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down • Active recovery</span></td>
+                                <td><strong>20m run, 2m walk, 10m run</strong><span class="workout-note">3 min walk
+                                        warm-up & cool-down</span></td>
+                                <td><strong>30m continuous run</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down</span><span class="workout-milestone">30m continuous!</span></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><strong>2x (15m run, 2m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down</span></td>
+                                <td><strong>30m continuous run</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down</span></td>
+                                <td><strong>2x (15m run, 2m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down • Active recovery</span></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><strong>25m run, 2m walk, 10m run</strong><span class="workout-note">3 min walk
+                                        warm-up & cool-down</span></td>
+                                <td><strong>2x (15m run, 2m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down • Active recovery</span></td>
+                                <td><strong>35m continuous run</strong><span class="workout-note">3 min walk warm-up &
+                                        cool-down</span><span class="workout-milestone">35m continuous!</span></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><strong>30m run, 2m walk, 10m run</strong><span class="workout-note">3 min walk
+                                        warm-up & cool-down</span></td>
+                                <td><strong>2x (15m run, 2m walk)</strong><span class="workout-note">3 min walk warm-up
+                                        & cool-down • Active recovery</span></td>
+                                <td class="goal-cell"><strong style="color: var(--crimson);">40m CONTINUOUS
+                                        RUN</strong><span class="workout-note">5 min walk warm-up &
+                                        cool-down</span><span class="workout-milestone">🏆 GOAL ACHIEVED!</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="closing-line">You've got this. Run easy. Build the foundation. Trust the process.</p>
+            </div>
+
+            <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
+
+        </div>
+    </div>
+</body>
+
+</html>
