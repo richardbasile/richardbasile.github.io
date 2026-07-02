@@ -160,8 +160,8 @@
             <div class="ratio-fruc" id="ratio-bar-fruc" style="width:34%"></div>
           </div>
           <div class="ratio-legend" id="ratio-legend">
-            <span><span class="legend-dot" style="background:var(--ink);"></span>Maltodextrin (2 parts)</span>
-            <span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (1 part)</span>
+            <span><span class="ratio-legend-dot" style="background:var(--ink);"></span>Maltodextrin (2 parts)</span>
+            <span><span class="ratio-legend-dot" style="background:var(--crimson);"></span>Fructose (1 part)</span>
           </div>
         </div>
 
@@ -215,8 +215,8 @@
             <div class="ratio-fruc" style="width:50%"></div>
           </div>
           <div class="ratio-legend">
-            <span><span class="legend-dot" style="background:var(--ink);"></span>Glucose (sucrase-cleaved)</span>
-            <span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (sucrase-cleaved)</span>
+            <span><span class="ratio-legend-dot" style="background:var(--ink);"></span>Glucose (sucrase-cleaved)</span>
+            <span><span class="ratio-legend-dot" style="background:var(--crimson);"></span>Fructose (sucrase-cleaved)</span>
           </div>
         </div>
         <div class="ing-card">
@@ -613,12 +613,12 @@
 
         if (currentRatio === '2:1') {
           document.getElementById('ratio-legend').innerHTML =
-            '<span><span class="legend-dot" style="background:var(--ink);"></span>Maltodextrin (2 parts)</span>' +
-            '<span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (1 part)</span>';
+            '<span><span class="ratio-legend-dot" style="background:var(--ink);"></span>Maltodextrin (2 parts)</span>' +
+            '<span><span class="ratio-legend-dot" style="background:var(--crimson);"></span>Fructose (1 part)</span>';
         } else {
           document.getElementById('ratio-legend').innerHTML =
-            '<span><span class="legend-dot" style="background:var(--ink);"></span>Maltodextrin (1 part)</span>' +
-            '<span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (0.8 parts)</span>';
+            '<span><span class="ratio-legend-dot" style="background:var(--ink);"></span>Maltodextrin (1 part)</span>' +
+            '<span><span class="ratio-legend-dot" style="background:var(--crimson);"></span>Fructose (0.8 parts)</span>';
         }
 
         document.getElementById('g-vol').textContent = noGel ? '—' : fmt(totalVol, 'ml');

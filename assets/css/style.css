@@ -1058,7 +1058,7 @@ td.day-cell.strength-cell .session-name { display: block; font-size: 0.68rem; co
 td.day-cell.strength-cell .expand-hint { display: block; font-size: 0.6rem; color: #5B7A4A; margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
 .strength-detail-inner { border-left: 3px solid #5B7A4A !important; }
 .strength-detail-inner h4 { color: #44593A !important; }
-.strength-list { margin: 0; padding-left: 18px; font-family: var(--font-sans); }
+.strength-list { margin: 0; padding-left: 18px; font-family: var(--font-sans); text-align: left; }
 .strength-list li { margin-bottom: 3px; }
 
 tr.race-row td { background-color: var(--crimson-wash); }
@@ -1083,7 +1083,6 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
 .detail-grid .k { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--graphite); padding-top: 2px; text-align: left; }
 .detail-grid .v { font-family: var(--font-sans); color: var(--ink-soft); line-height: 1.5; text-align: left; }
 .detail-note { margin-top: 11px; font-family: var(--font-sans); font-size: 0.8rem; font-style: italic; color: var(--graphite); max-width: 700px; line-height: 1.55; text-align: left; }
-.strength-list { text-align: left; }
 
 /* ---------- rotation note ---------- */
 .rotation-note { margin-top: 22px; font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.65; color: var(--ink-soft); max-width: none; }
@@ -1272,7 +1271,7 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
 .ratio-malt { background: var(--ink); }
 .ratio-fruc { background: var(--crimson); }
 .ratio-legend { display: flex; gap: 16px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--graphite-soft); padding: 0 14px 12px; }
-.legend-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+.ratio-legend-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
 
 /* Notes and warnings */
 .note-box { background: var(--paper-warm); border-left: 2px solid var(--paper-line); border-radius: 0 var(--radius) var(--radius) 0; padding: 10px 14px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; margin-top: 12px; }
