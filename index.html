@@ -7,201 +7,71 @@
   <title>Richard Basile</title>
   <meta name="description" content="Richard Basile — engineering leader, endurance athlete, and runner.">
   <link rel="icon" href="/assets/images/favicon.ico">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=block"
     rel="stylesheet">
-  <style>
-    .home-shell {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 4.5rem 1.5rem 6rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .home-eyebrow {
-      font-family: var(--mono);
-      font-size: 12.6px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 0.9rem;
-    }
-
-    .home-eyebrow::before {
-      content: '●';
-      color: var(--accent);
-      margin-right: 8px;
-      font-size: 9px;
-      vertical-align: middle;
-    }
-
-    h1.home-name {
-      font-size: 3.4rem;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin-bottom: 0.6rem;
-    }
-
-    h1.home-name em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .home-tagline {
-      font-size: 1.05rem;
-      color: var(--ink-mid);
-      max-width: 30rem;
-      margin-bottom: 2.75rem;
-      line-height: 1.65;
-    }
-
-    .link-list {
-      display: flex;
-      flex-direction: column;
-      border-top: 1px solid var(--ink-faint);
-    }
-
-    .link-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 1.15rem 0;
-      border-bottom: 1px solid var(--ink-faint);
-      text-decoration: none;
-      color: var(--ink);
-      transition: padding-left 0.15s ease, color 0.15s ease;
-    }
-
-    .link-row:hover {
-      padding-left: 8px;
-      color: var(--accent);
-    }
-
-    .link-row:hover .link-arrow {
-      transform: translateX(3px);
-      opacity: 1;
-    }
-
-    .link-main {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-    }
-
-    .link-title {
-      font-size: 1.3rem;
-      font-weight: 400;
-    }
-
-    .link-desc {
-      font-family: var(--mono);
-      font-size: 12.1px;
-      color: var(--ink-light);
-      letter-spacing: 0.02em;
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    .link-arrow {
-      display: none;
-    }
-
-    @media (min-width: 480px) {
-      .link-arrow {
-        display: inline-block;
-        font-family: var(--mono);
-        opacity: 0;
-        transition: transform 0.15s ease, opacity 0.15s ease;
-        margin-left: 6px;
-      }
-    }
-
-    .home-footer {
-      margin-top: 3rem;
-      font-family: var(--mono);
-      font-size: 12.1px;
-      color: var(--ink-light);
-      letter-spacing: 0.06em;
-      display: flex;
-      gap: 18px;
-    }
-
-    .home-footer a {
-      color: var(--ink-light);
-      text-decoration: none;
-    }
-
-    .home-footer a:hover {
-      color: var(--accent);
-    }
-
-    @media (max-width: 480px) {
-      h1.home-name {
-        font-size: 2.5rem;
-      }
-
-      .link-desc {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-  <div class="home-shell">
-    <p class="home-eyebrow">Columbus, Ohio</p>
-    <h1 class="home-name">Richard <em>Basile</em></h1>
-    <p class="home-tagline">I am definitely a madman with a box</p>
+  <div class="wrap home-shell">
+    <p class="eyebrow">Columbus, Ohio</p>
+    <h1>Richard <em>Basile</em></h1>
+    <p class="lede">I am definitely a madman with a box.</p>
 
-    <nav class="link-list" aria-label="Site navigation">
-      <a class="link-row" href="/beginner-runner-program.html">
-        <span class="link-main">
-          <span class="link-title">Beginner Runner Program</span>
+    <nav class="splits-list" aria-label="Site navigation">
+      <a class="split-row" href="/beginner-runner-program.html">
+        <span class="split-num">01</span>
+        <span class="split-main">
+          <span class="split-title">Beginner Runner Program</span>
         </span>
-        <span class="link-desc">Training Plan <span class="link-arrow">→</span></span>
+        <span class="split-desc">Training plan <span class="split-arrow">→</span></span>
       </a>
-      <a class="link-row" href="/fueling-the-run.html">
-        <span class="link-main">
-          <span class="link-title">Fueling the Run</span>
+      <a class="split-row" href="/fueling-the-run.html">
+        <span class="split-num">02</span>
+        <span class="split-main">
+          <span class="split-title">Fueling the Run</span>
         </span>
-        <span class="link-desc">Carb &amp; electrolyte strategy <span class="link-arrow">→</span></span>
+        <span class="split-desc">Carb &amp; electrolyte strategy <span class="split-arrow">→</span></span>
       </a>
-      <a class="link-row" href="/fuel-calculator.html">
-        <span class="link-main">
-          <span class="link-title">Fuel Calculator</span>
+      <a class="split-row" href="/fuel-calculator.html">
+        <span class="split-num">03</span>
+        <span class="split-main">
+          <span class="split-title">Fuel Calculator</span>
         </span>
-        <span class="link-desc">Gel &amp; hydration recipes <span class="link-arrow">→</span></span>
+        <span class="split-desc">Gel &amp; hydration recipes <span class="split-arrow">→</span></span>
       </a>
-      <a class="link-row" href="/training-plan.html">
-        <span class="link-main">
-          <span class="link-title">Current Season</span>
+      <a class="split-row" href="/training-plan.html">
+        <span class="split-num">04</span>
+        <span class="split-main">
+          <span class="split-title">Current Season</span>
         </span>
-        <span class="link-desc">Training Plan <span class="link-arrow">→</span></span>
+        <span class="split-desc">Training plan <span class="split-arrow">→</span></span>
       </a>
-      <a class="link-row" href="/resume.html">
-        <span class="link-main">
-          <span class="link-title">Resume</span>
+      <a class="split-row" href="/resume.html">
+        <span class="split-num">05</span>
+        <span class="split-main">
+          <span class="split-title">Resume</span>
         </span>
-        <span class="link-desc">Experience &amp; background <span class="link-arrow">→</span></span>
+        <span class="split-desc">Experience &amp; background <span class="split-arrow">→</span></span>
       </a>
-      <a class="link-row" href="/connect.html">
-        <span class="link-main">
-          <span class="link-title">Connect</span>
+      <a class="split-row" href="/connect.html">
+        <span class="split-num">06</span>
+        <span class="split-main">
+          <span class="split-title">Connect</span>
         </span>
-        <span class="link-desc">Find me elsewhere <span class="link-arrow">→</span></span>
+        <span class="split-desc">Find me elsewhere <span class="split-arrow">→</span></span>
       </a>
     </nav>
 
-    <div class="home-footer">
-      <a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a>
-      <a href="https://linkedin.com/in/richardbasile" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+    <footer style="border-top: none; margin-top: var(--gap-lg); padding-top: 0;">
+      <div class="footer-links">
+        <a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a>
+        <a href="https://linkedin.com/in/richardbasile" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </footer>
   </div>
 </body>
 

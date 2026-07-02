@@ -8,610 +8,18 @@
   <meta name="description"
     content="Enter your run duration and carbohydrate target to scale gel and electrolyte recipes to exactly what you need to carry.">
   <link rel="icon" href="/assets/images/favicon.ico">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=block"
     rel="stylesheet">
-  <style>
-    body {
-      padding: 3rem 1.5rem 6rem;
-    }
-
-    .page {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 0;
-      border-bottom: 1px solid var(--ink-faint);
-      margin-bottom: 0;
-    }
-
-    .tab {
-      padding: 8px 20px;
-      font-size: 13.3px;
-      font-weight: 500;
-      font-family: var(--sans);
-      cursor: pointer;
-      border: 1px solid transparent;
-      border-bottom: none;
-      border-radius: 3px 3px 0 0;
-      color: var(--ink-light);
-      background: transparent;
-      position: relative;
-      bottom: -1px;
-      letter-spacing: 0.01em;
-      transition: color 0.15s;
-    }
-
-    .tab:hover {
-      color: var(--ink);
-    }
-
-    .tab.active {
-      color: var(--ink);
-      background: var(--paper);
-      border-color: var(--ink-faint);
-      border-bottom-color: var(--paper);
-    }
-
-    .panel {
-      display: none;
-      background: var(--paper);
-      border: 1px solid var(--ink-faint);
-      border-top: none;
-      border-radius: 0 0 4px 4px;
-      padding: 1.5rem;
-    }
-
-    .panel.active {
-      display: block;
-    }
-
-    /* Section labels */
-    .section-label {
-      font-family: var(--mono);
-      font-size: 12.1px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin: 0 0 10px;
-    }
-
-    /* Inputs */
-    .inputs-row {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-    }
-
-    .input-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .input-label {
-      font-family: var(--mono);
-      font-size: 12.1px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      white-space: nowrap;
-    }
-
-    .num-input-wrap {
-      display: flex;
-      align-items: center;
-      border: 1px solid var(--ink-faint);
-      border-radius: 3px;
-      overflow: hidden;
-      background: var(--paper);
-    }
-
-    .num-input-wrap input[type=number] {
-      width: 68px;
-      padding: 6px 10px;
-      font-size: 15.2px;
-      font-family: var(--mono);
-      color: var(--ink);
-      background: transparent;
-      border: none;
-      outline: none;
-      text-align: center;
-      -moz-appearance: textfield;
-    }
-
-    .num-input-wrap input[type=number]::-webkit-outer-spin-button,
-    .num-input-wrap input[type=number]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
-
-    .spin-btns {
-      display: flex;
-      flex-direction: column;
-      border-left: 1px solid var(--ink-faint);
-    }
-
-    .spin-btn {
-      width: 24px;
-      height: 17px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      color: var(--ink-light);
-      font-size: 9px;
-      transition: background 0.1s, color 0.1s;
-      user-select: none;
-    }
-
-    .spin-btn:hover {
-      background: var(--paper-warm);
-      color: var(--ink);
-    }
-
-    .spin-btn:active {
-      background: var(--ink-faint);
-    }
-
-    .spin-btn+.spin-btn {
-      border-top: 1px solid var(--ink-faint);
-    }
-
-    .input-unit {
-      font-family: var(--mono);
-      font-size: 12.1px;
-      color: var(--ink-light);
-    }
-
-    /* Metrics */
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1px;
-      background: var(--ink-faint);
-      border: 1px solid var(--ink-faint);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-
-    .metric {
-      background: var(--accent-soft);
-      padding: 0.9rem 1rem;
-      text-align: center;
-    }
-
-    .metric-val {
-      font-family: var(--mono);
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: -0.02em;
-    }
-
-    .metric-lbl {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-top: 2px;
-    }
-
-    .metric-sub {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-light);
-      margin-top: 1px;
-      letter-spacing: 0.04em;
-    }
-
-    /* Cards */
-    .card {
-      background: var(--paper);
-      border: 0.5px solid var(--ink-faint);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-
-    .ing-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 9px 14px;
-      border-bottom: 0.5px solid var(--ink-faint);
-      font-size: 15.2px;
-      gap: 12px;
-    }
-
-    .ing-row:last-child {
-      border-bottom: none;
-    }
-
-    .ing-name {
-      color: var(--ink);
-    }
-
-    .ing-sub {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-light);
-      margin-top: 2px;
-      letter-spacing: 0.04em;
-    }
-
-    .ing-val {
-      font-family: var(--mono);
-      font-size: 14.5px;
-      color: var(--ink-mid);
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    .ing-note {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-light);
-    }
-
-    /* Ratio bar */
-    .ratio-bar {
-      display: flex;
-      height: 5px;
-      border-radius: 2px;
-      overflow: hidden;
-      margin: 12px 14px 4px;
-    }
-
-    .ratio-malt {
-      background: var(--blue);
-    }
-
-    .ratio-fruc {
-      background: var(--green);
-    }
-
-    .ratio-legend {
-      display: flex;
-      gap: 16px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-light);
-      padding: 0 14px 12px;
-    }
-
-    .legend-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-
-    /* Notes and warnings */
-    .note-box {
-      background: var(--paper-warm);
-      border-left: 2px solid var(--ink-faint);
-      border-radius: 0 3px 3px 0;
-      padding: 10px 14px;
-      font-size: 14.5px;
-      color: var(--ink-mid);
-      line-height: 1.6;
-      margin-top: 12px;
-    }
-
-    .warn-box {
-      background: var(--amber-soft);
-      border-left: 2px solid var(--amber);
-      border-radius: 0 3px 3px 0;
-      padding: 10px 14px;
-      font-size: 14.5px;
-      color: var(--amber);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 0.5px solid var(--ink-faint);
-      margin: 1.5rem 0 1rem;
-    }
-
-    /* Flavor cards */
-    .flavor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
-      gap: 1px;
-      background: var(--ink-faint);
-      border: 0.5px solid var(--ink-faint);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-
-    .flavor-card {
-      background: var(--paper);
-      padding: 0.9rem 1.1rem;
-    }
-
-    .flavor-card.featured {
-      background: var(--paper-warm);
-    }
-
-    .flavor-name {
-      font-size: 15.2px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-
-    .flavor-desc {
-      font-size: 13.3px;
-      color: var(--ink-mid);
-      line-height: 1.5;
-    }
-
-    .tag {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 10.9px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 3px;
-      margin-bottom: 6px;
-      white-space: nowrap;
-    }
-
-    .tag-gel {
-      background: var(--blue-soft);
-      color: var(--blue);
-    }
-
-    .tag-drink {
-      background: var(--green-soft);
-      color: var(--green);
-    }
-
-    .tag-both {
-      background: var(--amber-soft);
-      color: var(--amber);
-    }
-
-    .tag-blend {
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .blend-layers {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      margin: 6px 0;
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .blend-layer {
-      font-size: 12.1px;
-      padding: 3px 8px;
-      font-family: var(--mono);
-    }
-
-    .pop-lemon {
-      background: #fdf3e0;
-      color: #854f0b;
-    }
-
-    .pop-cherry {
-      background: #faecea;
-      color: #993c1d;
-    }
-
-    .pop-rasp {
-      background: #fbeaf0;
-      color: #883356;
-    }
-
-    .mocha-coc {
-      background: #e8e6e0;
-      color: #3a3730;
-    }
-
-    .mocha-esp {
-      background: #d4d1ca;
-      color: #2c2c2a;
-    }
-
-    .mocha-cit {
-      background: #f0ede8;
-      color: #444441;
-    }
-
-    .trop-mango {
-      background: #fdf0dc;
-      color: #854f0b;
-    }
-
-    .trop-lime {
-      background: #eaf3de;
-      color: #3b6d11;
-    }
-
-    .trop-cit {
-      background: #c0dd97;
-      color: #27500a;
-    }
-
-    .ging-lem {
-      background: #fdf0dc;
-      color: #854f0b;
-    }
-
-    .ging-cit {
-      background: #fac775;
-      color: #633806;
-    }
-
-    .ging-ging {
-      background: #ef9f27;
-      color: #412402;
-    }
-
-    .chm-cherry {
-      background: #faecea;
-      color: #993c1d;
-    }
-
-    .chm-mint {
-      background: #e1f5ee;
-      color: #0f6e56;
-    }
-
-    @media print {
-      .no-print {
-        display: none;
-      }
-    }
-
-    /* Ratio toggle */
-    .ratio-toggle {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--ink-faint);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .ratio-btn {
-      padding: 6px 14px;
-      font-family: var(--mono);
-      font-size: 12.1px;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      border-right: 1px solid var(--ink-faint);
-      color: var(--ink-light);
-      transition: background 0.12s, color 0.12s;
-      white-space: nowrap;
-    }
-
-    .ratio-btn:last-child {
-      border-right: none;
-    }
-
-    .ratio-btn:hover {
-      color: var(--ink);
-      background: var(--paper-warm);
-    }
-
-    .ratio-btn.active {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    /* Heat toggle */
-    .heat-toggle {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .heat-toggle input {
-      display: none;
-    }
-
-    .heat-toggle-track {
-      width: 36px;
-      height: 20px;
-      border-radius: 10px;
-      background: var(--ink-faint);
-      position: relative;
-      transition: background 0.2s;
-      flex-shrink: 0;
-    }
-
-    .heat-toggle input:checked+.heat-toggle-track {
-      background: var(--accent);
-    }
-
-    .heat-toggle-thumb {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: white;
-      transition: transform 0.2s;
-    }
-
-    .heat-toggle input:checked+.heat-toggle-track .heat-toggle-thumb {
-      transform: translateX(16px);
-    }
-
-    .heat-toggle-text {
-      font-family: var(--mono);
-      font-size: 12.1px;
-      color: var(--ink-mid);
-      letter-spacing: 0.04em;
-    }
-
-    /* Carb guidance banner */
-    .carb-guidance {
-      background: var(--blue-soft);
-      border-left: 2px solid var(--blue);
-      border-radius: 0 3px 3px 0;
-      padding: 9px 14px;
-      font-size: 13.3px;
-      color: var(--blue);
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
-
-    /* Sugar drink card */
-    .sugar-drink-card {
-      background: var(--paper);
-      border: 0.5px solid var(--ink-faint);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-
-    .card-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 9px 14px 6px;
-      border-bottom: 0.5px solid var(--ink-faint);
-    }
-
-    .card-header-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
   <div class="page">
+  <div class="body">
+  <div class="site-shell">
 
     <nav class="site-nav no-print">
       <a class="back-link" href="/">← Home</a>
@@ -623,20 +31,19 @@
       <h1>Fuel <em>Calculator</em></h1>
     </header>
 
-    <p style="font-size: 14.5px; color: var(--ink-mid); margin-bottom: 1.5rem;">For the research and reasoning behind
-      these numbers, see <a href="/fueling-the-run.html" style="color: var(--accent); text-decoration: none;">Fueling
+    <p style="font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem;">For the research and reasoning behind
+      these numbers, see <a href="/fueling-the-run.html" style="color: var(--crimson); text-decoration: none;">Fueling
         the
         Run</a>.</p>
 
-    <div
-      style="background: var(--paper); border: 1px solid var(--ink-faint); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem;">
+    <div class="calc-card">
 
       <div class="inputs-row">
         <div class="input-group">
           <span class="input-label">Duration</span>
           <div class="num-input-wrap">
             <input type="text" id="dur-display" value="2:00" readonly
-              style="width:60px; font-size:15.2px; font-family:var(--mono); color:var(--ink); background:transparent; border:none; outline:none; text-align:center; cursor:default; padding:6px 10px;">
+              style="width:60px; font-size:15.2px; font-family:var(--font-mono); color:var(--ink); background:transparent; border:none; outline:none; text-align:center; cursor:default; padding:6px 10px;">
             <div class="spin-btns">
               <button class="spin-btn" onclick="stepTime(15)">▲</button>
               <button class="spin-btn" onclick="stepTime(-15)">▼</button>
@@ -720,7 +127,7 @@
 
       <!-- Maltodextrin/fructose gel (2:1 and 1:0.8) -->
       <div id="gel-malto-section">
-        <div class="card">
+        <div class="ing-card">
           <div class="ing-row">
             <div>
               <div class="ing-name">Maltodextrin</div>
@@ -736,7 +143,7 @@
           <div class="ing-row">
             <div>
               <div class="ing-name">Pectin <span
-                  style="font-family:var(--mono); font-size:11px; color:var(--ink-light); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
+                  style="font-family:var(--font-mono); font-size:11px; color:var(--graphite-soft); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
               </div>
               <div class="ing-sub">thickens the mixture — omit for a thinner consistency</div>
             </div>
@@ -753,12 +160,12 @@
             <div class="ratio-fruc" id="ratio-bar-fruc" style="width:34%"></div>
           </div>
           <div class="ratio-legend" id="ratio-legend">
-            <span><span class="legend-dot" style="background:var(--blue);"></span>Maltodextrin (2 parts)</span>
-            <span><span class="legend-dot" style="background:var(--green);"></span>Fructose (1 part)</span>
+            <span><span class="legend-dot" style="background:var(--ink);"></span>Maltodextrin (2 parts)</span>
+            <span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (1 part)</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="ing-card">
           <div class="ing-row">
             <div>
               <div class="ing-name">Gel volume</div>
@@ -777,7 +184,7 @@
 
       <!-- Table sugar section -->
       <div id="gel-sugar-section" style="display:none;">
-        <div class="card">
+        <div class="ing-card">
           <div class="ing-row">
             <div>
               <div class="ing-name">Table sugar (sucrose)</div>
@@ -788,7 +195,7 @@
           <div class="ing-row">
             <div>
               <div class="ing-name">Pectin <span
-                  style="font-family:var(--mono); font-size:11px; color:var(--ink-light); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
+                  style="font-family:var(--font-mono); font-size:11px; color:var(--graphite-soft); letter-spacing:0.06em; text-transform:uppercase;">optional</span>
               </div>
               <div class="ing-sub">thickens the mixture — omit for a thinner consistency</div>
             </div>
@@ -797,7 +204,7 @@
           <div class="ing-row">
             <div>
               <div class="ing-name">Water <span
-                  style="font-family:var(--mono); font-size:11px; color:var(--ink-light); letter-spacing:0.06em; text-transform:uppercase;">gel</span>
+                  style="font-family:var(--font-mono); font-size:11px; color:var(--graphite-soft); letter-spacing:0.06em; text-transform:uppercase;">gel</span>
               </div>
               <div class="ing-sub">thick gel consistency — scale up for a thinner drink</div>
             </div>
@@ -808,11 +215,11 @@
             <div class="ratio-fruc" style="width:50%"></div>
           </div>
           <div class="ratio-legend">
-            <span><span class="legend-dot" style="background:var(--blue);"></span>Glucose (sucrase-cleaved)</span>
-            <span><span class="legend-dot" style="background:var(--green);"></span>Fructose (sucrase-cleaved)</span>
+            <span><span class="legend-dot" style="background:var(--ink);"></span>Glucose (sucrase-cleaved)</span>
+            <span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (sucrase-cleaved)</span>
           </div>
         </div>
-        <div class="card">
+        <div class="ing-card">
           <div class="ing-row">
             <div>
               <div class="ing-name">Gel volume</div>
@@ -841,7 +248,7 @@
 
     <div id="hydration" class="panel">
 
-      <div class="card">
+      <div class="ing-card">
         <div class="ing-row">
           <div>
             <div class="ing-name">Liters to prepare</div>
@@ -872,7 +279,7 @@
         In hot and humid conditions above 77°F (25°C), scale sodium to ~1,725 mg/L (3/4 tsp per liter).
       </div>
       <div class="note-box" id="hydration-note-hot"
-        style="display:none; background:var(--accent-soft); border-left-color:var(--accent); color:var(--accent);">
+        style="display:none; background:var(--amber-wash); border-left-color:var(--amber); color:var(--amber);">
         Hot conditions: sodium scaled to ~1,725 mg/L (3/4 tsp per liter). Sweat rate can double — drink more frequently and watch for
         swollen hands or fingers, a sign sodium replacement is falling behind fluid intake.
       </div>
@@ -881,7 +288,7 @@
 
     <div id="allinone" class="panel">
 
-      <div class="card">
+      <div class="ing-card">
         <div class="ing-row">
           <div>
             <div class="ing-name">Liters to prepare</div>
@@ -910,7 +317,7 @@
 
         <!-- Carb source: sugar -->
         <div id="aio-sugar-rows">
-          <div class="ing-row" style="border-bottom: 0.5px solid var(--ink-faint);">
+          <div class="ing-row" style="border-bottom: 0.5px solid var(--paper-line);">
             <div>
               <div class="ing-name">Table sugar (sucrose)</div>
               <div class="ing-sub" id="aio-total-carb-sub">full run</div>
@@ -1072,6 +479,8 @@
     </footer>
 
   </div>
+  </div>
+  </div>
 
   <script>
     function fmt(n, unit) { return Math.round(n) + '\u202f' + unit; }
@@ -1195,7 +604,7 @@
       if (showMalto) {
         document.getElementById('g-malt').textContent = noGel ? '—' : fmt(malt, 'g');
         document.getElementById('g-fruc').textContent = noGel ? '—' : fmt(fruc, 'g');
-        document.getElementById('g-pec').textContent = noGel ? '—' : pectinLabel(totalCarbs / (currentRatio === '2:1' ? 225 : totalCarbs));
+        document.getElementById('g-pec').textContent = noGel ? '—' : pectinLabel(totalCarbs / 225);
         document.getElementById('g-water').textContent = noGel ? '—' : fmt(waterMl, 'ml');
 
         const maltPct = currentRatio === '2:1' ? 66 : Math.round(100 / 1.8);
@@ -1204,12 +613,12 @@
 
         if (currentRatio === '2:1') {
           document.getElementById('ratio-legend').innerHTML =
-            '<span><span class="legend-dot" style="background:var(--blue);"></span>Maltodextrin (2 parts)</span>' +
-            '<span><span class="legend-dot" style="background:var(--green);"></span>Fructose (1 part)</span>';
+            '<span><span class="legend-dot" style="background:var(--ink);"></span>Maltodextrin (2 parts)</span>' +
+            '<span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (1 part)</span>';
         } else {
           document.getElementById('ratio-legend').innerHTML =
-            '<span><span class="legend-dot" style="background:var(--blue);"></span>Maltodextrin (1 part)</span>' +
-            '<span><span class="legend-dot" style="background:var(--green);"></span>Fructose (0.8 parts)</span>';
+            '<span><span class="legend-dot" style="background:var(--ink);"></span>Maltodextrin (1 part)</span>' +
+            '<span><span class="legend-dot" style="background:var(--crimson);"></span>Fructose (0.8 parts)</span>';
         }
 
         document.getElementById('g-vol').textContent = noGel ? '—' : fmt(totalVol, 'ml');

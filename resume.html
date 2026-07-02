@@ -8,558 +8,227 @@
     <meta name="description"
         content="Engineering leader focused on applied AI, data analytics, and product management.">
     <link rel="icon" href="/assets/images/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=block"
         rel="stylesheet">
-    <style>
-        body {
-            font-family: var(--sans);
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-
-            .page {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
-            }
-
-            .no-print {
-                display: none;
-            }
-
-            @page {
-                margin: 0.5in;
-            }
-        }
-
-        .page {
-            max-width: 900px;
-            margin: 2.5rem auto;
-            background: var(--paper);
-            box-shadow: 0 20px 80px rgba(26, 26, 24, 0.18);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: linear-gradient(180deg, var(--accent) 0%, var(--ink) 100%);
-        }
-
-        /* ── HEADER ── */
-        .resume-contact-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px 0;
-            margin-top: 1.25rem;
-        }
-
-        .resume-contact-item {
-            color: var(--ink-mid);
-            font-size: 0.8125rem;
-            font-weight: 400;
-            padding-right: 20px;
-            position: relative;
-            font-family: var(--mono);
-        }
-
-        .resume-contact-item:not(:last-child)::after {
-            content: '·';
-            position: absolute;
-            right: 8px;
-            color: var(--accent);
-        }
-
-        .resume-contact-item a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .resume-contact-item a:hover {
-            color: var(--accent);
-        }
-
-        /* ── BODY ── */
-        .body {
-            padding: 0 56px 56px 62px;
-        }
-
-        /* ── SECTION ── */
-        .section {
-            margin-top: 44px;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeUp 0.5s ease forwards;
-        }
-
-        .section:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .section:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .section:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .section:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .section:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-label {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--ink-faint);
-        }
-
-        /* ── INTRO ── */
-        .intro-text {
-            font-size: 0.9rem;
-            line-height: 1.75;
-            color: var(--ink-mid);
-            font-weight: 400;
-        }
-
-        /* ── JOB ── */
-        .job {
-            margin-bottom: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--ink-faint);
-        }
-
-        .job:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 3px;
-            gap: 16px;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--accent);
-            line-height: 1.3;
-        }
-
-        .job-dates {
-            font-size: 0.8rem;
-            color: var(--ink-mid);
-            font-weight: 500;
-            white-space: nowrap;
-            padding-top: 3px;
-            letter-spacing: 0.5px;
-            font-family: var(--mono);
-        }
-
-        .job-company {
-            font-size: 0.8rem;
-            color: var(--ink-mid);
-            font-weight: 400;
-            margin-bottom: 10px;
-            letter-spacing: 0.3px;
-        }
-
-        .job-summary {
-            font-size: 0.95rem;
-            line-height: 1.65;
-            color: var(--ink-mid);
-            margin-bottom: 10px;
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .job-bullets {
-            list-style: none;
-            padding: 0;
-        }
-
-        .job-bullets li {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--ink-mid);
-            padding: 3px 0 3px 18px;
-            position: relative;
-            font-weight: 400;
-        }
-
-        .job-bullets li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 11px;
-            width: 5px;
-            height: 5px;
-            background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .job-stack {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--ink-mid);
-            font-style: italic;
-            font-weight: 300;
-            font-family: var(--mono);
-        }
-
-        .job-stack strong {
-            font-weight: 500;
-            font-style: normal;
-            color: var(--accent);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* ── SKILLS GRID ── */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px 32px;
-        }
-
-        .skill-row {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            padding: 10px 14px;
-            background: var(--paper-warm);
-            border-left: 3px solid var(--ink-faint);
-        }
-
-        .skill-row.highlight {
-            border-left-color: var(--accent);
-        }
-
-        .skill-label {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-        }
-
-        .skill-value {
-            font-size: 0.85rem;
-            color: var(--ink-mid);
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        /* ── CERTS ── */
-        .certs-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .cert-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 14px;
-            border: 1px solid var(--ink-faint);
-            gap: 12px;
-        }
-
-        .cert-name {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: var(--accent);
-        }
-
-        .cert-year {
-            font-size: 0.8rem;
-            color: var(--ink-mid);
-            font-weight: 500;
-            white-space: nowrap;
-            font-family: var(--mono);
-        }
-
-        /* ── PRINT BUTTON ── */
-        .print-btn {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: var(--ink);
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 8px 32px rgba(26, 26, 24, 0.3);
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .print-btn:hover {
-            background: var(--accent);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
     <div class="page">
-        <div class="body" style="padding-top: 2.5rem;">
-            <nav class="site-nav no-print" style="margin-bottom: 1rem;">
-                <a class="back-link" href="/">← Home</a>
-                <span class="nav-mark">Resume</span>
-            </nav>
+        <div class="body">
+            <div class="site-shell">
+                <nav class="site-nav no-print">
+                    <a class="back-link" href="/">← Home</a>
+                    <span class="nav-mark">Resume</span>
+                </nav>
 
-            <header class="masthead" style="margin-bottom: 0;">
-                <p class="header-meta">Data Engineering &middot; Applied AI &middot; Product Management</p>
-                <h1>Richard <em>Basile</em></h1>
-                <div class="resume-contact-row">
-                    <div class="resume-contact-item">614-306-7784</div>
-                    <div class="resume-contact-item"><a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a></div>
-                    <div class="resume-contact-item"><a href="https://linkedin.com/in/richardbasile"
-                            target="_blank">linkedin.com/in/richardbasile</a></div>
-                    <div class="resume-contact-item">Columbus, Ohio</div>
-                </div>
-            </header>
-
-            <div class="section">
-                <div class="section-label">Profile</div>
-                <p class="intro-text">Engineering leader at the intersection of data engineering, applied AI, and
-                    technical product strategy, delivering value through team leadership, driving roadmaps, and shipping
-                    capabilities that
-                    produce measurable business outcomes. A progression from database and pipeline engineering through
-                    technical
-                    and product leadership of large-scale enterprise platforms and AI-enabled features across a global
-                    EdTech
-                    company. Deep background in cloud-native data architecture, distributed systems, and real-time
-                    pipelines, with recent work
-                    encompassing Databricks platform governance, generative AI capability development, and product
-                    strategy.</p>
-            </div>
-
-            <div class="section">
-                <div class="section-label">Experience</div>
-
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Principal Engineer, Data Engineering &amp; Applied AI</div>
-                        <div class="job-dates">Mar 2022 - Present</div>
+                <header class="masthead" style="margin-bottom: 0;">
+                    <p class="header-meta">Data Engineering &middot; Applied AI &middot; Product Management</p>
+                    <h1>Richard <em>Basile</em></h1>
+                    <div class="resume-contact-row">
+                        <div class="resume-contact-item">614-306-7784</div>
+                        <div class="resume-contact-item"><a href="mailto:rb@richardbasile.com">rb@richardbasile.com</a></div>
+                        <div class="resume-contact-item"><a href="https://linkedin.com/in/richardbasile"
+                                target="_blank">linkedin.com/in/richardbasile</a></div>
+                        <div class="resume-contact-item">Columbus, Ohio</div>
                     </div>
-                    <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
-                    <div class="job-summary">Engineering leader and technical authority building AI Data Enablement
-                        from the ground up and driving applied AI initiatives across the organization, owning canonical
-                        data standards and working closely with data science, platform engineering, and data analytics.
-                        Hire and lead distributed engineering teams, set platform roadmap, deliver BI dashboards and
-                        reporting for the business, and engineer the underlying Databricks platform solutions, including
-                        ETL pipelines and graph data workflows.</div>
-                    <ul class="job-bullets">
-                        <li>Architect and engineering lead for the AI Data Enablement program — a shared framework
-                            enabling McGraw-Hill's AI Platform applications to produce, share, and consume consistent,
-                            trustworthy data with minimal custom work, giving leadership a unified view for investment
-                            and portfolio decisions across the enterprise — owning the canonical event schema end to
-                            end: designing the schema, data contract framework, and SDK ecosystem; coordinating
-                            implementation with application teams; and partnering with Data Analytics leadership to
-                            ingest event and Pendo data into the datalake and surface adoption metrics through Tableau.
-                        </li>
-                        <li>Managed multiple teams of individual contributors, including offshore and nearshore
-                            contractors and distributed FTEs, across concurrent projects — owning full-cycle hiring,
-                            setting priorities, reviewing deliverables, and maintaining alignment with executive
-                            priorities.</li>
-                        <li>Managed AI platform roadmap and feature prioritization — translating business objectives
-                            into engineering outcomes across multiple product lines and aligning delivery with
-                            executive priorities.</li>
-                        <li>Spanned the full spectrum of applied AI delivery — hands-on prototyping of LLM
-                            integrations, RAG pipelines, and agentic workflows; data engineering support for data
-                            science model development; and team/roadmap leadership shipping AI features to production
-                            — bringing both technical depth and delivery accountability to AI initiatives across the
-                            organization.</li>
-                        <li>Built BI dashboards to meet stakeholder requirements, surfacing usage and cost metrics and
-                            product-specific KPIs, providing the data foundation for roadmap decisions and executive
-                            reporting.</li>
-                        <li>Engineered enterprise data platform solutions on Databricks including medallion
-                            architecture, ETL pipelines in Scala and Python, compute governance, and graph data
-                            integration workflows supporting AI features and educational outcomes analysis.</li>
-                    </ul>
-                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · Azure · GCP · Databricks · Bedrock ·
-                        Foundry · Python ·
-                        Scala · SQL · JSON Schema · Neo4j</div>
+                </header>
+
+                <div class="section">
+                    <div class="section-label">Profile</div>
+                    <p class="intro-text">Engineering leader at the intersection of data engineering, applied AI, and
+                        technical product strategy, delivering value through team leadership, driving roadmaps, and shipping
+                        capabilities that
+                        produce measurable business outcomes. A progression from database and pipeline engineering through
+                        technical
+                        and product leadership of large-scale enterprise platforms and AI-enabled features across a global
+                        EdTech
+                        company. Deep background in cloud-native data architecture, distributed systems, and real-time
+                        pipelines, with recent work
+                        encompassing Databricks platform governance, generative AI capability development, and product
+                        strategy.</p>
                 </div>
 
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Lead Engineer, Platform Engineering</div>
-                        <div class="job-dates">May 2018 - Mar 2022</div>
+                <div class="section">
+                    <div class="section-label">Experience</div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Principal Engineer, Data Engineering &amp; Applied AI</div>
+                            <div class="job-dates">Mar 2022 - Present</div>
+                        </div>
+                        <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
+                        <div class="job-summary">Engineering leader and technical authority building AI Data Enablement
+                            from the ground up and driving applied AI initiatives across the organization, owning canonical
+                            data standards and working closely with data science, platform engineering, and data analytics.
+                            Hire and lead distributed engineering teams, set platform roadmap, deliver BI dashboards and
+                            reporting for the business, and engineer the underlying Databricks platform solutions, including
+                            ETL pipelines and graph data workflows.</div>
+                        <ul class="job-bullets">
+                            <li>Architect and engineering lead for the AI Data Enablement program — a shared framework
+                                enabling McGraw-Hill's AI Platform applications to produce, share, and consume consistent,
+                                trustworthy data with minimal custom work, giving leadership a unified view for investment
+                                and portfolio decisions across the enterprise — owning the canonical event schema end to
+                                end: designing the schema, data contract framework, and SDK ecosystem; coordinating
+                                implementation with application teams; and partnering with Data Analytics leadership to
+                                ingest event and Pendo data into the datalake and surface adoption metrics through Tableau.
+                            </li>
+                            <li>Managed multiple teams of individual contributors, including offshore and nearshore
+                                contractors and distributed FTEs, across concurrent projects — owning full-cycle hiring,
+                                setting priorities, reviewing deliverables, and maintaining alignment with executive
+                                priorities.</li>
+                            <li>Managed AI platform roadmap and feature prioritization — translating business objectives
+                                into engineering outcomes across multiple product lines and aligning delivery with
+                                executive priorities.</li>
+                            <li>Spanned the full spectrum of applied AI delivery — hands-on prototyping of LLM
+                                integrations, RAG pipelines, and agentic workflows; data engineering support for data
+                                science model development; and team/roadmap leadership shipping AI features to production
+                                — bringing both technical depth and delivery accountability to AI initiatives across the
+                                organization.</li>
+                            <li>Built BI dashboards to meet stakeholder requirements, surfacing usage and cost metrics and
+                                product-specific KPIs, providing the data foundation for roadmap decisions and executive
+                                reporting.</li>
+                            <li>Engineered enterprise data platform solutions on Databricks including medallion
+                                architecture, ETL pipelines in Scala and Python, compute governance, and graph data
+                                integration workflows supporting AI features and educational outcomes analysis.</li>
+                        </ul>
+                        <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · Azure · GCP · Databricks · Bedrock ·
+                            Foundry · Python ·
+                            Scala · SQL · JSON Schema · Neo4j</div>
                     </div>
-                    <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
-                    <div class="job-summary">Technical leadership for cloud-native platform engineering supporting
-                        large-scale digital education infrastructure — managing database engineers, driving architecture
-                        decisions, and owning delivery practices across distributed teams.</div>
-                    <ul class="job-bullets">
-                        <li>Led a team of database engineers directing architecture decisions and delivery practices
-                            across distributed cloud-native platform initiatives.</li>
-                        <li>Directed major database migrations to Amazon Aurora, improving scalability, performance, and
-                            reliability for high-traffic production systems serving millions of learners.</li>
-                        <li>Built CI/CD pipelines using Turbot, Terraform, and CircleCI, standardizing secure and
-                            consistent deployments across engineering teams and reducing deployment risk.</li>
-                        <li>Strengthened platform observability and proactive performance management using CloudWatch,
-                            Sumo Logic, and New Relic — reducing incident response time and improving production
-                            reliability.</li>
-                        <li>Contributed to real-time data pipeline development and internal tooling in Java, Scala, and
-                            Node.js to enhance platform extensibility.</li>
-                        <li>Directed RDS migrations and developed training and documentation supporting platform
-                            adoption across distributed teams.</li>
-                    </ul>
-                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · GCP · Aurora · Databricks · OpenSearch ·
-                        Terraform</div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Lead Engineer, Platform Engineering</div>
+                            <div class="job-dates">May 2018 - Mar 2022</div>
+                        </div>
+                        <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
+                        <div class="job-summary">Technical leadership for cloud-native platform engineering supporting
+                            large-scale digital education infrastructure — managing database engineers, driving architecture
+                            decisions, and owning delivery practices across distributed teams.</div>
+                        <ul class="job-bullets">
+                            <li>Led a team of database engineers directing architecture decisions and delivery practices
+                                across distributed cloud-native platform initiatives.</li>
+                            <li>Directed major database migrations to Amazon Aurora, improving scalability, performance, and
+                                reliability for high-traffic production systems serving millions of learners.</li>
+                            <li>Built CI/CD pipelines using Turbot, Terraform, and CircleCI, standardizing secure and
+                                consistent deployments across engineering teams and reducing deployment risk.</li>
+                            <li>Strengthened platform observability and proactive performance management using CloudWatch,
+                                Sumo Logic, and New Relic — reducing incident response time and improving production
+                                reliability.</li>
+                            <li>Contributed to real-time data pipeline development and internal tooling in Java, Scala, and
+                                Node.js to enhance platform extensibility.</li>
+                            <li>Directed RDS migrations and developed training and documentation supporting platform
+                                adoption across distributed teams.</li>
+                        </ul>
+                        <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · GCP · Aurora · Databricks · OpenSearch ·
+                            Terraform</div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Senior Data Architect</div>
+                            <div class="job-dates">Feb 2017 - May 2018</div>
+                        </div>
+                        <div class="job-company">Halo Communications &nbsp;·&nbsp; Columbus, Ohio</div>
+                        <div class="job-summary">Led modernization of a mission-critical clinical communication platform
+                            under HIPAA and HITRUST compliance requirements — defining and executing a strategic roadmap
+                            that delivered significant reliability and performance improvements while platform usage
+                            tripled.</div>
+                        <ul class="job-bullets">
+                            <li>Achieved up to 72% improvement in response times while platform usage increased 252% —
+                                through targeted optimization strategy and cross-functional execution with DevOps and
+                                application teams.</li>
+                            <li>Engineered a high-availability SQL Server architecture using AlwaysOn Availability Groups
+                                and Windows Server Failover Clustering across a three-node enterprise cluster.</li>
+                            <li>Defined and executed a strategic roadmap balancing platform stabilization with long-term
+                                scalability objectives, working directly with executive stakeholders.</li>
+                        </ul>
+                        <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · SQL Server · AlwaysOn Availability Groups
+                            · WSFC</div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Senior Database Architect</div>
+                            <div class="job-dates">Apr 2012 - Feb 2017</div>
+                        </div>
+                        <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
+                        <div class="job-summary">Led architecture and scaling of data infrastructure for a global digital
+                            education platform serving millions of users, directing a team of database engineers through
+                            sustained high-growth.</div>
+                        <ul class="job-bullets">
+                            <li>Technical lead for a team of 4 database engineers, directing architecture decisions and
+                                scaling strategy for a
+                                platform supporting 20K+ concurrent users.</li>
+                            <li>Scaled the core Oracle RAC application database from 250GB to 2TB on a four-node cluster,
+                                supporting 20K+ concurrent users and 22M+ monthly sessions — directly enabling product
+                                growth without platform constraint.</li>
+                            <li>Built a real-time clickstream analytics pipeline using AWS API Gateway, Lambda, Kinesis, and
+                                Elasticsearch — an early
+                                production streaming implementation on AWS-native architecture delivering visibility into
+                                EdTech usage metrics and user
+                                behavior.</li>
+                            <li>Designed scalable data models, caching strategies, and content structures to support a
+                                high-volume, user-facing digital platform.</li>
+                        </ul>
+                        <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · Oracle RAC · Kinesis · API Gateway ·
+                            Elasticsearch · Java · SQL · PL/SQL</div>
+                    </div>
                 </div>
 
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Senior Data Architect</div>
-                        <div class="job-dates">Feb 2017 - May 2018</div>
-                    </div>
-                    <div class="job-company">Halo Communications &nbsp;·&nbsp; Columbus, Ohio</div>
-                    <div class="job-summary">Led modernization of a mission-critical clinical communication platform
-                        under HIPAA and HITRUST compliance requirements — defining and executing a strategic roadmap
-                        that delivered significant reliability and performance improvements while platform usage
-                        tripled.</div>
-                    <ul class="job-bullets">
-                        <li>Achieved up to 72% improvement in response times while platform usage increased 252% —
-                            through targeted optimization strategy and cross-functional execution with DevOps and
-                            application teams.</li>
-                        <li>Engineered a high-availability SQL Server architecture using AlwaysOn Availability Groups
-                            and Windows Server Failover Clustering across a three-node enterprise cluster.</li>
-                        <li>Defined and executed a strategic roadmap balancing platform stabilization with long-term
-                            scalability objectives, working directly with executive stakeholders.</li>
-                    </ul>
-                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · SQL Server · AlwaysOn Availability Groups
-                        · WSFC</div>
-                </div>
-
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Senior Database Architect</div>
-                        <div class="job-dates">Apr 2012 - Feb 2017</div>
-                    </div>
-                    <div class="job-company">McGraw-Hill Education &nbsp;·&nbsp; Columbus, Ohio</div>
-                    <div class="job-summary">Led architecture and scaling of data infrastructure for a global digital
-                        education platform serving millions of users, directing a team of database engineers through
-                        sustained high-growth.</div>
-                    <ul class="job-bullets">
-                        <li>Technical lead for a team of 4 database engineers, directing architecture decisions and
-                            scaling strategy for a
-                            platform supporting 20K+ concurrent users.</li>
-                        <li>Scaled the core Oracle RAC application database from 250GB to 2TB on a four-node cluster,
-                            supporting 20K+ concurrent users and 22M+ monthly sessions — directly enabling product
-                            growth without platform constraint.</li>
-                        <li>Built a real-time clickstream analytics pipeline using AWS API Gateway, Lambda, Kinesis, and
-                            Elasticsearch — an early
-                            production streaming implementation on AWS-native architecture delivering visibility into
-                            EdTech usage metrics and user
-                            behavior.</li>
-                        <li>Designed scalable data models, caching strategies, and content structures to support a
-                            high-volume, user-facing digital platform.</li>
-                    </ul>
-                    <div class="job-stack"><strong>Stack</strong> &nbsp; AWS · Oracle RAC · Kinesis · API Gateway ·
-                        Elasticsearch · Java · SQL · PL/SQL</div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-label">Skills</div>
-                <div class="skills-grid">
-                    <div class="skill-row">
-                        <div class="skill-label">Product &amp; Strategy</div>
-                        <div class="skill-value">Roadmap &amp; Priority Management · Stakeholder Alignment · Business
-                            Partner Engagement</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">AI Platform Engineering</div>
-                        <div class="skill-value">Applied AI · Generative AI Integration · RAG Architecture · Agentic
-                            Workflows · Bedrock · Foundry</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Infrastructure</div>
-                        <div class="skill-value">AWS · Azure · GCP · Terraform · Datadog · New Relic · CloudWatch · Sumo
-                            Logic</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Data Platforms</div>
-                        <div class="skill-value">Databricks · Medallion Architecture · ETL/ELT · Athena · QuickSight
+                <div class="section">
+                    <div class="section-label">Skills</div>
+                    <div class="skills-grid">
+                        <div class="skill-row">
+                            <div class="skill-label">Product &amp; Strategy</div>
+                            <div class="skill-value">Roadmap &amp; Priority Management · Stakeholder Alignment · Business
+                                Partner Engagement</div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label">AI Platform Engineering</div>
+                            <div class="skill-value">Applied AI · Generative AI Integration · RAG Architecture · Agentic
+                                Workflows · Bedrock · Foundry</div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label">Infrastructure</div>
+                            <div class="skill-value">AWS · Azure · GCP · Terraform · Datadog · New Relic · CloudWatch · Sumo
+                                Logic</div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label">Data Platforms</div>
+                            <div class="skill-value">Databricks · Medallion Architecture · ETL/ELT · Athena · QuickSight
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label">Databases</div>
+                            <div class="skill-value">Aurora · PostgreSQL · Oracle · SQL Server · DynamoDB · Elasticsearch ·
+                                OpenSearch · Neo4j</div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-label">Languages</div>
+                            <div class="skill-value">Python · SQL · Scala · Java · PL/SQL · Node.js</div>
                         </div>
                     </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Databases</div>
-                        <div class="skill-value">Aurora · PostgreSQL · Oracle · SQL Server · DynamoDB · Elasticsearch ·
-                            OpenSearch · Neo4j</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Languages</div>
-                        <div class="skill-value">Python · SQL · Scala · Java · PL/SQL · Node.js</div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Certifications</div>
+                    <div class="certs-list">
+                        <div class="cert-item">
+                            <div class="cert-name">AWS Certified Developer - Associate</div>
+                            <div class="cert-year">2017</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">AWS Certified Solutions Architect - Associate</div>
+                            <div class="cert-year">2016</div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="section">
-                <div class="section-label">Certifications</div>
-                <div class="certs-list">
-                    <div class="cert-item">
-                        <div class="cert-name">AWS Certified Developer - Associate</div>
-                        <div class="cert-year">2017</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-name">AWS Certified Solutions Architect - Associate</div>
-                        <div class="cert-year">2016</div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
