@@ -1076,12 +1076,14 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
   margin: 0 10px 10px;
   background: #fff;
   border-radius: 0 var(--radius) var(--radius) 0;
+  text-align: left;
 }
 .detail-inner h4 { margin: 0 0 10px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--crimson); text-transform: none; letter-spacing: normal; }
-.detail-grid { display: grid; grid-template-columns: 86px 1fr; gap: 6px 14px; font-size: 0.85rem; max-width: 700px; }
-.detail-grid .k { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--graphite); padding-top: 2px; }
-.detail-grid .v { font-family: var(--font-sans); color: var(--ink-soft); line-height: 1.5; }
-.detail-note { margin-top: 11px; font-family: var(--font-sans); font-size: 0.8rem; font-style: italic; color: var(--graphite); max-width: 700px; line-height: 1.55; }
+.detail-grid { display: grid; grid-template-columns: 86px 1fr; gap: 6px 14px; font-size: 0.85rem; max-width: 700px; text-align: left; }
+.detail-grid .k { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--graphite); padding-top: 2px; text-align: left; }
+.detail-grid .v { font-family: var(--font-sans); color: var(--ink-soft); line-height: 1.5; text-align: left; }
+.detail-note { margin-top: 11px; font-family: var(--font-sans); font-size: 0.8rem; font-style: italic; color: var(--graphite); max-width: 700px; line-height: 1.55; text-align: left; }
+.strength-list { text-align: left; }
 
 /* ---------- rotation note ---------- */
 .rotation-note { margin-top: 22px; font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.65; color: var(--ink-soft); max-width: none; }
