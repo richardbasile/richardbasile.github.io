@@ -42,12 +42,6 @@
                     From there, Wednesdays rotate intervals and hills on Build weeks,
                     while every Deload week gets tempo, the lowest-novelty stimulus.
                 </p>
-
-                <div class="sparkline-block">
-                    <div class="sparkline-caption"><span>WK 01 &middot; Recovery</span><span>WK 21 &middot; Race</span>
-                    </div>
-                    <svg id="sparkline" viewBox="0 0 1000 84" preserveAspectRatio="none"></svg>
-                </div>
             </div>
 
             <div class="section">
@@ -557,50 +551,6 @@
         });
 
         tbody.innerHTML = rowsHtml;
-
-        function renderSparkline() {
-            const svg = document.getElementById('sparkline');
-            if (!svg) return;
-            const cs = getComputedStyle(document.documentElement);
-            const crimson = cs.getPropertyValue('--crimson').trim() || '#8b1a1a';
-            const accent = cs.getPropertyValue('--accent').trim() || '#c84a1e';
-            const inkLight = cs.getPropertyValue('--ink-light').trim() || '#8a8a84';
-            const paper = cs.getPropertyValue('--paper').trim() || '#f7f6f1';
-
-            const PHASE_COLOR = { Recovery: inkLight, Build: accent, Deload: inkLight, Peak: crimson, Taper: inkLight, Race: crimson };
-
-            const totals = plan.map(w => w.total);
-            const max = Math.max(...totals);
-            const W = 1000, H = 84, pad = 6;
-            const n = totals.length;
-            const stepX = (W - pad * 2) / (n - 1);
-            const pts = totals.map((t, i) => {
-                const x = pad + i * stepX;
-                const y = H - pad - (t / max) * (H - pad * 2);
-                return [x, y];
-            });
-            const linePath = pts.map((p, i) => (i === 0 ? 'M' : 'L') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
-            const areaPath = linePath + ` L${pts[n - 1][0].toFixed(1)},${H} L${pts[0][0].toFixed(1)},${H} Z`;
-
-            const dots = plan.map((w, i) => {
-                const c = PHASE_COLOR[w.phase] || inkLight;
-                const r = (w.phase === 'Race') ? 4.2 : 3.1;
-                return `<circle cx="${pts[i][0].toFixed(1)}" cy="${pts[i][1].toFixed(1)}" r="${r}" fill="${c}" stroke="${paper}" stroke-width="1.4"/>`;
-            }).join('');
-
-            svg.innerHTML = `
-        <defs>
-          <linearGradient id="sparkfill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="${crimson}" stop-opacity="0.16"/>
-            <stop offset="100%" stop-color="${crimson}" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path d="${areaPath}" fill="url(#sparkfill)" />
-        <path d="${linePath}" fill="none" stroke="${crimson}" stroke-width="1.4" />
-        ${dots}
-      `;
-        }
-        renderSparkline();
 
         document.querySelectorAll('.wed-cell').forEach(cell => {
             cell.addEventListener('click', () => toggleDetail(cell));
