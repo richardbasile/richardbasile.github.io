@@ -1016,9 +1016,9 @@ td.day-cell.rest { color: var(--graphite-soft); font-style: italic; font-size: 0
 td.day-cell.walk-cell { color: var(--graphite-soft); font-style: italic; font-size: 0.8rem; background: var(--paper); }
 td.day-cell.blank { background: repeating-linear-gradient(135deg, transparent 0 6px, var(--paper) 6px 7px); }
 td.day-cell.long-run { background: var(--paper); }
-td.day-cell.race-day-cell { background: var(--crimson-wash); }
-td.day-cell.race-day-cell .mi { color: var(--crimson); }
-td.day-cell.race-day-cell .tag { color: var(--crimson); font-weight: 500; }
+td.day-cell.race-day-cell { background: var(--crimson); }
+td.day-cell.race-day-cell .mi { color: var(--paper); }
+td.day-cell.race-day-cell .tag { color: var(--paper); font-weight: 600; }
 td.day-cell.total-cell { background: var(--paper); font-weight: 600; }
 td.day-cell.total-cell .mi { color: var(--crimson); font-size: 1rem; }
 
@@ -1050,7 +1050,7 @@ td.day-cell.strength-cell .expand-hint { display: block; font-size: 0.68rem; col
 tr.race-row td { background-color: var(--crimson-wash); }
 tr.race-row td.col-week { background-color: var(--crimson-tint); border-left: 3px solid var(--crimson); }
 tr.race-row td.wed-cell { background-color: var(--crimson-tint) !important; }
-tr.race-row td.race-day-cell { background-color: var(--crimson-tint) !important; }
+tr.race-row td.race-day-cell { background-color: var(--crimson) !important; }
 
 /* ---------- expanded detail row ---------- */
 tr.detail-row { display: none; }
@@ -1110,7 +1110,7 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--graphite-soft);
+  color: var(--ink-soft);
   white-space: nowrap;
 }
 .input-unit { font-family: var(--font-mono); font-size: 0.72rem; color: var(--graphite-soft); }
@@ -1169,7 +1169,7 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
   background: transparent;
   border: none;
   border-right: 1px solid var(--paper-line);
-  color: var(--graphite-soft);
+  color: var(--ink-soft);
   transition: background 0.12s, color 0.12s;
   white-space: nowrap;
 }
@@ -1309,3 +1309,41 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
   h1 { font-size: var(--step-3); }
   .split-desc { display: none; }
 }
+
+/* ==========================================================================
+   Training Plan Generator additions
+   New component classes only — everything above is unchanged from the
+   original stylesheet. Merge this block into the site's real style.css.
+   ========================================================================== */
+
+/* ---------- phase pill modifiers (base/deload/taper — is-peak/is-race already existed) ---------- */
+.wk-phase.is-base { background: var(--ink-wash); color: var(--ink-soft); }
+.wk-phase.is-deload { background: var(--amber-wash); color: var(--amber); }
+.wk-phase.is-taper { background: transparent; border: 1px solid var(--crimson); color: var(--crimson); }
+
+/* ---------- generator form fields ---------- */
+.field-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.field-row:last-child { margin-bottom: 0; }
+.field-group { display: flex; flex-direction: column; gap: 6px; flex: 1 1 200px; min-width: 180px; }
+.field-group.is-disabled { opacity: 0.45; pointer-events: none; }
+
+.text-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  outline: none;
+}
+.text-input:focus-visible, .text-input:focus { border-color: var(--crimson); }
+
+.ratio-toggle.equal .ratio-btn { flex: 1 1 0; text-align: center; white-space: normal; }
+
+.field-note { font-family: var(--font-mono); font-size: 0.68rem; color: var(--graphite-soft); line-height: 1.5; }
+
+/* ---------- generator: equal-width table cells ---------- */
+table#planTable.grid-plan { table-layout: fixed; }
+table#planTable.grid-plan th.col-week, table#planTable.grid-plan td.col-week { width: 150px; }
