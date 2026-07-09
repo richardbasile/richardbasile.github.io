@@ -1011,6 +1011,8 @@ td.day-cell .tag {
   letter-spacing: 0.02em;
   margin-top: 2px;
   color: var(--graphite-soft);
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 td.day-cell.rest { color: var(--graphite-soft); font-style: italic; font-size: 0.8rem; }
 td.day-cell.walk-cell { color: var(--graphite-soft); font-style: italic; font-size: 0.8rem; background: var(--paper); }
@@ -1071,7 +1073,7 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
 .detail-note { margin-top: 11px; font-family: var(--font-sans); font-size: 0.8rem; font-style: italic; color: var(--graphite); max-width: 700px; line-height: 1.55; text-align: left; }
 
 /* ---------- rotation note ---------- */
-.rotation-note { margin-top: 22px; font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.65; color: var(--ink-soft); max-width: none; }
+.rotation-note { margin-top: 22px; font-family: var(--font-sans); font-size: 1.05rem; line-height: 1.75; color: var(--ink-soft); max-width: none; }
 .rotation-note strong { color: var(--crimson); font-weight: 500; }
 
 @media (max-width: 720px) {

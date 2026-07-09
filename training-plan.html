@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Plan - Richard Basile</title>
     <meta name="description"
-        content="21-week half marathon training build — weekly mileage and Wednesday quality sessions.">
+        content="18-week half marathon training build — weekly mileage and Wednesday quality sessions.">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
                 </nav>
 
                 <header class="masthead" style="margin-bottom: 0;">
-                    <p class="header-meta">21-Week Half Marathon Build &nbsp;·&nbsp; Jun 28 &ndash; Nov 15, 2026</p>
+                    <p class="header-meta">18-Week Half Marathon Build &nbsp;·&nbsp; Jul 19 &ndash; Nov 15, 2026</p>
                     <h1>Training <em>Plan</em></h1>
                 </header>
 
@@ -35,8 +35,7 @@
                 <div class="section">
                     <div class="section-label">Overview</div>
                     <p class="intro-text">Weekly mileage by day, building toward the Run to Feed the Hungry Half
-                        Marathon on Nov 14. The first three weeks program strides only on Wednesdays.
-                        From there, Wednesdays rotate intervals and hills on Build weeks,
+                        Marathon on Nov 14. Wednesdays rotate intervals and hills on Build weeks,
                         while every Deload week gets tempo, the lowest-novelty stimulus.
                     </p>
                 </div>
@@ -49,7 +48,7 @@
                     </div>
 
                     <div class="scroll-shell">
-                        <table class="plan" id="planTable">
+                        <table class="plan grid-plan" id="planTable">
                             <thead>
                                 <tr>
                                     <th class="col-week">Week Ending</th>
@@ -66,9 +65,12 @@
                             <tbody id="planBody"></tbody>
                         </table>
                     </div>
+                </div>
 
+                <div class="section">
+                    <div class="section-label">Quality</div>
                     <p class="rotation-note">
-                        <strong>Wednesday structure:</strong> Strides only through week three. From week 4 on, intervals
+                        Intervals
                         and
                         hills alternate on Build weeks while every Deload week gets tempo — the lowest-novelty session,
                         easiest to control on a lighter week. Intervals are run at 10K effort (9:35–9:45/mi) — a notch
@@ -93,7 +95,7 @@
 
                     <p class="rotation-note">
                         <strong>Fixed exercise list, explicit each week:</strong> Tuesday and Friday keep the same
-                        exercise categories for the entire 21 weeks — Tuesday is squat, Romanian deadlift, a press,
+                        exercise categories for the entire 18 weeks — Tuesday is squat, Romanian deadlift, a press,
                         lunges, and the core/hip finisher (lateral leg raise, clamshell, dead bug, push-up); Friday is a
                         press, DB curl, banded row, banded lateral raise, and the same core/hip finisher. The press
                         variation (shoulder or bench) is called out explicitly every single week rather than left to
@@ -101,11 +103,7 @@
                         get even volume and there's nothing to remember. Only sets, reps, and load change week to week —
                         the exercises themselves never get swapped out.<br><br>
 
-                        <strong>Weeks 1&ndash;3 (Technique):</strong> Bodyweight and light dumbbell only, same exercise
-                        list, higher reps — this is about grooving the squat, hinge, press, and lunge patterns before
-                        adding load.<br><br>
-
-                        <strong>Weeks 4&ndash;14 (Foundation/Build):</strong> Working sets and progressive load, but
+                        <strong>Weeks 1&ndash;11 (Foundation/Build):</strong> Working sets and progressive load, but
                         only
                         one of squat or Romanian deadlift progresses on any given Tuesday — the other holds at a steady,
                         controlled weight. Squat-emphasis and deadlift-emphasis weeks alternate, so you never add load
@@ -115,18 +113,18 @@
                         day before Saturday's long run and lower-body soreness peaks 24&ndash;48 hours after a session —
                         exactly the window that would otherwise land on the long run.<br><br>
 
-                        <strong>Week 15 exception:</strong> Tuesday carries a 3-mile run that week instead of a
+                        <strong>Week 12 exception:</strong> Tuesday carries a 3-mile run that week instead of a
                         rest/lift
                         day, so Tuesday's strength session is dropped entirely rather than stacked with the run — Friday
                         runs the same exercise list at reduced sets instead of two full sessions.<br><br>
 
-                        <strong>Weeks 16&ndash;19 (Peak):</strong> As running volume climbs to 22&ndash;26 mi/week,
+                        <strong>Weeks 13&ndash;16 (Peak):</strong> As running volume climbs to 22&ndash;26 mi/week,
                         strength shifts to maintenance — same exercise list and working weight, fewer sets, squat and
                         RDL
                         both held steady rather than progressing. The goal is holding onto what's been built, not
                         progressing further, while running takes priority.<br><br>
 
-                        <strong>Week 20 (Taper) and Week 21 (Race):</strong> Taper week runs one light, single-set pass
+                        <strong>Week 17 (Taper) and Week 18 (Race):</strong> Taper week runs one light, single-set pass
                         through the full Tuesday list just to feel normal, nothing more — no Friday session, so legs and
                         upper body both stay fresh. Race week skips strength entirely — the race is that week's only
                         output.
@@ -143,104 +141,80 @@
     <script>
         const plan = [
             {
-                wk: 1, date: 'Jun 28', phase: 'Recovery', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 3, sun: 'rest', total: 10, race: null, raceCat: null,
-                wedSession: { key: 'reentry1' }, strength: { tue: 'tueTechShoulder', fri: 'friTechBench' }
-            },
-            {
-                wk: 2, date: 'Jul 5', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 12, race: null, raceCat: null,
-                wedSession: { key: 'reentry2' }, strength: { tue: 'tueTechBench', fri: 'friTechShoulder' }
-            },
-            {
-                wk: 3, date: 'Jul 12', phase: 'Deload', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 3.1, sun: 'rest', total: 11.1, race: 'Darby Creek 5K (Easy)', raceCat: 'Easy',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueTechShoulder', fri: 'friTechBench' }
-            },
-            {
-                wk: 4, date: 'Jul 19', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 4, sun: 'rest', total: 13, race: null, raceCat: null,
+                wk: 1, date: 'Jul 19', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 11, race: null, raceCat: null,
                 wedSession: { key: 'intervals', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 5, date: 'Jul 26', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 5, sun: 'rest', total: 14, race: null, raceCat: null,
+                wk: 2, date: 'Jul 26', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 5, sun: 'rest', total: 12, race: null, raceCat: null,
                 wedSession: { key: 'hills', occ: 1 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 6, date: 'Aug 2', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 3, sun: 'rest', total: 13, race: null, raceCat: null,
+                wk: 3, date: 'Aug 2', phase: 'Deload', mon: 2, tue: null, wed: 2, thu: 2, fri: null, sat: 3, sun: 'rest', total: 9, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 7, date: 'Aug 9', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 5, sun: 'rest', total: 15, race: null, raceCat: null,
+                wk: 4, date: 'Aug 9', phase: 'Build', mon: 2, tue: null, wed: 4, thu: 2, fri: null, sat: 5, sun: 'rest', total: 13, race: null, raceCat: null,
                 wedSession: { key: 'intervals', occ: 2 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 8, date: 'Aug 16', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
+                wk: 5, date: 'Aug 16', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 14, race: null, raceCat: null,
                 wedSession: { key: 'hills', occ: 2 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 9, date: 'Aug 23', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 4, sun: 'rest', total: 14, race: null, raceCat: null,
+                wk: 6, date: 'Aug 23', phase: 'Deload', mon: 2, tue: null, wed: 2, thu: 2, fri: null, sat: 4, sun: 'rest', total: 10, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 2 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 10, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 7, sun: 'rest', total: 17, race: null, raceCat: null,
+                wk: 7, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 7, sun: 'rest', total: 15, race: null, raceCat: null,
                 wedSession: { key: 'intervals', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 11, date: 'Sep 6', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 8, sun: 'rest', total: 18, race: 'Donut Run 10K (Tempo)', raceCat: 'Tempo',
+                wk: 8, date: 'Sep 6', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 8, sun: 'rest', total: 17, race: 'Donut Run 10K (Tempo)', raceCat: 'Tempo',
                 wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 12, date: 'Sep 13', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 5, sun: 'rest', total: 15, race: null, raceCat: null,
+                wk: 9, date: 'Sep 13', phase: 'Deload', mon: 2, tue: null, wed: 2, thu: 2, fri: null, sat: 6, sun: 'rest', total: 12, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 13, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 9, sun: 'rest', total: 19, race: null, raceCat: null,
+                wk: 10, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 5, thu: 2, fri: null, sat: 9, sun: 'rest', total: 19, race: null, raceCat: null,
                 wedSession: { key: 'intervals', occ: 4 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 14, date: 'Sep 27', phase: 'Race', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 'rest', sun: 10, total: 20, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
+                wk: 11, date: 'Sep 27', phase: 'Race', mon: 4, tue: null, wed: 4, thu: 3, fri: null, sat: 'rest', sun: 10, total: 21, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
                 wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 15, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
+                wk: 12, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 4 }, strength: { tue: null, fri: 'friLight' }
             },
             {
-                wk: 16, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 5, thu: 3, fri: null, sat: 10, sun: 'rest', total: 22, race: null, raceCat: null,
+                wk: 13, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 6, thu: 3, fri: null, sat: 10, sun: 'rest', total: 23, race: null, raceCat: null,
                 wedSession: { key: 'intervals', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
             },
             {
-                wk: 17, date: 'Oct 18', phase: 'Build', mon: 4, tue: null, wed: 5, thu: 4, fri: null, sat: 11, sun: 'rest', total: 24, race: null, raceCat: null,
+                wk: 14, date: 'Oct 18', phase: 'Build', mon: 5, tue: null, wed: 6, thu: 3, fri: null, sat: 11, sun: 'rest', total: 25, race: null, raceCat: null,
                 wedSession: { key: 'hills', occ: 3 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
             },
             {
-                wk: 18, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 7, sun: 'rest', total: 17, race: null, raceCat: null,
+                wk: 15, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
             },
             {
-                wk: 19, date: 'Nov 1', phase: 'Peak', mon: 4, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 26, race: null, raceCat: null,
+                wk: 16, date: 'Nov 1', phase: 'Peak', mon: 5, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 27, race: null, raceCat: null,
                 wedSession: { key: 'tempo', occ: 6 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
             },
             {
-                wk: 20, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 4, thu: 3, fri: null, sat: 6, sun: 'rest', total: 16, race: null, raceCat: null,
+                wk: 17, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 8, sun: 'rest', total: 19, race: null, raceCat: null,
                 wedSession: { key: 'intervals', occ: 6 }, strength: { tue: 'tueTaper', fri: null }
             },
             {
-                wk: 21, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 21.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
+                wk: 18, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 21.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
                 wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: null, fri: null }
             },
         ];
 
         const SESSIONS = {
-            reentry1: {
-                name: 'Strides', warmup: '15 min easy (12:00–12:30/mi or walk/jog as tolerated)',
-                main: '4 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
-                cooldown: 'Remainder easy to complete 3 mi total',
-                note: 'Strides only. Do not push. This is about reintroducing turnover.'
-            },
-            reentry2: {
-                name: 'Strides', warmup: '15 min easy',
-                main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
-                cooldown: 'Remainder easy to complete 3 mi total',
-                note: 'Continue with strides with a view to resume real quality work in week 4.'
-            },
             intervals: {
                 1: {
                     name: 'Intervals: 6 × 400m @ 10K effort', warmup: '1.5 mi easy (12:00/mi) + 4 × 20 sec strides',
@@ -344,70 +318,6 @@
         };
 
         const STRENGTH = {
-            tueTechShoulder: {
-                name: 'Full-Body — Technique', focus: 'Tuesday — bodyweight/light load, grooving the patterns',
-                main: [
-                    'Squat (bodyweight or light DB) — 3 × 10, full depth, no pain',
-                    'Romanian deadlift (light DB) — 3 × 10, hinge pattern only',
-                    'DB shoulder press — 3 × 10, light',
-                    'Lunges (bodyweight or light DB) — 2 × 8/side',
-                ],
-                core: [
-                    'Side-lying lateral leg raise — 2 × 12/side',
-                    'Clamshell — 2 × 12/side',
-                    'Dead bug — 3 × 8/side',
-                    'Push-up — 3 × 8–10 (regress to incline or knee push-up as needed)',
-                ],
-                note: 'No barbell yet. The goal is grooving the squat, hinge, press, and lunge patterns, plus the hip/core finisher. Friday runs bench press this week to balance the two press patterns.'
-            },
-            tueTechBench: {
-                name: 'Full-Body — Technique', focus: 'Tuesday — bodyweight/light load, grooving the patterns',
-                main: [
-                    'Squat (bodyweight or light DB) — 3 × 10, full depth, no pain',
-                    'Romanian deadlift (light DB) — 3 × 10, hinge pattern only',
-                    'DB bench press — 3 × 10, light',
-                    'Lunges (bodyweight or light DB) — 2 × 8/side',
-                ],
-                core: [
-                    'Side-lying lateral leg raise — 2 × 12/side',
-                    'Clamshell — 2 × 12/side',
-                    'Dead bug — 3 × 8/side',
-                    'Push-up — 3 × 8–10 (regress to incline or knee push-up as needed)',
-                ],
-                note: 'No barbell yet. The goal is grooving the squat, hinge, press, and lunge patterns, plus the hip/core finisher. Friday runs shoulder press this week to balance the two press patterns.'
-            },
-            friTechBench: {
-                name: 'Upper + Core — Technique', focus: 'Friday — bodyweight/light load, grooving the patterns',
-                main: [
-                    'DB bench press — 3 × 10, light',
-                    'DB curl — 3 × 10, light',
-                    'Banded row — 3 × 12',
-                    'Banded shoulder lateral raise — 3 × 12',
-                ],
-                core: [
-                    'Side-lying lateral leg raise — 2 × 12/side',
-                    'Clamshell — 2 × 12/side',
-                    'Dead bug — 3 × 8/side',
-                    'Push-up — 3 × 8–10 (regress to incline or knee push-up as needed)',
-                ],
-                note: 'Complements Tuesday\u2019s shoulder press this week. Light load, setting the press, curl, row, and raise patterns you\u2019ll keep using for the rest of the plan.'
-            },
-            friTechShoulder: {
-                name: 'Upper + Core — Technique', focus: 'Friday — bodyweight/light load, grooving the patterns',
-                main: [
-                    'DB shoulder press — 3 × 10, light',
-                    'DB curl — 3 × 10, light',
-                    'Banded row — 3 × 12',
-                    'Banded shoulder lateral raise — 3 × 12',
-                ],
-                core: [
-                    'Side-lying lateral leg raise — 2 × 12/side',
-                    'Clamshell — 2 × 12/side',
-                    'Dead bug — 3 × 8/side',
-                    'Push-up — 3 × 8–10 (regress to incline or knee push-up as needed)',
-                ],
-                note: 'Complements Tuesday\u2019s bench press this week. Light load, setting the press, curl, row, and raise patterns you\u2019ll keep using for the rest of the plan.'
-            },
             tueBuildSquatEmph: {
                 name: 'Full-Body — Squat-Emphasis', focus: 'Tuesday — squat progresses, RDL holds steady',
                 main: [
@@ -628,7 +538,7 @@
             const friCell = strengthCell(w.strength ? w.strength.fri : null, idx, 'Fri');
 
             let satCell, sunCell;
-            if (w.wk === 14) {
+            if (w.wk === 11) {
                 satCell = dayCell(w.sat);
                 sunCell = `<td class="day-cell race-day-cell"><span class="mi">${w.sun}</span><span class="tag">${w.race}</span></td>`;
             } else if (isRaceWeek && w.sat == null && w.sun === 'rest') {
