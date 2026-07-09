@@ -35,8 +35,11 @@
                 <div class="section">
                     <div class="section-label">Overview</div>
                     <p class="intro-text">Weekly mileage by day, building toward the Run to Feed the Hungry Half
-                        Marathon on Nov 14. Wednesdays rotate intervals and hills on Build weeks,
-                        while every Deload week gets tempo, the lowest-novelty stimulus.
+                        Marathon on Nov 14. Quality follows a 15-mile weekly floor — any week under that runs strides
+                        only on Wednesday, including week 7, which clears 15 miles but sits right before a race week
+                        and a deload dip. Real quality begins in week 10 as oval turnover work: short, relaxed reps
+                        building from a quarter mile up to a full mile, aimed at light feet, quick turnover, and
+                        steady breathing rather than pace or lactate threshold.
                     </p>
                 </div>
 
@@ -70,15 +73,24 @@
                 <div class="section">
                     <div class="section-label">Quality</div>
                     <p class="rotation-note">
-                        Intervals
-                        and
-                        hills alternate on Build weeks while every Deload week gets tempo — the lowest-novelty session,
-                        easiest to control on a lighter week. Intervals are run at 10K effort (9:35–9:45/mi) — a notch
-                        easier than 5K effort. Hill reps stay in a 30–45 sec range throughout on whatever grade is
-                        available, progressing by rep count only, and are placed only on Build weeks.
-                        Race weeks override the structure with an easy run + strides — the race is that week's
-                        quality session. Taper week (Nov 8) holds intervals at the same effort but fewer reps. Paces are
-                        derived from a 9:25/mi 5K (Jun 3) and a ~12:00/mi easy baseline.
+                        Wednesday holds a 3-mile floor even on the lightest deload weeks, but the bigger rule is on
+                        weekly volume: any week under 15 miles total runs strides only. Week 7 clears 15 miles on its
+                        own, but the race week and deload dip that follow it (weeks 8-9) would cut off any real
+                        turnover work almost immediately, so it stays strides too — real quality starts in week 10,
+                        where it can run uninterrupted the rest of the way. From there, quality is oval turnover work:
+                        repeated reps run at a quick, light, relaxed turnover — not race pace, not lactate threshold.
+                        The distance builds steadily across the remaining quality weeks — quarter mile, then half mile,
+                        then three-quarter mile — topping out at full-mile repeats in Peak week, the longest rep of the
+                        build. Reps trim down as the distance grows to keep total time on the oval reasonable, and
+                        deload weeks step the distance back rather than holding the build's current length. Taper
+                        closes back out at the short, easy quarter-mile version the progression opened with — enough
+                        to keep the legs feeling quick without adding fatigue before race day. The cue throughout is
+                        light ground contact and steady breathing, never a push for pace — if a rep starts to feel like
+                        a hard sustained effort rather than a relaxed one, that's the signal to ease off. The hard part
+                        of any session stays under a fifth of that week's total mileage; the rest of the day is easy
+                        running. Race weeks override the structure with an easy run + strides — the race is that
+                        week's quality session. Paces are derived from a 9:25/mi 5K (Jun 3) and a ~12:00/mi easy
+                        baseline.
                     </p>
                 </div>
 
@@ -142,43 +154,43 @@
         const plan = [
             {
                 wk: 1, date: 'Jul 19', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 11, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wedSession: { key: 'strides', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
                 wk: 2, date: 'Jul 26', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 5, sun: 'rest', total: 12, race: null, raceCat: null,
-                wedSession: { key: 'hills', occ: 1 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wedSession: { key: 'strides', occ: 2 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 3, date: 'Aug 2', phase: 'Deload', mon: 2, tue: null, wed: 2, thu: 2, fri: null, sat: 3, sun: 'rest', total: 9, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 3, date: 'Aug 2', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 3, sun: 'rest', total: 10, race: null, raceCat: null,
+                wedSession: { key: 'strides', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
                 wk: 4, date: 'Aug 9', phase: 'Build', mon: 2, tue: null, wed: 4, thu: 2, fri: null, sat: 5, sun: 'rest', total: 13, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 2 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wedSession: { key: 'strides', occ: 4 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
                 wk: 5, date: 'Aug 16', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 14, race: null, raceCat: null,
-                wedSession: { key: 'hills', occ: 2 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wedSession: { key: 'strides', occ: 5 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
-                wk: 6, date: 'Aug 23', phase: 'Deload', mon: 2, tue: null, wed: 2, thu: 2, fri: null, sat: 4, sun: 'rest', total: 10, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 2 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wk: 6, date: 'Aug 23', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 11, race: null, raceCat: null,
+                wedSession: { key: 'strides', occ: 6 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
                 wk: 7, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 7, sun: 'rest', total: 15, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wedSession: { key: 'strides', occ: 7 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
                 wk: 8, date: 'Sep 6', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 8, sun: 'rest', total: 17, race: 'Donut Run 10K (Tempo)', raceCat: 'Tempo',
                 wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
-                wk: 9, date: 'Sep 13', phase: 'Deload', mon: 2, tue: null, wed: 2, thu: 2, fri: null, sat: 6, sun: 'rest', total: 12, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 9, date: 'Sep 13', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 13, race: null, raceCat: null,
+                wedSession: { key: 'strides', occ: 8 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
                 wk: 10, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 5, thu: 2, fri: null, sat: 9, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 4 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wedSession: { key: 'turnover', occ: 1 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
                 wk: 11, date: 'Sep 27', phase: 'Race', mon: 4, tue: null, wed: 4, thu: 3, fri: null, sat: 'rest', sun: 10, total: 21, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
@@ -186,27 +198,27 @@
             },
             {
                 wk: 12, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 4 }, strength: { tue: null, fri: 'friLight' }
+                wedSession: { key: 'turnover', occ: 2 }, strength: { tue: null, fri: 'friLight' }
             },
             {
                 wk: 13, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 6, thu: 3, fri: null, sat: 10, sun: 'rest', total: 23, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
+                wedSession: { key: 'turnover', occ: 3 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
             },
             {
                 wk: 14, date: 'Oct 18', phase: 'Build', mon: 5, tue: null, wed: 6, thu: 3, fri: null, sat: 11, sun: 'rest', total: 25, race: null, raceCat: null,
-                wedSession: { key: 'hills', occ: 3 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
+                wedSession: { key: 'turnover', occ: 4 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
             },
             {
                 wk: 15, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
+                wedSession: { key: 'turnover', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
             },
             {
                 wk: 16, date: 'Nov 1', phase: 'Peak', mon: 5, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 27, race: null, raceCat: null,
-                wedSession: { key: 'tempo', occ: 6 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
+                wedSession: { key: 'turnover', occ: 6 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
             },
             {
                 wk: 17, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 8, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'intervals', occ: 6 }, strength: { tue: 'tueTaper', fri: null }
+                wedSession: { key: 'turnover', occ: 7 }, strength: { tue: 'tueTaper', fri: null }
             },
             {
                 wk: 18, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 21.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
@@ -215,100 +227,98 @@
         ];
 
         const SESSIONS = {
-            intervals: {
+            strides: {
                 1: {
-                    name: 'Intervals: 6 × 400m @ 10K effort', warmup: '1.5 mi easy (12:00/mi) + 4 × 20 sec strides',
-                    main: '6 × 400m @ 9:35–9:45/mi, 90 sec jog recovery between reps',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'First real interval session back. 10K effort is a notch easier than 5K effort — controlled speed, not a hard anaerobic push.'
+                    name: 'Strides', warmup: '2 mi easy (11:30–12:00/mi or comfortable easy pace)',
+                    main: '4 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'Quality follows a 15-mile weekly floor: any week under that stays strides only. Strides add negligible distance, so almost the entire day is easy running — real quality work doesn\u2019t begin until a week clears 15 miles.'
                 },
                 2: {
-                    name: 'Intervals: 5 × 600m @ 10K effort', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '5 × 600m @ 9:35–9:45/mi, 2 min jog recovery between reps',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'Longer reps at the same controlled effort — more total time at speed without raising intensity.'
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '5 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'One more rep of turnover work, still well short of anything that could be called a main set.'
                 },
                 3: {
-                    name: 'Intervals: 6 × 600m @ 10K effort', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '6 × 600m @ 9:35–9:45/mi, 2 min jog recovery between reps',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'One more rep at the same distance — building total volume at speed before stepping rep length up again.'
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'Weekly mileage is still under 15 on this deload week, so strides continue.'
                 },
                 4: {
-                    name: 'Intervals: 5 × 800m @ 10K effort', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '5 × 800m @ 9:35–9:45/mi, 2–2.5 min jog recovery',
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
                     cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'First time at 800m reps this cycle — rep length steps up while effort stays anchored to 10K pace.'
+                    note: 'Mileage is climbing but still sits under 15 miles this week, so quality holds at strides while the aerobic base keeps building.'
                 },
                 5: {
-                    name: 'Intervals: 6 × 800m @ 10K effort', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '6 × 800m @ 9:35–9:45/mi, 90 sec–2 min jog recovery',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'Largest interval volume of the cycle. After this, intervals ease back for the taper week ahead.'
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '7 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'Still under the 15-mile floor. One more rep of turnover work, nothing more.'
                 },
                 6: {
-                    name: 'Intervals: 4 × 800m @ 10K effort (taper)', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × 800m @ 9:35–9:45/mi, 2 min jog recovery',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'Taper week — same effort as before, fewer reps. Keep the legs sharp and turnover quick without adding fatigue before the half.'
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'Deload week — reps ease back slightly along with everything else, and mileage still sits well under the 15-mile quality threshold.'
+                },
+                7: {
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '7 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'This week clears the 15-mile floor on its own, but the race week and deload dip right after it (weeks 8-9) would cut off any real turnover work almost immediately. Better to hold at strides here and start the actual progression in week 10, where it can run uninterrupted.'
+                },
+                8: {
+                    name: 'Strides', warmup: '2 mi easy',
+                    main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'This deload week dips back under 15 miles too, so strides continue here regardless. Real turnover work begins in week 10.'
                 },
             },
-            tempo: {
+            turnover: {
                 1: {
-                    name: 'Tempo: 12 min continuous', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '12 min continuous @ tempo (9:50–10:00/mi, comfortably hard effort)',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'First tempo block of the build, on a deload week — short and controlled rather than a big push.'
+                    name: 'Oval Turnover: 6 × quarter mile', warmup: '1.25 mi easy + 4 × 20 sec strides',
+                    main: '6 × quarter mile (half the oval) @ quick, light, relaxed turnover — not a push for pace. Walk/easy-jog the other half of the oval back to the start for full recovery',
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'First real quality session of the build. Weeks 7-9 stayed strides-only rather than starting this a week early, since the race week and deload dip right after week 7 would have interrupted it almost immediately — this is the start of an uninterrupted stretch through the taper. The cue is quick, light ground contact and steady breathing (try a 2-in/2-out step rhythm), not speed. The oval\u2019s halfway point is your only marker.'
                 },
                 2: {
-                    name: 'Tempo: 15 min continuous', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '15 min continuous @ tempo (9:50–10:00/mi)',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'Same effort, a bit more time in the zone. Tempo consistently lands on deload weeks this cycle — low-novelty, easy to control.'
-                },
-                3: {
-                    name: 'Tempo: 18 min continuous', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '18 min continuous @ tempo (9:45–9:55/mi)',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'If 9:50 has felt easy by the last few minutes in recent sessions, nudge toward 9:45 here.'
-                },
-                4: {
-                    name: 'Tempo: 16 min continuous', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '16 min continuous @ tempo (9:45–9:55/mi)',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'A slight dip in duration here — this deload week follows the Big Bad Wolfe race week, so easing back on purpose.'
-                },
-                5: {
-                    name: 'Tempo: 22 min continuous', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '22 min continuous @ tempo (9:45–9:55/mi)',
-                    cooldown: 'Remainder easy to complete 5 mi total',
-                    note: 'Back to progressing — longest continuous tempo block yet, squarely half-marathon-relevant work.'
-                },
-                6: {
-                    name: 'Tempo: 25 min continuous (peak)', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '25 min continuous @ tempo (9:45–10:00/mi)',
+                    name: 'Oval Turnover: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ quick, light, relaxed turnover. Full recovery walking the other half back to the start',
                     cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Biggest tempo session of the build, in Peak week right before taper. Closest single Wednesday session to half-marathon demand.'
-                },
-            },
-            hills: {
-                1: {
-                    name: 'Hills: 6 reps, 30–45 sec', warmup: '1.5 mi easy + 4 × 20 sec strides on flat ground',
-                    main: 'Whatever hill you can find. 6 reps of 30–45 sec @ RPE 7/10 uphill (strong, not max), walk/jog down for full recovery',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'First hill session of the build, on a Build week.'
-                },
-                2: {
-                    name: 'Hills: 7 reps, 30–45 sec', warmup: '1.5 mi easy + 4 × 20 sec strides on flat ground',
-                    main: 'Same hill, or another in the 30–45 sec range. 7 reps @ RPE 7/10, full recovery jog/walk down',
-                    cooldown: 'Remainder easy to complete 4 mi total',
-                    note: 'Adding a rep, not chasing a steeper or longer hill — strength and economy without escalating load.'
+                    note: 'Deload week — reps pull back to the base count. This is still low-fatigue neuromuscular work, not a metabolic session, so the cutback here is more about overall weekly volume than about this session needing to change.'
                 },
                 3: {
-                    name: 'Hills: 8 reps, 30–45 sec', warmup: '1.5 mi easy + 4 × 20 sec strides on flat ground',
-                    main: 'Any hill that takes 30–45 sec to climb at effort. 8 reps @ RPE 7–8/10, full recovery down',
-                    cooldown: 'Remainder easy to complete 5 mi total',
-                    note: 'Final and largest hill session of the build, on a Build week — hills step back afterward as tempo and the taper take over.'
+                    name: 'Oval Turnover: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × half mile (one full lap) @ quick, light, relaxed turnover — same easy effort as the quarter-mile reps, just held a little longer. Full recovery jogging or walking a lap between reps',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'First time stepping the rep up to a full lap. The cue doesn\u2019t change — quick and light, steady breathing — it\u2019s just sustained for twice as long. If it starts to feel like a hard effort rather than a relaxed one, that\u2019s the signal to ease off, not push through.'
+                },
+                4: {
+                    name: 'Oval Turnover: 3 × three-quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '3 × three-quarter mile (a lap and a half) @ quick, light, relaxed turnover. Full recovery jogging or walking a lap and a half between reps',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'Another step up in distance, with reps trimmed back to three so total time on the oval doesn\u2019t balloon. Same relaxed cue as every session before it — longer doesn\u2019t mean harder.'
+                },
+                5: {
+                    name: 'Oval Turnover: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × half mile (one full lap) @ quick, light, relaxed turnover. Full recovery jogging or walking a lap between reps',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'Deload week — steps back down to the half-mile rep rather than continuing to push distance, in keeping with the rest of the week easing off too.'
+                },
+                6: {
+                    name: 'Oval Turnover: 3 × one mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '3 × one mile (two laps) @ quick, light, relaxed turnover — the top of the distance progression. Full recovery jogging or walking two laps between reps',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'Biggest turnover session of the build, in Peak week right before taper — the progression\u2019s full arc from quarter mile to a full mile. Still the same relaxed, quick-and-light effort as every session before it: if a mile rep starts to feel like a hard sustained push rather than light and controlled, ease the pace back rather than grind through it.'
+                },
+                7: {
+                    name: 'Oval Turnover: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ quick, light, relaxed turnover. Full recovery walking the other half back to the start',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'Taper week — back to the short, easy version the progression opened with. Just enough to keep the legs feeling light and quick without adding any fatigue before the half.'
                 },
             },
             raceweek: {
@@ -487,7 +497,7 @@
 
         function getSession(ws) {
             if (!ws) return null;
-            if (ws.key === 'intervals' || ws.key === 'tempo' || ws.key === 'hills') {
+            if (ws.key === 'turnover' || ws.key === 'strides') {
                 return SESSIONS[ws.key][ws.occ];
             }
             if (ws.key === 'raceweek') {
