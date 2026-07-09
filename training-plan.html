@@ -35,11 +35,12 @@
                 <div class="section">
                     <div class="section-label">Overview</div>
                     <p class="intro-text">Weekly mileage by day, building toward the Run to Feed the Hungry Half
-                        Marathon on Nov 14. Quality follows a 15-mile weekly floor — any week under that runs strides
-                        only on Wednesday, including week 7, which clears 15 miles but sits right before a race week
-                        and a deload dip. Real quality begins in week 10 as oval turnover work: short, relaxed reps
-                        building from a quarter mile up to a full mile, aimed at light feet, quick turnover, and
-                        steady breathing rather than pace or lactate threshold.
+                        Marathon on Nov 14. Quality generally follows a 15-mile weekly floor — weeks under that run
+                        strides only on Wednesday — with one deliberate exception: week 9 keeps real quality despite
+                        sitting at 13 miles, to stay continuous with week 7 rather than breaking the progression.
+                        Quality itself is built around half marathon race pace: short reps run at goal race effort,
+                        growing from a quarter mile up to a full mile, so that pace becomes a familiar feeling well
+                        before race day rather than something guessed at cold.
                     </p>
                 </div>
 
@@ -73,24 +74,36 @@
                 <div class="section">
                     <div class="section-label">Quality</div>
                     <p class="rotation-note">
-                        Wednesday holds a 3-mile floor even on the lightest deload weeks, but the bigger rule is on
-                        weekly volume: any week under 15 miles total runs strides only. Week 7 clears 15 miles on its
-                        own, but the race week and deload dip that follow it (weeks 8-9) would cut off any real
-                        turnover work almost immediately, so it stays strides too — real quality starts in week 10,
-                        where it can run uninterrupted the rest of the way. From there, quality is oval turnover work:
-                        repeated reps run at a quick, light, relaxed turnover — not race pace, not lactate threshold.
-                        The distance builds steadily across the remaining quality weeks — quarter mile, then half mile,
-                        then three-quarter mile — topping out at full-mile repeats in Peak week, the longest rep of the
-                        build. Reps trim down as the distance grows to keep total time on the oval reasonable, and
-                        deload weeks step the distance back rather than holding the build's current length. Taper
-                        closes back out at the short, easy quarter-mile version the progression opened with — enough
-                        to keep the legs feeling quick without adding fatigue before race day. The cue throughout is
-                        light ground contact and steady breathing, never a push for pace — if a rep starts to feel like
-                        a hard sustained effort rather than a relaxed one, that's the signal to ease off. The hard part
-                        of any session stays under a fifth of that week's total mileage; the rest of the day is easy
-                        running. Race weeks override the structure with an easy run + strides — the race is that
-                        week's quality session. Paces are derived from a 9:25/mi 5K (Jun 3) and a ~12:00/mi easy
-                        baseline.
+                        The core idea: every quality rep targets half marathon race pace, not a faster or slower
+                        effort. The point is specificity — training for one particular race means the most valuable
+                        use of a limited number of hard sessions is rehearsing the exact effort race day demands,
+                        repeatedly, so it's a known feeling by Nov 14 rather than something guessed at cold under
+                        race-morning adrenaline. That's a deliberate departure from a polarized model (mostly easy
+                        running plus genuinely hard VO2max-effort work, with the moderate zone avoided) — this plan
+                        spends its quality time in that moderate zone on purpose, because moderate-effort *is*
+                        race effort for this event. It's the right tradeoff for a single specific goal race; it
+                        wouldn't be the right tradeoff for building general fitness across a season.
+                    </p>
+                    <p class="rotation-note">
+                        The distance ladder — quarter mile, then half mile, up to a full mile at Peak — exists because
+                        holding race pace for 30 seconds and holding it for 8+ minutes are different skills, even at
+                        the identical pace. Reps build first at each distance (more quarter-mile reps before any
+                        half-mile reps, more half-mile reps before the jump to a mile) rather than stepping the
+                        distance up immediately, so total time-at-effort grows gradually instead of jumping straight
+                        to the hardest version of the session. Deload weeks hold the current distance rather than also
+                        pushing it further — a recovery week is for consolidating what's already been asked of the
+                        legs, not for adding a new, longer unfamiliar rep on top of a lighter week. The hard part of
+                        any session is capped under a fifth of that week's total mileage for the same reason weeks
+                        under 15 miles skip quality entirely (with one exception, noted below): race-pace work is
+                        only useful sitting on top of an adequate volume base — too large a share of a light week
+                        turns a rehearsal into overreach. Week 9 is the deliberate exception to that 15-mile floor:
+                        at 13 miles it technically falls under it, but breaking a progression that only started in
+                        week 7 would waste the adaptation just as it's beginning, so it keeps quality rather than
+                        reverting to strides for one week. Taper closes back out at the shortest, easiest version of
+                        the session for the opposite reason build weeks progress: the goal there isn't more time at
+                        effort, it's keeping the pace feeling familiar without adding late fatigue. Race weeks skip
+                        the structure entirely because the race itself is the ultimate version of this rehearsal —
+                        no simulated version of race pace is needed the same week you're running it for real.
                     </p>
                 </div>
 
@@ -178,7 +191,7 @@
             },
             {
                 wk: 7, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 7, sun: 'rest', total: 15, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 7 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wedSession: { key: 'turnover', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
                 wk: 8, date: 'Sep 6', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 8, sun: 'rest', total: 17, race: 'Donut Run 10K (Tempo)', raceCat: 'Tempo',
@@ -186,11 +199,11 @@
             },
             {
                 wk: 9, date: 'Sep 13', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 13, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 8 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wedSession: { key: 'turnover', occ: 2 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
             },
             {
                 wk: 10, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 5, thu: 2, fri: null, sat: 9, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 1 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wedSession: { key: 'turnover', occ: 3 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
             },
             {
                 wk: 11, date: 'Sep 27', phase: 'Race', mon: 4, tue: null, wed: 4, thu: 3, fri: null, sat: 'rest', sun: 10, total: 21, race: 'Big Bad Wolfe (Tempo)', raceCat: 'Tempo',
@@ -198,27 +211,27 @@
             },
             {
                 wk: 12, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 2 }, strength: { tue: null, fri: 'friLight' }
+                wedSession: { key: 'turnover', occ: 4 }, strength: { tue: null, fri: 'friLight' }
             },
             {
                 wk: 13, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 6, thu: 3, fri: null, sat: 10, sun: 'rest', total: 23, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 3 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
-            },
-            {
-                wk: 14, date: 'Oct 18', phase: 'Build', mon: 5, tue: null, wed: 6, thu: 3, fri: null, sat: 11, sun: 'rest', total: 25, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 4 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
-            },
-            {
-                wk: 15, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
                 wedSession: { key: 'turnover', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
             },
             {
-                wk: 16, date: 'Nov 1', phase: 'Peak', mon: 5, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 27, race: null, raceCat: null,
+                wk: 14, date: 'Oct 18', phase: 'Build', mon: 5, tue: null, wed: 6, thu: 3, fri: null, sat: 11, sun: 'rest', total: 25, race: null, raceCat: null,
                 wedSession: { key: 'turnover', occ: 6 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
             },
             {
+                wk: 15, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 7 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
+            },
+            {
+                wk: 16, date: 'Nov 1', phase: 'Peak', mon: 5, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 27, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 8 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
+            },
+            {
                 wk: 17, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 8, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 7 }, strength: { tue: 'tueTaper', fri: null }
+                wedSession: { key: 'turnover', occ: 9 }, strength: { tue: 'tueTaper', fri: null }
             },
             {
                 wk: 18, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 21.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
@@ -264,61 +277,61 @@
                     cooldown: 'Remainder easy to complete 3 mi total',
                     note: 'Deload week — reps ease back slightly along with everything else, and mileage still sits well under the 15-mile quality threshold.'
                 },
-                7: {
-                    name: 'Strides', warmup: '2 mi easy',
-                    main: '7 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
-                    cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'This week clears the 15-mile floor on its own, but the race week and deload dip right after it (weeks 8-9) would cut off any real turnover work almost immediately. Better to hold at strides here and start the actual progression in week 10, where it can run uninterrupted.'
-                },
-                8: {
-                    name: 'Strides', warmup: '2 mi easy',
-                    main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
-                    cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'This deload week dips back under 15 miles too, so strides continue here regardless. Real turnover work begins in week 10.'
-                },
             },
             turnover: {
                 1: {
-                    name: 'Oval Turnover: 6 × quarter mile', warmup: '1.25 mi easy + 4 × 20 sec strides',
-                    main: '6 × quarter mile (half the oval) @ quick, light, relaxed turnover — not a push for pace. Walk/easy-jog the other half of the oval back to the start for full recovery',
-                    cooldown: 'Remainder easy to complete 5 mi total',
-                    note: 'First real quality session of the build. Weeks 7-9 stayed strides-only rather than starting this a week early, since the race week and deload dip right after week 7 would have interrupted it almost immediately — this is the start of an uninterrupted stretch through the taper. The cue is quick, light ground contact and steady breathing (try a 2-in/2-out step rhythm), not speed. The oval\u2019s halfway point is your only marker.'
+                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '0.75 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half of the oval back to the start for full recovery',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'First real quality session of the build, once weekly mileage clears the 15-mile floor. The point is rehearsing half marathon race pace directly, one short interval at a time, so it becomes a familiar feeling well before race day rather than something guessed at cold on Nov 14. Cadence will naturally pick up at this pace, but it\u2019s not the target — pace is.'
                 },
                 2: {
-                    name: 'Oval Turnover: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × quarter mile (half the oval) @ quick, light, relaxed turnover. Full recovery walking the other half back to the start',
-                    cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Deload week — reps pull back to the base count. This is still low-fatigue neuromuscular work, not a metabolic session, so the cutback here is more about overall weekly volume than about this session needing to change.'
+                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '0.75 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half back to the start for full recovery',
+                    cooldown: 'Remainder easy to complete 3 mi total',
+                    note: 'Deload week, right after the first exposure — reps hold steady rather than building yet, since this is still about locking in the feel of race pace before adding volume.'
                 },
                 3: {
-                    name: 'Oval Turnover: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × half mile (one full lap) @ quick, light, relaxed turnover — same easy effort as the quarter-mile reps, just held a little longer. Full recovery jogging or walking a lap between reps',
-                    cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'First time stepping the rep up to a full lap. The cue doesn\u2019t change — quick and light, steady breathing — it\u2019s just sustained for twice as long. If it starts to feel like a hard effort rather than a relaxed one, that\u2019s the signal to ease off, not push through.'
+                    name: 'HM-Pace Reps: 6 × quarter mile', warmup: '1.25 mi easy + 4 × 20 sec strides',
+                    main: '6 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half back to the start for full recovery',
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'First Build week with real mileage to work with — reps step up from four to six, still at quarter-mile length and the same race-pace target.'
                 },
                 4: {
-                    name: 'Oval Turnover: 3 × three-quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '3 × three-quarter mile (a lap and a half) @ quick, light, relaxed turnover. Full recovery jogging or walking a lap and a half between reps',
+                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Full recovery walking the other half back to the start',
                     cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Another step up in distance, with reps trimmed back to three so total time on the oval doesn\u2019t balloon. Same relaxed cue as every session before it — longer doesn\u2019t mean harder.'
+                    note: 'Deload week — reps pull back to the base count, same race-pace target as always. The cutback here is about overall weekly volume, not about the session itself needing to change.'
                 },
                 5: {
-                    name: 'Oval Turnover: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × half mile (one full lap) @ quick, light, relaxed turnover. Full recovery jogging or walking a lap between reps',
+                    name: 'HM-Pace Reps: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × half mile (one full lap) @ half marathon race pace — same target pace as the quarter-mile reps, just held for twice as long. Full recovery jogging or walking a lap between reps',
                     cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Deload week — steps back down to the half-mile rep rather than continuing to push distance, in keeping with the rest of the week easing off too.'
+                    note: 'First time stepping the rep up to a full lap. This is the heart of what this session is for: getting comfortable holding race pace for longer stretches, not just tasting it briefly.'
                 },
                 6: {
-                    name: 'Oval Turnover: 3 × one mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '3 × one mile (two laps) @ quick, light, relaxed turnover — the top of the distance progression. Full recovery jogging or walking two laps between reps',
+                    name: 'HM-Pace Reps: 5 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '5 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
                     cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Biggest turnover session of the build, in Peak week right before taper — the progression\u2019s full arc from quarter mile to a full mile. Still the same relaxed, quick-and-light effort as every session before it: if a mile rep starts to feel like a hard sustained push rather than light and controlled, ease the pace back rather than grind through it.'
+                    note: 'Holds at the half-mile distance and adds a rep instead of stepping up to a longer rep — more total time at race pace this week, building through volume rather than length.'
                 },
                 7: {
-                    name: 'Oval Turnover: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × quarter mile (half the oval) @ quick, light, relaxed turnover. Full recovery walking the other half back to the start',
+                    name: 'HM-Pace Reps: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
                     cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Taper week — back to the short, easy version the progression opened with. Just enough to keep the legs feeling light and quick without adding any fatigue before the half.'
+                    note: 'Deload week — steps back down to last week\u2019s rep count, same race-pace target held for a full lap.'
+                },
+                8: {
+                    name: 'HM-Pace Reps: 3 × one mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '3 × one mile (two laps) @ half marathon race pace — the longest single stretch of race effort in the plan. Full recovery jogging or walking two laps between reps',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'Biggest session of the build, in Peak week right before taper — a full mile at exactly the pace you\u2019re training to hold for 13.1 of them. This is the closest single Wednesday session gets to race day itself.'
+                },
+                9: {
+                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Full recovery walking the other half back to the start',
+                    cooldown: 'Remainder easy to complete 6 mi total',
+                    note: 'Taper week — back to the short version the progression opened with, same race-pace target. Just enough to keep that pace feeling familiar without adding fatigue before the half.'
                 },
             },
             raceweek: {
@@ -490,6 +503,40 @@
         };
 
 
+        const RACES = {
+            8: {
+                name: 'Donut Run 10K', role: 'Tune-up — Tempo Effort',
+                goal: 'This is a fitness check and a pacing calibration, not a max effort. Run it at the same comfortably-hard tempo effort as the Wednesday quality sessions — not a 10K PR attempt.',
+                warmup: '1–1.5 mi easy jog + 4 × 20 sec strides beforehand. The race itself is the workout, so there\u2019s no need for a separate hard warm-up.',
+                effort: 'Miles 1–2: RPE 5/10, HR ~148–155 bpm — comfortably hard, could speak in short phrases. Deliberately controlled start. Miles 3–5: RPE 5–6/10, HR ~152–158 bpm — settle in, hold steady. Mile 6–finish: RPE 6/10, HR ~155–160 bpm max — hold, don\u2019t surge. If HR climbs into the 160s or it starts feeling like the June 3 5K (avg 162, max 169), that\u2019s race effort creeping in — ease back.',
+                pacing: 'Even effort start to finish. If you find yourself racing other people or chasing a faster mile split than the tempo effort calls for, ease back — the value here is the data and the rehearsal, not the result.',
+                fueling: 'Nothing needed for a 10K — water only if it\u2019s hot. Save the fueling rehearsal for the Big Bad Wolfe in week 11.',
+                note: 'Treat the small logistics seriously even though the race doesn\u2019t matter much on its own: bib pickup, where to park, what to eat beforehand. Getting those reps in now means fewer unknowns on Nov 15. HR guidance here is estimated from recent training data (easy runs ~135–150 bpm, June 3 5K ~162 avg/169 max), not a lab-tested threshold — let perceived effort override the number if they disagree, especially in heat.'
+            },
+            11: {
+                name: 'Big Bad Wolfe', role: 'Tune-up — Tempo Effort, Dress Rehearsal',
+                goal: 'Same tempo effort as the Donut Run, but this one matters more: at 10 miles, it\u2019s long enough to be a real dress rehearsal for the half, not just a pacing check.',
+                warmup: 'No separate warm-up jog — the early race miles are the warm-up. A few dynamic leg swings and a couple of strides in place beforehand are fine, but no extra mileage before the start. Total mileage for the day stays at exactly the race distance.',
+                effort: 'Miles 1–3 double as the warm-up: RPE 4–5/10, HR ~145–152 bpm — deliberately easy, even a little slower than feels necessary, since the legs are still coming into it cold. This is also the range where most runners go out too fast, so the restraint serves two purposes at once. Miles 4–7: RPE 5/10, HR ~148–155 bpm — settle into the effort you intend to hold on race day. Miles 8–10: RPE 5–6/10, HR ~150–158 bpm — hold the same effort to the finish, resist racing the last mile. Staying under ~160 bpm the whole way keeps this a tempo rehearsal, not a race.',
+                pacing: 'Even, controlled tempo effort throughout. Resist the urge to race it — going out too fast here teaches the wrong lesson before the race that actually counts.',
+                fueling: 'This is the day to test your actual half marathon fueling and hydration plan — whatever gel, chews, or water strategy you intend to use on Nov 15, use it here first. Better to find out what doesn\u2019t sit well 4 weeks out than during the race.',
+                note: 'Wear exactly what you plan to wear on race day — shoes, socks, anything you\u2019ll carry nutrition in. This is the single most important tune-up in the plan: treat it like a full rehearsal, not just another race. Same caveat on the HR numbers as the Donut Run — they\u2019re estimated from recent training data, not a formal threshold test.'
+            },
+            18: {
+                name: 'Run to Feed the Hungry Half Marathon', role: '"A" Race — Goal Race',
+                goal: 'Execute the half marathon race pace you\u2019ve rehearsed all cycle, for real, for the full 13.1. Everything since week 7 has built toward this specific effort.',
+                warmup: '10–15 min easy jog + 4 × 20 sec strides, done well before the start so there\u2019s time to use the bathroom and get to the corral without rushing. Nothing hard — save the legs.',
+                effort: 'Miles 1–3: RPE 4–5/10, HR ~145–155 bpm — should feel almost too easy; this is the range where adrenaline most wants to push you faster. Miles 4–9: RPE 5–6/10, HR ~150–160 bpm — the bulk of the race, holding the same effort rehearsed all cycle in the Wednesday sessions. Miles 10–13.1: RPE 6–7/10, HR ~155–165 bpm — a natural rise as fatigue builds is expected here; hold effort rather than chasing pace, and only push past that in the final half-mile if there\u2019s something left.',
+                pacing: 'Even or slightly negative split. The single most common mistake on race morning is going out too fast on adrenaline and adjacent, faster runners — the pace should feel almost too easy in the first mile. Trust the effort you rehearsed in the mile repeats at Peak week rather than whatever the race-day energy is telling you to do.',
+                fueling: 'Whatever was tested and confirmed at the Big Bad Wolfe — nothing new on race day. Same breakfast timing, same gel or chews, same hydration plan.',
+                note: 'Trust the taper. Volume has dropped sharply the last two weeks and that can feel like lost fitness, but it isn\u2019t — it\u2019s the plan working as intended. The fitness is already built; this week is about arriving fresh, not adding anything new. As with the tune-up races, these HR ranges are estimates from recent training data — race-day adrenaline, weather, and course terrain can all shift the numbers, so effort and breathing should be the final word over the watch.'
+            },
+        };
+
+        function getRace(wk) {
+            return RACES[wk] || null;
+        }
+
         function getStrength(key) {
             if (!key) return null;
             return STRENGTH[key];
@@ -531,6 +578,18 @@
         </td>`;
         }
 
+        function raceCell(value, raceName, wk, idx, dayAbbr) {
+            const race = getRace(wk);
+            if (!race) {
+                return `<td class="day-cell race-day-cell"><span class="mi">${value}</span><span class="tag">${raceName}</span></td>`;
+            }
+            return `
+        <td class="day-cell race-day-cell is-clickable" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
+          <span class="mi">${value}</span><span class="tag">${raceName}</span>
+          <span class="expand-hint">details</span>
+        </td>`;
+        }
+
         const tbody = document.getElementById('planBody');
         let rowsHtml = '';
 
@@ -550,12 +609,12 @@
             let satCell, sunCell;
             if (w.wk === 11) {
                 satCell = dayCell(w.sat);
-                sunCell = `<td class="day-cell race-day-cell"><span class="mi">${w.sun}</span><span class="tag">${w.race}</span></td>`;
+                sunCell = raceCell(w.sun, w.race, w.wk, idx, 'Sun');
             } else if (isRaceWeek && w.sat == null && w.sun === 'rest') {
                 satCell = dayCell(w.sat);
                 sunCell = dayCell(w.sun);
             } else if (isRaceWeek) {
-                satCell = `<td class="day-cell race-day-cell"><span class="mi">${w.sat}</span><span class="tag">${w.race}</span></td>`;
+                satCell = raceCell(w.sat, w.race, w.wk, idx, 'Sat');
                 sunCell = dayCell(w.sun);
             } else {
                 satCell = dayCell(w.sat, { tag: w.sat ? 'long run' : '', cls: 'long-run' });
@@ -595,6 +654,28 @@
         </tr>`;
             }
 
+            function raceDetailRow(dayKey) {
+                const race = getRace(w.wk);
+                if (!race) return '';
+                return `
+        <tr class="detail-row race-detail" id="detail-${idx}-${dayKey}">
+          <td colspan="9">
+            <div class="detail-inner race-detail-inner">
+              <h4>${race.name} &mdash; ${race.role}</h4>
+              <div class="detail-grid">
+                <div class="k">Goal</div><div class="v">${race.goal}</div>
+                <div class="k">Warm-up</div><div class="v">${race.warmup}</div>
+                <div class="k">Effort</div><div class="v">${race.effort}</div>
+                <div class="k">Pacing</div><div class="v">${race.pacing}</div>
+                <div class="k">Fueling</div><div class="v">${race.fueling}</div>
+              </div>
+              <div class="detail-note">${race.note}</div>
+            </div>
+          </td>
+        </tr>`;
+            }
+            const raceDayKey = w.wk === 11 ? 'sun' : 'sat';
+
             rowsHtml += `
         <tr class="${rowClasses.join(' ')}">
           <td class="col-week">
@@ -627,6 +708,7 @@
         </tr>
         ${strengthDetailRow(tueStrength, 'tue', 'Tuesday')}
         ${strengthDetailRow(friStrength, 'fri', 'Friday')}
+        ${raceDetailRow(raceDayKey)}
       `;
         });
 
@@ -652,12 +734,22 @@
             });
         });
 
+        document.querySelectorAll('.race-day-cell.is-clickable').forEach(cell => {
+            cell.addEventListener('click', () => toggleStrengthDetail(cell));
+            cell.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleStrengthDetail(cell);
+                }
+            });
+        });
+
         function closeAllDetails(exceptRow) {
             document.querySelectorAll('.detail-row.open').forEach(row => {
                 if (row === exceptRow) return;
                 row.classList.remove('open');
             });
-            document.querySelectorAll('.wed-cell, .strength-cell').forEach(c => {
+            document.querySelectorAll('.wed-cell, .strength-cell, .race-day-cell.is-clickable').forEach(c => {
                 if (c.getAttribute('aria-expanded') === 'true') {
                     c.setAttribute('aria-expanded', 'false');
                 }

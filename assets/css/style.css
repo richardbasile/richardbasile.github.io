@@ -1021,6 +1021,11 @@ td.day-cell.long-run { background: var(--paper); }
 td.day-cell.race-day-cell { background: var(--crimson); }
 td.day-cell.race-day-cell .mi { color: var(--paper); }
 td.day-cell.race-day-cell .tag { color: var(--paper); font-weight: 600; }
+td.day-cell.race-day-cell.is-clickable { cursor: pointer; position: relative; transition: background 0.15s ease; }
+td.day-cell.race-day-cell.is-clickable:hover { background: #A82A38; }
+td.day-cell.race-day-cell.is-clickable:focus-visible { outline: 2px solid var(--paper); outline-offset: -2px; }
+td.day-cell.race-day-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--paper); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; opacity: 0.85; }
+.race-detail-inner { border-left: 3px solid var(--crimson) !important; }
 td.day-cell.total-cell { background: var(--paper); font-weight: 600; }
 td.day-cell.total-cell .mi { color: var(--crimson); font-size: 1rem; }
 
@@ -1053,6 +1058,8 @@ tr.race-row td { background-color: var(--crimson-wash); }
 tr.race-row td.col-week { background-color: var(--crimson-tint); border-left: 3px solid var(--crimson); }
 tr.race-row td.wed-cell { background-color: var(--crimson-tint) !important; }
 tr.race-row td.race-day-cell { background-color: var(--crimson) !important; }
+tr.race-row td.race-day-cell.is-clickable:hover { background-color: #A82A38 !important; }
+tr.race-row td.race-day-cell.is-clickable:focus-visible { outline: 2px solid var(--paper); outline-offset: -2px; }
 
 /* ---------- expanded detail row ---------- */
 tr.detail-row { display: none; }
