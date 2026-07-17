@@ -46,7 +46,7 @@
                     <div class="section-label">Weekly Grid</div>
 
                     <div class="legend-row">
-                        <div class="legend-hint">Click any Tue, Wed, or Fri cell for full details →</div>
+                        <div class="legend-hint">Click any Tue, Wed, Thu, or Fri cell for full details →</div>
                     </div>
 
                     <div class="scroll-shell">
@@ -88,8 +88,8 @@
                         reps build at each distance before stepping up. Deload weeks hold the current distance
                         rather than pushing further, consolidating rather than adding fatigue. The hard part of any
                         session stays under a fifth of that week's total mileage — the same reason weeks under 15
-                        miles skip quality for strides, except week 9, which keeps real quality at 13 miles rather
-                        than break a progression only two weeks old. Taper reverts to the shortest version, keeping
+                        miles skip quality for strides. Once a week clears that floor, quality kicks in and stays for
+                        the rest of the build. Taper reverts to the shortest version, keeping
                         the pace familiar without adding late fatigue. Race weeks skip the structure entirely — the
                         race itself is the ultimate rehearsal.
                     </p>
@@ -97,48 +97,57 @@
 
                 <div class="section">
                     <div class="section-label">Strength Program</div>
-                    <p class="intro-text">Two sessions per week, Tuesday and Friday, with a fixed exercise list that
-                        stays the same for the whole plan — only sets, reps, and load change by phase, and every week
-                        spells out exactly which press variation to use, so there's nothing to track. Tuesday is
-                        full-body: squat, Romanian deadlift, a press, and lunges, plus a core/hip finisher. Friday is
-                        upper body: a press, curls, banded rows, and banded lateral raises, plus the same core/hip
-                        finisher. Click any Tuesday or Friday cell in the grid above for that week's exercises, sets,
-                        and
+                    <p class="intro-text">Three sessions per week — Tuesday, Thursday, and Friday — with a fixed
+                        exercise list that stays the same for the whole plan — only sets, reps, and load change by
+                        phase, and every week spells out exactly which press variation to use, so there's nothing to
+                        track. Tuesday is heavy full-body: squat, Romanian deadlift, a press, and lunges, plus a
+                        core/hip finisher. Thursday fills in what Tuesday and Friday don't cover — a row, a light leg
+                        accessory movement, and calf work, plus the same core/hip finisher — deliberately with no
+                        heavy pressing, since Tuesday and Friday already handle that. Friday is upper body: a press,
+                        curls, banded rows, and banded lateral raises, plus the same core/hip finisher. Click any
+                        Tuesday, Thursday, or Friday cell in the grid above for that week's exercises, sets, and
                         reps.</p>
 
                     <p class="rotation-note">
-                        <strong>Fixed exercise list, explicit each week:</strong> Tuesday and Friday keep the same
-                        exercise categories for the entire 18 weeks — Tuesday is squat, Romanian deadlift, a press,
-                        lunges, and the core/hip finisher (lateral leg raise, clamshell, dead bug, push-up); Friday is a
-                        press, DB curl, banded row, banded lateral raise, and the same core/hip finisher. The press
-                        variation (shoulder or bench) is called out explicitly every single week rather than left to
-                        "alternate" — Tuesday and Friday always run opposite choices in the same week, so both movements
-                        get even volume and there's nothing to remember. Only sets, reps, and load change week to week —
-                        the exercises themselves never get swapped out.<br><br>
+                        <strong>Fixed exercise list, explicit each week:</strong> Tuesday, Thursday, and Friday keep
+                        the same exercise categories for the entire 18 weeks — Tuesday is squat, Romanian deadlift, a
+                        press, lunges, and the core/hip finisher (lateral leg raise, clamshell, dead bug, push-up);
+                        Thursday is a row, a light leg accessory movement, calf raises, and the same core/hip
+                        finisher; Friday is a press, DB curl, banded row, banded lateral raise, and the same core/hip
+                        finisher. The press variation (shoulder or bench) is called out explicitly every single week
+                        rather than left to "alternate" — Tuesday and Friday always run opposite choices in the same
+                        week, so both movements get even volume and there's nothing to remember. Only sets, reps, and
+                        load change week to week — the exercises themselves never get swapped out.<br><br>
 
                         <strong>Weeks 1&ndash;11 (Foundation/Build):</strong> Working sets and progressive load, but
                         only
                         one of squat or Romanian deadlift progresses on any given Tuesday — the other holds at a steady,
                         controlled weight. Squat-emphasis and deadlift-emphasis weeks alternate, so you never add load
                         to
-                        both lower-body lifts in the same session. Friday stays zero leg loading, because Friday sits
+                        both lower-body lifts in the same session. Thursday's leg accessory work stays light
+                        throughout — it's there for pull volume and calves, not to add lower-body load — and Friday
+                        stays zero leg loading, because Friday sits
                         the
                         day before Saturday's long run and lower-body soreness peaks 24&ndash;48 hours after a session —
                         exactly the window that would otherwise land on the long run.<br><br>
 
                         <strong>Week 12 exception:</strong> Tuesday carries a 3-mile run that week instead of a
                         rest/lift
-                        day, so Tuesday's strength session is dropped entirely rather than stacked with the run — Friday
+                        day, so Tuesday's strength session is dropped entirely rather than stacked with the run —
+                        Thursday runs as usual, and Friday
                         runs the same exercise list at reduced sets instead of two full sessions.<br><br>
 
                         <strong>Weeks 13&ndash;16 (Peak):</strong> As running volume climbs to 22&ndash;26 mi/week,
-                        strength shifts to maintenance — same exercise list and working weight, fewer sets, squat and
+                        strength shifts to maintenance across all three days — same exercise list and working weight,
+                        fewer sets, squat and
                         RDL
-                        both held steady rather than progressing. The goal is holding onto what's been built, not
+                        both held steady rather than progressing, and Thursday trims to two sets across the board. The
+                        goal is holding onto what's been built, not
                         progressing further, while running takes priority.<br><br>
 
                         <strong>Week 17 (Taper) and Week 18 (Race):</strong> Taper week runs one light, single-set pass
-                        through the full Tuesday list just to feel normal, nothing more — no Friday session, so legs and
+                        through the full Tuesday list just to feel normal, nothing more — no Thursday or Friday
+                        session, so legs and
                         upper body both stay fresh. Race week skips strength entirely — the race is that week's only
                         output.
                     </p>
@@ -155,75 +164,75 @@
         const plan = [
             {
                 wk: 1, date: 'Jul 19', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 11, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wedSession: { key: 'strides', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', thu: 'thuBuild', fri: 'friBuildBench' }
             },
             {
                 wk: 2, date: 'Jul 26', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 5, sun: 'rest', total: 12, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 2 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wedSession: { key: 'strides', occ: 2 }, strength: { tue: 'tueBuildDLEmph', thu: 'thuBuild', fri: 'friBuildShoulder' }
             },
             {
-                wk: 3, date: 'Aug 2', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 3, sun: 'rest', total: 10, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 3, date: 'Aug 2', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 11, race: null, raceCat: null,
+                wedSession: { key: 'strides', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', thu: 'thuBuild', fri: 'friBuildBench' }
             },
             {
-                wk: 4, date: 'Aug 9', phase: 'Build', mon: 2, tue: null, wed: 4, thu: 2, fri: null, sat: 5, sun: 'rest', total: 13, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 4 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wk: 4, date: 'Aug 9', phase: 'Build', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 13, race: null, raceCat: null,
+                wedSession: { key: 'strides', occ: 4 }, strength: { tue: 'tueBuildDLEmph', thu: 'thuBuild', fri: 'friBuildShoulder' }
             },
             {
-                wk: 5, date: 'Aug 16', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 14, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 5 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 5, date: 'Aug 16', phase: 'Build', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 7, sun: 'rest', total: 16, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', thu: 'thuBuild', fri: 'friBuildBench' }
             },
             {
-                wk: 6, date: 'Aug 23', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 4, sun: 'rest', total: 11, race: null, raceCat: null,
-                wedSession: { key: 'strides', occ: 6 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wk: 6, date: 'Aug 23', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 13, race: null, raceCat: null,
+                wedSession: { key: 'strides', occ: 5 }, strength: { tue: 'tueBuildDLEmph', thu: 'thuBuild', fri: 'friBuildShoulder' }
             },
             {
-                wk: 7, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 7, sun: 'rest', total: 15, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 1 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 7, date: 'Aug 30', phase: 'Build', mon: 3, tue: null, wed: 5, thu: 2, fri: null, sat: 8, sun: 'rest', total: 18, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 2 }, strength: { tue: 'tueBuildSquatEmph', thu: 'thuBuild', fri: 'friBuildBench' }
             },
             {
-                wk: 8, date: 'Sep 6', phase: 'Race', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 8, sun: 'rest', total: 17, race: 'Donut Run 10K', raceCat: 'Race Pace',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wk: 8, date: 'Sep 6', phase: 'Race', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 13, race: 'Donut Run 10K', raceCat: 'Race Pace',
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildDLEmph', thu: 'thuBuild', fri: 'friBuildShoulder' }
             },
             {
-                wk: 9, date: 'Sep 13', phase: 'Deload', mon: 2, tue: null, wed: 3, thu: 2, fri: null, sat: 6, sun: 'rest', total: 13, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 2 }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 9, date: 'Sep 13', phase: 'Deload', mon: 3, tue: null, wed: 4, thu: 2, fri: null, sat: 7, sun: 'rest', total: 16, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 3 }, strength: { tue: 'tueBuildSquatEmph', thu: 'thuBuild', fri: 'friBuildBench' }
             },
             {
-                wk: 10, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 5, thu: 2, fri: null, sat: 9, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 3 }, strength: { tue: 'tueBuildDLEmph', fri: 'friBuildShoulder' }
+                wk: 10, date: 'Sep 20', phase: 'Build', mon: 3, tue: null, wed: 5, thu: 3, fri: null, sat: 9, sun: 'rest', total: 20, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 4 }, strength: { tue: 'tueBuildDLEmph', thu: 'thuBuild', fri: 'friBuildShoulder' }
             },
             {
-                wk: 11, date: 'Sep 27', phase: 'Race', mon: 4, tue: null, wed: 4, thu: 3, fri: null, sat: 'rest', sun: 10, total: 21, race: 'Big Bad Wolfe', raceCat: 'Race Pace',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildSquatEmph', fri: 'friBuildBench' }
+                wk: 11, date: 'Sep 27', phase: 'Race', mon: 4, tue: null, wed: 5, thu: 3, fri: null, sat: 'rest', sun: 10, total: 22, race: 'Big Bad Wolfe', raceCat: 'Race Pace',
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: 'tueBuildSquatEmph', thu: 'thuBuild', fri: 'friBuildBench' }
             },
             {
-                wk: 12, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 4 }, strength: { tue: null, fri: 'friLight' }
+                wk: 12, date: 'Oct 4', phase: 'Deload', mon: 'rest', tue: 3, wed: 5, thu: 2, fri: null, sat: 8, sun: 'rest', total: 18, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 5 }, strength: { tue: null, thu: 'thuBuild', fri: 'friLight' }
             },
             {
-                wk: 13, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 6, thu: 3, fri: null, sat: 10, sun: 'rest', total: 23, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 5 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
+                wk: 13, date: 'Oct 11', phase: 'Build', mon: 4, tue: null, wed: 5, thu: 3, fri: null, sat: 10, sun: 'rest', total: 22, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 6 }, strength: { tue: 'tueMaintShoulder', thu: 'thuMaint', fri: 'friMaintBench' }
             },
             {
-                wk: 14, date: 'Oct 18', phase: 'Build', mon: 5, tue: null, wed: 6, thu: 3, fri: null, sat: 11, sun: 'rest', total: 25, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 6 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
+                wk: 14, date: 'Oct 18', phase: 'Build', mon: 4, tue: null, wed: 6, thu: 3, fri: null, sat: 11, sun: 'rest', total: 24, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 7 }, strength: { tue: 'tueMaintBench', thu: 'thuMaint', fri: 'friMaintShoulder' }
             },
             {
-                wk: 15, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 7, sun: 'rest', total: 18, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 7 }, strength: { tue: 'tueMaintShoulder', fri: 'friMaintBench' }
+                wk: 15, date: 'Oct 25', phase: 'Deload', mon: 3, tue: null, wed: 5, thu: 3, fri: null, sat: 9, sun: 'rest', total: 20, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 8 }, strength: { tue: 'tueMaintShoulder', thu: 'thuMaint', fri: 'friMaintBench' }
             },
             {
-                wk: 16, date: 'Nov 1', phase: 'Peak', mon: 5, tue: null, wed: 6, thu: 4, fri: null, sat: 12, sun: 'rest', total: 27, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 8 }, strength: { tue: 'tueMaintBench', fri: 'friMaintShoulder' }
+                wk: 16, date: 'Nov 1', phase: 'Peak', mon: 4, tue: null, wed: 5, thu: 4, fri: null, sat: 12, sun: 'rest', total: 25, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 9 }, strength: { tue: 'tueMaintBench', thu: 'thuMaint', fri: 'friMaintShoulder' }
             },
             {
-                wk: 17, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 6, thu: 2, fri: null, sat: 8, sun: 'rest', total: 19, race: null, raceCat: null,
-                wedSession: { key: 'turnover', occ: 9 }, strength: { tue: 'tueTaper', fri: null }
+                wk: 17, date: 'Nov 8', phase: 'Taper', mon: 3, tue: null, wed: 5, thu: 2, fri: null, sat: 8, sun: 'rest', total: 18, race: null, raceCat: null,
+                wedSession: { key: 'turnover', occ: 10 }, strength: { tue: 'tueTaper', thu: null, fri: null }
             },
             {
-                wk: 18, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 3, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 21.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
-                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: null, fri: null }
+                wk: 18, date: 'Nov 15', phase: 'Race', mon: 3, tue: null, wed: 2, thu: 2, fri: null, sat: 13.1, sun: 'rest', total: 20.1, race: 'Run to Feed the Hungry Half Marathon', raceCat: '"A" Race',
+                wedSession: { key: 'raceweek', name: 'Race Week Strides' }, strength: { tue: null, thu: null, fri: null }
             },
         ];
 
@@ -243,82 +252,82 @@
                 },
                 3: {
                     name: 'Strides', warmup: '2 mi easy',
-                    main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
+                    main: '5 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
                     cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'Weekly mileage is still under 15 on this deload week, so strides continue.'
+                    note: 'Deload week — reps hold at last week\u2019s count rather than climbing further. Weekly mileage is still under 15 on this cutback week, so strides continue.'
                 },
                 4: {
                     name: 'Strides', warmup: '2 mi easy',
                     main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
-                    cooldown: 'Remainder easy to complete 4 mi total',
+                    cooldown: 'Remainder easy to complete 3 mi total',
                     note: 'Mileage is climbing but still sits under 15 miles this week, so quality holds at strides while the aerobic base keeps building.'
                 },
                 5: {
                     name: 'Strides', warmup: '2 mi easy',
-                    main: '7 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
-                    cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'Still under the 15-mile floor. One more rep of turnover work, nothing more.'
-                },
-                6: {
-                    name: 'Strides', warmup: '2 mi easy',
                     main: '6 × 20 sec relaxed strides @ moderately quick (not sprinting), full recovery walk between',
                     cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'Deload week — reps ease back slightly along with everything else, and mileage still sits well under the 15-mile quality threshold.'
+                    note: 'Second deload week in this stretch — reps hold steady rather than progressing, and mileage still sits well under the 15-mile quality threshold.'
                 },
             },
             turnover: {
                 1: {
-                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '0.75 mi easy + 4 × 20 sec strides',
-                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half of the oval back to the start for full recovery',
-                    cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'First real quality session of the build, once weekly mileage clears the 15-mile floor. The point is rehearsing half marathon race pace directly, one short interval at a time, so it becomes a familiar feeling well before race day rather than something guessed at cold on Nov 14. Cadence will naturally pick up at this pace, but it\u2019s not the target — pace is.'
+                    name: 'HM-Pace Reps: 3 × quarter mile', warmup: '0.75 mi easy + 4 × 20 sec strides',
+                    main: '3 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half of the oval back to the start for full recovery',
+                    cooldown: 'Remainder easy to complete 4 mi total',
+                    note: 'First real quality session of the build, once weekly mileage clears the 15-mile floor. The point is rehearsing half marathon race pace directly, one short interval at a time, so it becomes a familiar feeling well before race day rather than something guessed at cold on Nov 15. Cadence will naturally pick up at this pace, but it\u2019s not the target — pace is.'
                 },
                 2: {
                     name: 'HM-Pace Reps: 4 × quarter mile', warmup: '0.75 mi easy + 4 × 20 sec strides',
                     main: '4 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half back to the start for full recovery',
-                    cooldown: 'Remainder easy to complete 3 mi total',
-                    note: 'Deload week, right after the first exposure — reps hold steady rather than building yet, since this is still about locking in the feel of race pace before adding volume.'
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'Reps step up from three to four, still at quarter-mile length and the same race-pace target.'
                 },
                 3: {
-                    name: 'HM-Pace Reps: 6 × quarter mile', warmup: '1.25 mi easy + 4 × 20 sec strides',
-                    main: '6 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half back to the start for full recovery',
-                    cooldown: 'Remainder easy to complete 5 mi total',
-                    note: 'First Build week with real mileage to work with — reps step up from four to six, still at quarter-mile length and the same race-pace target.'
+                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '0.75 mi easy + 4 × 20 sec strides',
+                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Walk/easy-jog the other half back to the start for full recovery',
+                    cooldown: 'Remainder easy to complete 4 mi total',
+                    note: 'Deload week — reps hold steady rather than building, since this is still about locking in the feel of race pace before adding volume. The cutback here is about overall weekly mileage, not the session itself.'
                 },
                 4: {
-                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Full recovery walking the other half back to the start',
-                    cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Deload week — reps pull back to the base count, same race-pace target as always. The cutback here is about overall weekly volume, not about the session itself needing to change.'
-                },
-                5: {
-                    name: 'HM-Pace Reps: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × half mile (one full lap) @ half marathon race pace — same target pace as the quarter-mile reps, just held for twice as long. Full recovery jogging or walking a lap between reps',
-                    cooldown: 'Remainder easy to complete 6 mi total',
+                    name: 'HM-Pace Reps: 3 × half mile', warmup: '1 mi easy + 4 × 20 sec strides',
+                    main: '3 × half mile (one full lap) @ half marathon race pace — same target pace as the quarter-mile reps, just held for twice as long. Full recovery jogging or walking a lap between reps',
+                    cooldown: 'Remainder easy to complete 5 mi total',
                     note: 'First time stepping the rep up to a full lap. This is the heart of what this session is for: getting comfortable holding race pace for longer stretches, not just tasting it briefly.'
                 },
+                5: {
+                    name: 'HM-Pace Reps: 3 × half mile', warmup: '1 mi easy + 4 × 20 sec strides',
+                    main: '3 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'Deload week — reps hold at last week\u2019s count rather than climbing, same race-pace target held for a full lap. The cutback here is about overall weekly volume, not about the session itself needing to change.'
+                },
                 6: {
-                    name: 'HM-Pace Reps: 5 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '5 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
-                    cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Holds at the half-mile distance and adds a rep instead of stepping up to a longer rep — more total time at race pace this week, building through volume rather than length.'
+                    name: 'HM-Pace Reps: 4 × half mile', warmup: '1 mi easy + 4 × 20 sec strides',
+                    main: '4 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'Adds a rep at the half-mile distance rather than stepping up to a longer rep yet — building through volume first.'
                 },
                 7: {
-                    name: 'HM-Pace Reps: 4 × half mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
+                    name: 'HM-Pace Reps: 5 × half mile', warmup: '1 mi easy + 4 × 20 sec strides',
+                    main: '5 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
                     cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Deload week — steps back down to last week\u2019s rep count, same race-pace target held for a full lap.'
+                    note: 'Holds at the half-mile distance and adds one more rep — more total time at race pace this week, still building through volume rather than length.'
                 },
                 8: {
-                    name: 'HM-Pace Reps: 3 × one mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '3 × one mile (two laps) @ half marathon race pace — the longest single stretch of race effort in the plan. Full recovery jogging or walking two laps between reps',
-                    cooldown: 'Remainder easy to complete 6 mi total',
-                    note: 'Biggest session of the build, in Peak week right before taper — a full mile at exactly the pace you\u2019re training to hold for 13.1 of them. This is the closest single Wednesday session gets to race day itself.'
+                    name: 'HM-Pace Reps: 4 × half mile', warmup: '1 mi easy + 4 × 20 sec strides',
+                    main: '4 × half mile (one full lap) @ half marathon race pace. Full recovery jogging or walking a lap between reps',
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'Deload week — steps back down to an earlier rep count, same race-pace target held for a full lap.'
                 },
                 9: {
-                    name: 'HM-Pace Reps: 4 × quarter mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
-                    main: '4 × quarter mile (half the oval) @ half marathon race pace. Full recovery walking the other half back to the start',
-                    cooldown: 'Remainder easy to complete 6 mi total',
+                    name: 'HM-Pace Reps: 3 × one mile', warmup: '1.5 mi easy + 4 × 20 sec strides',
+                    main: '3 × one mile (two laps) @ half marathon race pace — the longest single stretch of race effort in the plan. Full recovery jogging or walking two laps between reps',
+                    cooldown: 'Remainder easy to complete 5 mi total',
+                    note: 'Biggest single effort of the build, in Peak week — a full mile at exactly the pace you\u2019re training to hold for 13.1 of them. Trimmed back to 5 mi total rather than 6 this cycle, so this session doesn\u2019t stack with the week\u2019s peak long run and largest deload-to-build jump — the long run carries the peak-week signal on its own.'
+                },
+                10: {
+                    name: 'HM-Pace Reps: 3 × quarter mile', warmup: '1 mi easy + 4 × 20 sec strides',
+                    main: '3 × quarter mile (half the oval) @ half marathon race pace. Full recovery walking the other half back to the start',
+                    cooldown: 'Remainder easy to complete 5 mi total',
                     note: 'Taper week — back to the short version the progression opened with, same race-pace target. Just enough to keep that pace feeling familiar without adding fatigue before the half.'
                 },
             },
@@ -488,6 +497,36 @@
                 ],
                 note: 'One light pass through the full list — low sets, just to feel normal, nothing more. No Friday session \u2014 legs and upper both stay fresh for race week.'
             },
+            thuBuild: {
+                name: 'Pull, Legs & Calves', focus: 'Thursday \u2014 no heavy pressing, since Tuesday and Friday already cover it',
+                main: [
+                    'DB or banded row \u2014 3 \u00d7 10',
+                    'Goblet squat or light leg press \u2014 2 \u00d7 12',
+                    'Standing calf raise \u2014 3 \u00d7 15',
+                ],
+                core: [
+                    'Side-lying lateral leg raise \u2014 2 \u00d7 12/side',
+                    'Clamshell \u2014 2 \u00d7 12/side',
+                    'Dead bug \u2014 2 \u00d7 8/side',
+                    'Push-up \u2014 2 \u00d7 10',
+                ],
+                note: 'Thursday fills the gaps Tuesday and Friday leave \u2014 extra pull volume and calf work neither of the other two days cover, plus just enough light leg work to reinforce single-leg stability. Kept light on purpose: this session pairs with an easy run the same day and sits two days out from Saturday\u2019s long run, not one.'
+            },
+            thuMaint: {
+                name: 'Pull, Legs & Calves (Maintenance)', focus: 'Thursday \u2014 reduced volume as running peaks',
+                main: [
+                    'DB or banded row \u2014 2 \u00d7 10',
+                    'Goblet squat or light leg press \u2014 2 \u00d7 10',
+                    'Standing calf raise \u2014 2 \u00d7 12',
+                ],
+                core: [
+                    'Side-lying lateral leg raise \u2014 2 \u00d7 10/side',
+                    'Clamshell \u2014 2 \u00d7 10/side',
+                    'Dead bug \u2014 2 \u00d7 8/side',
+                    'Push-up \u2014 2 \u00d7 10',
+                ],
+                note: 'Running volume is peaking (22\u201326 mi/wk). Thursday trims to two sets across the board, same maintenance approach as Tuesday and Friday this phase.'
+            },
         };
 
 
@@ -495,7 +534,7 @@
             8: {
                 name: 'Donut Run 10K', role: 'Tune-up — Race-Pace Effort',
                 goal: 'This is a fitness check and a pacing calibration, not a max effort. Run it at the same goal race-pace effort as the Wednesday quality sessions — not a 10K PR attempt.',
-                warmup: '1–1.5 mi easy jog + 4 × 20 sec strides beforehand. The race itself is the workout, so there\u2019s no need for a separate hard warm-up.',
+                warmup: 'A few dynamic leg swings and 4 \u00d7 20 sec strides in place beforehand \u2014 no separate warm-up jog, so total mileage for the day stays at the race distance.',
                 effort: 'Miles 1–2: RPE 5/10, HR ~148–155 bpm — comfortably hard, could speak in short phrases. Deliberately controlled start. Miles 3–5: RPE 5–6/10, HR ~152–158 bpm — settle in, hold steady. Mile 6–finish: RPE 6/10, HR ~155–160 bpm max — hold, don\u2019t surge. If HR climbs into the 160s or it starts feeling like the June 3 5K (avg 162, max 169), that\u2019s race effort creeping in — ease back.',
                 pacing: 'Even effort start to finish. If you find yourself racing other people or chasing a faster mile split than the race-pace effort calls for, ease back — the value here is the data and the rehearsal, not the result.',
                 fueling: 'Nothing needed for a 10K — water only if it\u2019s hot. Save the fueling rehearsal for the Big Bad Wolfe in week 11.',
@@ -566,6 +605,26 @@
         </td>`;
         }
 
+        function runStrengthCell(mileageValue, strengthKey, idx, dayAbbr) {
+            const s = getStrength(strengthKey);
+            if (mileageValue === undefined || mileageValue === null) {
+                return `<td class="day-cell walk-cell">Walk</td>`;
+            }
+            if (mileageValue === 'rest') {
+                return `<td class="day-cell rest">Rest</td>`;
+            }
+            if (!s) {
+                return `<td class="day-cell"><span class="mi">${mileageValue}</span><span class="tag">easy</span></td>`;
+            }
+            return `
+        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
+          <span class="mi">${mileageValue}</span><span class="tag">easy</span>
+          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
+          <span class="session-name">${s.name}</span>
+          <span class="expand-hint">details</span>
+        </td>`;
+        }
+
         function raceCell(value, raceName, wk, idx, dayAbbr) {
             const race = getRace(wk);
             if (!race) {
@@ -591,7 +650,7 @@
             const tueCell = w.tue
                 ? dayCell(w.tue, { tag: 'easy' })
                 : strengthCell(w.strength ? w.strength.tue : null, idx, 'Tue');
-            const thuCell = dayCell(w.thu, { tag: w.thu ? 'easy' : '' });
+            const thuCell = runStrengthCell(w.thu, w.strength ? w.strength.thu : null, idx, 'Thu');
             const friCell = strengthCell(w.strength ? w.strength.fri : null, idx, 'Fri');
 
             let satCell, sunCell;
@@ -622,6 +681,7 @@
             const totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total}</span></td>`;
 
             const tueStrength = w.tue ? null : getStrength(w.strength ? w.strength.tue : null);
+            const thuStrength = getStrength(w.strength ? w.strength.thu : null);
             const friStrength = getStrength(w.strength ? w.strength.fri : null);
 
             function strengthDetailRow(s, dayKey, dayLabel) {
@@ -695,6 +755,7 @@
           </td>
         </tr>
         ${strengthDetailRow(tueStrength, 'tue', 'Tuesday')}
+        ${strengthDetailRow(thuStrength, 'thu', 'Thursday')}
         ${strengthDetailRow(friStrength, 'fri', 'Friday')}
         ${raceDetailRow(raceDayKey)}
       `;
