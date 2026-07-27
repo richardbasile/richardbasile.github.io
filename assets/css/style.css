@@ -1356,3 +1356,66 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
 /* ---------- generator: equal-width table cells ---------- */
 table#planTable.grid-plan { table-layout: fixed; }
 table#planTable.grid-plan th.col-week, table#planTable.grid-plan td.col-week { width: 150px; }
+
+/* ==========================================================================
+   Footnotes / Notes section additions
+   New component classes only — everything above is unchanged from the
+   original stylesheet. Merge this block into the site's real style.css.
+   ========================================================================== */
+
+/* ---------- footnote reference markers (inline, in-article) ---------- */
+.footnote-ref {
+  font-family: var(--font-mono);
+  font-size: 0.68em;
+  font-weight: 500;
+  color: var(--crimson);
+  text-decoration: none;
+  border-bottom: none;
+  vertical-align: super;
+  line-height: 0;
+  padding: 0 1px;
+}
+.footnote-ref:hover, .footnote-ref:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--crimson);
+}
+
+/* ---------- notes / footnotes section (end of article) ---------- */
+.footnotes {
+  margin-top: var(--gap-xl);
+  padding-top: var(--gap-lg);
+  border-top: 1px solid var(--paper-line);
+}
+.footnotes-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: var(--gap-md);
+}
+.footnotes ol {
+  margin: 0;
+  padding-left: 1.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.footnotes li {
+  margin-bottom: 0.7rem;
+  padding-left: 0.2rem;
+}
+.footnotes li:last-child { margin-bottom: 0; }
+.footnotes li:target { background: var(--crimson-wash); }
+.footnotes em { font-style: italic; color: var(--ink); }
+.footnotes a {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--graphite-soft);
+  text-decoration: none;
+  border-bottom: none;
+  margin-left: 4px;
+}
+.footnotes a:hover, .footnotes a:focus-visible { color: var(--crimson); }
