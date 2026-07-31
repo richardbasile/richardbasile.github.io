@@ -1029,17 +1029,17 @@ td.day-cell.race-day-cell .expand-hint { display: block; font-size: 0.68rem; col
 td.day-cell.total-cell { background: var(--paper); font-weight: 600; }
 td.day-cell.total-cell .mi { color: var(--crimson); font-size: 1rem; }
 
-td.day-cell.wed-cell {
+td.day-cell.thu-strides-cell {
   background: var(--crimson-wash);
   cursor: pointer;
   position: relative;
   transition: background 0.15s ease;
 }
-td.day-cell.wed-cell:hover { background: var(--crimson-tint); }
-td.day-cell.wed-cell:focus-visible { outline: 2px solid var(--crimson); outline-offset: -2px; }
-td.day-cell.wed-cell .mi { color: var(--crimson); }
-td.day-cell.wed-cell .session-name { display: block; font-size: 0.68rem; color: var(--crimson); font-weight: 500; margin-top: 2px; line-height: 1.25; }
-td.day-cell.wed-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--crimson); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
+td.day-cell.thu-strides-cell:hover { background: var(--crimson-tint); }
+td.day-cell.thu-strides-cell:focus-visible { outline: 2px solid var(--crimson); outline-offset: -2px; }
+td.day-cell.thu-strides-cell .mi { color: var(--crimson); }
+td.day-cell.thu-strides-cell .session-name { display: block; font-size: 0.68rem; color: var(--crimson); font-weight: 500; margin-top: 2px; line-height: 1.25; }
+td.day-cell.thu-strides-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--crimson); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
 
 /* ---------- strength cells ---------- */
 td.day-cell.strength-cell { background: #EEF1EA; cursor: pointer; position: relative; transition: background 0.15s ease; }
@@ -1056,7 +1056,7 @@ td.day-cell.strength-cell .expand-hint { display: block; font-size: 0.68rem; col
 
 tr.race-row td { background-color: var(--crimson-wash); }
 tr.race-row td.col-week { background-color: var(--crimson-tint); border-left: 3px solid var(--crimson); }
-tr.race-row td.wed-cell { background-color: var(--crimson-tint) !important; }
+tr.race-row td.thu-strides-cell { background-color: var(--crimson-wash) !important; }
 tr.race-row td.race-day-cell { background-color: var(--crimson) !important; }
 tr.race-row td.race-day-cell.is-clickable:hover { background-color: #A82A38 !important; }
 tr.race-row td.race-day-cell.is-clickable:focus-visible { outline: 2px solid var(--paper); outline-offset: -2px; }

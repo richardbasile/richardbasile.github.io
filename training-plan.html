@@ -14,6 +14,25 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=block"
         rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .or-sep {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            opacity: 1;
+            color: var(--crimson);
+            margin: 3px 4px;
+            display: inline-block;
+        }
+
+        /* Equal-width day columns: Monday through Sunday plus Weekly Total
+           split the remaining space evenly, matching col-week's fixed 150px. */
+        table#planTable.grid-plan th:not(.col-week),
+        table#planTable.grid-plan td.day-cell {
+            width: calc((100% - 150px) / 8);
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +45,8 @@
                 </nav>
 
                 <header class="masthead" style="margin-bottom: 0;">
-                    <p class="header-meta">16-Week Hybrid Strength + Half Marathon Build &nbsp;·&nbsp; Aug 2 &ndash; Nov 15, 2026</p>
+                    <p class="header-meta">16-Week Hybrid Strength + Half Marathon Build &nbsp;·&nbsp; Aug 2 &ndash; Nov
+                        15, 2026</p>
                     <h1>Training <em>Plan</em></h1>
                 </header>
 
@@ -34,17 +54,14 @@
                 <div class="section">
                     <div class="section-label">Overview</div>
                     <p class="intro-text">Weekly mileage and lifting by day, building toward the Run to Feed the
-                        Hungry Half Marathon on Nov 14. This season's focus is building the aerobic base and
-                        durability for the distance while holding onto strength &mdash; speed work is deferred to
-                        next season, once that base is in place. Monday and Wednesday pair a strength session in the
-                        morning with an easy run in the evening; Tuesday is cross-training (an easy bike, swim, or
-                        elliptical session), 30 minutes, dropping to 20 in the taper and skipped entirely in race
-                        week; Thursday is an easy run with strides worked in near the end; Friday is upper-body
-                        strength only, with an optional easy cross-training session (bike, swim, or elliptical)
-                        alongside it, and no run, to protect Saturday's long run; Saturday carries the long run,
-                        progressing on a four-week rhythm with a cutback every fourth week; Sunday is rest. Weekly
-                        mileage is set from Saturday's long run, and Monday/Wednesday/Thursday split that total by
-                        formula &mdash; so the whole week's volume scales consistently off the long run driving it.
+                        Hungry Half Marathon on Nov 14. Focus is aerobic base and durability while holding onto
+                        strength &mdash; speed work is deferred to next season. Monday/Wednesday pair a morning
+                        strength session with an evening easy run; Tuesday is 30 min cross-training (20 in the
+                        taper, off in race week); Thursday is an easy run with strides; Friday is upper-body
+                        strength only plus optional easy cross-training, no run, to protect Saturday's long run;
+                        Saturday carries the long run on a four-week rhythm with a cutback every fourth week;
+                        Sunday is rest. Weekly mileage is set from Saturday's long run, with Monday/Wednesday/
+                        Thursday splitting the remainder by formula.
                     </p>
                 </div>
 
@@ -86,73 +103,54 @@
                 <div class="section">
                     <div class="section-label">Easy Running &amp; Strides</div>
                     <p class="rotation-note">
-                        No quality (tempo or interval) sessions this cycle &mdash; every run this season is easy
-                        effort, aside from short strides. That's a deliberate trade: quality work is what sharpens
-                        pace, but it's also where most running injuries happen and where recovery gets borrowed from
-                        the lifting program. With a regular running base but no half-marathon-distance experience
-                        yet, this season prioritizes durability and aerobic volume over a faster ceiling. Quality can
-                        be added next season once that base is established.
+                        No quality (tempo or interval) work this cycle &mdash; everything is easy effort aside from
+                        short strides. Quality sharpens pace but is also where most running injuries happen, so with
+                        a running base but no half-marathon experience yet, this season trades a faster ceiling for
+                        durability and aerobic volume; quality can return once that base is established.
                     </p>
                     <p class="rotation-note">
                         Thursday's easy run includes 4&ndash;6 &times; 15&ndash;20 second relaxed strides near the
-                        end, with a full recovery walk between each. This is about turnover and running economy, not
-                        effort &mdash; it is not a quality session, and it carries almost none of the fatigue cost.
-                        Strides drop out in the final taper and race week, when the priority shifts entirely to
-                        arriving fresh.
+                        end, full recovery walk between each &mdash; turnover and running economy, not effort, with
+                        almost no fatigue cost. Strides are held out of weeks 1&ndash;4 while rebuilding from a Week
+                        1 calf strain (walk, then cross-train, then easy run before anything faster), and drop out
+                        again in the taper and race week so the priority shifts entirely to arriving fresh.
                     </p>
                 </div>
 
                 <div class="section">
                     <div class="section-label">Strength Program</div>
-                    <p class="intro-text">Three sessions per week (Monday, Wednesday, and Friday) with a
-                        fixed exercise list that stays the same for the whole plan; only sets, reps, and volume
-                        change by phase. Monday is full body, heavy, barbell-based, and paired with that day's easy
-                        run: back squat, deadlift, a bench-or-shoulder press (alternating weekly), and a row;
-                        this is the day with the most recovery runway before Saturday's long run. Wednesday is lower
-                        body, moderate, dumbbell/band-based, also paired with that day's easy run: a squat variation
-                        (Bulgarian split or goblet), single-leg RDL, lunges or step-ups, and calf raises. Friday is
-                        upper body only, moderate, dumbbell/band-based, with zero leg loading: DB bench press, DB
-                        shoulder press, DB skull crushers, DB curls, and banded rows, sitting the day before
-                        Saturday's long run, since lower-body soreness peaks 24&ndash;48 hours after a session, which
-                        would otherwise land squarely on the long run. Every session closes with two rotating core
-                        exercises, one from Glute Activation, one from Stability, with push-ups
-                        occasionally worked in on Monday or Friday for extra pressing volume. Click any Monday,
-                        Wednesday, or Friday cell in the grid above for that week's exercises, sets, and reps.</p>
+                    <p class="intro-text">Three sessions per week (Monday, Wednesday, Friday) with a fixed exercise
+                        list for all 16 weeks &mdash; only sets, reps, and volume change by phase. Monday: full-body,
+                        heavy, barbell (back squat, deadlift, bench-or-shoulder press alternating weekly, row) &mdash;
+                        the most recovery runway before Saturday's long run. Wednesday: lower-body, moderate,
+                        dumbbell/band (squat variation, single-leg RDL, lunges/step-ups, calf raises). Friday:
+                        upper-body only, moderate, dumbbell/band (DB bench press, DB shoulder press, DB skull
+                        crushers, DB curls, banded rows), no leg loading, sitting the day before the long run since
+                        lower-body soreness peaks 24&ndash;48 hours later. Every session closes with two rotating
+                        core exercises (one Glute Activation, one Stability), with push-ups occasionally worked in on
+                        Monday or Friday. Click any Monday, Wednesday, or Friday cell in the grid for that week's
+                        sets and reps.</p>
 
-                    <p class="rotation-note">
-                        <strong>Fixed exercise list, explicit each week:</strong> Monday, Wednesday, and Friday keep
-                        the same exercise categories for the entire 16 weeks; only sets, reps, and load change
-                        week to week. Monday is back squat, deadlift, press, and row; Wednesday is a squat variation,
-                        single-leg RDL, lunges/step-ups, and calf raises; Friday is DB bench press, DB shoulder
-                        press, DB skull crushers, DB curls, and banded rows. Core rotates two exercises per session
-                        from a small library: <em>Glute Activation</em> (clamshells, lateral leg raise, hip
-                        thrust) and <em>Stability</em> (dead bug, heel taps, side plank), plus push-ups as a
-                        pressing/anterior-core option.<br><br>
+                    <p class="rotation-note"><strong>Core rotation:</strong> <em>Glute Activation</em> (clamshells,
+                        lateral leg raise, hip thrust) and <em>Stability</em> (dead bug, heel taps, side plank), plus
+                        push-ups as a pressing/anterior-core option.</p>
 
-                        <strong>Weeks 1&ndash;4 (Base):</strong> Full volume as programmed. This is where the
-                        heaviest squat and deadlift numbers get pushed while running mileage is still low.<br><br>
-
-                        <strong>Weeks 5&ndash;8 (Build):</strong> Intensity holds, but lower-body sets trim slightly
-                        as running mileage climbs. The first give comes from lifting volume, not from the run,
-                        since mileage is what builds the distance-specific fitness this season is for.<br><br>
-
-                        <strong>Weeks 9&ndash;12 (Peak Build):</strong> Lower body trims further on both Monday and
-                        Wednesday. Upper body (Friday) stays unchanged. It doesn't interfere with running legs,
-                        so there's no need to pull it back early. Glute and stability core work stays in every
-                        session regardless of how much the main lifts trim; it's cheap insurance against
-                        running-related hip and knee issues as mileage rises.<br><br>
-
-                        <strong>Weeks 13&ndash;14 (Peak):</strong> As the long run peaks at 11&ndash;12 miles, lower
-                        body drops to a maintenance dose on both Monday and Wednesday. Same exercises, held
-                        load, minimal sets, goal is holding onto what's been built rather than progressing further.
-                        Upper body remains unchanged.<br><br>
-
-                        <strong>Week 15 (Taper):</strong> One light pass through the full list on all three days.
-                        Volume cut 30&ndash;50% &mdash; just enough to feel normal, nothing more.<br><br>
-
-                        <strong>Week 16 (Race):</strong> Strength drops out entirely. The race is the only output
-                        this week. That's the real freshness buffer, not the taper before it.
-                    </p>
+                    <ul class="strength-list rotation-note">
+                        <li><strong>Weeks 1&ndash;4 (Base):</strong> Full volume &mdash; heaviest squat and deadlift
+                            numbers while running mileage is still low.</li>
+                        <li><strong>Weeks 5&ndash;8 (Build):</strong> Intensity holds; lower-body sets trim slightly
+                            as mileage climbs, since mileage drives this season's fitness.</li>
+                        <li><strong>Weeks 9&ndash;12 (Peak Build):</strong> Lower body trims further on Monday and
+                            Wednesday; upper body (Friday) unchanged; glute/stability core stays in every session as
+                            insurance against running-related hip and knee issues.</li>
+                        <li><strong>Weeks 13&ndash;14 (Peak):</strong> As the long run peaks at 11&ndash;12 miles,
+                            lower body drops to a maintenance dose (same exercises, held load, minimal sets); upper
+                            body unchanged.</li>
+                        <li><strong>Week 15 (Taper):</strong> One light pass through the full list on all three
+                            days, volume cut 30&ndash;50%.</li>
+                        <li><strong>Week 16 (Race):</strong> Strength drops out entirely &mdash; the race is the
+                            week's only output.</li>
+                    </ul>
                 </div>
 
                 <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
@@ -225,7 +223,7 @@
                 strength: { mon: 'monTaper', wed: 'wedTaper', fri: 'friTaper' }
             },
             {
-                wk: 16, date: 'Nov 15', phase: 'Race Week', mon: 2, wed: 2, thu: 'rest', sat: 13.1, sun: 'rest', total: 17.1, race: 'Run to Feed the Hungry Half Marathon', crosstrain: null,
+                wk: 16, date: 'Nov 15', phase: 'Race Week', mon: 2, wed: 2, thu: 2, sat: 13.1, sun: 'rest', total: 19.1, race: 'Run to Feed the Hungry Half Marathon', crosstrain: null,
                 strength: { mon: null, wed: null, fri: null }
             },
         ];
@@ -237,6 +235,12 @@
             cooldown: 'Remainder easy to complete the day\u2019s total mileage',
             note: 'This is about turnover and running economy, not effort \u2014 it is not a quality session and carries almost none of the fatigue cost. Skip the strides (or the whole run) in any week where Monday/Wednesday\u2019s strength + running combo has left you noticeably fatigued.'
         };
+
+        // Strides are held out of weeks 1-4: coming off a Week 1 calf strain, that
+        // block is walking/cross-training/easy-jogging rebuild before any faster,
+        // push-off-heavy work like strides is reintroduced. Thursday in those weeks
+        // is plain easy mileage instead.
+        const STRIDES_START_WK = 5;
 
         const CORE_NOTE = 'Rotate 2 exercises: 1 from Glute Activation (clamshells, lateral leg raise, hip thrust) + 1 from Stability (dead bug, heel taps, side plank). Work push-ups in on Monday or Friday when you want extra pressing volume.';
 
@@ -286,7 +290,7 @@
                 note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so lower body drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Upper body remains unchanged.'
             },
             monTaper: {
-                name: 'Full Body (Taper Touch)', focus: 'Monday \u2014 light pass',
+                name: 'Full Body (Taper)', focus: 'Monday \u2014 light pass',
                 main: [
                     'Back squat \u2014 1 \u00d7 6, light',
                     'Deadlift \u2014 1 \u00d7 6, light',
@@ -297,7 +301,7 @@
                 note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut 30\u201350% from Peak.'
             },
             wedBase: {
-                name: 'Lower Body (Moderate, DB/Bands)', focus: 'Wednesday \u2014 8\u201312 reps, full working volume',
+                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, full working volume',
                 main: [
                     'Squat variation (Bulgarian split or goblet) \u2014 3 \u00d7 8\u201312/leg',
                     'Single-leg RDL \u2014 3 \u00d7 8\u201312/leg',
@@ -308,7 +312,7 @@
                 note: 'Base phase \u2014 full volume as programmed, paired with that day\u2019s easy run.'
             },
             wedBuild: {
-                name: 'Lower Body (Moderate, DB/Bands)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed slightly',
+                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed slightly',
                 main: [
                     'Squat variation (Bulgarian split or goblet) \u2014 3 \u00d7 8\u201312/leg',
                     'Single-leg RDL \u2014 2\u20133 \u00d7 8\u201312/leg',
@@ -319,7 +323,7 @@
                 note: 'Build phase \u2014 accessory sets trim slightly as weekly mileage climbs.'
             },
             wedPeakBuild: {
-                name: 'Lower Body (Moderate, DB/Bands)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed further',
+                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed further',
                 main: [
                     'Squat variation (Bulgarian split or goblet) \u2014 2\u20133 \u00d7 8\u201312/leg',
                     'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
@@ -341,7 +345,7 @@
                 note: 'Peak phase \u2014 maintenance dose as the long run peaks at 11\u201312 miles. Same exercises, held load, minimal sets.'
             },
             wedTaper: {
-                name: 'Lower Body (Taper Touch)', focus: 'Wednesday \u2014 light pass',
+                name: 'Lower Body (Taper)', focus: 'Wednesday \u2014 light pass',
                 main: [
                     'Squat variation (Bulgarian split or goblet) \u2014 1 \u00d7 10/leg, light',
                     'Single-leg RDL \u2014 1 \u00d7 8/leg, light',
@@ -352,7 +356,7 @@
                 note: 'One light pass through the usual lower-body list \u2014 low sets, just enough to keep the pattern alive.'
             },
             friStandard: {
-                name: 'Upper Body (Moderate, DB/Bands)', focus: 'Friday \u2014 8\u201312 reps, no leg loading',
+                name: 'Upper Body (Moderate)', focus: 'Friday \u2014 8\u201312 reps, no leg loading',
                 main: [
                     'DB bench press \u2014 3 \u00d7 8\u201312',
                     'DB shoulder press \u2014 3 \u00d7 8\u201312',
@@ -364,7 +368,7 @@
                 note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Stays unchanged through Base, Build, Peak Build, and Peak, since upper-body work doesn\u2019t interfere with running legs.'
             },
             friTaper: {
-                name: 'Upper Body (Taper Touch)', focus: 'Friday \u2014 light pass',
+                name: 'Upper Body (Taper)', focus: 'Friday \u2014 light pass',
                 main: [
                     'DB bench press \u2014 1 \u00d7 10, light',
                     'DB shoulder press \u2014 1 \u00d7 10, light',
@@ -396,6 +400,39 @@
         function getStrength(key) {
             if (!key) return null;
             return STRENGTH[key];
+        }
+
+        function isTaperWeek(w) {
+            // Taper is stricter than every other week: no runway left before
+            // race day to absorb a setback, so Tuesday drops the run option
+            // entirely rather than just capping it.
+            return w.phase === 'Taper';
+        }
+
+        function tueCell(w) {
+            if (!w.crosstrain) {
+                return `<td class="day-cell walk-cell">Rest</td>`;
+            }
+            if (isTaperWeek(w)) {
+                return `<td class="day-cell"><span class="mi">${w.crosstrain} min</span><span class="tag">cross-training</span></td>`;
+            }
+            // Capped at 2 mi / 24 min (12 min per mile) every week Tuesday runs.
+            return `<td class="day-cell"><span class="mi">2</span><span class="tag">easy</span><span class="or-sep">or</span><br /><span class="mi">${w.crosstrain} min</span><span class="tag">cross-training</span></td>`;
+        }
+
+        function friCell(strengthKey, idx, dayAbbr, w) {
+            const s = getStrength(strengthKey);
+            if (!s) {
+                return `<td class="day-cell walk-cell">Rest</td>`;
+            }
+            const middle = `<span class="mi">20 min</span><span class="tag">cross-training (optional)</span>`;
+            return `
+        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
+          ${middle}
+          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
+          <span class="session-name">${s.name}</span>
+          <span class="expand-hint">details</span>
+        </td>`;
         }
 
         function dayCell(value, opts = {}) {
@@ -458,15 +495,18 @@
         </td>`;
         }
 
-        function stridesCell(mileageValue, idx, dayAbbr) {
+        function stridesCell(mileageValue, idx, dayAbbr, includeStrides) {
             if (mileageValue === undefined || mileageValue === null) {
                 return `<td class="day-cell walk-cell">Walk</td>`;
             }
             if (mileageValue === 'rest') {
                 return `<td class="day-cell rest">Rest</td>`;
             }
+            if (!includeStrides) {
+                return `<td class="day-cell"><span class="mi">${mileageValue}</span><span class="tag">easy</span></td>`;
+            }
             return `
-        <td class="day-cell wed-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
+        <td class="day-cell thu-strides-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
           <span class="mi">${mileageValue}</span>
           <span class="session-name">Easy + Strides</span>
           <span class="expand-hint">details</span>
@@ -490,14 +530,15 @@
 
         plan.forEach((w, idx) => {
             const isRaceWeek = !!w.race;
+            const includeStrides = w.wk >= STRIDES_START_WK;
             const rowClasses = ['plan-row'];
             if (isRaceWeek) rowClasses.push('race-row');
 
             const monCell = runStrengthCell(w.mon, w.strength ? w.strength.mon : null, idx, 'Mon');
-            const tueCell = dayCell(w.crosstrain ? `${w.crosstrain} min` : null, { tag: w.crosstrain ? 'cross training' : '' });
+            const tueCellHtml = tueCell(w);
             const wedCell = runStrengthCell(w.wed, w.strength ? w.strength.wed : null, idx, 'Wed');
-            const thuCell = stridesCell(w.thu, idx, 'Thu');
-            const friCell = crossTrainStrengthCell(20, w.strength ? w.strength.fri : null, idx, 'Fri');
+            const thuCell = stridesCell(w.thu, idx, 'Thu', includeStrides);
+            const friCellHtml = friCell(w.strength ? w.strength.fri : null, idx, 'Fri', w);
 
             let satCell, sunCell;
             if (isRaceWeek) {
@@ -512,7 +553,20 @@
             const phaseClassMap = { 'deload': 'is-deload', 'taper': 'is-taper', 'race-week': 'is-race' };
             const phaseClass = phaseClassMap[phaseSlug] || '';
 
-            const totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total}</span></td>`;
+            let totalCell;
+            if (w.crosstrain) {
+                const taper = isTaperWeek(w);
+                const tueMaxMiles = taper ? 0 : 2;
+                const friMaxMiles = 0;
+                const maxTotal = w.total + tueMaxMiles + friMaxMiles;
+                if (maxTotal === w.total) {
+                    totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total} miles</span></td>`;
+                } else {
+                    totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total}\u2013${maxTotal} miles</span></td>`;
+                }
+            } else {
+                totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total}</span></td>`;
+            }
 
             const monStrength = getStrength(w.strength ? w.strength.mon : null);
             const wedStrength = getStrength(w.strength ? w.strength.wed : null);
@@ -537,7 +591,7 @@
             }
 
             function stridesDetailRow(dayKey) {
-                if (w.thu === undefined || w.thu === null || w.thu === 'rest') return '';
+                if (w.thu === undefined || w.thu === null || w.thu === 'rest' || !includeStrides) return '';
                 const s = STRIDES_SESSION;
                 return `
         <tr class="detail-row" id="detail-${idx}-${dayKey}">
@@ -585,10 +639,10 @@
             ${w.race ? `<div class="race-flag">${w.race}</div>` : ''}
           </td>
           ${monCell}
-          ${tueCell}
+          ${tueCellHtml}
           ${wedCell}
           ${thuCell}
-          ${friCell}
+          ${friCellHtml}
           ${satCell}
           ${sunCell}
           ${totalCell}
