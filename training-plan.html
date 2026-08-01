@@ -120,31 +120,45 @@
                     <div class="section-label">Strength Program</div>
                     <p class="intro-text">Three sessions per week (Monday, Wednesday, Friday) with a fixed exercise
                         list for all 16 weeks &mdash; only sets, reps, and volume change by phase. Monday: full-body,
-                        heavy, barbell (back squat, deadlift, bench-or-shoulder press alternating weekly, row) &mdash;
-                        the most recovery runway before Saturday's long run. Wednesday: lower-body, moderate,
-                        dumbbell/band (squat variation, single-leg RDL, lunges/step-ups, calf raises). Friday:
-                        upper-body only, moderate, dumbbell/band (DB bench press, DB shoulder press, DB skull
-                        crushers, DB curls, banded rows), no leg loading, sitting the day before the long run since
-                        lower-body soreness peaks 24&ndash;48 hours later. Every session closes with two rotating
-                        core exercises (one Glute Activation, one Stability), with push-ups occasionally worked in on
-                        Monday or Friday. Click any Monday, Wednesday, or Friday cell in the grid for that week's
-                        sets and reps.</p>
+                        heavy, barbell (back squat capped at 3 sets, deadlift capped at 1 set, press alternating
+                        weekly &mdash; bench press on odd weeks, shoulder press on even weeks &mdash; row) &mdash;
+                        the most recovery runway before Saturday's long run. Squat and deadlift set caps limit
+                        systemic (CNS) fatigue, the same approach used by Starting Strength and StrongLifts
+                        5&times;5. Wednesday: lower-body, moderate, dumbbell/band (squat variation alternating
+                        goblet/Bulgarian split week to week, single-leg RDL, lunges, calf + tib raise superset).
+                        Friday: upper-body only, moderate, dumbbell/band (DB bench press, DB shoulder press, DB
+                        curls, face pulls, banded rows), no leg loading, sitting the day before the long run since
+                        lower-body soreness peaks 24&ndash;48 hours later &mdash; face pulls cover rear-delt/
+                        external-rotation balance against the week's pressing volume, and skull crushers were
+                        dropped since bench and shoulder press already load triceps enough. Every session closes
+                        with push-ups and two specific core exercises. On cutback weeks (4, 8, 12), Monday and
+                        Wednesday drop one set from every lift; Friday stays unchanged since upper-body work
+                        doesn't compete with running-leg recovery. Click any Monday, Wednesday, or Friday cell in
+                        the grid for that week's exact sets and reps.</p>
 
-                    <p class="rotation-note"><strong>Core rotation:</strong> <em>Glute Activation</em> (clamshells,
-                        lateral leg raise, hip thrust) and <em>Stability</em> (dead bug, heel taps, side plank), plus
-                        push-ups as a pressing/anterior-core option.</p>
+                    <p class="rotation-note"><strong>Core, prescribed exactly each session:</strong> one glute
+                        activation/hip stability exercise + one stability exercise, rotated across the three
+                        strength days rather than repeated &mdash; <em>Monday:</em> hip thrust + side plank.
+                        <em>Wednesday:</em> clamshells + dead bug. <em>Friday:</em> lateral leg raise + heel taps.
+                        Same pairing every time a given day comes up, all cycle long. Push-ups run separately every
+                        Monday, Wednesday, and Friday &mdash; an active plank, so anti-rotation/anti-extension
+                        demand is already covered without a dedicated Pallof-press-style exercise.
+                    </p>
 
                     <ul class="strength-list rotation-note">
                         <li><strong>Weeks 1&ndash;4 (Base):</strong> Full volume &mdash; heaviest squat and deadlift
-                            numbers while running mileage is still low.</li>
+                            numbers while running mileage is still low. Week 4 is a cutback week: one set lighter
+                            on Monday and Wednesday.</li>
                         <li><strong>Weeks 5&ndash;8 (Build):</strong> Intensity holds; lower-body sets trim slightly
-                            as mileage climbs, since mileage drives this season's fitness.</li>
+                            as mileage climbs, since mileage drives this season's fitness. Week 8 is a cutback week:
+                            one set lighter on Monday and Wednesday.</li>
                         <li><strong>Weeks 9&ndash;12 (Peak Build):</strong> Lower body trims further on Monday and
-                            Wednesday; upper body (Friday) unchanged; glute/stability core stays in every session as
-                            insurance against running-related hip and knee issues.</li>
+                            Wednesday; upper body (Friday) unchanged; core stays in every session as insurance
+                            against running-related hip and knee issues. Week 12 is a cutback week: one set lighter
+                            on Monday and Wednesday.</li>
                         <li><strong>Weeks 13&ndash;14 (Peak):</strong> As the long run peaks at 11&ndash;12 miles,
-                            lower body drops to a maintenance dose (same exercises, held load, minimal sets); upper
-                            body unchanged.</li>
+                            lower body drops to a maintenance dose (same exercises, held load, minimal sets) and
+                            progression caps deliberately; upper body unchanged.</li>
                         <li><strong>Week 15 (Taper):</strong> One light pass through the full list on all three
                             days, volume cut 30&ndash;50%.</li>
                         <li><strong>Week 16 (Race):</strong> Strength drops out entirely &mdash; the race is the
@@ -175,7 +189,7 @@
             },
             {
                 wk: 4, date: 'Aug 23', phase: 'Deload', mon: 2, wed: 2, thu: 2, sat: 2, sun: 'rest', total: 8, race: null, crosstrain: 30,
-                strength: { mon: 'monBase', wed: 'wedBase', fri: 'friStandard' }, cutback: true
+                strength: { mon: 'monBaseDeload', wed: 'wedBaseDeload', fri: 'friStandard' }, cutback: true
             },
             {
                 wk: 5, date: 'Aug 30', phase: 'Build', mon: 2, wed: 3, thu: 2, sat: 5, sun: 'rest', total: 12, race: null, crosstrain: 30,
@@ -191,7 +205,7 @@
             },
             {
                 wk: 8, date: 'Sep 20', phase: 'Deload', mon: 2, wed: 3, thu: 2, sat: 5, sun: 'rest', total: 12, race: null, crosstrain: 30,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }, cutback: true
+                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friStandard' }, cutback: true
             },
             {
                 wk: 9, date: 'Sep 27', phase: 'Build', mon: 3, wed: 5, thu: 2, sat: 8, sun: 'rest', total: 18, race: null, crosstrain: 30,
@@ -207,7 +221,7 @@
             },
             {
                 wk: 12, date: 'Oct 18', phase: 'Deload', mon: 3, wed: 5, thu: 2, sat: 8, sun: 'rest', total: 18, race: null, crosstrain: 30,
-                strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }, cutback: true
+                strength: { mon: 'monPeakBuildDeload', wed: 'wedPeakBuildDeload', fri: 'friStandard' }, cutback: true
             },
             {
                 wk: 13, date: 'Oct 25', phase: 'Build', mon: 4, wed: 6, thu: 3, sat: 11, sun: 'rest', total: 24, race: null, crosstrain: 30,
@@ -239,117 +253,236 @@
         // during calf strain rebuild).
         const STRIDES_START_WK = 1;
 
-        const CORE_NOTE = 'Rotate 2 exercises: 1 from Glute Activation (clamshells, lateral leg raise, hip thrust) + 1 from Stability (dead bug, heel taps, side plank). Work push-ups in on Monday or Friday when you want extra pressing volume.';
+        // Core now rotates by day rather than by week: each of the three
+        // glute-activation/hip-stability exercises and each of the three
+        // stability exercises is assigned to one strength day, fixed for
+        // the whole cycle. Push-ups (an active plank / anti-rotation
+        // movement) run every session regardless, tracked in the main list.
+
+        // Monday: Hip thrust (glute activation/hip stability) + Side plank (stability).
+        function coreMon(level) {
+            const reps = {
+                full: { ht: '2\u00d710\u201312', sp: '2\u00d730\u201345 sec/side' },
+                deload: { ht: '1\u00d710\u201312', sp: '1\u00d720\u201330 sec/side' },
+                taper: { ht: '1\u00d710, light', sp: '1\u00d720\u201330 sec/side, light' }
+            };
+            const r = reps[level];
+            return [`Hip thrust \u2014 ${r.ht}`, `Side plank \u2014 ${r.sp}`];
+        }
+
+        // Wednesday: Clamshells (glute activation/hip stability) + Dead bug (stability).
+        function coreWed(level) {
+            const reps = {
+                full: { cl: '2\u00d715\u201320/side', db: '2\u00d710\u201312/side' },
+                deload: { cl: '1\u00d715\u201320/side', db: '1\u00d710\u201312/side' },
+                taper: { cl: '1\u00d715, light', db: '1\u00d710, light' }
+            };
+            const r = reps[level];
+            return [`Clamshells \u2014 ${r.cl}`, `Dead bug \u2014 ${r.db}`];
+        }
+
+        // Friday: Lateral leg raise (glute activation/hip stability) + Heel taps (stability).
+        function coreFri(level) {
+            const reps = {
+                full: { ll: '2\u00d715\u201320/side', hl: '2\u00d715\u201320/side' },
+                deload: { ll: '1\u00d715\u201320/side', hl: '1\u00d715\u201320/side' },
+                taper: { ll: '1\u00d715, light', hl: '1\u00d715, light' }
+            };
+            const r = reps[level];
+            return [`Lateral leg raise \u2014 ${r.ll}`, `Heel taps \u2014 ${r.hl}`];
+        }
 
         const STRENGTH = {
             monBase: {
                 name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, full working volume',
                 main: [
-                    'Back squat \u2014 4 \u00d7 6\u20138',
-                    'Deadlift \u2014 3 \u00d7 6\u20138',
-                    'Press (bench or shoulder, alternate weekly) \u2014 3 \u00d7 6\u20138',
+                    'Back squat \u2014 3 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6\u20138',
+                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
+                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
-                note: 'Base phase \u2014 full volume as programmed. This is where the heaviest squat and deadlift numbers get pushed, while running mileage is still low.'
+                core: coreMon('full'),
+                note: 'Base phase \u2014 full volume as programmed. Squat capped at 3 sets and deadlift at 1 top set to limit systemic (CNS) fatigue, same logic as Starting Strength / StrongLifts 5\u00d75. This is where the heaviest squat and deadlift numbers get pushed, while running mileage is still low.'
+            },
+            monBaseDeload: {
+                name: 'Full Body (Heavy, Barbell) \u2014 Cutback Week', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
+                main: [
+                    'Back squat \u2014 2 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
+                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
+                    'Row \u2014 2 \u00d7 6\u20138',
+                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
+                ],
+                core: coreMon('deload'),
+                note: 'Cutback week \u2014 strength volume drops in step with the running mileage cutback so the whole system actually recovers, rather than lightening the run while lifting stays at full phase volume.'
             },
             monBuild: {
                 name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, lower body trimmed slightly',
                 main: [
                     'Back squat \u2014 3 \u00d7 6\u20138',
-                    'Deadlift \u2014 3 \u00d7 6\u20138',
-                    'Press (bench or shoulder, alternate weekly) \u2014 3 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6\u20138',
+                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
+                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
-                note: 'Build phase \u2014 intensity holds, but squat trims one set as running mileage climbs. If something has to give, it\u2019s lifting volume first, not the run.'
+                core: coreMon('full'),
+                note: 'Build phase \u2014 intensity holds. If something has to give as mileage climbs, it\u2019s lifting volume first, not the run.'
+            },
+            monBuildDeload: {
+                name: 'Full Body (Heavy, Barbell) \u2014 Cutback Week', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
+                main: [
+                    'Back squat \u2014 2 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
+                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
+                    'Row \u2014 2 \u00d7 6\u20138',
+                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
+                ],
+                core: coreMon('deload'),
+                note: 'Cutback week \u2014 strength volume drops in step with the running mileage cutback.'
             },
             monPeakBuild: {
                 name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, lower body trimmed further',
                 main: [
                     'Back squat \u2014 3 \u00d7 6\u20138',
-                    'Deadlift \u2014 2 \u00d7 6\u20138',
-                    'Press (bench or shoulder, alternate weekly) \u2014 3 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6\u20138',
+                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
+                    'Push-ups \u2014 2 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
-                note: 'Peak Build phase \u2014 deadlift trims further. Upper body (Friday) stays unchanged since it doesn\u2019t interfere with running legs.'
+                core: coreMon('full'),
+                note: 'Peak Build phase. Upper body (Friday) stays unchanged since it doesn\u2019t interfere with running legs.'
+            },
+            monPeakBuildDeload: {
+                name: 'Full Body (Heavy, Barbell) \u2014 Cutback Week', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
+                main: [
+                    'Back squat \u2014 2 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
+                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
+                    'Row \u2014 2 \u00d7 6\u20138',
+                    'Push-ups \u2014 1 \u00d7 8\u201312',
+                ],
+                core: coreMon('deload'),
+                note: 'Cutback week \u2014 strength volume drops in step with the running mileage cutback.'
             },
             monPeak: {
                 name: 'Full Body (Maintenance)', focus: 'Monday \u2014 hold load, don\u2019t chase progress',
                 main: [
                     'Back squat \u2014 2 \u00d7 6 @ current working weight',
-                    'Deadlift \u2014 2 \u00d7 6 @ current working weight',
-                    'Press (bench or shoulder, alternate weekly) \u2014 3 \u00d7 6\u20138',
+                    'Deadlift \u2014 1 \u00d7 6 @ current working weight',
+                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
+                    'Push-ups \u2014 2 \u00d7 10\u201312',
                 ],
-                core: [CORE_NOTE],
-                note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so lower body drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Upper body remains unchanged.'
+                core: coreMon('full'),
+                note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so lower body drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Upper body remains unchanged. Progression caps here intentionally \u2014 protecting recovery for peak-mileage weeks matters more than continuing to add load.'
             },
             monTaper: {
                 name: 'Full Body (Taper)', focus: 'Monday \u2014 light pass',
                 main: [
                     'Back squat \u2014 1 \u00d7 6, light',
                     'Deadlift \u2014 1 \u00d7 6, light',
-                    'Press (bench or shoulder) \u2014 2 \u00d7 8, light',
+                    '{{PRESS}} \u2014 2 \u00d7 8, light',
                     'Row \u2014 2 \u00d7 10, light',
+                    'Push-ups \u2014 1 \u00d7 12, light',
                 ],
-                core: [CORE_NOTE],
+                core: coreMon('taper'),
                 note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut 30\u201350% from Peak.'
             },
             wedBase: {
                 name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, full working volume',
                 main: [
-                    'Squat variation (Bulgarian split or goblet) \u2014 3 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 3 \u00d7 8\u201312/leg',
-                    'Lunges or step-ups \u2014 3 \u00d7 8\u201312/leg',
-                    'Calf raises \u2014 3 \u00d7 12\u201315',
+                    '{{SQUATVAR}} \u2014 3 \u00d7 8\u201312/leg',
+                    'Single-leg RDL \u2014 3 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
+                    'Lunges \u2014 3 \u00d7 8\u201312/leg',
+                    'Calf raises + tib raises (superset) \u2014 3 \u00d7 12\u201315 each',
+                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
-                note: 'Base phase \u2014 full volume as programmed, paired with that day\u2019s easy run.'
+                core: coreWed('full'),
+                note: 'Base phase \u2014 full volume as programmed, paired with that day\u2019s easy run. Squat variation alternates goblet/Bulgarian split week to week.'
+            },
+            wedBaseDeload: {
+                name: 'Lower Body (Moderate) \u2014 Cutback Week', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
+                main: [
+                    '{{SQUATVAR}} \u2014 2 \u00d7 8\u201312/leg',
+                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
+                    'Lunges \u2014 2 \u00d7 8\u201312/leg',
+                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
+                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
+                ],
+                core: coreWed('deload'),
+                note: 'Cutback week \u2014 volume drops in step with the running mileage cutback.'
             },
             wedBuild: {
                 name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed slightly',
                 main: [
-                    'Squat variation (Bulgarian split or goblet) \u2014 3 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Lunges or step-ups \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Calf raises \u2014 2\u20133 \u00d7 12\u201315',
+                    '{{SQUATVAR}} \u2014 3 \u00d7 8\u201312/leg',
+                    'Single-leg RDL \u2014 2\u20133 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
+                    'Lunges \u2014 2\u20133 \u00d7 8\u201312/leg',
+                    'Calf raises + tib raises (superset) \u2014 2\u20133 \u00d7 12\u201315 each',
+                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
+                core: coreWed('full'),
                 note: 'Build phase \u2014 accessory sets trim slightly as weekly mileage climbs.'
+            },
+            wedBuildDeload: {
+                name: 'Lower Body (Moderate) \u2014 Cutback Week', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
+                main: [
+                    '{{SQUATVAR}} \u2014 2 \u00d7 8\u201312/leg',
+                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
+                    'Lunges \u2014 2 \u00d7 8\u201312/leg',
+                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
+                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
+                ],
+                core: coreWed('deload'),
+                note: 'Cutback week \u2014 volume drops in step with the running mileage cutback.'
             },
             wedPeakBuild: {
                 name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed further',
                 main: [
-                    'Squat variation (Bulgarian split or goblet) \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
-                    'Lunges or step-ups \u2014 2 \u00d7 8\u201312/leg',
-                    'Calf raises \u2014 2 \u00d7 12\u201315',
+                    '{{SQUATVAR}} \u2014 2\u20133 \u00d7 8\u201312/leg',
+                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
+                    'Lunges \u2014 2 \u00d7 8\u201312/leg',
+                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
+                    'Push-ups \u2014 2 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
+                core: coreWed('full'),
                 note: 'Peak Build phase \u2014 trims further. Glute/stability core work stays in every session regardless \u2014 cheap insurance against running-related hip and knee issues as mileage rises.'
+            },
+            wedPeakBuildDeload: {
+                name: 'Lower Body (Moderate) \u2014 Cutback Week', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
+                main: [
+                    '{{SQUATVAR}} \u2014 1\u20132 \u00d7 8\u201312/leg',
+                    'Single-leg RDL \u2014 1 \u00d7 8\u201312/leg',
+                    'Lunges \u2014 1 \u00d7 8\u201312/leg',
+                    'Calf raises + tib raises (superset) \u2014 1 \u00d7 12\u201315 each',
+                    'Push-ups \u2014 1 \u00d7 8\u201312',
+                ],
+                core: coreWed('deload'),
+                note: 'Cutback week \u2014 volume drops in step with the running mileage cutback.'
             },
             wedPeak: {
                 name: 'Lower Body (Maintenance)', focus: 'Wednesday \u2014 hold load, don\u2019t chase progress',
                 main: [
-                    'Squat variation (Bulgarian split or goblet) \u2014 2 \u00d7 8\u201310/leg',
-                    'Single-leg RDL \u2014 2 \u00d7 8/leg',
-                    'Lunges or step-ups \u2014 2 \u00d7 8/leg',
-                    'Calf raises \u2014 2 \u00d7 12',
+                    '{{SQUATVAR}} \u2014 2 \u00d7 8\u201310/leg',
+                    'Single-leg RDL \u2014 2 \u00d7 8/leg (control the lowering phase, 2\u20133 count)',
+                    'Lunges \u2014 2 \u00d7 8/leg',
+                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12 each',
+                    'Push-ups \u2014 2 \u00d7 10\u201312',
                 ],
-                core: [CORE_NOTE],
+                core: coreWed('full'),
                 note: 'Peak phase \u2014 maintenance dose as the long run peaks at 11\u201312 miles. Same exercises, held load, minimal sets.'
             },
             wedTaper: {
                 name: 'Lower Body (Taper)', focus: 'Wednesday \u2014 light pass',
                 main: [
-                    'Squat variation (Bulgarian split or goblet) \u2014 1 \u00d7 10/leg, light',
+                    '{{SQUATVAR}} \u2014 1 \u00d7 10/leg, light',
                     'Single-leg RDL \u2014 1 \u00d7 8/leg, light',
-                    'Lunges or step-ups \u2014 1 \u00d7 8/leg, light',
-                    'Calf raises \u2014 1 \u00d7 12, light',
+                    'Lunges \u2014 1 \u00d7 8/leg, light',
+                    'Calf raises + tib raises (superset) \u2014 1 \u00d7 12 each, light',
+                    'Push-ups \u2014 1 \u00d7 12, light',
                 ],
-                core: [CORE_NOTE],
+                core: coreWed('taper'),
                 note: 'One light pass through the usual lower-body list \u2014 low sets, just enough to keep the pattern alive.'
             },
             friStandard: {
@@ -357,23 +490,25 @@
                 main: [
                     'DB bench press \u2014 3 \u00d7 8\u201312',
                     'DB shoulder press \u2014 3 \u00d7 8\u201312',
-                    'DB skull crushers \u2014 3 \u00d7 10\u201312',
                     'DB curls \u2014 3 \u00d7 10\u201312',
+                    'Face pulls \u2014 2\u20133 \u00d7 15\u201320',
                     'Banded rows \u2014 3 \u00d7 10\u201312',
+                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: [CORE_NOTE],
-                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Stays unchanged through Base, Build, Peak Build, and Peak, since upper-body work doesn\u2019t interfere with running legs.'
+                core: coreFri('full'),
+                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Skull crushers dropped (bench + shoulder press already load triceps enough); face pulls added for rear-delt/external-rotation balance against the pressing volume. Stays unchanged through Base, Build, Peak Build, and Peak \u2014 not lightened on cutback weeks either, since upper-body work doesn\u2019t interfere with running-leg recovery.'
             },
             friTaper: {
                 name: 'Upper Body (Taper)', focus: 'Friday \u2014 light pass',
                 main: [
                     'DB bench press \u2014 1 \u00d7 10, light',
                     'DB shoulder press \u2014 1 \u00d7 10, light',
-                    'DB skull crushers \u2014 1 \u00d7 10, light',
                     'DB curls \u2014 1 \u00d7 10, light',
+                    'Face pulls \u2014 1 \u00d7 15, light',
                     'Banded rows \u2014 1 \u00d7 10, light',
+                    'Push-ups \u2014 1 \u00d7 12, light',
                 ],
-                core: [CORE_NOTE],
+                core: coreFri('taper'),
                 note: 'One light pass through the usual upper-body list. Week 16 \u2014 actual race week \u2014 drops strength entirely; that\u2019s the real freshness buffer, not this week.'
             },
         };
@@ -397,6 +532,25 @@
         function getStrength(key) {
             if (!key) return null;
             return STRENGTH[key];
+        }
+
+        // Wednesday's squat variation alternates week to week: odd weeks
+        // goblet squat, even weeks Bulgarian split squat. Same pattern,
+        // varying angle, instead of picking one exercise for all 16 weeks.
+        function squatVariationName(wk) {
+            return (wk % 2 === 1) ? 'Goblet squat' : 'Bulgarian split squat';
+        }
+
+        // Monday's press alternates week to week: odd weeks bench press,
+        // even weeks shoulder press.
+        function pressName(wk) {
+            return (wk % 2 === 1) ? 'Bench press' : 'Shoulder press';
+        }
+
+        function resolveStrengthText(str, wk) {
+            return str
+                .replace(/\{\{SQUATVAR\}\}/g, squatVariationName(wk))
+                .replace(/\{\{PRESS\}\}/g, pressName(wk));
         }
 
         function isTaperWeek(w) {
@@ -571,6 +725,9 @@
 
             function strengthDetailRow(s, dayKey, dayLabel) {
                 if (!s) return '';
+                const mainResolved = s.main.map(item => resolveStrengthText(item, w.wk));
+                const coreResolved = (s.core || []).map(item => resolveStrengthText(item, w.wk));
+                const noteResolved = resolveStrengthText(s.note, w.wk);
                 return `
         <tr class="detail-row strength-detail" id="detail-${idx}-${dayKey}">
           <td colspan="9">
@@ -578,10 +735,10 @@
               <h4>${dayLabel} Strength &mdash; ${s.name}</h4>
               <div class="detail-grid">
                 <div class="k">Focus</div><div class="v">${s.focus}</div>
-                <div class="k">Main set</div><div class="v"><ul class="strength-list">${s.main.map(item => `<li>${item}</li>`).join('')}</ul></div>
-                ${s.core ? `<div class="k">Core</div><div class="v"><ul class="strength-list">${s.core.map(item => `<li>${item}</li>`).join('')}</ul></div>` : ''}
+                <div class="k">Main set</div><div class="v"><ul class="strength-list">${mainResolved.map(item => `<li>${item}</li>`).join('')}</ul></div>
+                ${coreResolved.length ? `<div class="k">Core</div><div class="v"><ul class="strength-list">${coreResolved.map(item => `<li>${item}</li>`).join('')}</ul></div>` : ''}
               </div>
-              <div class="detail-note">${s.note}</div>
+              <div class="detail-note">${noteResolved}</div>
             </div>
           </td>
         </tr>`;
