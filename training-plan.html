@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Plan - Richard Basile</title>
     <meta name="description"
-        content="15-week hybrid strength + half marathon build — weekly mileage, AM strength sessions, and Thursday strides.">
+        content="14-week hybrid strength + half marathon build — weekly mileage, AM strength sessions, and Thursday strides.">
     <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,8 @@
                 </nav>
 
                 <header class="masthead" style="margin-bottom: 0;">
-                    <p class="header-meta">15-Week Hybrid Strength + Half Marathon Build &nbsp;·&nbsp; Aug 9 &ndash; Nov
+                    <p class="header-meta">14-Week Hybrid Strength + Half Marathon Build &nbsp;·&nbsp; Aug 16 &ndash;
+                        Nov
                         15, 2026</p>
                     <h1>Training <em>Plan</em></h1>
                 </header>
@@ -91,18 +92,6 @@
                             <tbody id="planBody"></tbody>
                         </table>
                     </div>
-                    <!-- <p class="rotation-note">
-                        Weekly mileage is derived from Saturday's long run: <code>round(long run &divide;
-                        0.45)</code> &mdash; so the long run stays roughly 45% of the week, consistent with typical
-                        long-run-to-weekly-volume ratios. Week 14 is a fixed exception at 24 miles rather than the
-                        ~27 the formula would otherwise give, capping peak-week volume intentionally. From that
-                        weekly total, Monday and Thursday take fixed shares
-                        (<code>ceiling(weekly &times; 0.15)</code> and <code>floor(weekly &times; 0.15)</code>
-                        respectively) and Wednesday absorbs the remainder after Monday, Thursday, and Saturday are
-                        accounted for. Any run day whose formula result falls under 2 miles is set to a 2-mile
-                        floor. Race week (16) sits outside this formula entirely, since Saturday that week is the
-                        race itself.
-                    </p> -->
                 </div>
 
                 <div class="section">
@@ -141,65 +130,72 @@
     </div>
 
     <script>
+        // Weeks 1-12 revised (Aug 2026) after a level-1 calf strain: the original
+        // 3-week rehab ramp (old Weeks 1-3) was more conservative than the actual
+        // injury (symptomatic ~1 week, 8 days fully off running, pain-free daily
+        // function) warranted, and the isolated test-run re-entry week was dropped
+        // once those test runs happened informally outside the plan. Week 1 below
+        // is "Build Back" (rehab-volume lifting + running Mon/Wed/Thu/Sat); each
+        // week after reuses an original week's exact prescription, shifted one
+        // calendar week earlier. A new deload (Week 11) was inserted before the
+        // 12-mile long run (Week 12) to both protect that peak long run and
+        // re-absorb the week saved earlier -- Weeks 13-14 (taper + race) land
+        // back on the original plan's calendar dates as a result.
         const plan = [
             {
-                wk: 1, date: 'Aug 9', phase: 'Rehab', mon: 'xt', wed: 'xt', thu: 'xt', sat: 'xt', sun: 'rest', total: 0, race: null, crosstrain: 30,
-                strength: { mon: 'monInjury2', wed: 'wedInjury2', fri: 'friStandard' }, injuryPhase: 'Rebuild'
+                wk: 1, date: 'Aug 16', phase: 'Build', mon: 2, wed: 2, thu: 2, sat: 4, sun: 'rest', total: 10, race: null, crosstrain: 30,
+                strength: { mon: 'monBaseModerate', wed: 'wedBaseDeload', fri: 'friStandard' }, cutback: true, injuryPhase: 'Build Back'
             },
             {
-                wk: 2, date: 'Aug 16', phase: 'Rehab', mon: 'xt', wed: 'xt', thu: 'xt', sat: 2, sun: 'rest', total: 2, race: null, crosstrain: 30,
-                strength: { mon: 'monInjury3', wed: 'wedInjury3', fri: 'friStandard' }, injuryPhase: 'Checkpoint'
+                wk: 2, date: 'Aug 23', phase: 'Build', mon: 2, wed: 3, thu: 2, sat: 5, sun: 'rest', total: 12, race: null, crosstrain: 30,
+                strength: { mon: 'monBaseDeload', wed: 'wedBaseDeload', fri: 'friStandard' }, injuryPhase: 'Build Back'
             },
             {
-                wk: 3, date: 'Aug 23', phase: 'Rehab', mon: 2, wed: 2, thu: 2, sat: 4, sun: 'rest', total: 10, race: null, crosstrain: 30,
-                strength: { mon: 'monBaseDeload', wed: 'wedBaseDeload', fri: 'friStandard' }, cutback: true, injuryPhase: 'Build Back'
-            },
-            {
-                wk: 4, date: 'Aug 30', phase: 'Build', mon: 2, wed: 3, thu: 2, sat: 5, sun: 'rest', total: 12, race: null, crosstrain: 30,
+                wk: 3, date: 'Aug 30', phase: 'Build', mon: 2, wed: 4, thu: 2, sat: 6, sun: 'rest', total: 14, race: null, crosstrain: 30,
                 strength: { mon: 'monTestPrep', wed: 'wedBuild', fri: 'friStandard' }, testDay: true
             },
             {
-                wk: 5, date: 'Sep 6', phase: 'Build', mon: 2, wed: 4, thu: 2, sat: 6, sun: 'rest', total: 14, race: null, crosstrain: 30,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 6, date: 'Sep 13', phase: 'Deload', mon: 2, wed: 2, thu: 2, sat: 4, sun: 'rest', total: 10, race: null, crosstrain: 30,
+                wk: 4, date: 'Sep 6', phase: 'Deload', mon: 2, wed: 2, thu: 2, sat: 4, sun: 'rest', total: 10, race: null, crosstrain: 30,
                 strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friStandard' }, cutback: true
             },
             {
-                wk: 7, date: 'Sep 20', phase: 'Build', mon: 3, wed: 4, thu: 2, sat: 7, sun: 'rest', total: 16, race: null, crosstrain: 30,
+                wk: 5, date: 'Sep 13', phase: 'Build', mon: 3, wed: 4, thu: 2, sat: 7, sun: 'rest', total: 16, race: null, crosstrain: 30,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 8, date: 'Sep 27', phase: 'Build', mon: 3, wed: 5, thu: 2, sat: 8, sun: 'rest', total: 18, race: null, crosstrain: 30,
+                wk: 6, date: 'Sep 20', phase: 'Build', mon: 3, wed: 5, thu: 2, sat: 8, sun: 'rest', total: 18, race: null, crosstrain: 30,
                 strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }
             },
             {
-                wk: 9, date: 'Oct 4', phase: 'Build', mon: 3, wed: 5, thu: 3, sat: 9, sun: 'rest', total: 20, race: null, crosstrain: 30,
+                wk: 7, date: 'Sep 27', phase: 'Build', mon: 3, wed: 5, thu: 3, sat: 9, sun: 'rest', total: 20, race: null, crosstrain: 30,
                 strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }
             },
             {
-                wk: 10, date: 'Oct 11', phase: 'Deload', mon: 2, wed: 4, thu: 2, sat: 6, sun: 'rest', total: 14, race: null, crosstrain: 30,
+                wk: 8, date: 'Oct 4', phase: 'Deload', mon: 2, wed: 4, thu: 2, sat: 6, sun: 'rest', total: 14, race: null, crosstrain: 30,
                 strength: { mon: 'monPeakBuildDeload', wed: 'wedPeakBuildDeload', fri: 'friStandard' }, cutback: true
             },
             {
-                wk: 11, date: 'Oct 18', phase: 'Build', mon: 4, wed: 5, thu: 3, sat: 10, sun: 'rest', total: 22, race: null, crosstrain: 30,
+                wk: 9, date: 'Oct 11', phase: 'Build', mon: 4, wed: 5, thu: 3, sat: 10, sun: 'rest', total: 22, race: null, crosstrain: 30,
                 strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }
             },
             {
-                wk: 12, date: 'Oct 25', phase: 'Build', mon: 4, wed: 6, thu: 3, sat: 11, sun: 'rest', total: 24, race: null, crosstrain: 30,
+                wk: 10, date: 'Oct 18', phase: 'Build', mon: 4, wed: 6, thu: 3, sat: 11, sun: 'rest', total: 24, race: null, crosstrain: 30,
                 strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friStandard' }
             },
             {
-                wk: 13, date: 'Nov 1', phase: 'Build', mon: 4, wed: 5, thu: 3, sat: 12, sun: 'rest', total: 24, race: null, crosstrain: 30,
+                wk: 11, date: 'Oct 25', phase: 'Deload', mon: 2, wed: 4, thu: 2, sat: 7, sun: 'rest', total: 15, race: null, crosstrain: 30,
+                strength: { mon: 'monPeakBuildDeload', wed: 'wedPeakBuildDeload', fri: 'friStandard' }, cutback: true
+            },
+            {
+                wk: 12, date: 'Nov 1', phase: 'Build', mon: 4, wed: 5, thu: 3, sat: 12, sun: 'rest', total: 24, race: null, crosstrain: 30,
                 strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friStandard' }
             },
             {
-                wk: 14, date: 'Nov 8', phase: 'Taper', mon: 3, wed: 5, thu: 2, sat: 8, sun: 'rest', total: 18, race: null, crosstrain: 20,
+                wk: 13, date: 'Nov 8', phase: 'Taper', mon: 3, wed: 5, thu: 2, sat: 8, sun: 'rest', total: 18, race: null, crosstrain: 20,
                 strength: { mon: 'monTaper', wed: 'wedTaper', fri: 'friTaper' }
             },
             {
-                wk: 15, date: 'Nov 15', phase: 'Race Week', mon: 2, wed: 2, thu: 2, sat: 13.1, sun: 'rest', total: 19.1, race: 'Run to Feed the Hungry Half Marathon', crosstrain: null,
+                wk: 14, date: 'Nov 15', phase: 'Race Week', mon: 2, wed: 2, thu: 2, sat: 13.1, sun: 'rest', total: 19.1, race: 'Run to Feed the Hungry Half Marathon', crosstrain: null,
                 strength: { mon: null, wed: null, fri: null }
             },
         ];
@@ -212,11 +208,11 @@
             note: 'This is about turnover and running economy, not effort \u2014 it is not a quality session and carries almost none of the fatigue cost. Skip the strides (or the whole run) in any week where Monday/Wednesday\u2019s strength + running combo has left you noticeably fatigued.'
         };
 
-        // Strides held out through Week 3 (Weeks 1-2 have no running at all during
-        // calf strain/shin recovery; Week 3 is the first real running week back and
-        // priority there is just re-establishing mileage, not turnover work).
-        // Strides resume Week 4.
-        const STRIDES_START_WK = 4;
+        // Strides held out through Week 1 ("Build Back" — priority there is just
+        // re-establishing mileage, not turnover work). Strides resume Week 2,
+        // preserving the same relative timing the original plan used (strides
+        // started once running was fully re-established).
+        const STRIDES_START_WK = 2;
 
         // Core now rotates by day rather than by week: each of the three
         // glute-activation/hip-stability exercises and each of the three
@@ -258,30 +254,6 @@
         }
 
         const STRENGTH = {
-            monInjury2: {
-                name: 'Full Body (Recovery \u2014 Light Load)', focus: 'Monday \u2014 light-load squat/deadlift as calf and shin settle',
-                main: [
-                    'Back squat \u2014 empty bar or light dumbbells, 3 \u00d7 8\u201310, pain-free only',
-                    'Deadlift \u2014 light dumbbells or empty bar, 1 \u00d7 8\u201310',
-                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
-                    'Row \u2014 3 \u00d7 6\u20138',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
-                ],
-                core: coreMon('full'),
-                note: 'Rebuild week \u2014 reintroduce light-load barbell work. Stop any lift that reproduces shin or calf pain; hold at last week\u2019s bodyweight level a little longer if needed.'
-            },
-            monInjury3: {
-                name: 'Full Body (Recovery \u2014 Moderate Load)', focus: 'Monday \u2014 moderate load; deadlift can progress faster than squat',
-                main: [
-                    'Back squat \u2014 moderate load, 3 \u00d7 6\u20138, watch for shin pain at the bottom position',
-                    'Deadlift \u2014 moderate-to-heavier load, 1 \u00d7 6\u20138 (less ankle bend than squat, can progress faster)',
-                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
-                    'Row \u2014 3 \u00d7 6\u20138',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
-                ],
-                core: coreMon('full'),
-                note: 'Checkpoint week. Squat and deadlift don\u2019t have to progress together \u2014 if squats bother the shin, keep deadlifting heavier while backing squats off a bit longer.'
-            },
             monTestPrep: {
                 name: 'Full Body (Test-Week Prep \u2014 Light)', focus: 'Monday \u2014 easy day, treadmill stress test is tomorrow',
                 main: [
@@ -294,8 +266,20 @@
                 core: coreMon('deload'),
                 note: 'Treadmill stress test is Tuesday \u2014 no heavy squat/deadlift today. Keep the run easy, keep this session light, and skip anything that leaves you sore or fatigued going into tomorrow.'
             },
+            monBaseModerate: {
+                name: 'Full Body (Moderate Load)', focus: 'Monday \u2014 first barbell session back, moderate load',
+                main: [
+                    'Back squat \u2014 2 \u00d7 6\u20138, moderate load (dial back from usual working weight)',
+                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
+                    '{{PRESS}} \u2014 2 \u00d7 6\u20138, moderate load',
+                    'Row \u2014 2 \u00d7 6\u20138',
+                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
+                ],
+                core: coreMon('deload'),
+                note: 'First full barbell session back after the layoff \u2014 squat and press ease in at a moderate load rather than jumping straight to working weight; deadlift stays moderate too. Same volume as next week\u2019s session, load steps up once this one is tolerated well.'
+            },
             monBaseDeload: {
-                name: 'Full Body (Heavy, Barbell) \u2014 Rehab Week', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
+                name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
                 main: [
                     'Back squat \u2014 2 \u00d7 6\u20138',
                     'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
@@ -304,7 +288,7 @@
                     'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
                 core: coreMon('deload'),
-                note: 'Rehab week, not a periodization cutback \u2014 volume is lighter because this is the first full barbell session back alongside resuming running, not because of a scheduled dip.'
+                note: 'Not a periodization cutback \u2014 volume is lighter because this is the first full barbell session back alongside resuming running, not because of a scheduled dip.'
             },
             monBuild: {
                 name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, lower body trimmed slightly',
@@ -378,32 +362,8 @@
                 core: coreMon('taper'),
                 note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut 30\u201350% from Peak.'
             },
-            wedInjury2: {
-                name: 'Lower Body (Recovery \u2014 Light-Moderate)', focus: 'Wednesday \u2014 building back toward full volume',
-                main: [
-                    '{{SQUATVAR}} \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2\u20133 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
-                    'Lunges \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 2\u20133 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
-                ],
-                core: coreWed('full'),
-                note: 'Rebuild week \u2014 volume steps back up toward the standard Wednesday session as tolerated.'
-            },
-            wedInjury3: {
-                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 full working volume if checkpoint criteria are met',
-                main: [
-                    '{{SQUATVAR}} \u2014 3 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 3 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
-                    'Lunges \u2014 3 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 3 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
-                ],
-                core: coreWed('full'),
-                note: 'Checkpoint week \u2014 full standard volume, same as Monday\u2019s session. This is one of the signals feeding the decision on whether Week 3 running resumes as planned.'
-            },
             wedBaseDeload: {
-                name: 'Lower Body (Moderate) \u2014 Rehab Week', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
+                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
                 main: [
                     '{{SQUATVAR}} \u2014 2 \u00d7 8\u201312/leg',
                     'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
@@ -412,7 +372,7 @@
                     'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
                 core: coreWed('deload'),
-                note: 'Rehab week, not a periodization cutback \u2014 volume is lighter because running is resuming alongside it, not because of a scheduled dip.'
+                note: 'Not a periodization cutback \u2014 volume is lighter because running is resuming alongside it, not because of a scheduled dip.'
             },
             wedBuild: {
                 name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed slightly',
@@ -497,7 +457,7 @@
                     'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
                 core: coreFri('full'),
-                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Skull crushers dropped (bench + shoulder press already load triceps enough); face pulls added for rear-delt/external-rotation balance against the pressing volume. Stays unchanged through Base, Build, Peak Build, and Peak \u2014 not lightened on cutback or rehab weeks either, since upper-body work doesn\u2019t interfere with running-leg recovery.'
+                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Skull crushers dropped (bench + shoulder press already load triceps enough); face pulls added for rear-delt/external-rotation balance against the pressing volume. Stays unchanged through Base, Build, Peak Build, and Peak \u2014 not lightened on cutback weeks either, since upper-body work doesn\u2019t interfere with running-leg recovery.'
             },
             friTaper: {
                 name: 'Upper Body (Taper)', focus: 'Friday \u2014 light pass',
@@ -718,7 +678,7 @@
                 satCell = raceCell(w.sat, w.race, w.wk, idx, 'Sat');
                 sunCell = dayCell(w.sun);
             } else {
-                satCell = dayCell(w.sat, { tag: w.sat ? (w.injuryPhase === 'Checkpoint' ? 'checkpoint' : (w.injuryPhase ? 'long run' : (w.cutback ? 'cutback' : 'long run'))) : '', cls: 'long-run' });
+                satCell = dayCell(w.sat, { tag: w.sat ? (w.injuryPhase ? 'long run' : (w.cutback ? 'cutback' : 'long run')) : '', cls: 'long-run' });
                 sunCell = dayCell(w.sun);
             }
 
