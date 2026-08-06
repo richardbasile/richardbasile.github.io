@@ -117,9 +117,10 @@
                     <p class="intro-text">Three sessions per week: Monday (full-body, heavy, barbell &mdash; back
                         squat, deadlift, alternating press, row), Wednesday (lower-body, moderate, dumbbell/band),
                         and Friday (upper-body only, moderate, dumbbell/band &mdash; no leg loading, so soreness
-                        doesn't land on Saturday's long run). Every session closes with push-ups and core work.
-                        Exercises and volume shift by phase and cutback week &mdash; click any Monday, Wednesday, or
-                        Friday cell in the grid for that week's exact sets, reps, and notes.</p>
+                        doesn't land on Saturday's long run). Every session closes with the same lower-back/hip
+                        core routine. Exercises and volume shift by phase and cutback week &mdash; click any
+                        Monday, Wednesday, or Friday cell in the grid for that week's exact sets, reps, and
+                        notes.</p>
                 </div>
 
                 <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
@@ -196,7 +197,7 @@
             },
             {
                 wk: 14, date: 'Nov 15', phase: 'Race Week', mon: 2, wed: 2, thu: 2, sat: 13.1, sun: 'rest', total: 19.1, race: 'Run to Feed the Hungry Half Marathon', crosstrain: null,
-                strength: { mon: null, wed: null, fri: null }
+                strength: { mon: 'raceCoreOnly', wed: 'raceCoreOnly', fri: null }
             },
         ];
 
@@ -214,43 +215,35 @@
         // started once running was fully re-established).
         const STRIDES_START_WK = 2;
 
-        // Core now rotates by day rather than by week: each of the three
-        // glute-activation/hip-stability exercises and each of the three
-        // stability exercises is assigned to one strength day, fixed for
-        // the whole cycle. Push-ups (an active plank / anti-rotation
-        // movement) run every session regardless, tracked in the main list.
-
-        // Monday: Hip thrust (glute activation/hip stability) + Side plank (stability).
-        function coreMon(level) {
+        // Core is now the same lower-back/hip routine every strength day
+        // (Monday, Wednesday, Friday), fixed for the whole cycle rather than
+        // rotating exercises by day. Push-ups have been dropped from the main
+        // lifting list entirely (upper-body work, not lower-back/hip work).
+        function coreRoutine(level) {
             const reps = {
-                full: { ht: '2\u00d710\u201312', sp: '2\u00d730\u201345 sec/side' },
-                deload: { ht: '1\u00d710\u201312', sp: '1\u00d720\u201330 sec/side' },
-                taper: { ht: '1\u00d710, light', sp: '1\u00d720\u201330 sec/side, light' }
+                full: {
+                    pt: '2\u00d712\u201315', br: '3\u00d712\u201315', db: '2\u00d78\u201310/side',
+                    ll: '2\u00d712\u201315/side', cl: '2\u00d712\u201315/side', dk: '2\u00d710\u201312/side', cp: 'Hold 30\u201360 sec'
+                },
+                deload: {
+                    pt: '1\u00d712\u201315', br: '1\u00d712\u201315', db: '1\u00d78\u201310/side',
+                    ll: '1\u00d712\u201315/side', cl: '1\u00d712\u201315/side', dk: '1\u00d710\u201312/side', cp: 'Hold 30\u201360 sec'
+                },
+                taper: {
+                    pt: '1\u00d712, light', br: '1\u00d710, light', db: '1\u00d78/side, light',
+                    ll: '1\u00d710/side, light', cl: '1\u00d710/side, light', dk: '1\u00d78/side, light', cp: 'Hold 30\u201360 sec'
+                }
             };
             const r = reps[level];
-            return [`Hip thrust \u2014 ${r.ht}`, `Side plank \u2014 ${r.sp}`];
-        }
-
-        // Wednesday: Clamshells (glute activation/hip stability) + Dead bug (stability).
-        function coreWed(level) {
-            const reps = {
-                full: { cl: '2\u00d715\u201320/side', db: '2\u00d710\u201312/side' },
-                deload: { cl: '1\u00d715\u201320/side', db: '1\u00d710\u201312/side' },
-                taper: { cl: '1\u00d715, light', db: '1\u00d710, light' }
-            };
-            const r = reps[level];
-            return [`Clamshells \u2014 ${r.cl}`, `Dead bug \u2014 ${r.db}`];
-        }
-
-        // Friday: Lateral leg raise (glute activation/hip stability) + Heel taps (stability).
-        function coreFri(level) {
-            const reps = {
-                full: { ll: '2\u00d715\u201320/side', hl: '2\u00d715\u201320/side' },
-                deload: { ll: '1\u00d715\u201320/side', hl: '1\u00d715\u201320/side' },
-                taper: { ll: '1\u00d715, light', hl: '1\u00d715, light' }
-            };
-            const r = reps[level];
-            return [`Lateral leg raise \u2014 ${r.ll}`, `Heel taps \u2014 ${r.hl}`];
+            return [
+                `Pelvic tilt \u2014 ${r.pt}`,
+                `Bridge \u2014 ${r.br}`,
+                `Dead bug \u2014 ${r.db}`,
+                `Lateral leg raise \u2014 ${r.ll}`,
+                `Clamshells \u2014 ${r.cl}`,
+                `Donkey kicks \u2014 ${r.dk}`,
+                `Child\u2019s pose \u2014 ${r.cp}`
+            ];
         }
 
         const STRENGTH = {
@@ -261,9 +254,8 @@
                     'Light DB RDL \u2014 1\u20132 \u00d7 8\u201310, light load',
                     '{{PRESS}} \u2014 2 \u00d7 8, light',
                     'Row \u2014 2 \u00d7 8, light',
-                    'Push-ups \u2014 1\u20132 \u00d7 10, light',
                 ],
-                core: coreMon('deload'),
+                core: coreRoutine('deload'),
                 note: 'Treadmill stress test is Tuesday \u2014 no heavy squat/deadlift today. Keep the run easy, keep this session light, and skip anything that leaves you sore or fatigued going into tomorrow.'
             },
             monBaseModerate: {
@@ -273,9 +265,8 @@
                     'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
                     '{{PRESS}} \u2014 2 \u00d7 6\u20138, moderate load',
                     'Row \u2014 2 \u00d7 6\u20138',
-                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
-                core: coreMon('deload'),
+                core: coreRoutine('deload'),
                 note: 'First full barbell session back after the layoff \u2014 squat and press ease in at a moderate load rather than jumping straight to working weight; deadlift stays moderate too. Same volume as next week\u2019s session, load steps up once this one is tolerated well.'
             },
             monBaseDeload: {
@@ -285,9 +276,8 @@
                     'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
                     '{{PRESS}} \u2014 2 \u00d7 6\u20138',
                     'Row \u2014 2 \u00d7 6\u20138',
-                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
-                core: coreMon('deload'),
+                core: coreRoutine('deload'),
                 note: 'Not a periodization cutback \u2014 volume is lighter because this is the first full barbell session back alongside resuming running, not because of a scheduled dip.'
             },
             monBuild: {
@@ -297,9 +287,8 @@
                     'Deadlift \u2014 1 \u00d7 6\u20138',
                     '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: coreMon('full'),
+                core: coreRoutine('full'),
                 note: 'Build phase \u2014 intensity holds. If something has to give as mileage climbs, it\u2019s lifting volume first, not the run.'
             },
             monBuildDeload: {
@@ -309,9 +298,8 @@
                     'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
                     '{{PRESS}} \u2014 2 \u00d7 6\u20138',
                     'Row \u2014 2 \u00d7 6\u20138',
-                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
-                core: coreMon('deload'),
+                core: coreRoutine('deload'),
                 note: 'Cutback week \u2014 strength volume drops in step with the running mileage cutback.'
             },
             monPeakBuild: {
@@ -321,9 +309,8 @@
                     'Deadlift \u2014 1 \u00d7 6\u20138',
                     '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
-                    'Push-ups \u2014 2 \u00d7 8\u201312',
                 ],
-                core: coreMon('full'),
+                core: coreRoutine('full'),
                 note: 'Peak Build phase. Upper body (Friday) stays unchanged since it doesn\u2019t interfere with running legs.'
             },
             monPeakBuildDeload: {
@@ -333,9 +320,8 @@
                     'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
                     '{{PRESS}} \u2014 2 \u00d7 6\u20138',
                     'Row \u2014 2 \u00d7 6\u20138',
-                    'Push-ups \u2014 1 \u00d7 8\u201312',
                 ],
-                core: coreMon('deload'),
+                core: coreRoutine('deload'),
                 note: 'Cutback week \u2014 strength volume drops in step with the running mileage cutback.'
             },
             monPeak: {
@@ -345,9 +331,8 @@
                     'Deadlift \u2014 1 \u00d7 6 @ current working weight',
                     '{{PRESS}} \u2014 3 \u00d7 6\u20138',
                     'Row \u2014 3 \u00d7 6\u20138',
-                    'Push-ups \u2014 2 \u00d7 10\u201312',
                 ],
-                core: coreMon('full'),
+                core: coreRoutine('full'),
                 note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so lower body drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Upper body remains unchanged. Progression caps here intentionally \u2014 protecting recovery for peak-mileage weeks matters more than continuing to add load.'
             },
             monTaper: {
@@ -357,9 +342,8 @@
                     'Deadlift \u2014 1 \u00d7 6, light',
                     '{{PRESS}} \u2014 2 \u00d7 8, light',
                     'Row \u2014 2 \u00d7 10, light',
-                    'Push-ups \u2014 1 \u00d7 12, light',
                 ],
-                core: coreMon('taper'),
+                core: coreRoutine('taper'),
                 note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut 30\u201350% from Peak.'
             },
             wedBaseDeload: {
@@ -369,9 +353,8 @@
                     'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
                     'Lunges \u2014 2 \u00d7 8\u201312/leg',
                     'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
-                core: coreWed('deload'),
+                core: coreRoutine('deload'),
                 note: 'Not a periodization cutback \u2014 volume is lighter because running is resuming alongside it, not because of a scheduled dip.'
             },
             wedBuild: {
@@ -381,9 +364,8 @@
                     'Single-leg RDL \u2014 2\u20133 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
                     'Lunges \u2014 2\u20133 \u00d7 8\u201312/leg',
                     'Calf raises + tib raises (superset) \u2014 2\u20133 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: coreWed('full'),
+                core: coreRoutine('full'),
                 note: 'Build phase \u2014 accessory sets trim slightly as weekly mileage climbs.'
             },
             wedBuildDeload: {
@@ -393,9 +375,8 @@
                     'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
                     'Lunges \u2014 2 \u00d7 8\u201312/leg',
                     'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 1\u20132 \u00d7 8\u201312',
                 ],
-                core: coreWed('deload'),
+                core: coreRoutine('deload'),
                 note: 'Cutback week \u2014 volume drops in step with the running mileage cutback.'
             },
             wedPeakBuild: {
@@ -405,9 +386,8 @@
                     'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
                     'Lunges \u2014 2 \u00d7 8\u201312/leg',
                     'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 2 \u00d7 8\u201312',
                 ],
-                core: coreWed('full'),
+                core: coreRoutine('full'),
                 note: 'Peak Build phase \u2014 trims further. Glute/stability core work stays in every session regardless \u2014 cheap insurance against running-related hip and knee issues as mileage rises.'
             },
             wedPeakBuildDeload: {
@@ -417,9 +397,8 @@
                     'Single-leg RDL \u2014 1 \u00d7 8\u201312/leg',
                     'Lunges \u2014 1 \u00d7 8\u201312/leg',
                     'Calf raises + tib raises (superset) \u2014 1 \u00d7 12\u201315 each',
-                    'Push-ups \u2014 1 \u00d7 8\u201312',
                 ],
-                core: coreWed('deload'),
+                core: coreRoutine('deload'),
                 note: 'Cutback week \u2014 volume drops in step with the running mileage cutback.'
             },
             wedPeak: {
@@ -429,9 +408,8 @@
                     'Single-leg RDL \u2014 2 \u00d7 8/leg (control the lowering phase, 2\u20133 count)',
                     'Lunges \u2014 2 \u00d7 8/leg',
                     'Calf raises + tib raises (superset) \u2014 2 \u00d7 12 each',
-                    'Push-ups \u2014 2 \u00d7 10\u201312',
                 ],
-                core: coreWed('full'),
+                core: coreRoutine('full'),
                 note: 'Peak phase \u2014 maintenance dose as the long run peaks at 11\u201312 miles. Same exercises, held load, minimal sets.'
             },
             wedTaper: {
@@ -441,9 +419,8 @@
                     'Single-leg RDL \u2014 1 \u00d7 8/leg, light',
                     'Lunges \u2014 1 \u00d7 8/leg, light',
                     'Calf raises + tib raises (superset) \u2014 1 \u00d7 12 each, light',
-                    'Push-ups \u2014 1 \u00d7 12, light',
                 ],
-                core: coreWed('taper'),
+                core: coreRoutine('taper'),
                 note: 'One light pass through the usual lower-body list \u2014 low sets, just enough to keep the pattern alive.'
             },
             friStandard: {
@@ -454,9 +431,8 @@
                     'DB curls \u2014 3 \u00d7 10\u201312',
                     'Face pulls \u2014 2\u20133 \u00d7 15\u201320',
                     'Banded rows \u2014 3 \u00d7 10\u201312',
-                    'Push-ups \u2014 2\u20133 \u00d7 8\u201312',
                 ],
-                core: coreFri('full'),
+                core: coreRoutine('full'),
                 note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Skull crushers dropped (bench + shoulder press already load triceps enough); face pulls added for rear-delt/external-rotation balance against the pressing volume. Stays unchanged through Base, Build, Peak Build, and Peak \u2014 not lightened on cutback weeks either, since upper-body work doesn\u2019t interfere with running-leg recovery.'
             },
             friTaper: {
@@ -467,10 +443,15 @@
                     'DB curls \u2014 1 \u00d7 10, light',
                     'Face pulls \u2014 1 \u00d7 15, light',
                     'Banded rows \u2014 1 \u00d7 10, light',
-                    'Push-ups \u2014 1 \u00d7 12, light',
                 ],
-                core: coreFri('taper'),
-                note: 'One light pass through the usual upper-body list. Week 15 \u2014 actual race week \u2014 drops strength entirely; that\u2019s the real freshness buffer, not this week.'
+                core: coreRoutine('taper'),
+                note: 'One light pass through the usual upper-body list. Race week itself drops lifting entirely, keeping only Monday/Wednesday core \u2014 that\u2019s the real freshness buffer, not this week.'
+            },
+            raceCoreOnly: {
+                name: 'Core Only (Race Week)', focus: 'Race week \u2014 core only, no lifting',
+                main: [],
+                core: coreRoutine('taper'),
+                note: 'No barbell or dumbbell work this week \u2014 lifting stops entirely so nothing competes with recovery before Saturday\u2019s race. Just the light core pass to stay activated. Friday is off completely.'
             },
         };
 
@@ -717,7 +698,7 @@
               <h4>${dayLabel} Strength &mdash; ${s.name}</h4>
               <div class="detail-grid">
                 <div class="k">Focus</div><div class="v">${s.focus}</div>
-                <div class="k">Main set</div><div class="v"><ul class="strength-list">${mainResolved.map(item => `<li>${item}</li>`).join('')}</ul></div>
+                ${mainResolved.length ? `<div class="k">Main set</div><div class="v"><ul class="strength-list">${mainResolved.map(item => `<li>${item}</li>`).join('')}</ul></div>` : ''}
                 ${coreResolved.length ? `<div class="k">Core</div><div class="v"><ul class="strength-list">${coreResolved.map(item => `<li>${item}</li>`).join('')}</ul></div>` : ''}
               </div>
               <div class="detail-note">${noteResolved}</div>
