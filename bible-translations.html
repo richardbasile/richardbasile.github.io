@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Translation Family Tree: by Textual Source</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+        :root {
+            --paper: #ECE6D6;
+            --paper-deep: #E2DAC4;
+            --ink: #262019;
+            --ink-soft: #55503f;
+            --gold: #9c7a2e;
+            --gold-fill: #f2e6c4;
+            --green: #6b7a3f;
+            --green-fill: #e5e8d6;
+            --indigo: #3a5f8a;
+            --indigo-fill: #dbe4ee;
+            --rule: #c8bd9e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.25), transparent 60%), var(--paper);
+            color: var(--ink);
+            font-family: 'IBM Plex Sans', sans-serif;
+            padding: 32px 20px 64px;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 34px;
+            padding-bottom: 26px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Spectral', serif;
+            font-weight: 700;
+            font-size: clamp(28px, 4.4vw, 42px);
+            margin: 0 0 10px;
+            letter-spacing: -0.01em;
+        }
+
+        header p {
+            font-family: 'Spectral', serif;
+            font-style: italic;
+            color: var(--ink-soft);
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin: 22px 0 28px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--ink-soft);
+        }
+
+        .legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .swatch.tr {
+            background: var(--gold);
+        }
+
+        .swatch.mt {
+            background: var(--green);
+        }
+
+        .swatch.ct {
+            background: var(--indigo);
+        }
+
+        .line-sample {
+            width: 16px;
+            height: 0;
+            border-top: 2px solid var(--ink-soft);
+            display: inline-block;
+        }
+
+        .swatch.flag {
+            background: none;
+            width: auto;
+        }
+
+        /* overview tree */
+        .tree {
+            margin: 0 0 20px;
+            padding: 28px 20px 10px;
+            background: var(--paper-deep);
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+        }
+
+        .tree-root {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .tree-node {
+            font-family: 'Spectral', serif;
+            font-weight: 600;
+            font-size: 17px;
+            background: #fff;
+            border: 1.5px solid var(--ink);
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .tree-node.root {
+            letter-spacing: .02em;
+        }
+
+        .tree-node .sub {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 400;
+            font-size: 11.5px;
+            color: var(--ink-soft);
+            margin-top: 2px;
+            letter-spacing: .04em;
+        }
+
+        .tree-connector {
+            height: 42px;
+            position: relative;
+        }
+
+        .tree-connector svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .tree-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            padding-bottom: 6px;
+        }
+
+        @media (max-width:640px) {
+            .tree-branches {
+                grid-template-columns: 1fr;
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .tree-connector {
+                display: none;
+            }
+        }
+
+        button.tree-node.branch {
+            width: 100%;
+            font-family: 'Spectral', serif;
+            display: block;
+            cursor: pointer;
+            transition: transform .12s ease, box-shadow .12s ease;
+            border-width: 2px;
+            background: #fff;
+        }
+
+        button.tree-node.branch:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(38, 32, 25, 0.15);
+        }
+
+        button.tree-node.branch.tr {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        button.tree-node.branch.mt {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        button.tree-node.branch.ct {
+            border-color: var(--indigo);
+            color: var(--indigo);
+        }
+
+        button.tree-node.branch.active {
+            color: #fff;
+        }
+
+        button.tree-node.branch.active .sub {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        button.tree-node.branch.tr.active {
+            background: var(--gold);
+        }
+
+        button.tree-node.branch.mt.active {
+            background: var(--green);
+        }
+
+        button.tree-node.branch.ct.active {
+            background: var(--indigo);
+        }
+
+        /* tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--rule);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            padding: 12px 6px;
+            cursor: pointer;
+            color: var(--ink-soft);
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px;
+            transition: color .12s ease, border-color .12s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--ink);
+        }
+
+        .tab-btn.active {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .tab-btn.tr.active {
+            border-color: var(--gold);
+        }
+
+        .tab-btn.mt.active {
+            border-color: var(--green);
+        }
+
+        .tab-btn.ct.active {
+            border-color: var(--indigo);
+        }
+
+        .tab-btn.diff.active {
+            border-color: var(--ink-soft);
+        }
+
+        /* family sections: tab panels, one visible at a time */
+        .families {
+            display: block;
+        }
+
+        .family {
+            display: none;
+            margin-bottom: 0;
+        }
+
+        .family.active {
+            display: block;
+        }
+
+        .family-head {
+            background: var(--fam-fill);
+            border: 1px solid var(--rule);
+            border-top: 3px solid var(--fam-color);
+            border-radius: 4px;
+            padding: 16px 18px 14px;
+            margin: 0 0 16px;
+        }
+
+        .family.tr {
+            --fam-color: var(--gold);
+            --fam-fill: color-mix(in srgb, var(--gold) 22%, white);
+        }
+
+        .family.mt {
+            --fam-color: var(--green);
+            --fam-fill: color-mix(in srgb, var(--green) 22%, white);
+        }
+
+        .family.ct {
+            --fam-color: var(--indigo);
+            --fam-fill: color-mix(in srgb, var(--indigo) 22%, white);
+        }
+
+        .family.diff {
+            --fam-color: var(--ink-soft);
+            --fam-fill: color-mix(in srgb, var(--ink-soft) 18%, white);
+        }
+
+        .family-head h2 {
+            font-family: 'Spectral', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 4px;
+            color: var(--fam-color);
+        }
+
+        .family-head p {
+            margin: 0;
+            font-size: 15px;
+            color: var(--ink-soft);
+            line-height: 1.45;
+        }
+
+        .family-head p+p {
+            margin-top: 10px;
+        }
+
+        .equiv-block {
+            background: var(--fam-fill);
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            padding: 16px 18px 18px;
+            margin: 0 0 16px;
+        }
+
+        .equiv-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fam-color);
+            margin: 0 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .lineage {
+            margin-bottom: 14px;
+        }
+
+        /* cards show full detail inline, no popup */
+        .card {
+            background: #fff;
+            border: 1px solid var(--rule);
+            border-left: 4px solid var(--fam-color);
+            border-radius: 3px;
+            padding: 8px 10px;
+            margin-bottom: 0;
+        }
+
+        .card .name {
+            font-weight: 600;
+            font-size: 15.5px;
+        }
+
+        .card .year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            color: var(--ink-soft);
+        }
+
+        .card .note {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin-top: 2px;
+            line-height: 1.45;
+        }
+
+        .card .bias {
+            font-size: 12.5px;
+            color: #7a4a1f;
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px dashed var(--rule);
+            line-height: 1.35;
+            font-style: italic;
+        }
+
+        .card .bias::before {
+            content: "⚑ ";
+            font-style: normal;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            padding: 2px 0;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .branch-row {
+            display: grid;
+            gap: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 6px;
+        }
+
+        .branch-row.one {
+            grid-template-columns: minmax(240px, 1fr);
+        }
+
+        .branch-row.two {
+            grid-template-columns: repeat(2, minmax(240px, 1fr));
+        }
+
+        .branch-row.three {
+            grid-template-columns: repeat(3, minmax(240px, 1fr));
+        }
+
+        .scroll-hint {
+            display: none;
+        }
+
+        @media (max-width: 720px) {
+            .scroll-hint {
+                display: block;
+                font-family: 'IBM Plex Mono', monospace;
+                font-size: 11px;
+                letter-spacing: .04em;
+                color: var(--ink-soft);
+                text-align: center;
+                margin: -2px 0 8px;
+            }
+        }
+
+        .lineage-rule {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin: 0 0 14px;
+        }
+
+        .empty-note {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--ink-soft);
+            padding-bottom: 12px;
+            margin: 0;
+        }
+
+        /* textual differences section */
+        .differences {
+            margin-top: 0;
+        }
+
+        .differences>h2 {
+            font-family: 'Spectral', serif;
+            font-size: 27px;
+            font-weight: 700;
+            margin: 0 0 6px;
+        }
+
+        .differences>.intro {
+            font-size: 15.5px;
+            color: var(--ink-soft);
+            line-height: 1.55;
+            max-width: 820px;
+            margin: 0 0 24px;
+        }
+
+        .diff-body {
+            padding: 16px 16px 6px;
+        }
+
+        .diff-card {
+            background: var(--paper-deep);
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+
+        .diff-card h3 {
+            font-family: 'Spectral', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 3px;
+        }
+
+        .diff-card .ref {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            margin: 0 0 12px;
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width:720px) {
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .diff-cell {
+            background: #fff;
+            border: 1px solid var(--rule);
+            border-top: 3px solid var(--cell-color);
+            border-radius: 4px;
+            padding: 10px 12px;
+        }
+
+        .diff-cell.tr {
+            --cell-color: var(--gold);
+        }
+
+        .diff-cell.mt {
+            --cell-color: var(--green);
+        }
+
+        .diff-cell.ct {
+            --cell-color: var(--indigo);
+        }
+
+        .diff-cell .fam-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--cell-color);
+            margin-bottom: 5px;
+        }
+
+        .diff-cell .reading {
+            font-size: 14.5px;
+            line-height: 1.45;
+        }
+
+        .diff-card .takeaway {
+            font-size: 14px;
+            color: var(--ink-soft);
+            margin: 12px 0 0;
+            line-height: 1.45;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--rule);
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        footer h3 {
+            font-family: 'Spectral', serif;
+            font-size: 16px;
+            margin: 0 0 8px;
+            color: var(--ink);
+        }
+
+        footer ul {
+            margin: 0 0 14px;
+            padding-left: 18px;
+        }
+
+        footer li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <header>
+            <div class="eyebrow">Textual Criticism &amp; Translation History</div>
+            <h1>The Bible Translation Family Tree</h1>
+            <p>Organized by underlying Greek New Testament textual basis, and by translation philosophy within each
+                group</p>
+        </header>
+        <p style="max-width:760px;margin:0 auto 26px;text-align:center;font-size:14px;color:var(--ink-soft);">
+            These three aren't equivalent categories of the same kind: <strong>Textus Receptus</strong> is a lineage
+            of printed Greek editions starting with Erasmus; <strong>Majority/Byzantine Text</strong> is a
+            reconstructed manuscript tradition; <strong>Critical Text</strong> is an editorial method applied across
+            evolving scholarly editions (Nestle-Aland/UBS). They're grouped here as the three textual bases behind
+            English Bible translations, not as three parallel manuscript families.
+        </p>
+
+        <div class="tree">
+            <div class="tree-root">
+                <div class="tree-node root">Original Autographs<span class="sub">no longer extant</span></div>
+            </div>
+            <div class="tree-connector">
+                <svg viewBox="0 0 300 26" preserveAspectRatio="none">
+                    <line x1="150" y1="0" x2="150" y2="10" stroke="#8a8368" stroke-width="1.5" />
+                    <line x1="48" y1="10" x2="252" y2="10" stroke="#8a8368" stroke-width="1.5" />
+                    <line x1="48" y1="10" x2="48" y2="26" stroke="#8a8368" stroke-width="1.5" />
+                    <line x1="150" y1="10" x2="150" y2="26" stroke="#8a8368" stroke-width="1.5" />
+                    <line x1="252" y1="10" x2="252" y2="26" stroke="#8a8368" stroke-width="1.5" />
+                </svg>
+            </div>
+            <div class="tree-branches">
+                <button class="tree-node branch tr active" data-tab="tr">Textus Receptus<span class="sub">Erasmus,
+                        1516</span></button>
+                <button class="tree-node branch mt" data-tab="mt">Majority / Byzantine Text<span class="sub">Byzantine
+                        tradition</span></button>
+                <button class="tree-node branch ct" data-tab="ct">Critical Text<span class="sub">Westcott-Hort →
+                        NA/UBS</span></button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn tr active" data-tab="tr">Textus Receptus</button>
+            <button class="tab-btn mt" data-tab="mt">Majority / Byzantine Text</button>
+            <button class="tab-btn ct" data-tab="ct">Critical Text</button>
+            <button class="tab-btn diff" data-tab="diff">Key Differences</button>
+        </div>
+
+
+        <div class="families" id="families">
+            <!-- family sections (tr / mt / ct) are rendered by JS from DATA below -->
+
+            <div class="family diff" data-panel="diff" id="diff">
+                <div class="family-head">
+                    <h2>Key Differences</h2>
+                    <p>These textual bases disagree because they weigh different evidence: CT leans on a small number
+                        of <em>old</em> manuscripts and reasoned evaluation of each variant, while TR and MT lean on a
+                        much larger body of <em>later</em> ones. Part of the case for CT's approach is that later
+                        manuscripts accumulated centuries of scribal smoothing, harmonizing, and clarifying — a
+                        widely-held view among critical text scholars, though not one that MT or TR proponents accept
+                        as the deciding factor. Six of the best-known disputed passages, below.
+                    </p>
+                    <p>None of these six create a theological conflict when read against the whole of Scripture. Even
+                        the
+                        most significant, the Comma Johanneum's explicit Trinity formula, doesn't establish or undermine
+                        the doctrine of the Trinity on its own either way: that doctrine rests on the cumulative witness
+                        of many passages (John 1:1, Matthew 28:19, 2 Corinthians 13:14, among others), not on any single
+                        verse. Textual variants can affect the wording, emphasis, or evidential support of individual
+                        passages without necessarily changing a doctrine considered from the whole biblical corpus —
+                        which is why major Christian doctrines generally shouldn't be evaluated from a single disputed
+                        reading in isolation. That principle is widely shared among textual critics across the
+                        theological spectrum, whichever family they personally favor.</p>
+                </div>
+                <div class="diff-body">
+
+                    <div class="diff-card">
+                        <h3>The Comma Johanneum</h3>
+                        <p class="ref">1 John 5:7–8</p>
+                        <div class="diff-grid">
+                            <div class="diff-cell tr">
+                                <div class="fam-label">Textus Receptus</div>
+                                <div class="reading">Includes the explicit Trinity formula: "there are three that bear
+                                    record in heaven, the Father, the Word, and the Holy Ghost: and these three are
+                                    one."</div>
+                            </div>
+                            <div class="diff-cell mt">
+                                <div class="fam-label">Majority Text</div>
+                                <div class="reading">Omits it: not found in the Byzantine manuscript majority.</div>
+                            </div>
+                            <div class="diff-cell ct">
+                                <div class="fam-label">Critical Text</div>
+                                <div class="reading">Omits it: absent from every Greek manuscript before the 14th
+                                    century.</div>
+                            </div>
+                        </div>
+                        <p class="takeaway">The one major case where TR stands alone against both other families.
+                            Erasmus omitted it from his first two editions (1516, 1519) because it wasn't in his Greek
+                            manuscripts, then added it in 1522 after a Greek manuscript containing it (Codex 61)
+                            surfaced. The popular version of this story has Erasmus promising in advance to include the
+                            Comma if such a manuscript could be produced — a colorful anecdote repeated by many
+                            respected scholars, but one specialist research has found no solid basis for in Erasmus's
+                            own writings, so it's best treated as tradition rather than settled fact. What is well
+                            established: that manuscript is itself late, and its Greek is understood to derive from a
+                            Latin source rather than an independent Greek transmission. KJV and NKJV include the Comma;
+                            almost no other modern translation does.</p>
+                    </div>
+
+                    <div class="diff-card">
+                        <h3>The longer ending of Mark</h3>
+                        <p class="ref">Mark 16:9–20</p>
+                        <div class="diff-grid">
+                            <div class="diff-cell tr">
+                                <div class="fam-label">Textus Receptus</div>
+                                <div class="reading">Included as ordinary text: resurrection appearances, the Great
+                                    Commission, snake-handling/poison verses.</div>
+                            </div>
+                            <div class="diff-cell mt">
+                                <div class="fam-label">Majority Text</div>
+                                <div class="reading">Included: present in the vast majority of surviving manuscripts.
+                                </div>
+                            </div>
+                            <div class="diff-cell ct">
+                                <div class="fam-label">Critical Text</div>
+                                <div class="reading">Absent from several of the earliest and most important Greek
+                                    witnesses, including Codex Sinaiticus and Codex Vaticanus; other early evidence
+                                    (patristic silence, stylistic differences from the rest of Mark) also raises
+                                    questions about its originality. Usually printed but bracketed with a note.</div>
+                            </div>
+                        </div>
+                        <p class="takeaway">Most CT-based translations (ESV, NIV, NASB) still print these verses, just
+                            flagged as likely a later addition rather than silently dropped.</p>
+                    </div>
+
+                    <div class="diff-card">
+                        <h3>The woman caught in adultery</h3>
+                        <p class="ref">John 7:53–8:11</p>
+                        <div class="diff-grid">
+                            <div class="diff-cell tr">
+                                <div class="fam-label">Textus Receptus</div>
+                                <div class="reading">Included as ordinary text.</div>
+                            </div>
+                            <div class="diff-cell mt">
+                                <div class="fam-label">Majority Text</div>
+                                <div class="reading">Included: present in most later manuscripts, though its position
+                                    varies across some.</div>
+                            </div>
+                            <div class="diff-cell ct">
+                                <div class="fam-label">Critical Text</div>
+                                <div class="reading">Absent from the earliest manuscripts; usually printed but bracketed
+                                    as a probable later insertion.</div>
+                            </div>
+                        </div>
+                        <p class="takeaway">Same pattern as Mark 16: absent from the earliest Greek witnesses and
+                            appearing in different locations in some later manuscripts, which leads most modern
+                            critical editions to regard this well-loved, ancient story as a later addition to John's
+                            Gospel. Kept in most Bibles but flagged.</p>
+                    </div>
+
+                    <div class="diff-card">
+                        <h3>"God" vs. "He who"</h3>
+                        <p class="ref">1 Timothy 3:16</p>
+                        <div class="diff-grid">
+                            <div class="diff-cell tr">
+                                <div class="fam-label">Textus Receptus</div>
+                                <div class="reading">"God (Θεός) was manifest in the flesh," a direct statement of
+                                    Christ's deity.</div>
+                            </div>
+                            <div class="diff-cell mt">
+                                <div class="fam-label">Majority Text</div>
+                                <div class="reading">Same as TR: "God (Θεός) was manifest in the flesh."</div>
+                            </div>
+                            <div class="diff-cell ct">
+                                <div class="fam-label">Critical Text</div>
+                                <div class="reading">"He who (Ὅς) was manifested in the flesh," a relative pronoun, not
+                                    the noun "God."</div>
+                            </div>
+                        </div>
+                        <p class="takeaway">A scribal abbreviation/letter-form issue, not simply one ordinary letter
+                            changed: ΘC (an abbreviation for θεός, "God") and OC (ὅς, "who") could look visually
+                            similar in the relevant manuscript hands, which is how the two readings are thought to
+                            have diverged. This passage has consequently featured prominently in debates over the
+                            textual basis of the KJV and the doctrine of Christ's deity, which doesn't rest on this
+                            verse alone in either case.</p>
+                    </div>
+
+                    <div class="diff-card">
+                        <h3>"Good will toward men"</h3>
+                        <p class="ref">Luke 2:14</p>
+                        <div class="diff-grid">
+                            <div class="diff-cell tr">
+                                <div class="fam-label">Textus Receptus</div>
+                                <div class="reading">εὐδοκία (nominative): "peace, good will toward men," implying
+                                    goodwill toward everyone.</div>
+                            </div>
+                            <div class="diff-cell mt">
+                                <div class="fam-label">Majority Text</div>
+                                <div class="reading">Same nominative form as TR.</div>
+                            </div>
+                            <div class="diff-cell ct">
+                                <div class="fam-label">Critical Text</div>
+                                <div class="reading">εὐδοκίας (genitive): "peace to men on whom his favor rests,"
+                                    implying peace specifically to those God favors.</div>
+                            </div>
+                        </div>
+                        <p class="takeaway">One letter (a final sigma) changes how the phrase is understood: the
+                            traditional nominative reading is usually rendered as goodwill toward everyone, while the
+                            genitive reading is typically understood as peace to those who receive God's favor. Which
+                            reading is original affects the grammar and translation; how each cashes out theologically
+                            is a further, separate question.</p>
+                    </div>
+
+                    <div class="diff-card">
+                        <h3>An added clause</h3>
+                        <p class="ref">Romans 8:1</p>
+                        <div class="diff-grid">
+                            <div class="diff-cell tr">
+                                <div class="fam-label">Textus Receptus</div>
+                                <div class="reading">Adds "who walk not after the flesh, but after the Spirit" at the
+                                    end of the verse.</div>
+                            </div>
+                            <div class="diff-cell mt">
+                                <div class="fam-label">Majority Text</div>
+                                <div class="reading">Also includes the added clause.</div>
+                            </div>
+                            <div class="diff-cell ct">
+                                <div class="fam-label">Critical Text</div>
+                                <div class="reading">Omits the clause: verse ends at "no condemnation."</div>
+                            </div>
+                        </div>
+                        <p class="takeaway">Many textual critics regard the longer reading as an expansion influenced
+                            by the similar wording later in verse 4, though this is an inference about how the variant
+                            arose rather than a directly attested historical event.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <h3>On the arrows</h3>
+            <p style="margin:0 0 10px;">Each arrow between cards describes a specific kind of relationship, not just
+                "came after":</p>
+            <ul style="margin:0 0 16px;">
+                <li><strong>Revised as</strong> — the child is the next edition of the same work: the same
+                    translation project continuing forward, with wording or text updated through an editorial
+                    revision cycle (e.g. Great Bible → Bishops' Bible, ASV → RSV).</li>
+                <li><strong>Incorporated into</strong> — the parent's actual text was reused, largely unedited, as a
+                    component inside a different, separately-authored work, rather than revised on its own terms
+                    (e.g. Tyndale's completed books → Matthew's Bible).</li>
+                <li><strong>Adapted as</strong> — the child is an independently produced new work, often a fresh
+                    translation from the original languages, that was deliberately modeled on the parent's wording
+                    or structure without being a formal revision of it or simply reusing its text (e.g. KJV → MEV).
+                </li>
+            </ul>
+            <h3>On Formal / Mediating / Dynamic</h3>
+            <p style="margin:0 0 10px;">Within each textual-basis family, translations are further grouped by
+                translation philosophy — how closely the English tracks the original wording versus the original
+                meaning:</p>
+            <ul style="margin:0 0 16px;">
+                <li><strong>Formal equivalence</strong> — translates as close to word-for-word as English allows,
+                    preserving the original sentence structure and syntax even where it reads less naturally (e.g.
+                    ESV, NASB).</li>
+                <li><strong>Mediating</strong> (sometimes called "optimal equivalence") — formal by default, but
+                    shifting toward natural English phrasing wherever a strict word-for-word rendering would be
+                    confusing or misleading; not a uniform compromise applied line-by-line, but a deliberate attempt
+                    at both at once (e.g. NET Bible, HCSB, CSB).</li>
+                <li><strong>Dynamic equivalence</strong> — translates thought-for-thought, prioritizing how a native
+                    English speaker would naturally express the same idea, even where that means restructuring the
+                    sentence (e.g. NLT, GNT).</li>
+            </ul>
+            <h3>On the ⚑ notes</h3>
+            <p style="margin:0 0 16px;">Cards flagged with ⚑ have a documented theological, denominational, or doctrinal
+                leaning behind specific translation choices: sponsoring institution, oversight-committee composition, or
+                contested renderings (gender language, the divine name, etc.). This isn't a claim that every rendering
+                in these translations is theologically motivated, or that unflagged translations have none; it's the set
+                where a specific, sourceable leaning is well known and worth being aware of as a reader. Presented
+                factually; where a translation choice was controversial, both the translators' stated rationale and
+                their critics' objections are noted.</p>
+            <h3>Scope</h3>
+            <ul>
+                <li>Not shown: The Message, The Passion Translation, and other free paraphrases, which sit outside
+                    standard formal/dynamic classification.</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <script>
+        // ---- data: every translation's full note/bias lives here, rendered directly in each card ----
+        const DATA = {
+            tr: {
+                title: "Textus Receptus",
+                famLabel: "Textus Receptus",
+                blurb: `A family of early printed Greek New Testament editions, not a single fixed text. It begins with Erasmus's 1516 edition, compiled from a small handful of Greek manuscripts (as few as 6–7, ranging from the 12th to 15th century) that he happened to have access to in Basel; where he was missing a manuscript for part of Revelation, he translated the Latin Vulgate back into Greek to fill the gap. Two later editors, Robert Estienne (known by his Latin name Stephanus) and Theodore Beza, revised the text across the mid-to-late 1500s, correcting and refining it through several subsequent editions rather than leaving Erasmus's first pass as the final word. It's this whole edited lineage, not just Erasmus's original six manuscripts, that became the base text for the Reformation-era English Bibles, including the King James Version.`,
+                formal: [
+                    [
+                        {
+                            name: "Tyndale New Testament", year: "1526", note: `First English NT translated directly from Greek rather than the Latin Vulgate, using Erasmus's printed Greek text as its base. The Vulgate and Luther's German were consulted only as secondary checks, not as the source. Printed in Worms after Tyndale fled England to escape prosecution for unauthorized Bible translation. He coined or popularized phrases still in everyday English: "let there be light," "the powers that be," "my brother's keeper," "fight the good fight." William Tyndale was strangled and burned at the stake near Brussels in 1536, largely over this work; his reported last words were a prayer that the King of England's eyes would be opened. He never finished the Old Testament: at his arrest he had completed the Pentateuch and, unpublished, Joshua through 2 Chronicles and Jonah. What happened to that unfinished work forks into the two branches below.`,
+                            branches: [
+                                [
+                                    { name: "Coverdale's Bible", year: "1535", arrowLabel: "incorporated into", note: `A dead end for this specific text, not a stepping stone to what came after. The first complete printed English Bible, but not a fresh translation from the original languages: Miles Coverdale wasn't a Hebrew or Greek scholar. He had access only to Tyndale's already-published New Testament and Pentateuch, not the unpublished books Tyndale had completed before his arrest, so Coverdale translated the rest of the Old Testament himself from the Latin Vulgate and German translations (including Luther's). Two years later, Matthew's Bible replaced Coverdale's own translation of those in-between books with Tyndale's actual manuscripts, which is why nothing directly descends from this specific edition; its only lasting contribution was filling the books Tyndale never reached at all (Ezra through Malachi, and the Apocrypha), which Matthew's Bible kept.` }
+                                ],
+                                [
+                                    { name: "Matthew's Bible", year: "1537", arrowLabel: "incorporated into", note: `The Bible that actually carries Tyndale's work forward, not Coverdale's. Published under the pseudonym "Thomas Matthew" to shield the actual editor, John Rogers, a friend and colleague of Tyndale's, who had safeguarded Tyndale's unpublished manuscripts after his arrest. Rogers used those manuscripts directly for every book Tyndale had completed, Genesis through 2 Chronicles and the New Testament, and fell back to Coverdale's translation only for the books Tyndale had never touched (Ezra through Malachi, and the Apocrypha). Licensed for sale in England by Henry VIII within a year of Tyndale's execution for the same underlying text. Rogers was later burned at the stake under Mary I, the first English Protestant martyr of her reign.` },
+                                    { name: "Great Bible", year: "1539", note: `Coverdale's own revision of Matthew's Bible, commissioned by Thomas Cromwell and the first English Bible authorized for public use in Church of England services, read aloud from a copy chained to the pulpit in every parish, which is the source of its name (it was printed in an oversized "great" folio format). Its Psalter, not the King James Psalter, is still what's printed in the Book of Common Prayer today.` },
+                                    { name: "Bishops' Bible", year: "1568", note: `The Church of England's official revision of the Great Bible, produced by a committee of bishops under Archbishop Matthew Parker specifically to give the establishment a pulpit alternative to the Geneva Bible, whose Calvinist marginal notes the hierarchy distrusted. It never displaced Geneva in popular use, but it held the official pulpit role. The detail that actually matters for tracing the KJV: the King James translators' own first rule of translation named the 1602 edition of the Bishops' Bible as their explicit base text, to be altered only where the Hebrew or Greek required it.` },
+                                    {
+                                        name: "King James Version (KJV)", year: "1611", note: `Commissioned at the 1604 Hampton Court Conference. Fifty-four scholars were initially appointed; 47 are generally identified as having actually participated, working in six committees at Westminster, Oxford, and Cambridge. Its translators' own rules named the Bishops' Bible as the base text to revise, while directing them to consult Tyndale, Coverdale, Matthew's, the Great Bible, and the Geneva Bible wherever those agreed better with the original languages. So despite the popular shorthand "revision of Tyndale," its most direct documented English-text ancestor is the Bishops' Bible, with the others feeding in as cross-references rather than as the text being formally revised. That's the English revision lineage; separately, its underlying Greek NT basis was predominantly the Textus Receptus tradition as refined by Beza, which is why it sits in this column. The text most people read today is the 1769 Blayney standardization, which corrected printing errors and modernized spelling and punctuation (earlier standardizations came in 1629 and 1638). The same revision-committee lineage later split off into the Critical Text family; see ERV/ASV in that column.`,
+                                        branches: [
+                                            [{ name: "NKJV", year: "1982", note: `Modernizes the KJV's archaic pronouns and verb forms ("thee/thou," "-eth" endings) while keeping its TR base text and sentence structure intact wherever possible. Produced by roughly 130 scholars, editors, and church leaders under Thomas Nelson Publishers. Unlike the original KJV, it includes translators' footnotes flagging where the Majority Text or the Nestle-Aland/UBS critical text diverge from its underlying TR reading, a level of transparency about the TR's minority status among textual critics that the 1611 edition never had reason to include.` }],
+                                            [{ name: "MEV", year: "2014", arrowLabel: "adapted as", note: `Modern English Version. Explicitly framed by its translators as an update of the KJV, using the KJV as its base manuscript: a fresh retranslation from the Hebrew/Greek (not just a language modernization like the NKJV), but one deliberately anchored to the KJV's wording and structure. Translated by a 47-member committee (a deliberate echo of the original 1611 translator count) chaired by James F. Linzey. Cross-checked against the Majority Text (Hodges-Farstad/Robinson-Pierpont) apparatus alongside the TR.` }]
+                                        ]
+                                    }
+                                ]
+                            ]
+                        }
+                    ],
+                    [
+                        { name: "Geneva Bible", year: "1560", note: `Not a link in the Great Bible → Bishops' Bible → KJV chain, despite often being pictured that way, it's better understood as a parallel branch. Produced by a team of English Protestant exiles sheltering in Calvin's Geneva during the reign of the Catholic Queen Mary I, including chief editor William Whittingham, it was translated freshly from Hebrew and Greek rather than formally revising any single prior edition, though it retained a great deal of Tyndale's existing wording where it held up. First English Bible with numbered verses and the first to distinguish, via italics, English words added for readability that weren't in the underlying Hebrew or Greek. Its extensive Calvinist study notes (some read as endorsing resistance to unjust royal authority) irritated the monarchy and were the direct motivation for the Bishops' Bible; the King James translators later consulted it too, as one of the "many good ones" named in their own rules. The household Bible of the Reformation era, used by Shakespeare and carried by the Pilgrims to America.` }
+                    ]
+                ],
+                dynamic: [],
+                dynamicEmpty: `No major dynamic-equivalence translations arise from this family; TR-based work has stayed almost entirely formal/literal.`,
+                mediatingEmpty: `No major mediating translations arise from this family.`
+            },
+            mt: {
+                title: "Majority / Byzantine Text",
+                famLabel: "Majority / Byzantine Text",
+                blurb: `Gives substantial weight to the readings found in the Byzantine manuscript tradition, which accounts for the large majority of the 5,000+ surviving Greek New Testament manuscripts. "Majority" here refers to the predominant reading among the relevant manuscript witnesses, not a literal vote where every surviving copy counts equally: editors still evaluate manuscripts and the relationships between them, and modern editions differ in their precise methodology. The underlying premise is that this weight of numbers reflects a more stable transmission line, in contrast with TR (a handful of curated early-printed editions) and CT (a small set of the oldest surviving manuscripts, prioritized by age and other criteria rather than count). Two modern scholarly editions, compiled by the teams Hodges & Farstad (1982) and Robinson & Pierpont (2005), are the standard printed versions of this text today.`,
+                blurb2: `Even readers who never open a Majority Text Bible still run into Majority Text readings constantly. The Nestle-Aland/UBS critical text documents Byzantine readings throughout its apparatus, and CT-based translations regularly footnote them wherever the two traditions diverge: a note like "some manuscripts add" or "the majority of manuscripts read" in an ESV, NIV, or NRSV margin is almost always pointing at this family. The six passages in the Key Differences section below are the clearest examples of that footnote relationship in action.`,
+                formal: [
+                    [{ name: "World English Bible (WEB)", year: "2000", note: `Public-domain revision of the 1901 ASV; NT conformed to the Majority Text (Robinson-Pierpont) and OT to the Biblia Hebraica Stuttgartensia. Conceived in 1994 by Michael Paul Johnson, an electrical engineer with no formal seminary training who felt called to produce a Bible that would be permanently free to copy, publish, and distribute, well before that was a common goal for Bible projects. Early drafts, starting with the Gospel of John, were posted to Usenet newsgroups and mailing lists for open volunteer review and correction, an unusually internet-native, crowd-refined translation process for its time. The full text wasn't finalized until 2020, two decades after the project's first public release.` }],
+                    [{ name: "Majority Standard Bible (MSB)", year: "2025 (first draft 2021)", note: `Produced by the Berean Bible Translation Committee in cooperation with Bible Hub as a Majority-Text sibling to the Berean Standard Bible (see the Critical Text family): it keeps the BSB's Old Testament as-is and retranslates only the New Testament, from the Robinson-Pierpont Byzantine Majority Text rather than the Nestle-Aland/UBS critical text the BSB uses. Footnotes flag translatable variants against both the modern critical editions (NA, SBLGNT, ECM) and the Textus Receptus wherever they diverge from the Majority reading. Circulated as an open, public-domain working draft from 2021 (first e-Sword modules appeared that year), reaching a stable text by 2025.` }]
+                ],
+                dynamic: [],
+                dynamicEmpty: `No major dynamic-equivalence translations use the Majority Text as primary source.`,
+                mediatingEmpty: `No major mediating translations arise from this family.`,
+                footnote: `MEV (2014) is not listed here: it's a TR-primary translation cross-checked against the Majority Text; see the Textus Receptus section.`
+            },
+            ct: {
+                title: "Critical Text",
+                famLabel: "Critical Text",
+                blurb: `Rather than counting manuscripts or picking one "best" copy, scholars weigh each disputed reading individually against several criteria at once — a manuscript's age, how widely a reading was geographically distributed, the genealogical relationships between witnesses, and how well a reading explains the origin of its competitors — rather than letting any single factor automatically win out (a method called "reasoned eclecticism"). The most trusted witnesses are two 4th-century manuscripts, Codex Sinaiticus and Codex Vaticanus, along with even older fragments called papyri (some, like P66 and P75, date to the 2nd–3rd century). This approach was pioneered by two Cambridge scholars, Westcott and Hort, in 1881; its modern descendant, the Nestle-Aland/UBS Greek text (currently in its 28th edition), is the standard used in seminaries and Bible translation today. Because it leaves out some later scribal additions, it runs about 2% shorter than the Textus Receptus New Testament.`,
+                formal: [
+                    [
+                        { name: "English Revised Version (ERV)", year: "1881 (NT) / 1885 (OT)", note: `Produced by the same committee lineage that had been revising the KJV, but the committee shifted to the newly-reconstructed Westcott-Hort Greek text partway through, the historical fork that starts the Critical Text family. Westcott and Hort themselves sat on the revision committee, giving them direct influence over which readings were adopted. British project, intentionally conservative in how far it departed from the KJV's wording. American scholars were consulted throughout but their preferred readings were confined to an appendix rather than folded into the main British text, which is what prompted the Americans to issue their own edition two decades later.` },
+                        {
+                            name: "American Standard Version (ASV)", year: "1901", note: `The American committee's edition of the ERV, incorporating preferences the British team had rejected: more consistently literal, Americanized spelling, and "Jehovah" instead of "LORD" for the divine name throughout the OT. Became the direct ancestor of the RSV and NASB.`,
+                            branches: [
+                                [
+                                    { name: "RSV", year: "1946 (NT) / 1952 (OT)", note: `Formally a revision of the 1901 ASV, and through it of the KJV/TR committee lineage, but retranslated from the critical text; not TR-based. Sponsored by the National Council of Churches. First direct KJV-lineage revision to significantly modernize the English. Its rendering of Isaiah 7:14's "almah" as "young woman" instead of "virgin" set off a wave of public controversy among conservative Protestants, who read it as undercutting the virgin birth; a few pastors staged public burnings of the RSV in protest, most famously Luther Hux in North Carolina in 1952.` },
+                                    {
+                                        name: "RSV, 2nd edition", year: "1971", note: `Restored the longer ending of Mark (16:9–20) and the woman caught in adultery (John 7:53–8:11) to the main text, set off by a blank space and notes describing the differing ancient manuscript arrangements, rather than left in footnotes as in 1946. This was a change in presentation under sustained public and denominational pressure, not a scholarly reversal: even critics sympathetic to the RSV's approach have described the committee as retreating under fire from the 1946 backlash, and mainstream text-critical opinion continued to regard both passages as later additions.`,
+                                        branches: [
+                                            [
+                                                { name: "NRSV", year: "1989", note: `Gender-inclusive revision of the RSV, translated by an ecumenical committee that for the first time on a major English Bible included Jewish scholars working on the Old Testament and Apocrypha. First widely-used English translation to consistently render generic human references (e.g. "brothers" → "brothers and sisters") in gender-inclusive language while retaining traditional masculine language for God. Became the standard translation in mainline Protestant and Roman Catholic academic settings and many church lectionaries.` },
+                                                { name: "NRSVue", year: "2021", note: `"Updated Edition." Roughly 12,000 substantive changes from the National Council of Churches in partnership with the Society of Biblical Literature: updated textual/manuscript scholarship incorporating newer Dead Sea Scrolls research, and revised language around disability (e.g. "epileptics" → "having epilepsy") and enslavement. Released first in digital form before print editions followed. Not a new translation; the publisher describes it as a refinement, not a retranslation.` }
+                                            ],
+                                            [
+                                                { name: "ESV", year: "2001", note: `Revision of the 1971 RSV 2nd edition text directly, not of the NRSV; reverses many of the NRSV's gender-inclusive changes, moving the wording back toward more traditional, literal renderings. Published by the evangelical press Crossway, which licensed the RSV text as its literal starting point: an unusual move, building an intentionally conservative, complementarian-oriented translation on a base text originally produced by the mainline National Council of Churches, specifically as a corrective to what its editors saw as theological drift in the RSV/NRSV lineage. Minor revisions followed in 2007 (~360 changes) and 2011 (~276 changes), both overwhelmingly small consistency and wording fixes with no notable doctrinal weight, unlike the 2016 revision that followed.` },
+                                                { name: "ESV, 2016 revision", year: "", note: `Crossway publicly branded this the "Permanent Text Edition," explicitly pledging the wording would never be revised again, comparing it to the 1769 Blayney standardization of the KJV. Only 52 words changed across 29 verses, but one of them was significant enough to draw sustained criticism, and the "permanent" pledge made it feel more consequential than a typical minor update.`, bias: `Oversight committee whose most prominent figures were General Editor J.I. Packer and committee member Wayne Grudem, both prominent complementarians (Grudem co-founded the Council on Biblical Manhood and Womanhood). This edition changed Genesis 3:16 to read "contrary to" your husband, embedding Susan Foh's 1975 "desire to control" interpretation directly into the translation text itself rather than a footnote, a reading not uniformly held even among complementarians. The "permanent" framing raised the stakes of that specific rendering, which sharpened the criticism it drew.` },
+                                                { name: "ESV, 2025 revision", year: "", note: `68 word changes across 42 verses, quietly abandoning the "permanent" pledge less than a decade after making it. Most notably reverts Genesis 3:16 back to "for"/"toward," undoing the 2016 change, citing alignment with other formal-equivalence translations (RSV, NASB, NKJV). Also revises John 1:18 to "God the only Son," a contested Christological rendering unrelated to gender.`, bias: `The same Translation Oversight Committee (Grudem still serving) that produced the 2016 change remains in place; this corrects one specific rendering rather than reflecting any change in the committee's composition or orientation.` }
+                                            ]
+                                        ]
+                                    }
+                                ],
+                                [
+                                    { name: "NASB", year: "1971", note: `Highly literal, formal-equivalence revision of the 1901 ASV, sponsored by the Lockman Foundation (a nonprofit founded in 1942 by Dewey and Minna Lockman). Followed the KJV/ASV convention of italicizing every English word added for readability that has no direct equivalent in the underlying Hebrew or Greek. Became known for prioritizing word-for-word accuracy over readability, sometimes to the point of wooden English, and was widely adopted in seminaries for exactly that literalness.` },
+                                    {
+                                        name: "NASB 1995", year: "", note: `Updated the 1971 text's archaic pronouns (removed "thee/thou" in prayer language) and smoothed sentence flow, while keeping the formal-equivalence approach. Became the base text that both the NASB 2020 and the LSB independently revise going forward.`,
+                                        branches: [
+                                            [{ name: "NASB 2020", year: "", note: `Continues the formal-equivalence lineage from the 1995 text, incorporating updated critical-text readings and more contemporary English. Independent of the LSB: neither revises the other; both revise the 1995 NASB in parallel.`, bias: `Moved toward more gender-neutral renderings in generic contexts (e.g. "brothers and sisters"), a change some conservative NASB loyalists objected to; part of what motivated the LSB as a traditionalist counter-revision.` }],
+                                            [{ name: "LSB", year: "2021", note: `Legacy Standard Bible. A direct update of the 1995 NASB, produced by Master's Seminary faculty under a formal three-way partnership between the John MacArthur Charitable Trust, Three Sixteen Publishing, and, notably, the Lockman Foundation itself, which holds the NASB copyright and licensed it for this project rather than treating it as a rival translation. Released in two stages: New Testament with Psalms and Proverbs in February 2021, full Bible that October.`, bias: `Sponsored by the John MacArthur Charitable Trust and translated by Master's Seminary faculty, MacArthur's institutional home, known for dispensational, cessationist, and complementarian positions. Distinctive choices ("Yahweh" for the divine name, "slave" for doulos) reflect specific convictions of the translation team, departing from the "LORD"/"servant" convention used by most other translations, including other formal-equivalence ones. The "slave" rendering follows an argument MacArthur made at length in his own 2010 book <em>Slave</em>.` }]
+                                        ]
+                                    }
+                                ]
+                            ]
+                        }
+                    ],
+                    [
+                        { name: "BSB", year: "2016", note: `Berean Standard Bible; public domain, NA/UBS text with full TR & Majority Text footnotes. Grew directly out of the Bible Hub interlinear and the Berean Literal Bible, coordinated by the Bible Hub and Discovery Bible teams under a small advisory committee that included Dr. Grant Osborne (New Testament lead) and Dr. Eugene H. Merrill (Old Testament lead), and incorporates translation notes drawn from the late Old Testament scholar Dr. Gleason Archer. Deliberately run as an open, transparent project: its translation tables are published for public comment and revised in response to reader feedback rather than being finalized by a closed committee. Fully dedicated to the public domain as of April 30, 2023.` }
+                    ]
+                ],
+                mediating: [
+                    [
+                        { name: "NET Bible", year: "2001 / stabilized 2005", note: `Extensive translator footnotes (60,000+) split into three layers: textual-critical notes, translators' notes explaining word choices, and study notes, a level of documented transparency about translation decisions that's unusual among major English Bibles. Explicitly a mediating translation: leans formal in places, dynamic in others, rather than fitting cleanly into either camp. General editor W. Hall Harris III. Free to download from its outset; commissioned by Bible.org specifically for online distribution at a time when that was still a novel model for Bible publishing.`, bias: `Most translators and editors are Dallas Theological Seminary faculty, a dispensational, premillennial institution. Two specific renderings stand out: Genesis 3:16 reads "You will want to control your husband, but he will dominate you," going further than even the pre-2025 ESV in embedding Susan Foh's "desire to control" interpretation, with "dominate" adding a harsher edge than any other major translation uses there. Romans 16:7 reads Junia was "well known to the apostles" rather than "outstanding among the apostles" (KJV, NIV): a rendering that determines whether Junia is presented as an apostle herself or merely known by apostles, and one directly traceable to NET translator Daniel B. Wallace's own published scholarship arguing for that reading (Burer & Wallace, "Was Junia Really an Apostle?", <em>NTS</em> 2001).` },
+                        { name: "NET Bible, Full Notes Edition", year: "2019", note: `Revised awkward renderings, updated the textual-criticism notes to align with the newer NA28 Greek edition (affecting roughly 600 of 2,600 NT notes), and trimmed about 3,300 footnotes judged superfluous. Often called "NET2" informally in Bible software and forums, but that's not the publisher's name for it.` }
+                    ],
+                    [
+                        { name: "HCSB", year: "2004", note: `Holman Christian Standard Bible. Original translation introducing "optimal equivalence" (a label its editors coined specifically to sidestep the formal/dynamic dichotomy), balancing literal accuracy with readability. Notably used "Yahweh" for the divine name in a number of Old Testament passages, inconsistently. Published by Holman Bible Publishers, the Southern Baptist Convention's own trade publishing arm. A minor 2009 revision preceded its full replacement by the CSB.`, bias: `Funded and published by LifeWay Christian Resources, the Southern Baptist Convention's publishing arm; translated by a 100-scholar, 17-denomination team, but its institutional home led to it being informally nicknamed "the Southern Baptist Bible." The team was largely, though not entirely, complementarian, and the translation kept traditional masculine-generic renderings (e.g. "brothers" for adelphoi even in mixed-gender address) that the SBC's own doctrinal statement aligns with.` },
+                        { name: "CSB", year: "2017, rev. 2020", note: `Christian Standard Bible; dropped "Holman" from the name in the rebrand. "Optimal equivalence": mediates formal/dynamic, leaning formal.`, bias: `Same LifeWay/Southern Baptist sponsorship as the HCSB; dropped the HCSB's inconsistent use of "Yahweh" for the divine name in favor of uniform "LORD." Moved several hundred renderings toward gender-accurate language (e.g. "brothers and sisters" for adelphoi, "anyone" or "a person" instead of generic "man"). The Translation Oversight Committee describes this as "gender-accurate" rather than "gender-neutral" or egalitarian, and the committee and sponsoring convention remain officially complementarian, but the shift was contested enough that some reviewers on both sides read it as a real move toward egalitarian-friendlier language, not just a stylistic update.` }
+                    ]
+                ],
+                dynamic: [
+                    [
+                        { name: "Good News for Modern Man (GNT/TEV)", year: "1966", note: `New Testament only, translated by Robert Bratcher and published by the American Bible Society; early, deliberately simple "common language" translation aimed at non-native English speakers, built on the "dynamic equivalence" (meaning-for-meaning, not word-for-word) philosophy articulated by ABS translation consultant and linguist Eugene Nida. Unusually for a Bible translation, it was illustrated throughout with simple line drawings by the artist Annie Vallotton. Originally published under the name Today's English Version (TEV), the source of that abbreviation still used alongside GNT.` },
+                        { name: "Good News Bible (GNT/TEV)", year: "1976", note: `Added the Old Testament to complete the full Bible, extending Bratcher and Nida's dynamic-equivalence approach across the whole canon.` },
+                        { name: "Good News Bible, 2nd edition", year: "1992", note: `Publisher-branded "Second Edition." Revised gender-specific language in passages using masculine generics (e.g. "man") to refer to all people, alongside other clarity updates. Renamed the Good News Translation (GNT) in the U.S. around 2001, retiring the original Today's English Version name; "Good News Bible" remains common in British/international markets.` }
+                    ],
+                    [
+                        { name: "NIV", year: "1978", note: `An independent "from scratch" translation, not a revision of any prior English Bible, though not the first of its kind; the Good News Bible predates it by over a decade. Commissioned beginning 1965 by the New York Bible Society (now Biblica), which convened the Committee on Bible Translation (CBT), a standing, self-perpetuating scholarly body that has overseen every NIV revision since, rather than a one-time project committee. What distinguished the NIV was scale: 100+ scholars across many evangelical denominations, deliberately assembled to avoid identification with any single tradition, aimed at mainstream pulpit and study use. It went on to become the best-selling modern English translation.` },
+                        {
+                            name: "NIV", year: "1984", note: `Light revision: mostly wording and consistency fixes rather than a substantial retranslation. This is the edition most closely associated with the "NIV" name for a generation of readers.`,
+                            branches: [
+                                [
+                                    { name: "NIrV", year: "1994 (NT) / 1996 (full Bible)", arrowLabel: "adapted as", note: `New International Reader's Version: a simplified-vocabulary rendering of the 1984 NIV text, targeted at children and English-language learners (roughly 3rd-grade reading level) while still tracking closely enough to the standard NIV for side-by-side comparison. A ~40-scholar committee reworked the NIV's sentence and word length while checking back against the Greek/Hebrew. Widely adopted for children's Bibles and ESL ministry use.` },
+                                    { name: "NIrV, 2014 revision", year: "", note: `Realigned the text with the 2011 NIV (rather than the 1984 NIV it was originally built from), carrying over that edition's updated scholarship and gender-language changes.` }
+                                ],
+                                [
+                                    { name: "TNIV", year: "2005", note: `"Today's NIV," an interim revision aiming to update the NIV's language for gender-accuracy and general readability.`, bias: `Went further than the eventual 2011 NIV on gender-inclusive language; drew sharp criticism from complementarian groups. Zondervan and Biblica publicly called the TNIV "divisive" and discontinued it in 2011, retiring it in favor of a single unified NIV rather than continuing to sell two competing editions, with much of its work folded into that revision.` }
+                                ],
+                                [
+                                    { name: "NIV", year: "2011", note: `The current standard NIV text; replaced both the 1984 NIV and the TNIV, incorporating some (not all) of the TNIV's gender-language changes along with updated scholarship.`, bias: `Adopted gender-inclusive renderings in generic contexts (e.g. "brothers and sisters," singular "they"). The Council on Biblical Manhood and Womanhood and the Southern Baptist Convention publicly rejected it as too gender-neutral; the 1984 edition remains preferred in more complementarian-leaning circles.` }
+                                ]
+                            ]
+                        }
+                    ],
+                    [
+                        { name: "CEV", year: "1991 (NT) / 1995 (full Bible)", note: `Contemporary English Version; American Bible Society translation led by translator Barclay Newman, aimed at a low reading level and designed above all to be read aloud clearly. It goes further than the GNT in avoiding traditional theological vocabulary ("justification," "covenant," "redemption") in favor of plain paraphrastic equivalents, which made it popular for radio broadcast and oral public reading. Not a revision of the Good News Bible despite the shared publisher: a fresh translation with a still-lower reading level.` }
+                    ],
+                    [
+                        { name: "NLT", year: "1996", note: `Began as a project to revise Ken Taylor's paraphrase "The Living Bible" (1971), itself a one-man paraphrase written in plain language for Taylor's own children rather than a translation from the original languages, but evolved into a full scholarly retranslation directly from the Hebrew, Aramaic, and Greek by a 90-scholar committee across evangelical traditions, organized into teams responsible for individual books and cross-checked by multiple reviewers. First edition still retained some of Taylor's original wording.` },
+                        { name: "NLT, 2nd edition (NLTse)", year: "2004", note: `Major revision increasing precision without sacrificing readability: reduced paraphrasing, more consistent word choices, and recast Old Testament poetry into verse format. Minor follow-on updates in 2007, 2013, and 2015 (the 2015 round affected about 86 verses, largely to de-Americanize idioms and replace "leper" with "man with leprosy").` }
+                    ]
+                ]
+            }
+        };
+
+        // ---- render ----
+        function makeCard(node, key) {
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.innerHTML = `
+                <div class="name">${node.name}</div>
+                ${node.year ? `<div class="year">${node.year}</div>` : ``}
+                <p class="note">${node.note || ''}</p>
+                ${node.bias ? `<div class="bias">${node.bias}</div>` : ``}
+            `;
+            return div;
+        }
+
+        function renderChain(chain, key) {
+            const wrap = document.createElement('div');
+            wrap.className = 'lineage';
+            chain.forEach((node, i) => {
+                if (i > 0) {
+                    const arrow = document.createElement('div');
+                    arrow.className = 'arrow';
+                    arrow.textContent = '↓ ' + (node.arrowLabel || 'revised as');
+                    wrap.appendChild(arrow);
+                }
+                wrap.appendChild(makeCard(node, key));
+                if (node.branches) {
+                    const row = document.createElement('div');
+                    const colCount = node.branches.length === 1 ? 'one' : node.branches.length === 3 ? 'three' : 'two';
+                    row.className = 'branch-row ' + colCount;
+                    if (node.branches.length > 1) {
+                        const hint = document.createElement('div');
+                        hint.className = 'scroll-hint';
+                        hint.textContent = '↔ scroll to see other branches';
+                        wrap.appendChild(hint);
+                    }
+                    node.branches.forEach(sub => {
+                        const col = document.createElement('div');
+                        col.className = 'branch-col';
+                        const branchArrow = document.createElement('div');
+                        branchArrow.className = 'arrow';
+                        const firstNode = sub[0];
+                        branchArrow.textContent = '↓ ' + ((firstNode && firstNode.arrowLabel) || 'revised as');
+                        col.appendChild(branchArrow);
+                        col.appendChild(renderChain(sub, key));
+                        row.appendChild(col);
+                    });
+                    wrap.appendChild(row);
+                }
+            });
+            return wrap;
+        }
+
+        function renderEquivBlock(chains, emptyText, key) {
+            const block = document.createElement('div');
+            block.className = 'equiv-block';
+            if (!chains || chains.length === 0) {
+                const p = document.createElement('p');
+                p.className = 'empty-note';
+                p.textContent = emptyText;
+                block.appendChild(p);
+                return block;
+            }
+            chains.forEach((chain, i) => {
+                if (i > 0) {
+                    const hr = document.createElement('hr');
+                    hr.className = 'lineage-rule';
+                    block.appendChild(hr);
+                }
+                block.appendChild(renderChain(chain, key));
+            });
+            return block;
+        }
+
+        function renderFamily(key) {
+            const d = DATA[key];
+            const section = document.createElement('section');
+            section.className = 'family ' + key + (key === 'tr' ? ' active' : '');
+            section.id = key;
+
+            section.innerHTML = `<div class="family-head"><h2>${d.title}</h2><p>${d.blurb}</p>${d.blurb2 ? `<p>${d.blurb2}</p>` : ''}</div>`;
+
+            const formalBlock = renderEquivBlock(d.formal, d.formalEmpty || '', key);
+            const formalLabelEl = document.createElement('p');
+            formalLabelEl.className = 'equiv-label';
+            formalLabelEl.textContent = 'Formal Equivalence';
+            formalBlock.prepend(formalLabelEl);
+            section.appendChild(formalBlock);
+
+            if ((d.mediating && d.mediating.length) || d.mediatingEmpty) {
+                const mediatingBlock = renderEquivBlock(d.mediating, d.mediatingEmpty || '', key);
+                const mediatingLabelEl = document.createElement('p');
+                mediatingLabelEl.className = 'equiv-label';
+                mediatingLabelEl.textContent = 'Mediating';
+                mediatingBlock.prepend(mediatingLabelEl);
+                section.appendChild(mediatingBlock);
+            }
+
+            const dynamicBlock = renderEquivBlock(d.dynamic, d.dynamicEmpty || '', key);
+            const dynamicLabelEl = document.createElement('p');
+            dynamicLabelEl.className = 'equiv-label';
+            dynamicLabelEl.textContent = 'Dynamic Equivalence';
+            dynamicBlock.prepend(dynamicLabelEl);
+            section.appendChild(dynamicBlock);
+
+            if (d.footnote) {
+                const fn = document.createElement('div');
+                fn.className = 'equiv-block';
+                fn.innerHTML = `<p class="empty-note" style="padding-bottom:0;">${d.footnote}</p>`;
+                section.appendChild(fn);
+            }
+
+            return section;
+        }
+
+        const familiesContainer = document.getElementById('families');
+        ['tr', 'mt', 'ct'].forEach(key => familiesContainer.insertBefore(renderFamily(key), document.getElementById('diff')));
+
+        // ---- tabs ----
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.toggle('active', el.dataset.tab === tab));
+            document.querySelectorAll('.tree-node.branch').forEach(el => el.classList.toggle('active', el.dataset.tab === tab));
+            document.querySelectorAll('.family').forEach(el => el.classList.toggle('active', el.dataset.panel === tab || el.id === tab));
+        }
+        document.querySelectorAll('.tab-btn, .tree-node.branch').forEach(el => {
+            el.addEventListener('click', () => switchTab(el.dataset.tab));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,91 +1,23 @@
-# Richard Basile — Site README
+# richardbasile.com
 
-## Local Preview
+Personal website hosted with GitHub Pages.
 
-### Prerequisites
-Make sure you have Ruby and Bundler installed.
+- **Live site:** [richardbasile.com](https://richardbasile.com) (redirects to [richardbasile.github.io](https://richardbasile.github.io/))
 
-If you don't have a `Gemfile` in your repo root, create one with:
+## Local Development
 
-```ruby
-source "https://rubygems.org"
-
-gem "github-pages", group: :jekyll_plugins
-```
-
-Then install dependencies once:
+Preview the site locally using [`serve`](https://www.npmjs.com/package/serve):
 
 ```bash
-bundle install
+npx serve .
 ```
 
-This will create a `Gemfile.lock` — commit both files to your repo.
+Then open the printed local URL (typically `http://localhost:3000`) in your browser.
 
-### Start the Local Server
+## Deployment
 
-```bash
-bundle exec jekyll serve
-```
+This site is deployed automatically via [GitHub Pages](https://pages.github.com/). Pushes to the default branch are published to `richardbasile.github.io`, with `richardbasile.com` configured as a custom domain that redirects to it.
 
-Then open [http://localhost:4000](http://localhost:4000) in your browser.
+## License
 
-> **Note:** Any changes you save to `.md` files will hot-reload automatically. However, if you change `_config.yml`, you must stop the server (`Ctrl+C`) and restart it for changes to take effect.
-
----
-
-## Writing a New Blog Post
-
-1. Create a new file in the `_posts/` directory named using this format:
-
-```
-_posts/YYYY-MM-DD-your-post-title.md
-```
-
-For example: `_posts/2025-03-07-my-first-run.md`
-
-2. Add front matter at the top of the file:
-
-```yaml
----
-layout: default
-title: "Your Post Title"
-date: 2025-03-07
----
-```
-
-3. Write your content below the front matter in Markdown.
-
----
-
-## Updating the Links Page
-
-Edit `links.md` in the repo root. Each link follows this format:
-
-```markdown
-- <i class="fab fa-icon-name"></i> [Label](https://url)
-```
-
-Icon names come from [Font Awesome](https://fontawesome.com/icons).
-
----
-
-## Updating Site Settings
-
-Edit `_config.yml` for:
-- **Site title or description**
-- **Header navigation pages** (`header_pages`)
-- **Author info and social links**
-
-Remember to restart your local server after any `_config.yml` change.
-
----
-
-## Publishing Changes
-
-```bash
-git add .
-git commit -m "Your commit message"
-git push
-```
-
-GitHub Pages will automatically rebuild and publish the site within a minute or two. Check the **Actions** tab in your GitHub repo to monitor the build status.
+All rights reserved.
