@@ -1041,6 +1041,19 @@ td.day-cell.thu-strides-cell .mi { color: var(--crimson); }
 td.day-cell.thu-strides-cell .session-name { display: block; font-size: 0.68rem; color: var(--crimson); font-weight: 500; margin-top: 2px; line-height: 1.25; }
 td.day-cell.thu-strides-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--crimson); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
 
+/* ---------- magic mile cell ---------- */
+td.day-cell.magic-mile-cell {
+  background: var(--crimson-wash);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s ease;
+}
+td.day-cell.magic-mile-cell:hover { background: var(--crimson-tint); }
+td.day-cell.magic-mile-cell:focus-visible { outline: 2px solid var(--crimson); outline-offset: -2px; }
+td.day-cell.magic-mile-cell .mi { color: var(--crimson); }
+td.day-cell.magic-mile-cell .session-name { display: block; font-size: 0.68rem; color: var(--crimson); font-weight: 500; margin-top: 2px; line-height: 1.25; }
+td.day-cell.magic-mile-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--crimson); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
+
 /* ---------- strength cells ---------- */
 td.day-cell.strength-cell { background: #EEF1EA; cursor: pointer; position: relative; transition: background 0.15s ease; }
 td.day-cell.strength-cell:hover { background: #DBE2D2; }
