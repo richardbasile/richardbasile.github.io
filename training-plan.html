@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Plan - Richard Basile</title>
     <meta name="description"
-        content="14-week hybrid strength + half marathon build — weekly mileage, AM strength sessions, and an all-easy run/walk approach with periodic Magic Mile testing.">
+        content="12-week hybrid strength + half marathon build — weekly training by day, prescribed in minutes, AM strength sessions, and an all-easy run/walk approach.">
     <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,21 +57,21 @@
                 </nav>
 
                 <header class="masthead" style="margin-bottom: 0;">
-                    <p class="header-meta">14-Week Hybrid Strength + Half Marathon Build</p>
+                    <p class="header-meta">12-Week Hybrid Strength + Half Marathon Build</p>
                     <h1>Training <em>Plan</em></h1>
                 </header>
 
 
                 <div class="section">
                     <div class="section-label">Overview</div>
-                    <p class="intro-text">Weekly mileage and lifting by day, building toward the Johnstown
-                        Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk method
-                        &mdash; no tempo work, no speed work, no strides. Monday is strength only (full-body),
-                        no run; Tuesday carries the week's easy run (occasionally a Magic Mile test, see below);
-                        Wednesday is strength only (lower-body), no run; Thursday carries the week's other easy
-                        run; Friday is upper-body strength only plus optional easy cross-training, no run, to
-                        protect Saturday's long run; Saturday carries the long run, with periodic deload weeks
-                        along the way; Sunday is rest, except the Big Bad Wolfe 5K on Sep 27.
+                    <p class="intro-text">Weekly training by day, prescribed in minutes, building toward the
+                        Johnstown Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk
+                        method &mdash; no tempo work, no speed work, no strides. Monday is strength only
+                        (full-body) plus optional easy cross-training, no run; Tuesday carries the week's easy
+                        run; Wednesday is strength only (lower-body), no run; Thursday carries the week's other
+                        easy run; Friday is upper-body strength only, no run, to protect Saturday's long run;
+                        Saturday carries the long run, with periodic deload weeks along the way; Sunday is rest,
+                        except the Big Bad Wolfe 5K on Sep 27.
                     </p>
                 </div>
 
@@ -90,7 +90,7 @@
                                     <th>Friday</th>
                                     <th>Saturday</th>
                                     <th>Sunday</th>
-                                    <th>Total</th>
+                                    <th>Total (min)</th>
                                 </tr>
                             </thead>
                             <tbody id="planBody"></tbody>
@@ -101,18 +101,13 @@
                 <div class="section">
                     <div class="section-label">Run/Walk Method</div>
                     <p class="rotation-note">
-                        Every run in this plan &mdash; Tuesday, Thursday, Saturday's long run, and both races
-                        &mdash; uses a run/walk approach: currently <span id="runWalkRatio"></span>. There's no
-                        tempo work and no strides anywhere in this cycle; every mile is easy effort.
-                    </p>
-                    <p class="rotation-note">
-                        The ratio above isn't fixed for all 14 weeks. Weeks 1, 3, 6, and 10 (cycle start, plus
-                        every deload week) carry a Magic Mile test on Tuesday in place of the normal easy run
-                        &mdash; a hard, honest 1-mile time trial, bookended by an easy warm-up and cool-down.
-                        Use the result to recalibrate pace and, if needed, the run/walk ratio for the weeks
-                        that follow. Click a Magic Mile week's Tuesday cell for the full warm-up/test/cool-down
-                        breakdown. No test in Weeks 13&ndash;14 &mdash; taper and race week protect freshness
-                        instead of chasing one more data point.
+                        Every run in training &mdash; Tuesday, Thursday, and Saturday's long run &mdash; uses a
+                        run/walk approach at easy effort: currently <span id="runWalkRatio"></span>. There's no
+                        tempo work and no strides anywhere in this cycle. Both races are the exception: the Big
+                        Bad Wolfe 5K (Week 4) and the Johnstown Turkey Trot (Week 12) are each raced at a genuine
+                        effort, faster than training pace &mdash; the 5K as a mid-cycle fitness check, the Turkey
+                        Trot as the actual goal race. The run/walk mechanics stay in play on both, just at a
+                        shorter walk break or faster run interval than the easy training ratio.
                     </p>
                 </div>
 
@@ -178,85 +173,96 @@
         // weeks' Tuesday mileage and weekly totals dropped slightly (~1mi)
         // to make room for the test effort. Big Bad Wolfe 5K (Week 6)
         // reframed from a tempo tuning race to an easy fun run/walk.
+        //
+        // Revised Aug 28, 2026: dropped the original Weeks 1-2 entirely
+        // (opening build week + treadmill test week) and rebuilt the
+        // remaining 12 weeks from scratch around a fixed minutes-based
+        // schedule rather than mileage -- Tue/Thu/Sat prescriptions now come
+        // straight from a supplied 12-week table (minutes, not miles), with
+        // the goal race held on the same final date as before (Nov 22).
+        // Magic Mile testing is dropped entirely along with the treadmill
+        // test -- there's no periodic recalibration mechanism anymore, just
+        // the fixed schedule below. The Big Bad Wolfe 5K stays on its fixed
+        // calendar date (Sun Sep 27), which lines up with new Week 4
+        // (marked Deload in the supplied table) -- Saturday that week is
+        // overridden to rest (rather than the table's nominal 50 min) since
+        // the actual long effort that week is Sunday's race instead; the
+        // 5K's ~40 min is a rough estimate at current easy pace, not a
+        // measured number. Every other week's Sat/Tue/Thu minutes and
+        // weekly total match the supplied table exactly. Strength stays
+        // Mon/Wed/Fri, now simplified to a single Build tier (no separate
+        // Peak Build tier -- the compressed 12-week cycle doesn't need the
+        // extra granularity) plus one Peak week (10), Taper (11), and no
+        // lifting at all in Race Week (12), consistent with prior design.
         const plan = [
             {
-                wk: 1, date: 'Aug 23', phase: 'Build', tue: 3, thu: 2, sat: 3, sun: 'rest', total: 8, race: null, magicMile: true,
+                wk: 1, date: 'Sep 6', phase: 'Build', tue: 30, thu: 30, sat: 40, sun: 'rest', total: 100, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 2, date: 'Aug 30', phase: 'Build', tue: 0, thu: 4, sat: 4, sun: 'rest', total: 8, race: null,
-                strength: { mon: 'monTestPrep', wed: 'wedBuild', fri: 'friStandard' }, testDay: true
+                wk: 2, date: 'Sep 13', phase: 'Build', tue: 30, thu: 30, sat: 60, sun: 'rest', total: 120, race: null,
+                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 3, date: 'Sep 6', phase: 'Deload', tue: 3, thu: 2, sat: 3, sun: 'rest', total: 8, race: null, magicMile: true,
+                wk: 3, date: 'Sep 20', phase: 'Build', tue: 40, thu: 30, sat: 70, sun: 'rest', total: 140, race: null,
+                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
+            },
+            {
+                wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, race effort)', total: 100, race: null,
                 strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friStandard' }, deload: true
             },
             {
-                wk: 4, date: 'Sep 13', phase: 'Build', tue: 4, thu: 2, sat: 5, sun: 'rest', total: 11, race: null,
+                wk: 5, date: 'Oct 4', phase: 'Build', tue: 45, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
+                strength: { mon: 'monPost5k', wed: 'wedBuild', fri: 'friStandard' }
+            },
+            {
+                wk: 6, date: 'Oct 11', phase: 'Build', tue: 50, thu: 40, sat: 90, sun: 'rest', total: 180, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 5, date: 'Sep 20', phase: 'Build', tue: 4, thu: 3, sat: 6, sun: 'rest', total: 13, race: null,
+                wk: 7, date: 'Oct 18', phase: 'Build', tue: 60, thu: 40, sat: 100, sun: 'rest', total: 200, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 6, date: 'Sep 27', phase: 'Deload', tue: 3, thu: 2, sat: 'rest', sun: 3.1, sunRace: 'Big Bad Wolfe 5K<br />(easy run/walk, fun pace)', total: 8.1, race: null, magicMile: true,
+                wk: 8, date: 'Oct 25', phase: 'Deload', tue: 40, thu: 30, sat: 60, sun: 'rest', total: 130, race: null, magicMile: true,
                 strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friStandard' }, deload: true
             },
             {
-                wk: 7, date: 'Oct 4', phase: 'Build', tue: 5, thu: 4, sat: 7, sun: 'rest', total: 16, race: null,
-                strength: { mon: null, wed: 'wedBuild', fri: 'friStandard' }
+                wk: 9, date: 'Nov 1', phase: 'Build', tue: 65, thu: 45, sat: 110, sun: 'rest', total: 220, race: null,
+                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 8, date: 'Oct 11', phase: 'Build', tue: 5, thu: 5, sat: 8, sun: 'rest', total: 18, race: null,
-                strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 9, date: 'Oct 18', phase: 'Build', tue: 6, thu: 5, sat: 9, sun: 'rest', total: 20, race: null,
-                strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 10, date: 'Oct 25', phase: 'Deload', tue: 3, thu: 3, sat: 6, sun: 'rest', total: 12, race: null, magicMile: true,
-                strength: { mon: 'monPeakBuildDeload', wed: 'wedPeakBuildDeload', fri: 'friStandard' }, deload: true
-            },
-            {
-                wk: 11, date: 'Nov 1', phase: 'Build', tue: 7, thu: 5, sat: 10, sun: 'rest', total: 22, race: null,
-                strength: { mon: 'monPeakBuild', wed: 'wedPeakBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 12, date: 'Nov 8', phase: 'Peak', tue: 7, thu: 6, sat: '11\u201312', sun: 'rest', total: 24, race: null, satFlexMiles: 1,
+                wk: 10, date: 'Nov 8', phase: 'Peak', tue: 65, thu: 55, sat: 120, sun: 'rest', total: 240, race: null,
                 strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friStandard' }
             },
             {
-                wk: 13, date: 'Nov 15', phase: 'Taper', tue: 5, thu: 5, sat: 8, sun: 'rest', total: 18, race: null,
+                wk: 11, date: 'Nov 15', phase: 'Taper', tue: 45, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
                 strength: { mon: 'monTaper', wed: 'wedTaper', fri: 'friTaper' }
             },
             {
-                wk: 14, date: 'Nov 22', phase: 'Race Week', tue: 5, thu: 2, sat: 13.1, sun: 'rest', total: 20.1, race: 'Johnstown Turkey Trot Half Marathon',
+                wk: 12, date: 'Nov 22', phase: 'Race Week', tue: 35, thu: 25, sat: 150, sun: 'rest', total: 210, race: 'Johnstown Turkey Trot Half Marathon (13.1 mi)',
                 strength: { mon: null, wed: null, fri: null }
             },
         ];
 
         // Current run/walk ratio, per Jeff Galloway-style pacing. This is the
         // single source of truth for the ratio shown throughout the page --
-        // update this one line after each Magic Mile recalibration instead of
-        // hunting through the prose.
+        // update this one line if the ratio changes instead of hunting
+        // through the prose.
         const RUN_WALK_RATIO = '2:00 run / 0:30 walk';
 
-        // Magic Mile time trial: a periodic all-out 1-mile effort used to
-        // recalibrate training pace and the run/walk ratio above as fitness
-        // changes. Scheduled at the very start of the cycle (baseline) and
-        // then at each deload week (Weeks 3, 6, 10) -- deloads are already
-        // the lowest-fatigue points in the plan, so they're a fair week to
-        // test in. No test in Weeks 13-14 -- taper and race week protect
-        // freshness instead of chasing another data point.
-        function magicMilePrescription() {
+        // One-off Magic Mile check, Week 8 only -- not a recurring system.
+        // The 1-mile test itself is fixed-distance regardless of the day's
+        // overall time budget, so warm-up/cool-down split whatever's left of
+        // the day's 40 minutes around it rather than being prescribed as
+        // fixed minutes themselves.
+        function magicMilePrescription(totalMinutes) {
             return {
                 name: 'Magic Mile Time Trial',
-                warmup: `1 mile easy, ${RUN_WALK_RATIO} \u2014 gradually loosen up, not a full effort yet`,
+                warmup: `~10 min easy, ${RUN_WALK_RATIO} \u2014 gradually loosen up, not a full effort yet`,
                 main: 'Run 1 mile as fast as you can sustain for the entire mile \u2014 a hard, honest effort right at your current fitness limit, not a sprint that fades halfway through',
-                cooldown: `1 mile easy walk/jog, ${RUN_WALK_RATIO} or slower, to recover`,
-                note: 'Use today\u2019s time to recalibrate training pace and, if needed, the run/walk ratio above for the weeks ahead. Fitness shifts over a 14-week cycle \u2014 this keeps the plan tracking where you actually are instead of a number set back in Week 1.'
+                cooldown: `Remainder of today\u2019s ${totalMinutes} minutes easy walk/jog, ${RUN_WALK_RATIO} or slower, to recover`,
+                note: 'A one-off mid-cycle pace check, not a recurring test. Use today\u2019s result to see whether your current run/walk ratio still fits, or whether it\u2019s time to move to a faster or slower interval.'
             };
         }
 
@@ -277,16 +283,6 @@
         ];
 
         const STRENGTH = {
-            monTestPrep: {
-                name: 'Full Body (Test-Week Prep \u2014 Light)', focus: 'Monday \u2014 easy day, treadmill stress test is tomorrow',
-                main: [
-                    'Bodyweight squat \u2014 2 \u00d7 10, easy',
-                    'Light DB RDL \u2014 1\u20132 \u00d7 8\u201310, light load',
-                    '{{PRESS}} \u2014 2 \u00d7 8, light',
-                    'Row \u2014 2 \u00d7 8, light',
-                ],
-                note: 'Treadmill stress test is Tuesday \u2014 no heavy squat/deadlift today. Keep the run easy, keep this session light, and skip anything that leaves you sore or fatigued going into tomorrow.'
-            },
             monBaseModerate: {
                 name: 'Full Body (Moderate Load)', focus: 'Monday \u2014 first barbell session back, moderate load',
                 main: [
@@ -365,7 +361,7 @@
                     '{{PRESS}} \u2014 2 \u00d7 6\u20138',
                     'Row \u2014 2 \u00d7 6\u20138',
                 ],
-                note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Today\u2019s run is also swapped for cross-training so the legs get a full day off impact before Tuesday\u2019s run resumes.'
+                note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Keep today\u2019s optional cross-training low-impact (bike, swim, easy walk) so the legs get a full day off impact before Tuesday\u2019s run resumes.'
             },
             monTaper: {
                 name: 'Full Body (Taper)', focus: 'Monday \u2014 light pass',
@@ -474,23 +470,23 @@
         };
 
         const RACES = {
-            6: {
-                name: 'Big Bad Wolfe 5K', role: 'Fun Run',
-                goal: 'An easy, supported 5K using your normal run/walk ratio \u2014 not a race effort. Nothing here is timed pressure; it\u2019s just a fun mid-cycle outing on the calendar, done at the same effort as any other Tuesday or Thursday run.',
-                warmup: '10 min easy walk plus some light movement \u2014 enough to feel loose, nothing more.',
-                effort: `Hold your normal easy effort throughout, ${RUN_WALK_RATIO} \u2014 135\u2013148 bpm. If the field starts pulling you faster, let it go. This isn\u2019t a race to chase anyone in.`,
-                pacing: 'Even, comfortable effort start to finish \u2014 no need to push or negative split. Today is about enjoying the distance, not testing fitness.',
-                fueling: 'Normal pre-run routine \u2014 nothing new. It\u2019s a fun outing, not a goal race.',
-                note: 'This week also carries a Magic Mile test on Tuesday \u2014 that\u2019s where any recalibration happens, not today\u2019s 5K.'
+            4: {
+                name: 'Big Bad Wolfe 5K', role: 'Tuning Race',
+                goal: 'Race this 5K at a genuine effort \u2014 it\u2019s a fitness test, not a fun outing. Today\u2019s time gives a real data point on where fitness stands roughly a third of the way through the cycle, and can predict a realistic half-marathon pace for the Turkey Trot using Riegel\u2019s formula (T2 = T1 \u00d7 (D2/D1)^1.06): roughly 4.6\u00d7 today\u2019s 5K time for the 13.1-mile jump. Treat that number as an optimistic ceiling, not a lock \u2014 5K results reward speed more than endurance, so a 5K-based half-marathon prediction tends to run a bit fast for endurance-limited runners.',
+                warmup: '10\u201315 min easy walk/jog, run/walk ratio, plus a few relaxed strides \u2014 enough to feel warm and ready to push.',
+                effort: 'Push to a real, sustained race effort for the full 3.1 \u2014 harder than any training run this cycle, but even enough to hold for the whole distance rather than fading in the last mile.',
+                pacing: 'Even effort or a slight negative split. No need to hold back for fear of the following week \u2014 Monday\u2019s strength session is already built lighter to absorb today\u2019s effort.',
+                fueling: 'Normal pre-run routine \u2014 nothing new. It\u2019s a short race; no special fueling needed beyond normal hydration.',
+                note: 'This lands in a deload week \u2014 Saturday is a full rest day beforehand, and Monday\u2019s strength session afterward is already built lighter to account for today\u2019s effort. Compare this result against Week 8\u2019s Magic Mile for a second, independent check on how fitness is trending.'
             },
-            14: {
+            12: {
                 name: 'Johnstown Turkey Trot Half Marathon', role: 'Goal Race',
-                goal: 'Cover the half marathon at a comfortable, sustainable easy effort for the full 13.1, using the same run/walk ratio (or whatever your most recent Magic Mile dialed in) as every training run this cycle \u2014 this cycle built the aerobic base and durability to make that hold up for 13.1 miles.',
+                goal: 'Race the half marathon at a genuine race effort for the full 13.1 \u2014 faster than the easy pace used in training. This cycle built the aerobic base and durability all season; race day is where that fitness gets spent, not banked. Your Week 8 Magic Mile test gives a data-driven starting point for goal pace (roughly Magic Mile pace \u00d7 1.2 for half-marathon effort) rather than guessing.',
                 warmup: '10\u201315 min easy walk, done well before the start so there\u2019s time to use the bathroom and get to the corral without rushing. Nothing hard \u2014 save the legs.',
-                effort: 'Miles 1\u20133: comfortably easy, conversational (135\u2013148 bpm) \u2014 this is the range where adrenaline most wants to push you faster. Miles 4\u20139: settle into the steady long-run effort (140\u2013150 bpm). Miles 10\u201313.1: hold your run/walk ratio rather than chasing pace as fatigue builds.',
-                pacing: 'Even effort, same run/walk ratio start to finish. The single most common mistake on race morning is going out too fast on adrenaline and adjacent, faster runners \u2014 the pace should feel almost too easy in the first mile.',
+                effort: 'Miles 1\u20133: settle in close to goal pace, but stay controlled \u2014 resist the adrenaline urge to go out faster than that. Miles 4\u20139: hold a strong, sustainable effort here; this is the biggest chunk of the race and where discipline matters most. Miles 10\u201313.1: this is where the race actually happens \u2014 push to whatever effort you can sustain to the finish, informed by how the first 9 miles felt.',
+                pacing: 'Even effort or a slight negative split, since this is a race, not a training run \u2014 but the first mile still shouldn\u2019t be an all-out effort. If Week 8\u2019s Magic Mile predicted a pace, use it as the target rather than winging it; adjust your run/walk ratio (shorter walks, longer runs) if goal pace calls for it.',
                 fueling: 'Whatever water/fuel strategy feels comfortable on long runs this cycle \u2014 nothing new on race day. Same breakfast timing, same hydration plan.',
-                note: 'Trust the taper. Volume held at peak through Week 12, then dropped sharply for Weeks 13\u201314 \u2014 that can feel like lost fitness, but it isn\u2019t \u2014 it\u2019s the plan working as intended.'
+                note: 'Trust the taper. Volume held at peak through Week 10, then dropped for Weeks 11\u201312 \u2014 that can feel like lost fitness, but it isn\u2019t \u2014 it\u2019s the plan working as intended. The taper protects the freshness you\u2019ll need to actually race, not just finish.'
             },
         };
 
@@ -526,38 +522,6 @@
             return w.phase === 'Taper';
         }
 
-        function tueCell(w, idx) {
-            if (w.testDay) {
-                return `<td class="day-cell test-cell"><span class="tag">Treadmill stress test \u2014 no other exercise today</span></td>`;
-            }
-            if (w.magicMile) {
-                return `
-        <td class="day-cell magic-mile-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="Tue">
-          <span class="mi">${w.tue}</span><span class="tag">magic mile</span>
-          <span class="session-name">Magic Mile Test</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-            }
-            if (w.tue === undefined || w.tue === null) {
-                return `<td class="day-cell walk-cell">Rest</td>`;
-            }
-            return `<td class="day-cell"><span class="mi">${w.tue}</span><span class="tag">${EASY_TAG}</span></td>`;
-        }
-
-        function friCell(strengthKey, idx, dayAbbr, w) {
-            const s = getStrength(strengthKey);
-            if (!s) {
-                return `<td class="day-cell walk-cell">Rest</td>`;
-            }
-            const middle = `<span class="mi">20 min</span><span class="tag">cross-training (optional)</span>`;
-            return `
-        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          ${middle}
-          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
-          <span class="session-name">${s.name}</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-        }
 
         // Used on weeks where the long run is shifted onto Friday (e.g. to make
         // room for a Sunday race). Pairs Friday's usual strength session with
@@ -589,7 +553,7 @@
             }
             const tag = opts.tag || '';
             const cls = opts.cls || '';
-            return `<td class="day-cell ${cls}"><span class="mi">${value}</span>${tag ? `<span class="tag">${tag}</span>` : ''}</td>`;
+            return `<td class="day-cell ${cls}"><span class="mi">${value} min</span>${tag ? `<span class="tag">${tag}</span>` : ''}</td>`;
         }
 
         function strengthCell(strengthKey, idx, dayAbbr, extraTag) {
@@ -655,24 +619,24 @@
         </td>`;
         }
 
-        function easyRunCell(mileageValue) {
-            if (mileageValue === undefined || mileageValue === null) {
+        function easyRunCell(minutesValue) {
+            if (minutesValue === undefined || minutesValue === null) {
                 return `<td class="day-cell walk-cell">Walk</td>`;
             }
-            if (mileageValue === 'rest') {
+            if (minutesValue === 'rest') {
                 return `<td class="day-cell rest">Rest</td>`;
             }
-            return `<td class="day-cell"><span class="mi">${mileageValue}</span><span class="tag">${EASY_TAG}</span></td>`;
+            return `<td class="day-cell"><span class="mi">${minutesValue} min</span><span class="tag">${EASY_TAG}</span></td>`;
         }
 
         function raceCell(value, raceName, wk, idx, dayAbbr) {
             const race = getRace(wk);
             if (!race) {
-                return `<td class="day-cell race-day-cell"><span class="mi">${value}</span><span class="tag">${raceName}</span></td>`;
+                return `<td class="day-cell race-day-cell"><span class="mi">${value} min</span><span class="tag">${raceName}</span></td>`;
             }
             return `
         <td class="day-cell race-day-cell is-clickable" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">${value}</span><span class="tag">${raceName}</span>
+          <span class="mi">${value} min</span><span class="tag">${raceName}</span>
           <span class="expand-hint">details</span>
         </td>`;
         }
@@ -685,8 +649,15 @@
             const rowClasses = ['plan-row'];
             if (isRaceWeek) rowClasses.push('race-row');
 
-            const monCell = strengthCell(w.strength ? w.strength.mon : null, idx, 'Mon');
-            const tueCellHtml = tueCell(w, idx);
+            const monCell = crossTrainStrengthCell(20, w.strength ? w.strength.mon : null, idx, 'Mon');
+            const tueCellHtml = w.magicMile
+                ? `
+        <td class="day-cell magic-mile-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="Tue">
+          <span class="mi">${w.tue} min</span><span class="tag">magic mile</span>
+          <span class="session-name">Magic Mile Test</span>
+          <span class="expand-hint">details</span>
+        </td>`
+                : easyRunCell(w.tue);
             const wedCell = strengthCell(w.strength ? w.strength.wed : null, idx, 'Wed');
             const thuCell = easyRunCell(w.thu);
             const friHasLongRun = w.friLongRun && w.fri !== undefined && w.fri !== null;
@@ -698,7 +669,7 @@
                     : dayCell(w.fri, { tag: 'long run', cls: 'long-run' }))
                 : (friHasEasyRun
                     ? runStrengthCell(w.fri, w.strength ? w.strength.fri : null, idx, 'Fri')
-                    : friCell(w.strength ? w.strength.fri : null, idx, 'Fri', w));
+                    : strengthCell(w.strength ? w.strength.fri : null, idx, 'Fri'));
 
             let satCell, sunCell;
             if (isRaceWeek) {
@@ -715,14 +686,7 @@
             const phaseClassMap = { 'deload': 'is-deload', 'taper': 'is-taper', 'race-week': 'is-race', 'rehab': 'is-rehab' };
             const phaseClass = phaseClassMap[phaseSlug] || '';
 
-            let totalCell;
-            const satMaxMiles = w.satFlexMiles || 0;
-            const maxTotal = w.total + satMaxMiles;
-            if (maxTotal === w.total) {
-                totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total} miles</span></td>`;
-            } else {
-                totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total}\u2013${maxTotal} miles</span></td>`;
-            }
+            const totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total} min</span></td>`;
 
             const monStrength = getStrength(w.strength ? w.strength.mon : null);
             const wedStrength = getStrength(w.strength ? w.strength.wed : null);
@@ -749,7 +713,7 @@
 
             function magicMileDetailRow(dayKey) {
                 if (!w.magicMile) return '';
-                const mm = magicMilePrescription();
+                const mm = magicMilePrescription(w.tue);
                 return `
         <tr class="detail-row strength-detail" id="detail-${idx}-${dayKey}">
           <td colspan="9">
