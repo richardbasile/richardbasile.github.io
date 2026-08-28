@@ -67,11 +67,11 @@
                     <p class="intro-text">Weekly training by day, prescribed in minutes, building toward the
                         Johnstown Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk
                         method &mdash; no tempo work, no speed work, no strides. Monday is strength only
-                        (full-body) plus optional easy cross-training, no run; Tuesday carries the week's easy
-                        run; Wednesday is strength only (lower-body), no run; Thursday carries the week's other
-                        easy run; Friday is upper-body strength only, no run, to protect Saturday's long run;
-                        Saturday carries the long run, with periodic deload weeks along the way; Sunday is rest,
-                        except the Big Bad Wolfe 5K on Sep 27.
+                        (full-body), no run; Tuesday carries the week's easy run; Wednesday is strength only
+                        (lower-body) plus optional easy cross-training, no run; Thursday carries the week's
+                        other easy run; Friday is upper-body strength only, no run, to protect Saturday's long
+                        run; Saturday carries the long run, with periodic deload weeks along the way; Sunday is
+                        rest, except the Big Bad Wolfe 5K on Sep 27.
                     </p>
                 </div>
 
@@ -361,7 +361,7 @@
                     '{{PRESS}} \u2014 2 \u00d7 6\u20138',
                     'Row \u2014 2 \u00d7 6\u20138',
                 ],
-                note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Keep today\u2019s optional cross-training low-impact (bike, swim, easy walk) so the legs get a full day off impact before Tuesday\u2019s run resumes.'
+                note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Keep the load conservative so the legs get real recovery before Tuesday\u2019s run resumes.'
             },
             monTaper: {
                 name: 'Full Body (Taper)', focus: 'Monday \u2014 light pass',
@@ -649,7 +649,7 @@
             const rowClasses = ['plan-row'];
             if (isRaceWeek) rowClasses.push('race-row');
 
-            const monCell = crossTrainStrengthCell(20, w.strength ? w.strength.mon : null, idx, 'Mon');
+            const monCell = strengthCell(w.strength ? w.strength.mon : null, idx, 'Mon');
             const tueCellHtml = w.magicMile
                 ? `
         <td class="day-cell magic-mile-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="Tue">
@@ -658,7 +658,7 @@
           <span class="expand-hint">details</span>
         </td>`
                 : easyRunCell(w.tue);
-            const wedCell = strengthCell(w.strength ? w.strength.wed : null, idx, 'Wed');
+            const wedCell = crossTrainStrengthCell(20, w.strength ? w.strength.wed : null, idx, 'Wed');
             const thuCell = easyRunCell(w.thu);
             const friHasLongRun = w.friLongRun && w.fri !== undefined && w.fri !== null;
             const friHasEasyRun = !w.friLongRun && w.fri !== undefined && w.fri !== null;
