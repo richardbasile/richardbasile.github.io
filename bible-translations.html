@@ -48,6 +48,41 @@
             margin: 0 auto;
         }
 
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            letter-spacing: .04em;
+        }
+
+        .site-nav .back-link {
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 1px;
+            transition: color .12s ease, border-color .12s ease;
+        }
+
+        .site-nav .back-link:hover {
+            color: var(--ink);
+            border-color: var(--ink-soft);
+        }
+
+        .site-nav .nav-mark {
+            color: var(--ink-soft);
+            text-transform: uppercase;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+
         header {
             text-align: center;
             margin-bottom: 34px;
@@ -612,6 +647,11 @@
 
 <body>
     <div class="wrap">
+
+        <nav class="site-nav no-print">
+            <a class="back-link" href="/">← Home</a>
+            <span class="nav-mark">Bible Translations</span>
+        </nav>
 
         <header>
             <div class="eyebrow">Textual Criticism &amp; Translation History</div>
