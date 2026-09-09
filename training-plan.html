@@ -81,9 +81,9 @@
                     <p class="intro-text">Weekly training by day, prescribed in minutes, building toward the
                         Johnstown Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk
                         method &mdash; no tempo work, no speed work, no strides. Monday is strength only
-                        (full-body), no run; Tuesday carries the week's easy run; Wednesday is strength only
-                        (lower-body) plus optional easy cross-training, no run; Thursday carries the week's
-                        other easy run; Friday is upper-body strength only, no run, to protect Saturday's long
+                        (squat day), no run; Tuesday carries the week's easy run; Wednesday is strength only
+                        (deadlift day) plus optional easy cross-training, no run; Thursday carries the week's
+                        other easy run; Friday is arms-and-back strength only, no run, to protect Saturday's long
                         run; Saturday carries the long run, with periodic deload weeks along the way; Sunday is
                         rest, except the Big Bad Wolfe 5K on Sep 27.
                     </p>
@@ -127,12 +127,13 @@
 
                 <div class="section">
                     <div class="section-label">Strength Program</div>
-                    <p class="intro-text">Three sessions per week: Monday (full-body, heavy, barbell &mdash; back
-                        squat, deadlift, alternating press, row), Wednesday (lower-body, moderate, dumbbell/band),
-                        and Friday (upper-body only, moderate, dumbbell/band &mdash; no leg loading, so soreness
-                        doesn't land on Saturday's long run). Exercises and volume shift by phase and deload week.
-                        Click any Monday, Wednesday, or Friday cell in the grid for that week's exact sets, reps,
-                        and notes.</p>
+                    <p class="intro-text">Three sessions per week: Monday (squat day, barbell &mdash; back squat,
+                        bench press, Bulgarian split squat), Wednesday (deadlift day, barbell/dumbbell &mdash;
+                        deadlift, farmer's carry, seated overhead press, calf raises &mdash; deadlift and squat are
+                        never on the same day), and Friday (arms and back, barbell/dumbbell/band &mdash; no leg
+                        loading, so soreness doesn't land on Saturday's long run). Exercises and volume shift by
+                        phase and deload week. Click any Monday, Wednesday, or Friday cell in the grid for that
+                        week's exact sets, reps, and notes.</p>
                 </div>
 
                 <div class="section">
@@ -190,6 +191,20 @@
         // to make room for the test effort. Big Bad Wolfe 5K (Week 6)
         // reframed from a tempo tuning race to an easy fun run/walk.
         //
+        // Revised Sep 9, 2026: strength program replaced to match the final
+        // Mon/Wed/Fri split worked out separately -- Monday is now Squat Day
+        // (bodyweight squat warm-up, barbell back squat, bench press,
+        // Bulgarian split squat), Wednesday is Deadlift Day (lunges as a
+        // fresh warm-up, barbell deadlift at moderate intensity, farmer's
+        // carry, seated DB overhead press, calf raises), and Friday is Arms
+        // and Back Day (straight arm pulldowns, barbell row, banded rows,
+        // band pull-aparts, DB curls). Squat and deadlift are always on
+        // separate days by design. Phase-based volume scaling (Build/Deload/
+        // Peak/Post-5K/Taper) is preserved from the prior version, just
+        // re-applied to the new exercise list; the {{SQUATVAR}}/{{PRESS}}
+        // week-to-week alternation is removed since nothing alternates
+        // anymore. Unused Base/Peak-Build-tier strength keys (left over from
+        // an earlier cycle length) were dropped along with it.
         // Revised Aug 28, 2026: dropped the original Weeks 1-2 entirely
         // (opening build week + treadmill test week) and rebuilt the
         // remaining 12 weeks from scratch around a fixed minutes-based
@@ -308,187 +323,119 @@
         ];
 
         const STRENGTH = {
-            monBaseModerate: {
-                name: 'Full Body (Moderate Load)', focus: 'Monday \u2014 first barbell session back, moderate load',
-                main: [
-                    'Back squat \u2014 2 \u00d7 6\u20138, moderate load (dial back from usual working weight)',
-                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
-                    '{{PRESS}} \u2014 2 \u00d7 6\u20138, moderate load',
-                    'Row \u2014 2 \u00d7 6\u20138',
-                ],
-                note: 'First full barbell session back after the layoff \u2014 squat and press ease in at a moderate load rather than jumping straight to working weight; deadlift stays moderate too. Same volume as next week\u2019s session, load steps up once this one is tolerated well.'
-            },
-            monBaseDeload: {
-                name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
-                main: [
-                    'Back squat \u2014 2 \u00d7 6\u20138',
-                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
-                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
-                    'Row \u2014 2 \u00d7 6\u20138',
-                ],
-                note: 'Not a periodization deload \u2014 volume is lighter because this is the first full barbell session back alongside resuming running, not because of a scheduled dip.'
-            },
             monBuild: {
-                name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, lower body trimmed slightly',
+                name: 'Squat Day', focus: 'Monday \u2014 barbell squat + bench, single-leg accessory',
                 main: [
-                    'Back squat \u2014 3 \u00d7 6\u20138',
-                    'Deadlift \u2014 1 \u00d7 6\u20138',
-                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
-                    'Row \u2014 3 \u00d7 6\u20138',
+                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell back squat \u2014 3 \u00d7 5',
+                    'Bench press \u2014 3 \u00d7 8',
+                    'Bulgarian split squat \u2014 2 \u00d7 10/leg',
                 ],
-                note: 'Build phase \u2014 intensity holds. If something has to give as mileage climbs, it\u2019s lifting volume first, not the run.'
+                note: 'Build phase \u2014 intensity holds at working weight. Deadlift never lands on this day \u2014 squat and deadlift are always split across Monday/Wednesday so the same posterior-chain muscles aren\u2019t stacked in one session.'
             },
             monBuildDeload: {
-                name: 'Full Body (Heavy, Barbell) \u2014 Deload Week', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
+                name: 'Squat Day \u2014 Deload Week', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
-                    'Back squat \u2014 2 \u00d7 6\u20138',
-                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
-                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
-                    'Row \u2014 2 \u00d7 6\u20138',
-                ],
-                note: 'Deload week \u2014 strength volume drops in step with the running mileage deload.'
-            },
-            monPeakBuild: {
-                name: 'Full Body (Heavy, Barbell)', focus: 'Monday \u2014 6\u20138 reps, lower body trimmed further',
-                main: [
-                    'Back squat \u2014 3 \u00d7 6\u20138',
-                    'Deadlift \u2014 1 \u00d7 6\u20138',
-                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
-                    'Row \u2014 3 \u00d7 6\u20138',
-                ],
-                note: 'Peak Build phase. Upper body (Friday) stays unchanged since it doesn\u2019t interfere with running legs.'
-            },
-            monPeakBuildDeload: {
-                name: 'Full Body (Heavy, Barbell) \u2014 Deload Week', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
-                main: [
-                    'Back squat \u2014 2 \u00d7 6\u20138',
-                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
-                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
-                    'Row \u2014 2 \u00d7 6\u20138',
+                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell back squat \u2014 2 \u00d7 5',
+                    'Bench press \u2014 2 \u00d7 8',
+                    'Bulgarian split squat \u2014 1 \u00d7 10/leg',
                 ],
                 note: 'Deload week \u2014 strength volume drops in step with the running mileage deload.'
             },
             monPeak: {
-                name: 'Full Body (Maintenance)', focus: 'Monday \u2014 hold load, don\u2019t chase progress',
+                name: 'Squat Day (Maintenance)', focus: 'Monday \u2014 hold load, don\u2019t chase progress',
                 main: [
-                    'Back squat \u2014 2 \u00d7 6 @ current working weight',
-                    'Deadlift \u2014 1 \u00d7 6 @ current working weight',
-                    '{{PRESS}} \u2014 3 \u00d7 6\u20138',
-                    'Row \u2014 3 \u00d7 6\u20138',
+                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell back squat \u2014 2 \u00d7 5 @ current working weight',
+                    'Bench press \u2014 2 \u00d7 8',
+                    'Bulgarian split squat \u2014 1 \u00d7 10/leg',
                 ],
-                note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so lower body drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Upper body remains unchanged. Progression caps here intentionally \u2014 protecting recovery for peak-mileage weeks matters more than continuing to add load.'
+                note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so this drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Protecting recovery for peak-mileage weeks matters more than continuing to add load.'
             },
             monPost5k: {
-                name: 'Full Body (Heavy, Barbell) \u2014 Light', focus: 'Monday \u2014 6\u20138 reps, one set lighter',
+                name: 'Squat Day \u2014 Light', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
-                    'Back squat \u2014 2 \u00d7 6\u20138',
-                    'Deadlift \u2014 1 \u00d7 6\u20138, moderate (not a top-effort set)',
-                    '{{PRESS}} \u2014 2 \u00d7 6\u20138',
-                    'Row \u2014 2 \u00d7 6\u20138',
+                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell back squat \u2014 2 \u00d7 5',
+                    'Bench press \u2014 2 \u00d7 8',
+                    'Bulgarian split squat \u2014 1 \u00d7 10/leg',
                 ],
                 note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Keep the load conservative so the legs get real recovery before Tuesday\u2019s run resumes.'
             },
             monTaper: {
-                name: 'Full Body (Taper)', focus: 'Monday \u2014 light pass',
+                name: 'Squat Day (Taper)', focus: 'Monday \u2014 light pass',
                 main: [
-                    'Back squat \u2014 1 \u00d7 6, light',
-                    'Deadlift \u2014 1 \u00d7 6, light',
-                    '{{PRESS}} \u2014 2 \u00d7 8, light',
-                    'Row \u2014 2 \u00d7 10, light',
+                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5',
+                    'Barbell back squat \u2014 1 \u00d7 5, light',
+                    'Bench press \u2014 1 \u00d7 8, light',
+                    'Bulgarian split squat \u2014 1 \u00d7 8/leg, light',
                 ],
-                note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut 30\u201350% from Peak.'
-            },
-            wedBaseDeload: {
-                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
-                main: [
-                    '{{SQUATVAR}} \u2014 2 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
-                    'Lunges \u2014 2 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
-                ],
-                note: 'Not a periodization deload \u2014 volume is lighter because running is resuming alongside it, not because of a scheduled dip.'
+                note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut well below Peak.'
             },
             wedBuild: {
-                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed slightly',
+                name: 'Deadlift Day', focus: 'Wednesday \u2014 barbell deadlift at moderate intensity + accessories',
                 main: [
-                    '{{SQUATVAR}} \u2014 3 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2\u20133 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
-                    'Lunges \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 2\u20133 \u00d7 12\u201315 each',
+                    'Warm-up: Lunges \u2014 1 \u00d7 10/leg (bodyweight or light), then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell deadlift (moderate intensity) \u2014 3 \u00d7 5',
+                    'Farmer\u2019s carry \u2014 2\u20133 trips (30\u201340m or 30\u201340 sec)',
+                    'Seated dumbbell overhead press \u2014 3 \u00d7 8',
+                    'Calf raises \u2014 2 \u00d7 15',
                 ],
-                note: 'Build phase \u2014 accessory sets trim slightly as weekly mileage climbs.'
+                note: 'Build phase \u2014 deadlift stays at moderate intensity by design, not just during deload weeks; lunges are done fresh as a warm-up (movement prep for the hip hinge) rather than as a fatigued accessory afterward. Squat never lands on this day, so the posterior chain only gets loaded hard once per week from the deadlift.'
             },
             wedBuildDeload: {
-                name: 'Lower Body (Moderate) \u2014 Deload Week', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
+                name: 'Deadlift Day \u2014 Deload Week', focus: 'Wednesday \u2014 one set lighter across the board',
                 main: [
-                    '{{SQUATVAR}} \u2014 2 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg',
-                    'Lunges \u2014 2 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
-                ],
-                note: 'Deload week \u2014 volume drops in step with the running mileage deload.'
-            },
-            wedPeakBuild: {
-                name: 'Lower Body (Moderate)', focus: 'Wednesday \u2014 8\u201312 reps, trimmed further',
-                main: [
-                    '{{SQUATVAR}} \u2014 2\u20133 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 2 \u00d7 8\u201312/leg (control the lowering phase, 2\u20133 count)',
-                    'Lunges \u2014 2 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12\u201315 each',
-                ],
-                note: 'Peak Build phase \u2014 trims further. Glute/stability core work stays in every session regardless \u2014 cheap insurance against running-related hip and knee issues as mileage rises.'
-            },
-            wedPeakBuildDeload: {
-                name: 'Lower Body (Moderate) \u2014 Deload Week', focus: 'Wednesday \u2014 8\u201312 reps, one set lighter',
-                main: [
-                    '{{SQUATVAR}} \u2014 1\u20132 \u00d7 8\u201312/leg',
-                    'Single-leg RDL \u2014 1 \u00d7 8\u201312/leg',
-                    'Lunges \u2014 1 \u00d7 8\u201312/leg',
-                    'Calf raises + tib raises (superset) \u2014 1 \u00d7 12\u201315 each',
+                    'Warm-up: Lunges \u2014 1 \u00d7 10/leg (bodyweight or light), then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5',
+                    'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
+                    'Seated dumbbell overhead press \u2014 2 \u00d7 8',
+                    'Calf raises \u2014 1 \u00d7 15',
                 ],
                 note: 'Deload week \u2014 volume drops in step with the running mileage deload.'
             },
             wedPeak: {
-                name: 'Lower Body (Maintenance)', focus: 'Wednesday \u2014 hold load, don\u2019t chase progress',
+                name: 'Deadlift Day (Maintenance)', focus: 'Wednesday \u2014 hold load, don\u2019t chase progress',
                 main: [
-                    '{{SQUATVAR}} \u2014 2 \u00d7 8\u201310/leg',
-                    'Single-leg RDL \u2014 2 \u00d7 8/leg (control the lowering phase, 2\u20133 count)',
-                    'Lunges \u2014 2 \u00d7 8/leg',
-                    'Calf raises + tib raises (superset) \u2014 2 \u00d7 12 each',
+                    'Warm-up: Lunges \u2014 1 \u00d7 10/leg (bodyweight or light), then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5 @ current working weight',
+                    'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
+                    'Seated dumbbell overhead press \u2014 2 \u00d7 8',
+                    'Calf raises \u2014 1 \u00d7 15',
                 ],
                 note: 'Peak phase \u2014 maintenance dose as the long run peaks at 11\u201312 miles. Same exercises, held load, minimal sets.'
             },
             wedTaper: {
-                name: 'Lower Body (Taper)', focus: 'Wednesday \u2014 light pass',
+                name: 'Deadlift Day (Taper)', focus: 'Wednesday \u2014 light pass',
                 main: [
-                    '{{SQUATVAR}} \u2014 1 \u00d7 10/leg, light',
-                    'Single-leg RDL \u2014 1 \u00d7 8/leg, light',
-                    'Lunges \u2014 1 \u00d7 8/leg, light',
-                    'Calf raises + tib raises (superset) \u2014 1 \u00d7 12 each, light',
+                    'Warm-up: Lunges \u2014 1 \u00d7 8/leg (bodyweight), then bar \u00d7 8, 50% \u00d7 5',
+                    'Barbell deadlift (moderate intensity) \u2014 1 \u00d7 5, light',
+                    'Farmer\u2019s carry \u2014 1 trip, light',
+                    'Seated dumbbell overhead press \u2014 1 \u00d7 8, light',
+                    'Calf raises \u2014 1 \u00d7 12, light',
                 ],
-                note: 'One light pass through the usual lower-body list \u2014 low sets, just enough to keep the pattern alive.'
+                note: 'One light pass through the usual list \u2014 low sets, just enough to keep the pattern alive.'
             },
             friStandard: {
-                name: 'Upper Body (Moderate)', focus: 'Friday \u2014 8\u201312 reps, no leg loading',
+                name: 'Arms and Back Day', focus: 'Friday \u2014 no leg loading',
                 main: [
-                    'DB bench press \u2014 3 \u00d7 8\u201312',
-                    'DB shoulder press \u2014 3 \u00d7 8\u201312',
-                    'DB curls \u2014 3 \u00d7 10\u201312',
-                    'Banded straight-arm pulldown \u2014 2\u20133 \u00d7 12\u201315',
-                    'Banded face pulls \u2014 2\u20133 \u00d7 15\u201320',
-                    'Banded rows \u2014 3 \u00d7 10\u201312',
+                    'Straight arm pulldowns \u2014 3 \u00d7 12',
+                    'Barbell row \u2014 3 \u00d7 8',
+                    'Banded rows \u2014 3 \u00d7 12',
+                    'Band pull-aparts \u2014 2 \u00d7 15',
+                    'Dumbbell curls \u2014 2 \u00d7 10',
                 ],
-                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Skull crushers dropped (bench + shoulder press already load triceps enough); face pulls added for rear-delt/external-rotation balance against the pressing volume. Band straight-arm pulldown added for a vertical lat pull \u2014 brings the day to 3 push / 3 pull instead of 3 push / 1 pull. Stays unchanged through Base, Build, Peak Build, and Peak \u2014 not lightened on deload weeks either, since upper-body work doesn\u2019t interfere with running-leg recovery.'
+                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Band pull-aparts are the committed rear-delt movement, balancing the pressing volume from Monday/Wednesday against shoulder impingement risk. Stays unchanged through Build, Deload, and Peak weeks alike \u2014 upper-body work doesn\u2019t interfere with running-leg recovery.'
             },
             friTaper: {
-                name: 'Upper Body (Taper)', focus: 'Friday \u2014 light pass',
+                name: 'Arms and Back Day (Taper)', focus: 'Friday \u2014 light pass',
                 main: [
-                    'DB bench press \u2014 1 \u00d7 10, light',
-                    'DB shoulder press \u2014 1 \u00d7 10, light',
-                    'DB curls \u2014 1 \u00d7 10, light',
-                    'Banded straight-arm pulldown \u2014 1 \u00d7 12, light',
-                    'Banded face pulls \u2014 1 \u00d7 15, light',
-                    'Banded rows \u2014 1 \u00d7 10, light',
+                    'Straight arm pulldowns \u2014 1 \u00d7 12, light',
+                    'Barbell row \u2014 1 \u00d7 8, light',
+                    'Banded rows \u2014 1 \u00d7 12, light',
+                    'Band pull-aparts \u2014 1 \u00d7 15, light',
+                    'Dumbbell curls \u2014 1 \u00d7 10, light',
                 ],
                 note: 'One light pass through the usual upper-body list. Race week itself drops strength work entirely \u2014 that\u2019s the real freshness buffer, not this week.'
             },
@@ -524,23 +471,13 @@
             return STRENGTH[key];
         }
 
-        // Wednesday's squat variation alternates week to week: odd weeks
-        // goblet squat, even weeks Bulgarian split squat. Same pattern,
-        // varying angle, instead of picking one exercise for all 15 weeks.
-        function squatVariationName(wk) {
-            return (wk % 2 === 1) ? 'Goblet squat' : 'Bulgarian split squat';
-        }
-
-        // Monday's press alternates week to week: odd weeks bench press,
-        // even weeks shoulder press.
-        function pressName(wk) {
-            return (wk % 2 === 1) ? 'Bench press' : 'Shoulder press';
-        }
-
+        // Exercise selection is now fixed per day (squat day Monday, deadlift
+        // day Wednesday, arms-and-back Friday) rather than alternating week to
+        // week, so this is just a pass-through \u2014 kept so the rest of the
+        // render code (which calls resolveStrengthText on every main-set line
+        // and note) doesn't need to change.
         function resolveStrengthText(str, wk) {
-            return str
-                .replace(/\{\{SQUATVAR\}\}/g, squatVariationName(wk))
-                .replace(/\{\{PRESS\}\}/g, pressName(wk));
+            return str;
         }
 
         function isTaperWeek(w) {
