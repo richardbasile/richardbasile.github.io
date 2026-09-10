@@ -191,6 +191,12 @@
         // to make room for the test effort. Big Bad Wolfe 5K (Week 6)
         // reframed from a tempo tuning race to an easy fun run/walk.
         //
+        // Revised Sep 9, 2026 (second pass): added a friBuildDeload tier for
+        // Friday's arms-and-back day, applied at Weeks 4 and 8 alongside
+        // Monday/Wednesday's existing deload -- Friday previously ran at
+        // constant volume all cycle since it doesn't interfere with running
+        // recovery, but elbows/shoulders still accumulate fatigue from
+        // curls/rows over 11 weeks, so it now gets the same periodic reset.
         // Revised Sep 9, 2026: strength program replaced to match the final
         // Mon/Wed/Fri split worked out separately -- Monday is now Squat Day
         // (bodyweight squat warm-up, barbell back squat, bench press,
@@ -240,7 +246,7 @@
             },
             {
                 wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, race effort)', total: 100, race: null,
-                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friStandard' }, deload: true
+                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }, deload: true
             },
             {
                 wk: 5, date: 'Oct 4', phase: 'Build', tue: 45, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
@@ -256,7 +262,7 @@
             },
             {
                 wk: 8, date: 'Oct 25', phase: 'Deload', tue: 40, thu: 30, sat: 60, sun: 'rest', total: 130, race: null, magicMile: true,
-                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friStandard' }, deload: true
+                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }, deload: true
             },
             {
                 wk: 9, date: 'Nov 1', phase: 'Build', tue: 65, thu: 45, sat: 110, sun: 'rest', total: 220, race: null,
@@ -426,7 +432,18 @@
                     'Band pull-aparts \u2014 2 \u00d7 15',
                     'Dumbbell curls \u2014 2 \u00d7 10',
                 ],
-                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Band pull-aparts are the committed rear-delt movement, balancing the pressing volume from Monday/Wednesday against shoulder impingement risk. Stays unchanged through Build, Deload, and Peak weeks alike \u2014 upper-body work doesn\u2019t interfere with running-leg recovery.'
+                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Band pull-aparts are the committed rear-delt movement, balancing the pressing volume from Monday/Wednesday against shoulder impingement risk. Drops to a lighter pass at Weeks 4 and 8 alongside Monday/Wednesday\u2019s deload, since tendons and joints (elbows from curls, shoulders from rows) still accumulate fatigue over the cycle even though this day doesn\u2019t touch running-leg recovery.'
+            },
+            friBuildDeload: {
+                name: 'Arms and Back Day \u2014 Deload Week', focus: 'Friday \u2014 one set lighter across the board',
+                main: [
+                    'Straight arm pulldowns \u2014 2 \u00d7 12',
+                    'Barbell row \u2014 2 \u00d7 8',
+                    'Banded rows \u2014 2 \u00d7 12',
+                    'Band pull-aparts \u2014 2 \u00d7 15',
+                    'Dumbbell curls \u2014 1 \u00d7 10',
+                ],
+                note: 'Deload week \u2014 even though upper-body work doesn\u2019t interfere with Saturday\u2019s long run, elbows/shoulders still get a periodic volume reset here rather than running at constant load for the full cycle. Band pull-aparts held steady since that\u2019s the lowest-fatigue-cost movement in the session.'
             },
             friTaper: {
                 name: 'Arms and Back Day (Taper)', focus: 'Friday \u2014 light pass',
