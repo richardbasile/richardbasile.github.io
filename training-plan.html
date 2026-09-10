@@ -81,11 +81,12 @@
                     <p class="intro-text">Weekly training by day, prescribed in minutes, building toward the
                         Johnstown Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk
                         method &mdash; no tempo work, no speed work, no strides. Monday is strength only
-                        (squat day), no run; Tuesday carries the week's easy run; Wednesday is strength only
-                        (deadlift day) plus optional easy cross-training, no run; Thursday carries the week's
-                        other easy run; Friday is arms-and-back strength only, no run, to protect Saturday's long
-                        run; Saturday carries the long run, with periodic deload weeks along the way; Sunday is
-                        rest, except the Big Bad Wolfe 5K on Sep 27.
+                        (squat day), no run; Tuesday carries an easy run; Wednesday pairs a short, optional easy
+                        run with strength (deadlift day) &mdash; the run comes first, on fresh legs, ahead of the
+                        lift, and the lift itself is not optional even if the run is skipped; Thursday carries
+                        another easy run; Friday is arms-and-back strength only, no run, to protect Saturday's
+                        long run; Saturday carries the long run, with periodic deload weeks along the way; Sunday
+                        is rest, except the Big Bad Wolfe 5K on Sep 27.
                     </p>
                 </div>
 
@@ -128,12 +129,13 @@
                 <div class="section">
                     <div class="section-label">Strength Program</div>
                     <p class="intro-text">Three sessions per week: Monday (squat day, barbell &mdash; back squat,
-                        bench press, Bulgarian split squat), Wednesday (deadlift day, barbell/dumbbell &mdash;
-                        deadlift, farmer's carry, seated overhead press, calf raises &mdash; deadlift and squat are
-                        never on the same day), and Friday (arms and back, barbell/dumbbell/band &mdash; no leg
-                        loading, so soreness doesn't land on Saturday's long run). Exercises and volume shift by
-                        phase and deload week. Click any Monday, Wednesday, or Friday cell in the grid for that
-                        week's exact sets, reps, and notes.</p>
+                        bench press, Bulgarian split squat, no run), Wednesday (a short, optional easy run first,
+                        then deadlift day, barbell/dumbbell &mdash; deadlift, farmer's carry, seated overhead
+                        press, calf raises &mdash; deadlift and squat are never on the same day), and Friday (arms
+                        and back, barbell/dumbbell/band &mdash; no leg loading, so soreness doesn't land on
+                        Saturday's long run). Exercises and volume shift by phase and deload week. Click any
+                        Monday, Wednesday, or Friday cell in the grid for that week's exact sets, reps, and
+                        notes.</p>
                 </div>
 
                 <div class="section">
@@ -145,6 +147,40 @@
                     <ul class="strength-list" id="coreRoutineList"></ul>
                     <p class="core-routine-heading is-spaced">Stretches (hold, mild tension only)</p>
                     <ul class="strength-list" id="stretchRoutineList"></ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Where to Flex</div>
+                    <p class="intro-text">This is a guide, not a contract. When life makes a full week impossible,
+                        this is the order to give things up in &mdash; protect what's at the top before touching
+                        what's below it. The goal that matters most is progressing on Saturday's long run toward
+                        the half marathon; everything else exists to support that.</p>
+                    <p class="core-routine-heading">Priority</p>
+                    <ul class="strength-list">
+                        <li><strong>Saturday's long run</strong> &mdash; protected above everything else. This is
+                            the session that most directly builds what race day needs. Shrink other things before
+                            this one.</li>
+                        <li><strong>Sunday rest</strong> &mdash; protected because it protects Saturday and Monday.
+                            Skipping it just borrows fatigue from the following week.</li>
+                        <li><strong>Tuesday and Thursday's easy runs</strong> &mdash; these exist to support
+                            Saturday's long run, building the aerobic base that makes its progression possible.
+                            Protect them nearly as much as Saturday itself &mdash; if time is tight, shorten one
+                            before skipping it, since frequency matters more than duration here.</li>
+                        <li><strong>Strength (Monday, Wednesday, Friday)</strong> &mdash; important, but flexible.
+                            If a week is tight, cut sets before cutting the whole session &mdash; a lighter squat,
+                            deadlift, or arms-and-back day still counts. Keep the pattern going even when the full
+                            prescription doesn't fit.</li>
+                        <li><strong>Wednesday's run</strong> &mdash; completely optional. Skip it any week it
+                            doesn't fit, no conditions attached; the deadlift session that day stays as planned
+                            either way.</li>
+                    </ul>
+                    <p class="core-routine-heading is-spaced">The short version</p>
+                    <p class="intro-text">Running consistency matters more than strength consistency for this
+                        specific goal. Tuesday, Thursday, and Saturday exist to build toward the half marathon
+                        directly, so they're the most protected sessions in the week. Strength work is what keeps
+                        you durable enough to keep running consistently &mdash; it matters, but when a week gets
+                        tight, trim sets rather than skipping it outright. Wednesday's run is the one truly
+                        no-strings-attached session &mdash; skip it whenever it doesn't fit.</p>
                 </div>
 
                 <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
@@ -191,6 +227,60 @@
         // to make room for the test effort. Big Bad Wolfe 5K (Week 6)
         // reframed from a tempo tuning race to an easy fun run/walk.
         //
+        // Revised Sep 10, 2026 (fifth pass): weekly Total column now shows a
+        // range (e.g. "100-120 min") on any week where Wednesday's easy run
+        // is optional, reflecting the low end (run skipped) and high end
+        // (run completed) rather than a single number that silently assumed
+        // the optional run happened. Plan array's "total" field is now the
+        // base volume excluding the optional Wednesday run; totalCell adds
+        // w.wed on top to get the range's upper bound, using the same
+        // wedHasRun flag that already governs Wednesday's own cell
+        // rendering. Weeks 11-12 (no Wednesday run) keep a single number
+        // since there's nothing optional left to range against.
+        // Revised Sep 10, 2026 (fourth pass): cut Wednesday's optional easy
+        // run from Weeks 11 (Taper) and 12 (Race Week) entirely -- this
+        // close to race day there's no real fitness to be gained from it,
+        // just unnecessary exposure to a tweak or niggle. Wednesday's cell
+        // now falls back to a plain strengthCell (deadlift day only, no run)
+        // on any week where w.wed is omitted, same rendering Monday already
+        // uses. Week 11 total drops from 175 to 160; Week 12 (which has no
+        // lifting at all) drops from 225 to 210, so Wednesday of race week
+        // now renders as a plain Rest cell. Wednesday's optional run stays
+        // in place unchanged for every other week (1-10).
+        // Revised Sep 10, 2026 (third pass): removed Monday's optional run --
+        // reverted to Monday being pure squat-day strength with no run, as
+        // it was before the second pass. Wednesday's short optional easy run
+        // stays in place unchanged. Totals reverted to pre-mirroring values.
+        // Revised Sep 10, 2026 (second pass): mirrored Wednesday's short
+        // optional easy run onto Monday, so both lifting days now carry the
+        // same pattern -- a short, optional easy run first (fresh legs),
+        // then the lift, with the lift itself never optional even if the run
+        // is skipped. Monday's minutes copy Wednesday's exactly for each
+        // week. Both days' run tag now reads "easy \u00b7 optional" via
+        // runStrengthCell's effortTag param, replacing Monday's old
+        // run-free strengthCell rendering. Total column includes both
+        // optional runs as before (a straight sum of every cell) -- actual
+        // weekly total will run lower on weeks where one or both are
+        // skipped.
+        // Revised Sep 10, 2026: added a 4th weekly running day on Wednesday
+        // to go from 3 runs/week (Tue/Thu/Sat) to 4 (Tue/Wed/Thu/Sat), per
+        // Richard's request. Squat day stays on Monday (unchanged, still
+        // gets the freshest recovery window right after Sunday's full rest)
+        // rather than moving to Tuesday, since that alternative would have
+        // put a run directly before squat with no rest buffer and stacked
+        // two heavy leg days back-to-back. Instead, the new run pairs with
+        // Wednesday's existing deadlift day -- run first on fresh legs, then
+        // lift, using the same runStrengthCell pairing already used for
+        // Friday's long-run weeks. New Wednesday minutes scale with each
+        // week's overall volume (roughly 40% of that week's Tuesday easy
+        // run, capped short since it's a warm-up-scale add-on ahead of a
+        // lift): 15-20 min in Deload/Taper/Race weeks, 20-30 min in Build/
+        // Peak weeks. This adds real volume rather than redistributing
+        // existing Tue/Thu/Sat minutes, so every week's Total column rises
+        // by the new Wednesday amount. The old fixed 20-min "optional
+        // cross-training" slot on Wednesday (crossTrainStrengthCell) is
+        // removed -- this is now a mandatory prescribed run, not optional
+        // cross-training.
         // Revised Sep 9, 2026 (second pass): added a friBuildDeload tier for
         // Friday's arms-and-back day, applied at Weeks 4 and 8 alongside
         // Monday/Wednesday's existing deload -- Friday previously ran at
@@ -233,43 +323,44 @@
         // lifting at all in Race Week (12), consistent with prior design.
         const plan = [
             {
-                wk: 1, date: 'Sep 6', phase: 'Build', tue: 30, thu: 30, sat: 40, sun: 'rest', total: 100, race: null,
+                wk: 1, date: 'Sep 6', phase: 'Build', tue: 30, wed: 20, thu: 30, sat: 40, sun: 'rest', total: 100, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 2, date: 'Sep 13', phase: 'Build', tue: 30, thu: 30, sat: 60, sun: 'rest', total: 120, race: null,
+                wk: 2, date: 'Sep 13', phase: 'Build', tue: 30, wed: 20, thu: 30, sat: 60, sun: 'rest', total: 120, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 3, date: 'Sep 20', phase: 'Build', tue: 40, thu: 30, sat: 70, sun: 'rest', total: 140, race: null,
+                wk: 3, date: 'Sep 20', phase: 'Build', tue: 40, wed: 25, thu: 30, sat: 70, sun: 'rest', total: 140, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, race effort)', total: 100, race: null,
+                wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, wed: 15, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, race effort)', total: 100, race: null,
                 strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }, deload: true
             },
             {
-                wk: 5, date: 'Oct 4', phase: 'Build', tue: 45, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
+                wk: 5, date: 'Oct 4', phase: 'Build', tue: 45, wed: 25, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
                 strength: { mon: 'monPost5k', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 6, date: 'Oct 11', phase: 'Build', tue: 50, thu: 40, sat: 90, sun: 'rest', total: 180, race: null,
+                wk: 6, date: 'Oct 11', phase: 'Build', tue: 50, wed: 25, thu: 40, sat: 90, sun: 'rest', total: 180, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 7, date: 'Oct 18', phase: 'Build', tue: 60, thu: 40, sat: 100, sun: 'rest', total: 200, race: null,
+                wk: 7, date: 'Oct 18', phase: 'Build', tue: 60, wed: 30, thu: 40, sat: 100, sun: 'rest', total: 200, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
+
             {
-                wk: 8, date: 'Oct 25', phase: 'Deload', tue: 40, thu: 30, sat: 60, sun: 'rest', total: 130, race: null, magicMile: true,
+                wk: 8, date: 'Oct 25', phase: 'Deload', tue: 40, wed: 20, thu: 30, sat: 60, sun: 'rest', total: 130, race: null, magicMile: true,
                 strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }, deload: true
             },
             {
-                wk: 9, date: 'Nov 1', phase: 'Build', tue: 65, thu: 45, sat: 110, sun: 'rest', total: 220, race: null,
+                wk: 9, date: 'Nov 1', phase: 'Build', tue: 65, wed: 30, thu: 45, sat: 110, sun: 'rest', total: 220, race: null,
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 10, date: 'Nov 8', phase: 'Peak', tue: 65, thu: 55, sat: 120, sun: 'rest', total: 240, race: null,
+                wk: 10, date: 'Nov 8', phase: 'Peak', tue: 65, wed: 30, thu: 55, sat: 120, sun: 'rest', total: 240, race: null,
                 strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friStandard' }
             },
             {
@@ -286,7 +377,7 @@
         // single source of truth for the ratio shown throughout the page --
         // update this one line if the ratio changes instead of hunting
         // through the prose.
-        const RUN_WALK_RATIO = '2:00 run / 0:30 walk';
+        const RUN_WALK_RATIO = '4:00 run / 1:00 walk';
 
         // One-off Magic Mile check, Week 8 only -- not a recurring system.
         // The 1-mile test itself is fixed-distance regardless of the day's
@@ -388,7 +479,7 @@
                     'Seated dumbbell overhead press \u2014 3 \u00d7 8',
                     'Calf raises \u2014 2 \u00d7 15',
                 ],
-                note: 'Build phase \u2014 deadlift stays at moderate intensity by design, not just during deload weeks; lunges are done fresh as a warm-up (movement prep for the hip hinge) rather than as a fatigued accessory afterward. Squat never lands on this day, so the posterior chain only gets loaded hard once per week from the deadlift.'
+                note: 'Build phase \u2014 deadlift stays at moderate intensity by design, not just during deload weeks; lunges are done fresh as a warm-up (movement prep for the hip hinge) rather than as a fatigued accessory afterward. Squat never lands on this day, so the posterior chain only gets loaded hard once per week from the deadlift. This session now follows the day\u2019s easy run \u2014 the run comes first on fresh legs, then the lift, so running form doesn\u2019t degrade under fatigue from the deadlift beforehand.'
             },
             wedBuildDeload: {
                 name: 'Deadlift Day \u2014 Deload Week', focus: 'Wednesday \u2014 one set lighter across the board',
@@ -549,20 +640,6 @@
         </td>`;
         }
 
-        function crossTrainStrengthCell(minutes, strengthKey, idx, dayAbbr) {
-            const s = getStrength(strengthKey);
-            if (!s) {
-                return `<td class="day-cell walk-cell">Rest</td>`;
-            }
-            return `
-        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">${minutes} min</span><span class="tag">cross-training (optional)</span>
-          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
-          <span class="session-name">${s.name}</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-        }
-
         const EASY_TAG = 'easy';
 
         function runStrengthCell(mileageValue, strengthKey, idx, dayAbbr, effortTag) {
@@ -587,11 +664,11 @@
         </td>`;
             }
             if (!s) {
-                return `<td class="day-cell"><span class="mi">${mileageValue}</span><span class="tag">${tag}</span></td>`;
+                return `<td class="day-cell"><span class="mi">${mileageValue} min</span><span class="tag">${tag}</span></td>`;
             }
             return `
         <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">${mileageValue}</span><span class="tag">${tag}</span>
+          <span class="mi">${mileageValue} min</span><span class="tag">${tag}</span>
           <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
           <span class="session-name">${s.name}</span>
           <span class="expand-hint">details</span>
@@ -637,7 +714,10 @@
           <span class="expand-hint">details</span>
         </td>`
                 : easyRunCell(w.tue);
-            const wedCell = crossTrainStrengthCell(20, w.strength ? w.strength.wed : null, idx, 'Wed');
+            const wedHasRun = w.wed !== undefined && w.wed !== null;
+            const wedCell = wedHasRun
+                ? runStrengthCell(w.wed, w.strength ? w.strength.wed : null, idx, 'Wed', 'easy \u00b7 optional')
+                : strengthCell(w.strength ? w.strength.wed : null, idx, 'Wed');
             const thuCell = easyRunCell(w.thu);
             const friHasLongRun = w.friLongRun && w.fri !== undefined && w.fri !== null;
             const friHasEasyRun = !w.friLongRun && w.fri !== undefined && w.fri !== null;
@@ -665,7 +745,9 @@
             const phaseClassMap = { 'deload': 'is-deload', 'taper': 'is-taper', 'race-week': 'is-race', 'rehab': 'is-rehab' };
             const phaseClass = phaseClassMap[phaseSlug] || '';
 
-            const totalCell = `<td class="day-cell total-cell"><span class="mi">${w.total} min</span></td>`;
+            const totalCell = wedHasRun
+                ? `<td class="day-cell total-cell"><span class="mi">${w.total}\u2013${w.total + w.wed} min</span></td>`
+                : `<td class="day-cell total-cell"><span class="mi">${w.total} min</span></td>`;
 
             const monStrength = getStrength(w.strength ? w.strength.mon : null);
             const wedStrength = getStrength(w.strength ? w.strength.wed : null);
