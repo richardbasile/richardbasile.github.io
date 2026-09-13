@@ -1432,3 +1432,122 @@ table#planTable.grid-plan th.col-week, table#planTable.grid-plan td.col-week { w
   margin-left: 4px;
 }
 .footnotes a:hover, .footnotes a:focus-visible { color: var(--crimson); }
+
+/* ==========================================================================
+   Race Calendar additions
+   New component classes only — everything above is unchanged from the
+   original stylesheet. Merge this block into the site's real style.css.
+   ========================================================================== */
+
+.calendar-shell {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding: var(--gap-xl) var(--gap-lg);
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: var(--gap-md);
+}
+
+.tag-race { background: var(--crimson-wash); color: var(--crimson); }
+.tag-volunteer { background: var(--amber-wash); color: var(--amber); }
+.tag-vacation { background: var(--ink-wash); color: var(--ink-soft); }
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-md);
+  margin-top: var(--gap-xl);
+}
+
+@media (max-width: 900px) {
+  .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .calendar-grid { grid-template-columns: 1fr; }
+}
+
+.month-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+}
+
+.month-card h4 {
+  border-bottom: 1px solid var(--paper-line);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.race-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.race-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border-left: 3px solid transparent;
+}
+
+.race-row--race { background: var(--crimson-wash); border-left-color: var(--crimson); }
+.race-row--volunteer { background: var(--amber-wash); border-left-color: var(--amber); }
+.race-row--vacation { background: var(--ink-wash); border-left-color: var(--ink-soft); }
+
+.race-row__date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+  width: 64px;
+  line-height: 1.3;
+}
+
+.race-row__dow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+}
+
+.race-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.race-row__title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.race-row__meta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--graphite-soft);
+}
+
+.month-empty {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--graphite-soft);
+}
+
+@media print {
+  @page { size: portrait; margin: 12mm; }
+  .month-card { break-inside: avoid; }
+}
