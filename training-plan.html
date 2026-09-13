@@ -146,19 +146,6 @@
                 </div>
 
                 <div class="section">
-                    <div class="section-label">Run/Walk Method</div>
-                    <p class="rotation-note">
-                        Every run in training &mdash; Tuesday, Thursday, and Saturday's long run &mdash; uses a
-                        run/walk approach at easy effort: currently <span id="runWalkRatio"></span>. There's no
-                        tempo work and no strides anywhere in this cycle. Both races are the exception: the Big
-                        Bad Wolfe 5K (Week 4) and the Johnstown Turkey Trot (Week 12) are each raced at a genuine
-                        effort, faster than training pace &mdash; the 5K as a mid-cycle fitness check, the Turkey
-                        Trot as the actual goal race. The run/walk mechanics stay in play on both, just at a
-                        shorter walk break or faster run interval than the easy training ratio.
-                    </p>
-                </div>
-
-                <div class="section">
                     <div class="section-label">Strength Program</div>
                     <p class="intro-text">Three sessions per week: Monday (squat day, barbell &mdash; back squat,
                         bench press, barbell row, Bulgarian split squat, no run), Wednesday (a short, optional
@@ -181,40 +168,6 @@
                     <ul class="strength-list" id="coreRoutineList"></ul>
                     <p class="core-routine-heading is-spaced">Stretches (hold, mild tension only)</p>
                     <ul class="strength-list" id="stretchRoutineList"></ul>
-                </div>
-
-                <div class="section">
-                    <div class="section-label">Where to Flex</div>
-                    <p class="intro-text">This is a guide, not a contract. When life makes a full week impossible,
-                        this is the order to give things up in &mdash; protect what's at the top before touching
-                        what's below it. The goal that matters most is progressing on Saturday's long run toward
-                        the half marathon; everything else exists to support that.</p>
-                    <p class="core-routine-heading">Priority</p>
-                    <ul class="strength-list">
-                        <li><strong>Saturday's long run</strong> &mdash; protected above everything else. This is
-                            the session that most directly builds what race day needs. Shrink other things before
-                            this one.</li>
-                        <li><strong>Sunday rest</strong> &mdash; protected because it protects Saturday and Monday.
-                            Skipping it just borrows fatigue from the following week.</li>
-                        <li><strong>Tuesday and Thursday's easy runs</strong> &mdash; these exist to support
-                            Saturday's long run, building the aerobic base that makes its progression possible.
-                            Protect them nearly as much as Saturday itself &mdash; if time is tight, shorten one
-                            before skipping it, since frequency matters more than duration here.</li>
-                        <li><strong>Strength (Monday, Wednesday, Friday)</strong> &mdash; important, but flexible.
-                            If a week is tight, cut sets before cutting the whole session &mdash; a lighter squat,
-                            deadlift, or arms-and-back day still counts. Keep the pattern going even when the full
-                            prescription doesn't fit.</li>
-                        <li><strong>Wednesday's run</strong> &mdash; completely optional. Skip it any week it
-                            doesn't fit, no conditions attached; the deadlift session that day stays as planned
-                            either way.</li>
-                    </ul>
-                    <p class="core-routine-heading is-spaced">The short version</p>
-                    <p class="intro-text">Running consistency matters more than strength consistency for this
-                        specific goal. Tuesday, Thursday, and Saturday exist to build toward the half marathon
-                        directly, so they're the most protected sessions in the week. Strength work is what keeps
-                        you durable enough to keep running consistently &mdash; it matters, but when a week gets
-                        tight, trim sets rather than skipping it outright. Wednesday's run is the one truly
-                        no-strings-attached session &mdash; skip it whenever it doesn't fit.</p>
                 </div>
 
                 <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
@@ -457,7 +410,7 @@
             monBuild: {
                 name: 'Squat Day', focus: 'Monday \u2014 barbell squat + bench + row, single-leg accessory',
                 main: [
-                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Bodyweight squat \u2014 1 \u00d7 10',
                     'Barbell back squat \u2014 3 \u00d7 5',
                     'Bench press \u2014 3 \u00d7 8',
                     'Barbell row \u2014 3 \u00d7 8',
@@ -468,7 +421,7 @@
             monBuildDeload: {
                 name: 'Squat Day \u2014 Deload Week', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
-                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Bodyweight squat \u2014 1 \u00d7 10',
                     'Barbell back squat \u2014 2 \u00d7 5',
                     'Bench press \u2014 2 \u00d7 8',
                     'Barbell row \u2014 2 \u00d7 8',
@@ -479,7 +432,7 @@
             monPeak: {
                 name: 'Squat Day (Maintenance)', focus: 'Monday \u2014 hold load, don\u2019t chase progress',
                 main: [
-                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Bodyweight squat \u2014 1 \u00d7 10',
                     'Barbell back squat \u2014 2 \u00d7 5 @ current working weight',
                     'Bench press \u2014 2 \u00d7 8',
                     'Barbell row \u2014 2 \u00d7 8',
@@ -490,7 +443,7 @@
             monPost5k: {
                 name: 'Squat Day \u2014 Light', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
-                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Bodyweight squat \u2014 1 \u00d7 10',
                     'Barbell back squat \u2014 2 \u00d7 5',
                     'Bench press \u2014 2 \u00d7 8',
                     'Barbell row \u2014 2 \u00d7 8',
@@ -501,7 +454,7 @@
             monTaper: {
                 name: 'Squat Day (Taper)', focus: 'Monday \u2014 light pass',
                 main: [
-                    'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5',
+                    'Bodyweight squat \u2014 1 \u00d7 10',
                     'Barbell back squat \u2014 1 \u00d7 5, light',
                     'Bench press \u2014 1 \u00d7 8, light',
                     'Barbell row \u2014 1 \u00d7 8, light',
@@ -512,7 +465,7 @@
             wedBuild: {
                 name: 'Deadlift Day', focus: 'Wednesday \u2014 barbell deadlift at moderate intensity + accessories',
                 main: [
-                    'Warm-up: Lunges \u2014 1 \u00d7 10/leg (bodyweight or light), then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Lunges \u2014 1 \u00d7 10/leg (bodyweight)',
                     'Barbell deadlift (moderate intensity) \u2014 3 \u00d7 5',
                     'Farmer\u2019s carry \u2014 2\u20133 trips (30\u201340m or 30\u201340 sec)',
                     'Seated dumbbell overhead press \u2014 3 \u00d7 8',
@@ -522,7 +475,7 @@
             wedBuildDeload: {
                 name: 'Deadlift Day \u2014 Deload Week', focus: 'Wednesday \u2014 one set lighter across the board',
                 main: [
-                    'Warm-up: Lunges \u2014 1 \u00d7 10/leg (bodyweight or light), then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Lunges \u2014 1 \u00d7 10/leg (bodyweight)',
                     'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5',
                     'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
                     'Seated dumbbell overhead press \u2014 2 \u00d7 8',
@@ -532,7 +485,7 @@
             wedPeak: {
                 name: 'Deadlift Day (Maintenance)', focus: 'Wednesday \u2014 hold load, don\u2019t chase progress',
                 main: [
-                    'Warm-up: Lunges \u2014 1 \u00d7 10/leg (bodyweight or light), then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
+                    'Lunges \u2014 1 \u00d7 10/leg (bodyweight)',
                     'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5 @ current working weight',
                     'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
                     'Seated dumbbell overhead press \u2014 2 \u00d7 8',
@@ -542,7 +495,7 @@
             wedTaper: {
                 name: 'Deadlift Day (Taper)', focus: 'Wednesday \u2014 light pass',
                 main: [
-                    'Warm-up: Lunges \u2014 1 \u00d7 8/leg (bodyweight), then bar \u00d7 8, 50% \u00d7 5',
+                    'Lunges \u2014 1 \u00d7 8/leg (bodyweight)',
                     'Barbell deadlift (moderate intensity) \u2014 1 \u00d7 5, light',
                     'Farmer\u2019s carry \u2014 1 trip, light',
                     'Seated dumbbell overhead press \u2014 1 \u00d7 8, light',
