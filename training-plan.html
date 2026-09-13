@@ -31,6 +31,38 @@
             font-weight: 600;
         }
 
+        /* Table-specific race-week row styling, scoped under its own class
+           name. The shared style.css also defines an unrelated .race-row
+           component (a race-calendar list item with display:flex), and
+           since that's a plain class selector it was leaking flex layout
+           onto this table's <tr>, collapsing the row width. Renamed to
+           .plan-race-row here and given its own rules so it can't collide. */
+        tr.plan-race-row td {
+            background-color: var(--crimson-wash);
+        }
+
+        tr.plan-race-row td.col-week {
+            background-color: var(--crimson-tint);
+            border-left: 3px solid var(--crimson);
+        }
+
+        tr.plan-race-row td.thu-strides-cell {
+            background-color: var(--crimson-wash) !important;
+        }
+
+        tr.plan-race-row td.race-day-cell {
+            background-color: var(--crimson) !important;
+        }
+
+        tr.plan-race-row td.race-day-cell.is-clickable:hover {
+            background-color: #A82A38 !important;
+        }
+
+        tr.plan-race-row td.race-day-cell.is-clickable:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: -2px;
+        }
+
         .core-routine-heading {
             font-size: 0.8rem;
             font-weight: 600;
@@ -129,13 +161,15 @@
                 <div class="section">
                     <div class="section-label">Strength Program</div>
                     <p class="intro-text">Three sessions per week: Monday (squat day, barbell &mdash; back squat,
-                        bench press, Bulgarian split squat, no run), Wednesday (a short, optional easy run first,
-                        then deadlift day, barbell/dumbbell &mdash; deadlift, farmer's carry, seated overhead
-                        press, calf raises &mdash; deadlift and squat are never on the same day), and Friday (arms
-                        and back, barbell/dumbbell/band &mdash; no leg loading, so soreness doesn't land on
-                        Saturday's long run). Exercises and volume shift by phase and deload week. Click any
-                        Monday, Wednesday, or Friday cell in the grid for that week's exact sets, reps, and
-                        notes.</p>
+                        bench press, barbell row, Bulgarian split squat, no run), Wednesday (a short, optional
+                        easy run first, then deadlift day, barbell/dumbbell &mdash; deadlift, farmer's carry,
+                        seated overhead press &mdash; deadlift and squat are never on the same day), and Friday
+                        (arms and back, barbell/dumbbell/band &mdash; straight-arm pulldowns, banded rows, band
+                        pull-aparts, curls, lateral raises &mdash; no leg loading, so soreness doesn't land on
+                        Saturday's long run). Pulling work is spread across two days (barbell row Monday, banded
+                        pulling Friday) to balance the pressing volume from squat/bench and deadlift/overhead
+                        press. Exercises and volume shift by phase and deload week. Click any Monday, Wednesday,
+                        or Friday cell in the grid for that week's exact sets, reps, and notes.</p>
                 </div>
 
                 <div class="section">
@@ -368,7 +402,7 @@
                 strength: { mon: 'monTaper', wed: 'wedTaper', fri: 'friTaper' }
             },
             {
-                wk: 12, date: 'Nov 22', phase: 'Race Week', tue: 35, thu: 25, sat: 150, sun: 'rest', total: 210, race: 'Johnstown Turkey Trot Half Marathon (13.1 mi)',
+                wk: 12, date: 'Nov 22', phase: 'Race Week', tue: 35, thu: 25, sat: 150, sun: 'rest', total: 210, race: 'Johnstown Turkey Trot Half Marathon (13.1 mi)', raceShort: 'Turkey Trot Half<br />(13.1 mi, goal race)',
                 strength: { mon: null, wed: null, fri: null }
             },
         ];
@@ -421,14 +455,15 @@
 
         const STRENGTH = {
             monBuild: {
-                name: 'Squat Day', focus: 'Monday \u2014 barbell squat + bench, single-leg accessory',
+                name: 'Squat Day', focus: 'Monday \u2014 barbell squat + bench + row, single-leg accessory',
                 main: [
                     'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
                     'Barbell back squat \u2014 3 \u00d7 5',
                     'Bench press \u2014 3 \u00d7 8',
-                    'Bulgarian split squat \u2014 2 \u00d7 10/leg',
+                    'Barbell row \u2014 3 \u00d7 8',
+                    'Bulgarian split squat \u2014 3 \u00d7 8\u201310/leg',
                 ],
-                note: 'Build phase \u2014 intensity holds at working weight. Deadlift never lands on this day \u2014 squat and deadlift are always split across Monday/Wednesday so the same posterior-chain muscles aren\u2019t stacked in one session.'
+                note: 'Build phase \u2014 intensity holds at working weight. Deadlift never lands on this day \u2014 squat and deadlift are always split across Monday/Wednesday so the same posterior-chain muscles aren\u2019t stacked in one session. Barbell row lives here rather than Friday so pulling volume is spread across two sessions per week instead of one.'
             },
             monBuildDeload: {
                 name: 'Squat Day \u2014 Deload Week', focus: 'Monday \u2014 one set lighter across the board',
@@ -436,7 +471,8 @@
                     'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
                     'Barbell back squat \u2014 2 \u00d7 5',
                     'Bench press \u2014 2 \u00d7 8',
-                    'Bulgarian split squat \u2014 1 \u00d7 10/leg',
+                    'Barbell row \u2014 2 \u00d7 8',
+                    'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
                 note: 'Deload week \u2014 strength volume drops in step with the running mileage deload.'
             },
@@ -446,7 +482,8 @@
                     'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
                     'Barbell back squat \u2014 2 \u00d7 5 @ current working weight',
                     'Bench press \u2014 2 \u00d7 8',
-                    'Bulgarian split squat \u2014 1 \u00d7 10/leg',
+                    'Barbell row \u2014 2 \u00d7 8',
+                    'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
                 note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so this drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Protecting recovery for peak-mileage weeks matters more than continuing to add load.'
             },
@@ -456,7 +493,8 @@
                     'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5, 75% \u00d7 3',
                     'Barbell back squat \u2014 2 \u00d7 5',
                     'Bench press \u2014 2 \u00d7 8',
-                    'Bulgarian split squat \u2014 1 \u00d7 10/leg',
+                    'Barbell row \u2014 2 \u00d7 8',
+                    'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
                 note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Keep the load conservative so the legs get real recovery before Tuesday\u2019s run resumes.'
             },
@@ -466,6 +504,7 @@
                     'Warm-up: Bodyweight squat \u2014 1 \u00d7 10, then bar \u00d7 8, 50% \u00d7 5',
                     'Barbell back squat \u2014 1 \u00d7 5, light',
                     'Bench press \u2014 1 \u00d7 8, light',
+                    'Barbell row \u2014 1 \u00d7 8, light',
                     'Bulgarian split squat \u2014 1 \u00d7 8/leg, light',
                 ],
                 note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut well below Peak.'
@@ -477,9 +516,8 @@
                     'Barbell deadlift (moderate intensity) \u2014 3 \u00d7 5',
                     'Farmer\u2019s carry \u2014 2\u20133 trips (30\u201340m or 30\u201340 sec)',
                     'Seated dumbbell overhead press \u2014 3 \u00d7 8',
-                    'Calf raises \u2014 2 \u00d7 15',
                 ],
-                note: 'Build phase \u2014 deadlift stays at moderate intensity by design, not just during deload weeks; lunges are done fresh as a warm-up (movement prep for the hip hinge) rather than as a fatigued accessory afterward. Squat never lands on this day, so the posterior chain only gets loaded hard once per week from the deadlift. This session now follows the day\u2019s easy run \u2014 the run comes first on fresh legs, then the lift, so running form doesn\u2019t degrade under fatigue from the deadlift beforehand.'
+                note: 'Build phase \u2014 deadlift stays at moderate intensity by design, not just during deload weeks; lunges are done fresh as a warm-up (movement prep for the hip hinge) rather than as a fatigued accessory afterward. Squat never lands on this day, so the posterior chain only gets loaded hard once per week from the deadlift. This session now follows the day\u2019s easy run \u2014 the run comes first on fresh legs, then the lift, so running form doesn\u2019t degrade under fatigue from the deadlift beforehand. Calf raises dropped from this session \u2014 already covered in the separate 3x/week core routine.'
             },
             wedBuildDeload: {
                 name: 'Deadlift Day \u2014 Deload Week', focus: 'Wednesday \u2014 one set lighter across the board',
@@ -488,7 +526,6 @@
                     'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5',
                     'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
                     'Seated dumbbell overhead press \u2014 2 \u00d7 8',
-                    'Calf raises \u2014 1 \u00d7 15',
                 ],
                 note: 'Deload week \u2014 volume drops in step with the running mileage deload.'
             },
@@ -499,7 +536,6 @@
                     'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5 @ current working weight',
                     'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
                     'Seated dumbbell overhead press \u2014 2 \u00d7 8',
-                    'Calf raises \u2014 1 \u00d7 15',
                 ],
                 note: 'Peak phase \u2014 maintenance dose as the long run peaks at 11\u201312 miles. Same exercises, held load, minimal sets.'
             },
@@ -510,7 +546,6 @@
                     'Barbell deadlift (moderate intensity) \u2014 1 \u00d7 5, light',
                     'Farmer\u2019s carry \u2014 1 trip, light',
                     'Seated dumbbell overhead press \u2014 1 \u00d7 8, light',
-                    'Calf raises \u2014 1 \u00d7 12, light',
                 ],
                 note: 'One light pass through the usual list \u2014 low sets, just enough to keep the pattern alive.'
             },
@@ -518,21 +553,21 @@
                 name: 'Arms and Back Day', focus: 'Friday \u2014 no leg loading',
                 main: [
                     'Straight arm pulldowns \u2014 3 \u00d7 12',
-                    'Barbell row \u2014 3 \u00d7 8',
-                    'Banded rows \u2014 3 \u00d7 12',
+                    'Banded rows \u2014 2\u20133 \u00d7 12\u201315',
                     'Band pull-aparts \u2014 2 \u00d7 15',
-                    'Dumbbell curls \u2014 2 \u00d7 10',
+                    'Dumbbell curls \u2014 2 \u00d7 10\u201312',
+                    'Lateral raises \u2014 2 \u00d7 12\u201315',
                 ],
-                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Band pull-aparts are the committed rear-delt movement, balancing the pressing volume from Monday/Wednesday against shoulder impingement risk. Drops to a lighter pass at Weeks 4 and 8 alongside Monday/Wednesday\u2019s deload, since tendons and joints (elbows from curls, shoulders from rows) still accumulate fatigue over the cycle even though this day doesn\u2019t touch running-leg recovery.'
+                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Band pull-aparts are the committed rear-delt movement, balancing the pressing volume from Monday/Wednesday against shoulder impingement risk. Barbell row now lives on Monday, so this session\u2019s pulling volume is banded rows and pulldowns \u2014 pulling frequency stays twice weekly across the two sessions. Lateral raises added to cover shoulder-health work that pressing alone doesn\u2019t. Drops to a lighter pass at Weeks 4 and 8 alongside Monday/Wednesday\u2019s deload, since tendons and joints (elbows from curls, shoulders from rows) still accumulate fatigue over the cycle even though this day doesn\u2019t touch running-leg recovery.'
             },
             friBuildDeload: {
                 name: 'Arms and Back Day \u2014 Deload Week', focus: 'Friday \u2014 one set lighter across the board',
                 main: [
                     'Straight arm pulldowns \u2014 2 \u00d7 12',
-                    'Barbell row \u2014 2 \u00d7 8',
-                    'Banded rows \u2014 2 \u00d7 12',
+                    'Banded rows \u2014 2 \u00d7 12\u201315',
                     'Band pull-aparts \u2014 2 \u00d7 15',
                     'Dumbbell curls \u2014 1 \u00d7 10',
+                    'Lateral raises \u2014 1 \u00d7 12\u201315',
                 ],
                 note: 'Deload week \u2014 even though upper-body work doesn\u2019t interfere with Saturday\u2019s long run, elbows/shoulders still get a periodic volume reset here rather than running at constant load for the full cycle. Band pull-aparts held steady since that\u2019s the lowest-fatigue-cost movement in the session.'
             },
@@ -540,10 +575,10 @@
                 name: 'Arms and Back Day (Taper)', focus: 'Friday \u2014 light pass',
                 main: [
                     'Straight arm pulldowns \u2014 1 \u00d7 12, light',
-                    'Barbell row \u2014 1 \u00d7 8, light',
-                    'Banded rows \u2014 1 \u00d7 12, light',
+                    'Banded rows \u2014 1 \u00d7 12\u201315, light',
                     'Band pull-aparts \u2014 1 \u00d7 15, light',
                     'Dumbbell curls \u2014 1 \u00d7 10, light',
+                    'Lateral raises \u2014 1 \u00d7 12\u201315, light',
                 ],
                 note: 'One light pass through the usual upper-body list. Race week itself drops strength work entirely \u2014 that\u2019s the real freshness buffer, not this week.'
             },
@@ -703,7 +738,7 @@
         plan.forEach((w, idx) => {
             const isRaceWeek = !!w.race;
             const rowClasses = ['plan-row'];
-            if (isRaceWeek) rowClasses.push('race-row');
+            if (isRaceWeek) rowClasses.push('plan-race-row');
 
             const monCell = strengthCell(w.strength ? w.strength.mon : null, idx, 'Mon');
             const tueCellHtml = w.magicMile
@@ -732,7 +767,7 @@
 
             let satCell, sunCell;
             if (isRaceWeek) {
-                satCell = raceCell(w.sat, w.race, w.wk, idx, 'Sat');
+                satCell = raceCell(w.sat, w.raceShort || w.race, w.wk, idx, 'Sat');
                 sunCell = dayCell(w.sun);
             } else {
                 satCell = dayCell(w.sat, { tag: w.sat ? 'long run' : '', cls: 'long-run' });
