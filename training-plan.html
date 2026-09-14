@@ -87,6 +87,13 @@
             width: calc((100% - 150px) / 8);
         }
 
+        /* Center the column headers for this table only (scoped here so the
+           shared table.plan th left-align in style.css, used by other
+           tables like .threshold-table, is untouched). */
+        table#planTable.grid-plan th {
+            text-align: center;
+        }
+
         /* Nested strength-list (e.g. the working-set breakdown under Warm-Up
            Sets) needs its own indent regardless of what the shared
            strength-list rules in style.css do to the top-level list. */
