@@ -46,10 +46,6 @@
             border-left: 3px solid var(--crimson);
         }
 
-        tr.plan-race-row td.thu-strides-cell {
-            background-color: var(--crimson-wash) !important;
-        }
-
         tr.plan-race-row td.race-day-cell {
             background-color: var(--crimson) !important;
         }
@@ -90,6 +86,14 @@
         table#planTable.grid-plan td.day-cell {
             width: calc((100% - 150px) / 8);
         }
+
+        /* Nested strength-list (e.g. the working-set breakdown under Warm-Up
+           Sets) needs its own indent regardless of what the shared
+           strength-list rules in style.css do to the top-level list. */
+        .strength-list .strength-list {
+            margin-top: 4px;
+            padding-left: 1.25rem;
+        }
     </style>
 </head>
 
@@ -112,13 +116,9 @@
                     <div class="section-label">Overview</div>
                     <p class="intro-text">Weekly training by day, prescribed in minutes, building toward the
                         Johnstown Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk
-                        method &mdash; no tempo work, no speed work, no strides. Monday is strength only
-                        (squat day), no run; Tuesday carries an easy run; Wednesday pairs a short, optional easy
-                        run with strength (deadlift day) &mdash; the run comes first, on fresh legs, ahead of the
-                        lift, and the lift itself is not optional even if the run is skipped; Thursday carries
-                        another easy run; Friday is arms-and-back strength only, no run, to protect Saturday's
-                        long run; Saturday carries the long run, with periodic deload weeks along the way; Sunday
-                        is rest, except the Big Bad Wolfe 5K on Sep 27.
+                        method (<span id="runWalkRatio"></span>). Strength days are Monday, Wednesday, and Friday;
+                        running days are Tuesday, Wednesday, Thursday, and Saturday, with periodic deload weeks
+                        along the way. Sunday is rest, except the Big Bad Wolfe 5K on Sep 27.
                     </p>
                 </div>
 
@@ -146,20 +146,6 @@
                 </div>
 
                 <div class="section">
-                    <div class="section-label">Strength Program</div>
-                    <p class="intro-text">Three sessions per week: Monday (squat day, barbell &mdash; back squat,
-                        bench press, barbell row, Bulgarian split squat, no run), Wednesday (a short, optional
-                        easy run first, then deadlift day, barbell/dumbbell &mdash; deadlift, farmer's carry,
-                        seated overhead press &mdash; deadlift and squat are never on the same day), and Friday
-                        (arms and back, barbell/dumbbell/band &mdash; straight-arm pulldowns, banded rows, band
-                        pull-aparts, curls, lateral raises &mdash; no leg loading, so soreness doesn't land on
-                        Saturday's long run). Pulling work is spread across two days (barbell row Monday, banded
-                        pulling Friday) to balance the pressing volume from squat/bench and deadlift/overhead
-                        press. Exercises and volume shift by phase and deload week. Click any Monday, Wednesday,
-                        or Friday cell in the grid for that week's exact sets, reps, and notes.</p>
-                </div>
-
-                <div class="section">
                     <div class="section-label">Core Routine</div>
                     <p class="intro-text">Same lower-back/hip stability routine as a separate session every strength day
                         (Monday, Wednesday, Friday), one fixed target for the whole cycle &mdash; it doesn't scale down
@@ -177,137 +163,34 @@
     </div>
 
     <script>
-        // Revised Aug 2026: goal race moved from Nov 14 to Nov 21, and the
-        // whole cycle now starts Monday Aug 17 instead of Aug 10 -- one week
-        // later. Because the Big Bad Wolfe 5K stays fixed on its calendar
-        // date (Sun Sep 27), that single week of slack comes entirely out of
-        // the pre-5K build (6 weeks in, not 7) and gets handed to the
-        // post-5K half (8 weeks, not 7), landing the extra week in the taper
-        // runway rather than compressing the build. No rehab/re-entry
-        // phase this cycle -- Week 1 starts at normal build volume. Wednesday
-        // now carries the cycle's tempo work (150-158 bpm; see Effort Zones),
-        // scaled to that week's mileage, dropped back to easy on deload/taper/
-        // race weeks. Deloads land at Weeks 3, 6 (doubling as 5K taper), and 10,
-        // positioned ahead of the 5-, 7-, and 10-mile long runs respectively.
-        // Long-run progression build-week-over-build-week (skipping deloads):
-        // Wk1 (3) -> Wk2 (4) -> Wk4 (5) -> Wk5 (6) -> Wk7 (7) -> Wk8 (8) ->
-        // Wk9 (9) -> Wk11 (10) -> Wk12 (11-12, peak, two weeks out -- 11 is
-        // the guaranteed floor, staying on-pattern with the +1mi/build-week
-        // cadence; 12 is there to take if that day feels strong).
-        //
-        // Revised Aug 27, 2026: running consolidated to Tuesday/Thursday/
-        // Saturday only. Strength stays Mon/Wed/Fri unchanged. Monday's old
-        // easy-run mileage moved onto Tuesday; Wednesday's old tempo mileage
-        // moved onto Thursday (so tempo now lands the day after Wednesday's
-        // lower-body lift instead of the same day). Weekly totals are
-        // unchanged from the prior version except Week 2 (treadmill test
-        // week), which drops from 10mi to 8mi since Tuesday is consumed by
-        // the test and that week is meant to stay light anyway. Saturday's
-        // long run and all deload/taper/race-week volumes are untouched.
-        //
-        // Revised Aug 27, 2026 (same day, second pass): dropped tempo and
-        // strides entirely -- every run is now easy effort using a run/walk
-        // ratio (see RUN_WALK_RATIO below). Added a Magic Mile time-trial day
-        // on Tuesday in Weeks 1, 3, 6, and 10 (cycle start plus every deload)
-        // to periodically recalibrate pace and the run/walk ratio; those
-        // weeks' Tuesday mileage and weekly totals dropped slightly (~1mi)
-        // to make room for the test effort. Big Bad Wolfe 5K (Week 6)
-        // reframed from a tempo tuning race to an easy fun run/walk.
-        //
-        // Revised Sep 10, 2026 (fifth pass): weekly Total column now shows a
-        // range (e.g. "100-120 min") on any week where Wednesday's easy run
-        // is optional, reflecting the low end (run skipped) and high end
-        // (run completed) rather than a single number that silently assumed
-        // the optional run happened. Plan array's "total" field is now the
-        // base volume excluding the optional Wednesday run; totalCell adds
-        // w.wed on top to get the range's upper bound, using the same
-        // wedHasRun flag that already governs Wednesday's own cell
-        // rendering. Weeks 11-12 (no Wednesday run) keep a single number
-        // since there's nothing optional left to range against.
-        // Revised Sep 10, 2026 (fourth pass): cut Wednesday's optional easy
-        // run from Weeks 11 (Taper) and 12 (Race Week) entirely -- this
-        // close to race day there's no real fitness to be gained from it,
-        // just unnecessary exposure to a tweak or niggle. Wednesday's cell
-        // now falls back to a plain strengthCell (deadlift day only, no run)
-        // on any week where w.wed is omitted, same rendering Monday already
-        // uses. Week 11 total drops from 175 to 160; Week 12 (which has no
-        // lifting at all) drops from 225 to 210, so Wednesday of race week
-        // now renders as a plain Rest cell. Wednesday's optional run stays
-        // in place unchanged for every other week (1-10).
-        // Revised Sep 10, 2026 (third pass): removed Monday's optional run --
-        // reverted to Monday being pure squat-day strength with no run, as
-        // it was before the second pass. Wednesday's short optional easy run
-        // stays in place unchanged. Totals reverted to pre-mirroring values.
-        // Revised Sep 10, 2026 (second pass): mirrored Wednesday's short
-        // optional easy run onto Monday, so both lifting days now carry the
-        // same pattern -- a short, optional easy run first (fresh legs),
-        // then the lift, with the lift itself never optional even if the run
-        // is skipped. Monday's minutes copy Wednesday's exactly for each
-        // week. Both days' run tag now reads "easy \u00b7 optional" via
-        // runStrengthCell's effortTag param, replacing Monday's old
-        // run-free strengthCell rendering. Total column includes both
-        // optional runs as before (a straight sum of every cell) -- actual
-        // weekly total will run lower on weeks where one or both are
-        // skipped.
-        // Revised Sep 10, 2026: added a 4th weekly running day on Wednesday
-        // to go from 3 runs/week (Tue/Thu/Sat) to 4 (Tue/Wed/Thu/Sat), per
-        // Richard's request. Squat day stays on Monday (unchanged, still
-        // gets the freshest recovery window right after Sunday's full rest)
-        // rather than moving to Tuesday, since that alternative would have
-        // put a run directly before squat with no rest buffer and stacked
-        // two heavy leg days back-to-back. Instead, the new run pairs with
-        // Wednesday's existing deadlift day -- run first on fresh legs, then
-        // lift, using the same runStrengthCell pairing already used for
-        // Friday's long-run weeks. New Wednesday minutes scale with each
-        // week's overall volume (roughly 40% of that week's Tuesday easy
-        // run, capped short since it's a warm-up-scale add-on ahead of a
-        // lift): 15-20 min in Deload/Taper/Race weeks, 20-30 min in Build/
-        // Peak weeks. This adds real volume rather than redistributing
-        // existing Tue/Thu/Sat minutes, so every week's Total column rises
-        // by the new Wednesday amount. The old fixed 20-min "optional
-        // cross-training" slot on Wednesday (crossTrainStrengthCell) is
-        // removed -- this is now a mandatory prescribed run, not optional
-        // cross-training.
-        // Revised Sep 9, 2026 (second pass): added a friBuildDeload tier for
-        // Friday's arms-and-back day, applied at Weeks 4 and 8 alongside
-        // Monday/Wednesday's existing deload -- Friday previously ran at
-        // constant volume all cycle since it doesn't interfere with running
-        // recovery, but elbows/shoulders still accumulate fatigue from
-        // curls/rows over 11 weeks, so it now gets the same periodic reset.
-        // Revised Sep 9, 2026: strength program replaced to match the final
-        // Mon/Wed/Fri split worked out separately -- Monday is now Squat Day
-        // (bodyweight squat warm-up, barbell back squat, bench press,
-        // Bulgarian split squat), Wednesday is Deadlift Day (lunges as a
-        // fresh warm-up, barbell deadlift at moderate intensity, farmer's
-        // carry, seated DB overhead press, calf raises), and Friday is Arms
-        // and Back Day (straight arm pulldowns, barbell row, banded rows,
-        // band pull-aparts, DB curls). Squat and deadlift are always on
-        // separate days by design. Phase-based volume scaling (Build/Deload/
-        // Peak/Post-5K/Taper) is preserved from the prior version, just
-        // re-applied to the new exercise list; the {{SQUATVAR}}/{{PRESS}}
-        // week-to-week alternation is removed since nothing alternates
-        // anymore. Unused Base/Peak-Build-tier strength keys (left over from
-        // an earlier cycle length) were dropped along with it.
-        // Revised Aug 28, 2026: dropped the original Weeks 1-2 entirely
-        // (opening build week + treadmill test week) and rebuilt the
-        // remaining 12 weeks from scratch around a fixed minutes-based
-        // schedule rather than mileage -- Tue/Thu/Sat prescriptions now come
-        // straight from a supplied 12-week table (minutes, not miles), with
-        // the goal race held on the same final date as before (Nov 22).
-        // Magic Mile testing is dropped entirely along with the treadmill
-        // test -- there's no periodic recalibration mechanism anymore, just
-        // the fixed schedule below. The Big Bad Wolfe 5K stays on its fixed
-        // calendar date (Sun Sep 27), which lines up with new Week 4
-        // (marked Deload in the supplied table) -- Saturday that week is
-        // overridden to rest (rather than the table's nominal 50 min) since
-        // the actual long effort that week is Sunday's race instead; the
-        // 5K's ~40 min is a rough estimate at current easy pace, not a
-        // measured number. Every other week's Sat/Tue/Thu minutes and
-        // weekly total match the supplied table exactly. Strength stays
-        // Mon/Wed/Fri, now simplified to a single Build tier (no separate
-        // Peak Build tier -- the compressed 12-week cycle doesn't need the
-        // extra granularity) plus one Peak week (10), Taper (11), and no
-        // lifting at all in Race Week (12), consistent with prior design.
+        // Design notes (current state):
+        // - 12-week cycle, Sep 6 - Nov 22, built around a fixed minutes-based
+        //   schedule (not mileage). Running days are Tuesday/Wednesday/
+        //   Thursday/Saturday; every run is easy effort using a run/walk
+        //   ratio (RUN_WALK_RATIO below) -- no tempo work, no speed work, no
+        //   strides. Wednesday's run is short and optional, sits ahead of
+        //   Deadlift Day on fresh legs, and drops out entirely in Weeks 11-12
+        //   (Taper/Race Week) since there's no fitness to gain that close to
+        //   race day -- those weeks' Wednesday cell falls back to a plain
+        //   strength-only rendering, same as Monday's.
+        // - Deloads land at Weeks 4 and 8. The Big Bad Wolfe 5K (Week 4, Sun
+        //   Sep 27) doubles as that deload's long effort, replacing
+        //   Saturday's long run with Sunday's tempo run. The Magic Mile time
+        //   trial (Week 8, Tuesday) is a one-off mid-cycle pace check, not a
+        //   recurring test. Race Week (12) carries the goal half marathon on
+        //   Saturday and drops all strength work.
+        // - Strength is Mon/Wed/Fri: Squat Day (squat, bench, row, Bulgarian
+        //   split squat), Deadlift Day (lunges, deadlift, farmer's carry,
+        //   dumbbell overhead press), Arms and Back Day (pulldowns, banded
+        //   rows, pull-aparts, curls, lateral raises, front raises). Squat
+        //   and deadlift are always on separate days. Volume scales by phase
+        //   (Build/Deload/Peak/Post-5K/Taper) and drops out entirely in Race
+        //   Week.
+        // - Plan array's "total" field is running volume only (Tue+Thu+
+        //   Sat/Sun), excluding Wednesday's optional run; totalCell adds
+        //   w.wed back in to show a range (e.g. "100-120 min") on any week
+        //   where that run is optional. Weeks 11-12 have no Wednesday run at
+        //   all, so they show a single number instead of a range.
         const plan = [
             {
                 wk: 1, date: 'Sep 6', phase: 'Build', tue: 30, wed: 20, thu: 30, sat: 40, sun: 'rest', total: 100, race: null,
@@ -322,8 +205,8 @@
                 strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
             },
             {
-                wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, wed: 15, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, race effort)', total: 100, race: null,
-                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }, deload: true
+                wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, wed: 15, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, tempo run)', total: 100, race: null,
+                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }
             },
             {
                 wk: 5, date: 'Oct 4', phase: 'Build', tue: 45, wed: 25, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
@@ -340,7 +223,7 @@
 
             {
                 wk: 8, date: 'Oct 25', phase: 'Deload', tue: 40, wed: 20, thu: 30, sat: 60, sun: 'rest', total: 130, race: null, magicMile: true,
-                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }, deload: true
+                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }
             },
             {
                 wk: 9, date: 'Nov 1', phase: 'Build', tue: 65, wed: 30, thu: 45, sat: 110, sun: 'rest', total: 220, race: null,
@@ -410,97 +293,92 @@
             monBuild: {
                 name: 'Squat Day', focus: 'Monday \u2014 barbell squat + bench + row, single-leg accessory',
                 main: [
-                    'Bodyweight squat \u2014 1 \u00d7 10',
-                    'Barbell back squat \u2014 3 \u00d7 5',
-                    'Bench press \u2014 3 \u00d7 8',
-                    'Barbell row \u2014 3 \u00d7 8',
+                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 3 \u00d7 5</li></ul>',
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
+                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 3 \u00d7 8\u201310/leg',
                 ],
-                note: 'Build phase \u2014 intensity holds at working weight. Deadlift never lands on this day \u2014 squat and deadlift are always split across Monday/Wednesday so the same posterior-chain muscles aren\u2019t stacked in one session. Barbell row lives here rather than Friday so pulling volume is spread across two sessions per week instead of one.'
+                note: 'Squat and deadlift are always split across Monday/Wednesday, so the same muscles aren\u2019t loaded twice in one session. Row lives here rather than Friday to spread pulling volume across two days.'
             },
             monBuildDeload: {
                 name: 'Squat Day \u2014 Deload Week', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
-                    'Bodyweight squat \u2014 1 \u00d7 10',
-                    'Barbell back squat \u2014 2 \u00d7 5',
-                    'Bench press \u2014 2 \u00d7 8',
-                    'Barbell row \u2014 2 \u00d7 8',
+                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
+                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
-                note: 'Deload week \u2014 strength volume drops in step with the running mileage deload.'
+                note: 'Deload week \u2014 fewer sets, in step with the lighter running week.'
             },
             monPeak: {
-                name: 'Squat Day (Maintenance)', focus: 'Monday \u2014 hold load, don\u2019t chase progress',
+                name: 'Squat Day (Maintenance)', focus: 'Monday \u2014 fewer sets, hold your weight steady',
                 main: [
-                    'Bodyweight squat \u2014 1 \u00d7 10',
-                    'Barbell back squat \u2014 2 \u00d7 5 @ current working weight',
-                    'Bench press \u2014 2 \u00d7 8',
-                    'Barbell row \u2014 2 \u00d7 8',
+                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
+                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
-                note: 'Peak phase \u2014 long run is climbing to 11\u201312 miles, so this drops to a maintenance dose. Goal is holding onto what\u2019s been built, not progressing further. Protecting recovery for peak-mileage weeks matters more than continuing to add load.'
+                note: 'Peak phase \u2014 the long run is climbing toward its highest mileage, so skip adding weight this week even if last session felt easy. Fewer sets protects recovery.'
             },
             monPost5k: {
                 name: 'Squat Day \u2014 Light', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
-                    'Bodyweight squat \u2014 1 \u00d7 10',
-                    'Barbell back squat \u2014 2 \u00d7 5',
-                    'Bench press \u2014 2 \u00d7 8',
-                    'Barbell row \u2014 2 \u00d7 8',
+                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
+                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
-                note: 'Lighter session because yesterday was the Big Bad Wolfe 5K, not because this is a periodization deload \u2014 mileage this week still builds. Keep the load conservative so the legs get real recovery before Tuesday\u2019s run resumes.'
+                note: 'Lighter session the day after the Big Bad Wolfe 5K, not a scheduled deload \u2014 mileage this week still builds. Keep it conservative so your legs recover before Tuesday\u2019s run.'
             },
             monTaper: {
                 name: 'Squat Day (Taper)', focus: 'Monday \u2014 light pass',
                 main: [
-                    'Bodyweight squat \u2014 1 \u00d7 10',
-                    'Barbell back squat \u2014 1 \u00d7 5, light',
-                    'Bench press \u2014 1 \u00d7 8, light',
-                    'Barbell row \u2014 1 \u00d7 8, light',
+                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 1 \u00d7 5, light</li></ul>',
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
+                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
                     'Bulgarian split squat \u2014 1 \u00d7 8/leg, light',
                 ],
-                note: 'One light pass through the full list \u2014 low sets, just to feel normal, nothing more. Volume cut well below Peak.'
+                note: 'Light pass, low sets, just enough to keep the pattern alive going into race week.'
             },
             wedBuild: {
                 name: 'Deadlift Day', focus: 'Wednesday \u2014 barbell deadlift at moderate intensity + accessories',
                 main: [
-                    'Lunges \u2014 1 \u00d7 10/leg (bodyweight)',
-                    'Barbell deadlift (moderate intensity) \u2014 3 \u00d7 5',
+                    'Lunges \u2014 1 \u00d7 10/leg',
+                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 3 \u00d7 5</li></ul>',
                     'Farmer\u2019s carry \u2014 2\u20133 trips (30\u201340m or 30\u201340 sec)',
-                    'Seated dumbbell overhead press \u2014 3 \u00d7 8',
+                    'Dumbbell overhead press \u2014 3 \u00d7 8',
                 ],
-                note: 'Build phase \u2014 deadlift stays at moderate intensity by design, not just during deload weeks; lunges are done fresh as a warm-up (movement prep for the hip hinge) rather than as a fatigued accessory afterward. Squat never lands on this day, so the posterior chain only gets loaded hard once per week from the deadlift. This session now follows the day\u2019s easy run \u2014 the run comes first on fresh legs, then the lift, so running form doesn\u2019t degrade under fatigue from the deadlift beforehand. Calf raises dropped from this session \u2014 already covered in the separate 3x/week core routine.'
+                note: 'Deadlift stays moderate by design. Squat and deadlift are always split across days so the same muscles aren\u2019t loaded twice. Follows the day\u2019s easy run, done first on fresh legs.'
             },
             wedBuildDeload: {
                 name: 'Deadlift Day \u2014 Deload Week', focus: 'Wednesday \u2014 one set lighter across the board',
                 main: [
-                    'Lunges \u2014 1 \u00d7 10/leg (bodyweight)',
-                    'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5',
+                    'Lunges \u2014 1 \u00d7 10/leg',
+                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
                     'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
-                    'Seated dumbbell overhead press \u2014 2 \u00d7 8',
+                    'Dumbbell overhead press \u2014 2 \u00d7 8',
                 ],
-                note: 'Deload week \u2014 volume drops in step with the running mileage deload.'
+                note: 'Deload week \u2014 fewer sets, in step with the lighter running week.'
             },
             wedPeak: {
-                name: 'Deadlift Day (Maintenance)', focus: 'Wednesday \u2014 hold load, don\u2019t chase progress',
+                name: 'Deadlift Day (Maintenance)', focus: 'Wednesday \u2014 fewer sets, hold your weight steady',
                 main: [
-                    'Lunges \u2014 1 \u00d7 10/leg (bodyweight)',
-                    'Barbell deadlift (moderate intensity) \u2014 2 \u00d7 5 @ current working weight',
+                    'Lunges \u2014 1 \u00d7 10/leg',
+                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
                     'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
-                    'Seated dumbbell overhead press \u2014 2 \u00d7 8',
+                    'Dumbbell overhead press \u2014 2 \u00d7 8',
                 ],
-                note: 'Peak phase \u2014 maintenance dose as the long run peaks at 11\u201312 miles. Same exercises, held load, minimal sets.'
+                note: 'Peak phase \u2014 the long run is at its highest mileage, so skip adding weight this week.'
             },
             wedTaper: {
                 name: 'Deadlift Day (Taper)', focus: 'Wednesday \u2014 light pass',
                 main: [
-                    'Lunges \u2014 1 \u00d7 8/leg (bodyweight)',
-                    'Barbell deadlift (moderate intensity) \u2014 1 \u00d7 5, light',
+                    'Lunges \u2014 1 \u00d7 8/leg',
+                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 1 \u00d7 5, light</li></ul>',
                     'Farmer\u2019s carry \u2014 1 trip, light',
-                    'Seated dumbbell overhead press \u2014 1 \u00d7 8, light',
+                    'Dumbbell overhead press \u2014 1 \u00d7 8, light',
                 ],
-                note: 'One light pass through the usual list \u2014 low sets, just enough to keep the pattern alive.'
+                note: 'Light pass, low sets, just enough to keep the pattern alive.'
             },
             friStandard: {
                 name: 'Arms and Back Day', focus: 'Friday \u2014 no leg loading',
@@ -510,8 +388,9 @@
                     'Band pull-aparts \u2014 2 \u00d7 15',
                     'Dumbbell curls \u2014 2 \u00d7 10\u201312',
                     'Lateral raises \u2014 2 \u00d7 12\u201315',
+                    'Front raises \u2014 2 \u00d7 12\u201315',
                 ],
-                note: 'Deliberately zero leg loading \u2014 lower-body soreness peaks 24\u201348 hrs post-session, which would otherwise land squarely on Saturday\u2019s long run. Band pull-aparts are the committed rear-delt movement, balancing the pressing volume from Monday/Wednesday against shoulder impingement risk. Barbell row now lives on Monday, so this session\u2019s pulling volume is banded rows and pulldowns \u2014 pulling frequency stays twice weekly across the two sessions. Lateral raises added to cover shoulder-health work that pressing alone doesn\u2019t. Drops to a lighter pass at Weeks 4 and 8 alongside Monday/Wednesday\u2019s deload, since tendons and joints (elbows from curls, shoulders from rows) still accumulate fatigue over the cycle even though this day doesn\u2019t touch running-leg recovery.'
+                note: 'No leg loading, so soreness doesn\u2019t land on Saturday\u2019s long run. Pulling volume is split between here and Monday\u2019s row. Drops to a lighter pass at Weeks 4 and 8 alongside the deload.'
             },
             friBuildDeload: {
                 name: 'Arms and Back Day \u2014 Deload Week', focus: 'Friday \u2014 one set lighter across the board',
@@ -521,8 +400,9 @@
                     'Band pull-aparts \u2014 2 \u00d7 15',
                     'Dumbbell curls \u2014 1 \u00d7 10',
                     'Lateral raises \u2014 1 \u00d7 12\u201315',
+                    'Front raises \u2014 1 \u00d7 12\u201315',
                 ],
-                note: 'Deload week \u2014 even though upper-body work doesn\u2019t interfere with Saturday\u2019s long run, elbows/shoulders still get a periodic volume reset here rather than running at constant load for the full cycle. Band pull-aparts held steady since that\u2019s the lowest-fatigue-cost movement in the session.'
+                note: 'Deload week \u2014 one set lighter, since elbows and shoulders still accumulate fatigue over the cycle.'
             },
             friTaper: {
                 name: 'Arms and Back Day (Taper)', focus: 'Friday \u2014 light pass',
@@ -532,20 +412,21 @@
                     'Band pull-aparts \u2014 1 \u00d7 15, light',
                     'Dumbbell curls \u2014 1 \u00d7 10, light',
                     'Lateral raises \u2014 1 \u00d7 12\u201315, light',
+                    'Front raises \u2014 1 \u00d7 12\u201315, light',
                 ],
-                note: 'One light pass through the usual upper-body list. Race week itself drops strength work entirely \u2014 that\u2019s the real freshness buffer, not this week.'
+                note: 'Light pass. Race week itself drops strength work entirely \u2014 that\u2019s the real taper, not this week.'
             },
         };
 
         const RACES = {
             4: {
-                name: 'Big Bad Wolfe 5K', role: 'Tuning Race',
-                goal: 'Race this 5K at a genuine effort \u2014 it\u2019s a fitness test, not a fun outing. Today\u2019s time gives a real data point on where fitness stands roughly a third of the way through the cycle, and can predict a realistic half-marathon pace for the Turkey Trot using Riegel\u2019s formula (T2 = T1 \u00d7 (D2/D1)^1.06): roughly 4.6\u00d7 today\u2019s 5K time for the 13.1-mile jump. Treat that number as an optimistic ceiling, not a lock \u2014 5K results reward speed more than endurance, so a 5K-based half-marathon prediction tends to run a bit fast for endurance-limited runners.',
-                warmup: '10\u201315 min easy walk/jog, run/walk ratio, plus a few relaxed strides \u2014 enough to feel warm and ready to push.',
-                effort: 'Push to a real, sustained race effort for the full 3.1 \u2014 harder than any training run this cycle, but even enough to hold for the whole distance rather than fading in the last mile.',
-                pacing: 'Even effort or a slight negative split. No need to hold back for fear of the following week \u2014 Monday\u2019s strength session is already built lighter to absorb today\u2019s effort.',
-                fueling: 'Normal pre-run routine \u2014 nothing new. It\u2019s a short race; no special fueling needed beyond normal hydration.',
-                note: 'This lands in a deload week \u2014 Saturday is a full rest day beforehand, and Monday\u2019s strength session afterward is already built lighter to account for today\u2019s effort. Compare this result against Week 8\u2019s Magic Mile for a second, independent check on how fitness is trending.'
+                name: 'Big Bad Wolfe 5K', role: 'Tempo Run',
+                goal: 'Use this as a progressive tempo effort rather than an all-out race: start conservatively and build so the last half mile is genuinely hard. This is a fitness-building session, not a time trial, so there\u2019s no pace to predict from it, just practice running comfortably hard when tired.',
+                warmup: '10\u201315 min easy walk/jog, run/walk ratio, plus a few relaxed strides \u2014 enough to feel warm.',
+                effort: 'Mile 1: light, conversational effort \u2014 deliberately holding back. Mile 2: moderate, comfortably working. Final 0.5\u20130.6 mi: build to a strong, hard effort, finishing with real intensity.',
+                pacing: 'Progressive build, not an even effort \u2014 the whole point is starting light and finishing hard rather than holding a constant pace throughout.',
+                fueling: 'Normal pre-run routine \u2014 nothing new. Short enough that no special fueling is needed beyond normal hydration.',
+                note: 'This lands in a deload week \u2014 Saturday is a full rest day beforehand, and Monday\u2019s strength session afterward is already built lighter to account for today\u2019s effort.'
             },
             12: {
                 name: 'Johnstown Turkey Trot Half Marathon', role: 'Goal Race',
