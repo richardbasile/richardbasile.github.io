@@ -1,94 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2027 Race Calendar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2027 Race Calendar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400&family=JetBrains+Mono:wght@400;500&display=block"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body>
-<div class="calendar-shell">
+  <div class="calendar-shell">
 
-  <header class="masthead">
-    <span class="eyebrow">2027 Season</span>
-    <h1>Race <span>Calendar</span></h1>
-    <div class="calendar-legend">
-      <span class="tag tag-race">Race</span>
-      <span class="tag tag-volunteer">Volunteer</span>
-    </div>
-  </header>
+    <header class="masthead">
+      <span class="eyebrow">2027 Season</span>
+      <h1>Race <span>Calendar</span></h1>
+      <div class="calendar-legend">
+        <span class="tag tag-race">Race</span>
+        <span class="tag tag-volunteer">Volunteer</span>
+      </div>
+    </header>
 
-  <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="calendar-grid" id="calendar-grid"></div>
 
-</div>
+  </div>
 
-<script>
-  // day = 1-31, month = 0-11
-  const events = [
-    // --- race ---
-    { m:1,  d:21, name:"Timbuk Winter Challenge 22K",          county:"Licking",  dist:"13.67 mi", type:"race" },
-    { m:8,  d:11, name:"Sunbury Half Marathon",                county:"Delaware", dist:"13.10 mi", type:"race" },
-    { m:10, d:13, name:"Run to Feed the Hungry Half Marathon", county:"Franklin", dist:"13.10 mi", type:"race" },
-    { m:3,  d:3,  name:"Franklinton 10 Miler",                 county:"Franklin", dist:"10.00 mi", type:"race" },
-    { m:6,  d:11, name:"Run Wild 5K",                          county:"Delaware", dist:"3.10 mi",  type:"race" },
-    { m:8,  d:26, name:"Big Bad Wolfe Run 5K",                 county:"Franklin", dist:"3.10 mi",  type:"race" },
+  <script>
+    // day = 1-31, month = 0-11
+    const events = [
+      // --- race ---
+      { m: 1, d: 21, name: "Timbuk Winter Challenge 22K", county: "Licking", dist: "13.67 mi", type: "race" },
+      { m: 8, d: 11, name: "Sunbury 10K", county: "Delaware", dist: "6.20 mi", type: "race" },
+      { m: 10, d: 13, name: "Run to Feed the Hungry Half Marathon", county: "Franklin", dist: "13.10 mi", type: "race" },
+      { m: 3, d: 3, name: "Franklinton 10 Miler", county: "Franklin", dist: "10.00 mi", type: "race" },
+      { m: 6, d: 11, name: "Run Wild 5K", county: "Delaware", dist: "3.10 mi", type: "race" },
+      { m: 8, d: 26, name: "Big Bad Wolfe Run 10 Miler", county: "Franklin", dist: "10.00 mi", type: "race" },
 
-    // --- volunteer ---
-    { m:0,  d:9,  name:"Fantastic Frigid 5K Series (#1)",      county:"Delaware", dist:"3.10 mi", type:"volunteer" },
-    { m:0,  d:23, name:"Fantastic Frigid 5K Series (#2)",      county:"Delaware", dist:"3.10 mi", type:"volunteer" },
-    { m:2,  d:14, name:"Celtic Rush 5K",                       county:"Franklin", dist:"3.10 mi", type:"volunteer" },
-    { m:5,  d:18, name:"Sunset Mile",                          county:"Franklin", dist:"1.00 mi", type:"volunteer" },
-    { m:5,  d:12, name:"Johnstown Mastodon March (5K, 10K)",   county:"Licking",  type:"volunteer" },
-    { m:6,  d:18, name:"Diabetes Dash 5K",                     county:"Franklin", dist:"3.10 mi", type:"volunteer" },
+      // --- volunteer ---
+      { m: 0, d: 9, name: "Fantastic Frigid 5K Series (#1)", county: "Delaware", dist: "3.10 mi", type: "volunteer" },
+      { m: 0, d: 23, name: "Fantastic Frigid 5K Series (#2)", county: "Delaware", dist: "3.10 mi", type: "volunteer" },
+      { m: 2, d: 14, name: "Celtic Rush 5K", county: "Franklin", dist: "3.10 mi", type: "volunteer" },
+      { m: 5, d: 18, name: "Sunset Mile", county: "Franklin", dist: "1.00 mi", type: "volunteer" },
+      { m: 6, d: 18, name: "Diabetes Dash 5K", county: "Franklin", dist: "3.10 mi", type: "volunteer" },
+      { m: 6, d: 25, name: "Strength In Colors 5K", county: "Franklin", dist: "3.10 mi", type: "volunteer" },
 
-  ];
+    ];
 
-  const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  const grid = document.getElementById("calendar-grid");
+    const grid = document.getElementById("calendar-grid");
 
-  for(let m=0; m<12; m++){
-    const card = document.createElement("div");
-    card.className = "card month-card";
+    for (let m = 0; m < 12; m++) {
+      const card = document.createElement("div");
+      card.className = "card month-card";
 
-    const monthEvents = events.filter(e => e.m === m).sort((a,b)=>a.d-b.d);
+      const monthEvents = events.filter(e => e.m === m).sort((a, b) => a.d - b.d);
 
-    const head = document.createElement("h4");
-    head.textContent = monthNames[m];
-    card.appendChild(head);
+      const head = document.createElement("h4");
+      head.textContent = monthNames[m];
+      card.appendChild(head);
 
-    if(monthEvents.length){
-      const rows = document.createElement("div");
-      rows.className = "race-rows";
-      monthEvents.forEach(e => {
-        const row = document.createElement("div");
-        row.className = `race-row race-row--${e.type}`;
+      if (monthEvents.length) {
+        const rows = document.createElement("div");
+        rows.className = "race-rows";
+        monthEvents.forEach(e => {
+          const row = document.createElement("div");
+          row.className = `race-row race-row--${e.type}`;
 
-        const dateText = e.dateLabel ? e.dateLabel : `${monthNames[m].slice(0,3)} ${e.d}`;
-        const dow = e.dateLabel ? "" : ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date(2027, e.m, e.d).getDay()];
-        const metaText = e.county ? `${e.county} County${e.dist ? " &middot; " + e.dist : ""}` : (e.dist || "");
+          const dateText = e.dateLabel ? e.dateLabel : `${monthNames[m].slice(0, 3)} ${e.d}`;
+          const dow = e.dateLabel ? "" : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][new Date(2027, e.m, e.d).getDay()];
+          const metaText = e.county ? `${e.county} County${e.dist ? " &middot; " + e.dist : ""}` : (e.dist || "");
 
-        row.innerHTML = `
+          row.innerHTML = `
           <span class="race-row__date">${dateText}${dow ? `<span class="race-row__dow">${dow}</span>` : ""}</span>
           <span class="race-row__body">
             <span class="race-row__title">${e.name}</span>
             ${metaText ? `<span class="race-row__meta">${metaText}</span>` : ""}
           </span>`;
-        rows.appendChild(row);
-      });
-      card.appendChild(rows);
-    } else {
-      const note = document.createElement("div");
-      note.className = "month-empty";
-      note.textContent = "No listed races this month.";
-      card.appendChild(note);
-    }
+          rows.appendChild(row);
+        });
+        card.appendChild(rows);
+      } else {
+        const note = document.createElement("div");
+        note.className = "month-empty";
+        note.textContent = "No listed races this month.";
+        card.appendChild(note);
+      }
 
-    grid.appendChild(card);
-  }
-</script>
+      grid.appendChild(card);
+    }
+  </script>
 </body>
+
 </html>
