@@ -186,13 +186,14 @@
         //   trial (Week 8, Tuesday) is a one-off mid-cycle pace check, not a
         //   recurring test. Race Week (12) carries the goal half marathon on
         //   Saturday and drops all strength work.
-        // - Strength is Mon/Wed/Fri: Squat Day (squat, bench, row, Bulgarian
-        //   split squat), Deadlift Day (lunges, deadlift, farmer's carry,
-        //   dumbbell overhead press), Arms and Back Day (pulldowns, banded
-        //   rows, pull-aparts, curls, lateral raises, front raises). Squat
-        //   and deadlift are always on separate days. Volume scales by phase
-        //   (Build/Deload/Peak/Post-5K/Taper) and drops out entirely in Race
-        //   Week.
+        // - Strength is Mon/Wed/Fri: Squat Day (squat, row, Bulgarian split
+        //   squat), Deadlift Day (lunges, deadlift, farmer's carry, dumbbell
+        //   overhead press), Upper Body Day (bench, pulldowns, banded rows,
+        //   pull-aparts, curls, lateral raises, front raises). Squat and
+        //   deadlift are always on separate days. Volume scales by phase
+        //   (Build = 3 sets/exercise, Deload/Peak = 2, Taper = 1, lunges and
+        //   farmer's carry excepted) and drops out entirely in Race Week.
+        //   Post-5K matches Build except Monday, which matches Deload.
         // - Plan array's "total" field is running volume only (Tue+Thu+
         //   Sat/Sun), excluding Wednesday's optional run; totalCell adds
         //   w.wed back in to show a range (e.g. "100-120 min") on any week
@@ -238,7 +239,7 @@
             },
             {
                 wk: 10, date: 'Nov 8', phase: 'Peak', tue: 65, wed: 30, thu: 55, sat: 120, sun: 'rest', total: 240, race: null,
-                strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friStandard' }
+                strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friPeak' }
             },
             {
                 wk: 11, date: 'Nov 15', phase: 'Taper', tue: 45, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
@@ -298,20 +299,18 @@
 
         const STRENGTH = {
             monBuild: {
-                name: 'Squat Day', focus: 'Monday \u2014 barbell squat + bench + row, single-leg accessory',
+                name: 'Squat Day', focus: 'Monday \u2014 barbell squat + row, single-leg accessory',
                 main: [
                     'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 3 \u00d7 5</li></ul>',
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
                     'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 3 \u00d7 8\u201310/leg',
                 ],
-                note: 'Squat and deadlift are always split across Monday/Wednesday, so the same muscles aren\u2019t loaded twice in one session. Row lives here rather than Friday to spread pulling volume across two days.'
+                note: 'Squat and deadlift are always split across Monday/Wednesday, so the same muscles aren\u2019t loaded twice in one session. Row lives here rather than Friday to spread pulling volume across two days. Bench moved to Friday.'
             },
             monBuildDeload: {
                 name: 'Squat Day \u2014 Deload Week', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
                     'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
@@ -321,7 +320,6 @@
                 name: 'Squat Day (Maintenance)', focus: 'Monday \u2014 fewer sets, hold your weight steady',
                 main: [
                     'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
@@ -331,7 +329,6 @@
                 name: 'Squat Day \u2014 Light', focus: 'Monday \u2014 one set lighter across the board',
                 main: [
                     'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Bulgarian split squat \u2014 2 \u00d7 8/leg',
                 ],
@@ -341,7 +338,6 @@
                 name: 'Squat Day (Taper)', focus: 'Monday \u2014 light pass',
                 main: [
                     'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 1 \u00d7 5, light</li></ul>',
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
                     'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
                     'Bulgarian split squat \u2014 1 \u00d7 8/leg, light',
                 ],
@@ -352,7 +348,7 @@
                 main: [
                     'Lunges \u2014 1 \u00d7 10/leg',
                     'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 3 \u00d7 5</li></ul>',
-                    'Farmer\u2019s carry \u2014 2\u20133 trips (30\u201340m or 30\u201340 sec)',
+                    'Farmer\u2019s carry \u2014 3 trips (30\u201340m or 30\u201340 sec)',
                     'Dumbbell overhead press \u2014 3 \u00d7 8',
                 ],
                 note: 'Deadlift stays moderate by design. Squat and deadlift are always split across days so the same muscles aren\u2019t loaded twice. Follows the day\u2019s easy run, done first on fresh legs.'
@@ -388,32 +384,48 @@
                 note: 'Light pass, low sets, just enough to keep the pattern alive.'
             },
             friStandard: {
-                name: 'Arms and Back Day', focus: 'Friday \u2014 no leg loading',
+                name: 'Upper Body Day', focus: 'Friday \u2014 no leg loading',
                 main: [
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
                     'Straight arm pulldowns \u2014 3 \u00d7 12',
-                    'Banded rows \u2014 2\u20133 \u00d7 12\u201315',
-                    'Band pull-aparts \u2014 2 \u00d7 15',
-                    'Dumbbell curls \u2014 2 \u00d7 10\u201312',
-                    'Lateral raises \u2014 2 \u00d7 12\u201315',
-                    'Front raises \u2014 2 \u00d7 12\u201315',
+                    'Banded rows \u2014 3 \u00d7 12\u201315',
+                    'Band pull-aparts \u2014 3 \u00d7 15',
+                    'Dumbbell curls \u2014 3 \u00d7 10\u201312',
+                    'Lateral raises \u2014 3 \u00d7 12\u201315',
+                    'Front raises \u2014 3 \u00d7 12\u201315',
                 ],
-                note: 'No leg loading, so soreness doesn\u2019t land on Saturday\u2019s long run. Pulling volume is split between here and Monday\u2019s row. Drops to a lighter pass at Weeks 4 and 8 alongside the deload.'
+                note: 'Bench moved here from Monday. No leg loading, so soreness doesn\u2019t land on Saturday\u2019s long run. Pulling volume is split between here and Monday\u2019s row. Drops to a lighter pass at Weeks 4 and 8 alongside the deload, and matches Deload volume during Peak (Week 10).'
             },
             friBuildDeload: {
-                name: 'Arms and Back Day \u2014 Deload Week', focus: 'Friday \u2014 one set lighter across the board',
+                name: 'Upper Body Day \u2014 Deload Week', focus: 'Friday \u2014 one set lighter across the board',
                 main: [
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
                     'Straight arm pulldowns \u2014 2 \u00d7 12',
                     'Banded rows \u2014 2 \u00d7 12\u201315',
                     'Band pull-aparts \u2014 2 \u00d7 15',
-                    'Dumbbell curls \u2014 1 \u00d7 10',
-                    'Lateral raises \u2014 1 \u00d7 12\u201315',
-                    'Front raises \u2014 1 \u00d7 12\u201315',
+                    'Dumbbell curls \u2014 2 \u00d7 10',
+                    'Lateral raises \u2014 2 \u00d7 12\u201315',
+                    'Front raises \u2014 2 \u00d7 12\u201315',
                 ],
                 note: 'Deload week \u2014 one set lighter, since elbows and shoulders still accumulate fatigue over the cycle.'
             },
-            friTaper: {
-                name: 'Arms and Back Day (Taper)', focus: 'Friday \u2014 light pass',
+            friPeak: {
+                name: 'Upper Body Day (Maintenance)', focus: 'Friday \u2014 fewer sets, hold your weight steady',
                 main: [
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
+                    'Straight arm pulldowns \u2014 2 \u00d7 12',
+                    'Banded rows \u2014 2 \u00d7 12\u201315',
+                    'Band pull-aparts \u2014 2 \u00d7 15',
+                    'Dumbbell curls \u2014 2 \u00d7 10',
+                    'Lateral raises \u2014 2 \u00d7 12\u201315',
+                    'Front raises \u2014 2 \u00d7 12\u201315',
+                ],
+                note: 'Peak phase \u2014 the long run is at its highest mileage, so skip adding weight this week. Fewer sets protects recovery, matching Deload week volume.'
+            },
+            friTaper: {
+                name: 'Upper Body Day (Taper)', focus: 'Friday \u2014 light pass',
+                main: [
+                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
                     'Straight arm pulldowns \u2014 1 \u00d7 12, light',
                     'Banded rows \u2014 1 \u00d7 12\u201315, light',
                     'Band pull-aparts \u2014 1 \u00d7 15, light',
