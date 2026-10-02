@@ -5,102 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Plan - Richard Basile</title>
-    <meta name="description"
-        content="12-week hybrid strength + half marathon build — weekly training by day, prescribed in minutes, AM strength sessions, and an all-easy run/walk approach.">
+    <meta name="description" content="7-week 5K + 10K build: running by day in minutes, Tuesday/Friday strength, and race-day plans for Oct 31 and Nov 21.">
     <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=block"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=block" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <style>
-        .or-sep {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            opacity: 1;
-            color: var(--crimson);
-            margin: 3px 4px;
-            display: inline-block;
-        }
-
-        .wk-phase.is-rehab {
-            color: var(--crimson);
-            font-weight: 600;
-        }
-
-        /* Table-specific race-week row styling, scoped under its own class
-           name. The shared style.css also defines an unrelated .race-row
-           component (a race-calendar list item with display:flex), and
-           since that's a plain class selector it was leaking flex layout
-           onto this table's <tr>, collapsing the row width. Renamed to
-           .plan-race-row here and given its own rules so it can't collide. */
-        tr.plan-race-row td {
-            background-color: var(--crimson-wash);
-        }
-
-        tr.plan-race-row td.col-week {
-            background-color: var(--crimson-tint);
-            border-left: 3px solid var(--crimson);
-        }
-
-        tr.plan-race-row td.race-day-cell {
-            background-color: var(--crimson) !important;
-        }
-
-        tr.plan-race-row td.race-day-cell.is-clickable:hover {
-            background-color: #A82A38 !important;
-        }
-
-        tr.plan-race-row td.race-day-cell.is-clickable:focus-visible {
-            outline: 2px solid var(--paper);
-            outline-offset: -2px;
-        }
-
-        .core-routine-heading {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin: 0 0 6px;
-            opacity: 0.75;
-        }
-
-        .core-routine-heading.is-spaced {
-            margin-top: 18px;
-        }
-
-        /* Core routine list sits outside the (smaller) strength-detail cards,
-           so match it to the surrounding intro-text size rather than
-           inheriting the 0.85rem used inside .detail-grid. */
-        #coreRoutineList.strength-list,
-        #stretchRoutineList.strength-list {
-            font-size: 1rem;
-        }
-
-        /* Equal-width day columns: Monday through Sunday plus Weekly Total
-           split the remaining space evenly, matching col-week's fixed 150px. */
+        /* Page-specific rules; everything else comes from the shared style.css. */
         table#planTable.grid-plan th:not(.col-week),
-        table#planTable.grid-plan td.day-cell {
-            width: calc((100% - 150px) / 8);
-        }
-
-        /* Center the column headers for this table only (scoped here so the
-           shared table.plan th left-align in style.css, used by other
-           tables like .threshold-table, is untouched). */
-        table#planTable.grid-plan th {
-            text-align: center;
-        }
-
-        /* Nested strength-list (e.g. the working-set breakdown under Warm-Up
-           Sets) needs its own indent regardless of what the shared
-           strength-list rules in style.css do to the top-level list. */
-        .strength-list .strength-list {
-            margin-top: 4px;
-            padding-left: 1.25rem;
-        }
+        table#planTable.grid-plan td.day-cell { width: calc((100% - 150px) / 8); }
+        table#planTable.grid-plan th { text-align: center; }
+        table#planTable.grid-plan th.col-week { text-align: left; }
+        .core-routine-heading { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 6px; opacity: 0.75; }
+        .core-cols .strength-list { font-size: 1rem; color: var(--ink-soft); }
+        .strength-list .strength-list { margin-top: 4px; padding-left: 1.25rem; }
+        .intro-text strong { color: var(--ink); font-weight: 600; }
+        .race-pair { margin-top: var(--gap-md); }
     </style>
 </head>
 
@@ -109,29 +30,34 @@
         <div class="body">
             <div class="site-shell">
                 <nav class="site-nav no-print">
-                    <a class="back-link" href="/">← Home</a>
+                    <a class="back-link" href="/">&larr; Home</a>
                     <span class="nav-mark">Training Plan</span>
                 </nav>
 
                 <header class="masthead" style="margin-bottom: 0;">
-                    <p class="header-meta">12-Week Hybrid Strength + Half Marathon Build</p>
+                    <p class="header-meta">7-Week 5K + 10K Build &middot; Oct 5 &ndash; Nov 21, 2026</p>
                     <h1>Training <em>Plan</em></h1>
                 </header>
 
-
                 <div class="section">
                     <div class="section-label">Overview</div>
-                    <p class="intro-text">Weekly training by day, prescribed in minutes, building toward the
-                        Johnstown Turkey Trot Half Marathon on Nov 21. Every run is easy effort using a run/walk
-                        method (<span id="runWalkRatio"></span>). Strength days are Monday, Wednesday, and Friday;
-                        running days are Tuesday, Wednesday, Thursday, and Saturday, with periodic deload weeks
-                        along the way. Sunday is rest, except the Big Bad Wolfe 5K on Sep 27.
-                    </p>
+                    <p class="intro-text">Weekly training by day, prescribed in minutes. Running days are Monday, Wednesday, Thursday and Saturday; strength days are Tuesday and Friday; Sunday is rest. Running time builds from 145 to 195 minutes, rising no more than about 10% a week. Easy and long runs can use your run/walk method (<span id="runWalkRatio"></span>), and time includes walk breaks. Tap any shaded cell for the session details.</p>
+                    <div class="race-pair">
+                        <div class="race-bib"><span class="dist">5K</span><span class="date">Sat Oct 31</span><span class="goal">Goal 33:00&ndash;34:30</span><span class="how">Controlled progression: easy, moderate, hard</span></div>
+                        <div class="race-bib"><span class="dist">10K</span><span class="date">Sat Nov 21</span><span class="goal">Goal 70:00&ndash;75:00</span><span class="how">Steady effort, 11:15&ndash;12:05 /mi</span></div>
+                    </div>
                 </div>
 
                 <div class="section">
                     <div class="section-label">Weekly Grid</div>
-
+                    <div class="legend-row">
+                        <span class="legend-item"><span class="legend-dot easy"></span>Easy</span>
+                        <span class="legend-item"><span class="legend-dot quality"></span>Quality</span>
+                        <span class="legend-item"><span class="legend-dot long"></span>Long run</span>
+                        <span class="legend-item"><span class="legend-dot race"></span>Race</span>
+                        <span class="legend-item"><span class="legend-dot strength"></span>Strength</span>
+                        <span class="legend-hint">Tap a shaded cell for details</span>
+                    </div>
                     <div class="scroll-shell">
                         <table class="plan grid-plan" id="planTable">
                             <thead>
@@ -144,630 +70,185 @@
                                     <th>Friday</th>
                                     <th>Saturday</th>
                                     <th>Sunday</th>
-                                    <th>Total (min)</th>
+                                    <th>Run (min)</th>
                                 </tr>
                             </thead>
                             <tbody id="planBody"></tbody>
+                        </table>
+                    </div>
+                    <ul class="grid-notes">
+                        <li><strong>Wednesday quality:</strong> every session starts with 10 min easy plus 4 strides and ends with 5&ndash;10 min easy. Run the reps continuously.</li>
+                        <li><strong>Missed a run?</strong> Skip it rather than doubling up. Lost a week to illness or travel? Repeat the previous week&rsquo;s long run before moving on.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Effort Guide</div>
+                    <div class="ref-shell">
+                        <table class="threshold-table">
+                            <thead><tr><th>Effort</th><th>Pace / mi</th><th>Heart rate</th><th>How it feels</th></tr></thead>
+                            <tbody>
+                                <tr><td>Easy</td><td class="num">13:00&ndash;14:00</td><td class="num">under 145</td><td>Full sentences; walk breaks welcome</td></tr>
+                                <tr><td>10K effort</td><td class="num">11:15&ndash;11:30</td><td class="num">150&ndash;158</td><td>Short phrases</td></tr>
+                                <tr><td>5K effort</td><td class="num">9:45&ndash;10:10</td><td class="num">160&ndash;168</td><td>A few words at a time</td></tr>
+                                <tr><td>Strides</td><td class="num">20 sec</td><td class="num">&mdash;</td><td>Quick and relaxed, not a sprint</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Strength Plan</div>
+                    <p class="intro-text">Your Monday/Wednesday/Friday split condensed to two days around the running. <strong>Tuesday</strong> is the lower-body day, alternating squat weeks and deadlift weeks so your legs take only one heavy lift a week. It lands 24 hours before Wednesday&rsquo;s quality run, so keep 2&ndash;3 reps in reserve on every working set and never grind a rep. Bulgarian split squats are out for this cycle because single-leg work leaves the most soreness. <strong>Friday</strong> stays upper body only, with no leg loading before Saturday&rsquo;s long run. Overhead press moves to Tuesday so pressing is split across both days.</p>
+                    <div class="ref-shell">
+                        <table class="threshold-table">
+                            <thead><tr><th>Week</th><th>Tuesday</th><th>Friday</th><th>Volume</th></tr></thead>
+                            <tbody>
+                                <tr class="lift-week"><td>1 &middot; Oct 11</td><td>Squat Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
+                                <tr class="lift-week"><td>2 &middot; Oct 18</td><td>Deadlift Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
+                                <tr class="lift-week"><td>3 &middot; Oct 25</td><td>Squat Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
+                                <tr class="lift-week"><td>4 &middot; Nov 1</td><td>Deadlift Day (light)</td><td>Rest</td><td>2 sets, lighter weight</td></tr>
+                                <tr class="lift-week"><td>5 &middot; Nov 8</td><td>Squat Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
+                                <tr class="lift-week"><td>6 &middot; Nov 15</td><td>Deadlift Day (maintenance)</td><td>Upper Body Day (maintenance)</td><td>2 sets, hold weight</td></tr>
+                                <tr class="lift-week"><td>7 &middot; Nov 22</td><td>Squat Day (race week)</td><td>Rest</td><td>1 light set</td></tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div class="section">
                     <div class="section-label">Core Routine</div>
-                    <p class="intro-text">Same lower-back/hip stability routine as a separate session every strength day
-                        (Monday, Wednesday, Friday), one fixed target for the whole cycle &mdash; it doesn't scale down
-                        on deload or taper weeks the way the main lifts do.</p>
-                    <p class="core-routine-heading">Routine (2&ndash;3 circuits)</p>
-                    <ul class="strength-list" id="coreRoutineList"></ul>
-                    <p class="core-routine-heading is-spaced">Stretches (hold, mild tension only)</p>
-                    <ul class="strength-list" id="stretchRoutineList"></ul>
+                    <p class="intro-text">The same lower-back and hip stability routine follows every strength session, and it doesn&rsquo;t scale down in light weeks. On race-week Fridays, when there&rsquo;s no lifting, do the stretches only.</p>
+                    <div class="core-cols">
+                        <div><p class="core-routine-heading">Routine (2&ndash;3 circuits)</p><ul class="strength-list" id="coreRoutineList"></ul></div>
+                        <div><p class="core-routine-heading">Stretches (hold, mild tension only)</p><ul class="strength-list" id="stretchRoutineList"></ul></div>
+                    </div>
                 </div>
 
-                <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
-
+                <footer class="site-footer">Built from your Garmin activities, Jan 1 &ndash; Sep 29, 2026.</footer>
             </div>
         </div>
     </div>
 
+    <button class="print-btn no-print" type="button" onclick="window.print()">Print / Save PDF</button>
+
     <script>
-        // Design notes (current state):
-        // - 12-week cycle, Sep 6 - Nov 22, built around a fixed minutes-based
-        //   schedule (not mileage). Running days are Tuesday/Wednesday/
-        //   Thursday/Saturday; every run is easy effort using a run/walk
-        //   ratio (RUN_WALK_RATIO below) -- no tempo work, no speed work, no
-        //   strides. Wednesday's run is short and optional, sits ahead of
-        //   Deadlift Day on fresh legs, and drops out entirely in Weeks 11-12
-        //   (Taper/Race Week) since there's no fitness to gain that close to
-        //   race day -- those weeks' Wednesday cell falls back to a plain
-        //   strength-only rendering, same as Monday's.
-        // - Deloads land at Weeks 4 and 8. The Big Bad Wolfe 5K (Week 4, Sun
-        //   Sep 27) doubles as that deload's long effort, replacing
-        //   Saturday's long run with Sunday's tempo run. The Magic Mile time
-        //   trial (Week 8, Tuesday) is a one-off mid-cycle pace check, not a
-        //   recurring test. Race Week (12) carries the goal half marathon on
-        //   Saturday and drops all strength work.
-        // - Strength is Mon/Wed/Fri: Squat Day (squat, row, Bulgarian split
-        //   squat), Deadlift Day (lunges, deadlift, farmer's carry, dumbbell
-        //   overhead press), Upper Body Day (bench, pulldowns, banded rows,
-        //   pull-aparts, curls, lateral raises, front raises). Squat and
-        //   deadlift are always on separate days. Volume scales by phase
-        //   (Build = 3 sets/exercise, Deload/Peak = 2, Taper = 1, lunges and
-        //   farmer's carry excepted) and drops out entirely in Race Week.
-        //   Post-5K matches Build except Monday, which matches Deload.
-        // - Plan array's "total" field is running volume only (Tue+Thu+
-        //   Sat/Sun), excluding Wednesday's optional run; totalCell adds
-        //   w.wed back in to show a range (e.g. "100-120 min") on any week
-        //   where that run is optional. Weeks 11-12 have no Wednesday run at
-        //   all, so they show a single number instead of a range.
-        const plan = [
-            {
-                wk: 1, date: 'Sep 6', phase: 'Build', tue: 30, wed: 20, thu: 30, sat: 40, sun: 'rest', total: 100, race: null,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 2, date: 'Sep 13', phase: 'Build', tue: 30, wed: 20, thu: 30, sat: 60, sun: 'rest', total: 120, race: null,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 3, date: 'Sep 20', phase: 'Build', tue: 40, wed: 25, thu: 30, sat: 70, sun: 'rest', total: 140, race: null,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 4, date: 'Sep 27', phase: 'Deload', tue: 30, wed: 15, thu: 30, sat: 'rest', sun: 40, sunRace: 'Big Bad Wolfe 5K<br />(3.1 mi, tempo run)', total: 100, race: null,
-                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }
-            },
-            {
-                wk: 5, date: 'Oct 4', phase: 'Build', tue: 45, wed: 25, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
-                strength: { mon: 'monPost5k', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 6, date: 'Oct 11', phase: 'Build', tue: 50, wed: 25, thu: 40, sat: 90, sun: 'rest', total: 180, race: null,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 7, date: 'Oct 18', phase: 'Build', tue: 60, wed: 30, thu: 40, sat: 100, sun: 'rest', total: 200, race: null,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
+const RUN_WALK_RATIO = '4:00 run / 1:00 walk';
+const WU = '10 min easy plus 4 strides';
+const CD = '5–10 min easy jog or walk';
 
-            {
-                wk: 8, date: 'Oct 25', phase: 'Deload', tue: 40, wed: 20, thu: 30, sat: 60, sun: 'rest', total: 130, race: null, magicMile: true,
-                strength: { mon: 'monBuildDeload', wed: 'wedBuildDeload', fri: 'friBuildDeload' }
-            },
-            {
-                wk: 9, date: 'Nov 1', phase: 'Build', tue: 65, wed: 30, thu: 45, sat: 110, sun: 'rest', total: 220, race: null,
-                strength: { mon: 'monBuild', wed: 'wedBuild', fri: 'friStandard' }
-            },
-            {
-                wk: 10, date: 'Nov 8', phase: 'Peak', tue: 65, wed: 30, thu: 55, sat: 120, sun: 'rest', total: 240, race: null,
-                strength: { mon: 'monPeak', wed: 'wedPeak', fri: 'friPeak' }
-            },
-            {
-                wk: 11, date: 'Nov 15', phase: 'Taper', tue: 45, thu: 35, sat: 80, sun: 'rest', total: 160, race: null,
-                strength: { mon: 'monTaper', wed: 'wedTaper', fri: 'friTaper' }
-            },
-            {
-                wk: 12, date: 'Nov 22', phase: 'Race Week', tue: 35, thu: 25, sat: 150, sun: 'rest', total: 210, race: 'Johnstown Turkey Trot Half Marathon (13.1 mi)', raceShort: 'Turkey Trot Half<br />(13.1 mi, goal race)',
-                strength: { mon: null, wed: null, fri: null }
-            },
-        ];
+const plan = [
+  { wk: 1, date: 'Oct 11', phase: 'Rebuild', mon: 30, wed: { min: 30, tag: 'easy + strides' }, thu: 25, sat: { min: 60, tag: 'long run' }, total: '145', lift: { tue: 'tueSquat', fri: 'friUpper' } },
+  { wk: 2, date: 'Oct 18', phase: 'Build', mon: 30, wed: { min: 40, q: 'w2' }, thu: 20, sat: { min: 70, tag: 'long run' }, total: '160', lift: { tue: 'tueDead', fri: 'friUpper' } },
+  { wk: 3, date: 'Oct 25', phase: 'Build', mon: 30, wed: { min: 45, q: 'w3' }, thu: { min: 20, tag: 'easy + strides' }, sat: { min: 80, tag: 'long run', note: 'Last 10 min at 10K effort' }, total: '175', lift: { tue: 'tueSquat', fri: 'friUpper' } },
+  { wk: 4, date: 'Nov 1', phase: '5K Race', race: true, mon: 40, wed: { min: 30, q: 'w4' }, thu: { min: 25, tag: 'easy + strides' }, sat: { min: '~35', r: 'r5k' }, total: '~130', lift: { tue: 'tueDeadLight', fri: null } },
+  { wk: 5, date: 'Nov 8', phase: 'Endurance', mon: { min: 30, tag: 'easy · recovery' }, wed: 40, thu: { min: 30, tag: 'easy + strides' }, sat: { min: 80, long: 'dress' }, total: '180', lift: { tue: 'tueSquat', fri: 'friUpper' } },
+  { wk: 6, date: 'Nov 15', phase: 'Peak', mon: 30, wed: { min: 55, q: 'w6' }, thu: { min: 20, tag: 'easy', note: 'Skip if legs feel flat' }, sat: { min: 90, tag: 'long run', note: 'All easy; longest run' }, total: '195', lift: { tue: 'tueDeadMaint', fri: 'friUpperMaint' } },
+  { wk: 7, date: 'Nov 22', phase: '10K Race', race: true, mon: 40, wed: { min: 40, q: 'w7' }, thu: { min: 25, tag: 'easy + strides' }, sat: { min: '~75', r: 'r10k' }, total: '~180', lift: { tue: 'tueSquatRace', fri: null } },
+];
 
-        // Current run/walk ratio, per Jeff Galloway-style pacing. This is the
-        // single source of truth for the ratio shown throughout the page --
-        // update this one line if the ratio changes instead of hunting
-        // through the prose.
-        const RUN_WALK_RATIO = '4:00 run / 1:00 walk';
+const warmSets = '<li>Empty bar — 1 × 8–10</li><li>~50% — 1 × 5</li><li>~75% — 1 × 3</li>';
+const squat = sets => `Squat<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
+const dead = sets => `Deadlift<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
+const row = sets => `Row<ul class="strength-list"><li>Light (~50%) — 1 × 5</li><li>Working sets — ${sets}</li></ul>`;
+const bench = sets => `Bench<ul class="strength-list"><li>Light (~50%) — 1 × 5</li><li>Working sets — ${sets}</li></ul>`;
+const RIR = 'Keep 2–3 reps in reserve on every working set; Wednesday’s quality run is 24 hours away.';
 
-        // One-off Magic Mile check, Week 8 only -- not a recurring system.
-        // The 1-mile test itself is fixed-distance regardless of the day's
-        // overall time budget, so warm-up/cool-down split whatever's left of
-        // the day's 40 minutes around it rather than being prescribed as
-        // fixed minutes themselves.
-        function magicMilePrescription(totalMinutes) {
-            return {
-                name: 'Magic Mile Time Trial',
-                warmup: `~10 min easy, ${RUN_WALK_RATIO} \u2014 gradually loosen up, not a full effort yet`,
-                main: 'Run 1 mile as fast as you can sustain for the entire mile \u2014 a hard, honest effort right at your current fitness limit, not a sprint that fades halfway through',
-                cooldown: `Remainder of today\u2019s ${totalMinutes} minutes easy walk/jog, ${RUN_WALK_RATIO} or slower, to recover`,
-                note: 'A one-off mid-cycle pace check, not a recurring test. Use today\u2019s result to see whether your current run/walk ratio still fits, or whether it\u2019s time to move to a faster or slower interval.'
-            };
-        }
+const STRENGTH = {
+  tueSquat: { name: 'Squat Day', focus: 'Tuesday — squat, row, overhead press, carry', main: [squat('3 × 5'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `${RIR} Squat and deadlift alternate weeks, so your legs take one heavy lift per week. Core routine after.` },
+  tueDead: { name: 'Deadlift Day', focus: 'Tuesday — deadlift at moderate intensity, row, press, carry', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('3 × 5'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `Deadlift stays moderate by design. ${RIR} Core routine after.` },
+  tueDeadLight: { name: 'Deadlift Day — Light', focus: 'Tuesday — 5K race week, one set fewer and lighter', main: ['Lunges — 1 × 8/leg, as a warm-up', dead('2 × 5 at about 80% of your usual working weight'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8', 'Farmer’s carry — 2 trips'], note: 'Four days before the 5K. Enough to keep the pattern, light enough that nothing is sore by Saturday. No Friday session this week. Core routine after.' },
+  tueDeadMaint: { name: 'Deadlift Day (Maintenance)', focus: 'Tuesday — fewer sets, hold your weight steady', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('2 × 5'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8', 'Farmer’s carry — 2 trips'], note: 'Peak running week: 3 × 10 min at 10K effort tomorrow and 90 minutes on Saturday. Don’t add weight even if last session felt easy. Core routine after.' },
+  tueSquatRace: { name: 'Squat Day (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 × 5, light'), row('1 × 8, light'), 'Dumbbell overhead press — 1 × 8, light'], note: 'Just enough to keep the pattern alive. This is the last lifting before the 10K; Friday is off. Core routine after.' },
+  friUpper: { name: 'Upper Body Day', focus: 'Friday — no leg loading', main: [bench('3 × 8'), 'Straight arm pulldowns — 3 × 12', 'Banded rows — 3 × 12–15', 'Band pull-aparts — 3 × 15', 'Dumbbell curls — 3 × 10–12', 'Lateral raises — 3 × 12–15', 'Front raises — 3 × 12–15'], note: 'No leg loading, so nothing carries into Saturday’s long run. Pulling volume is split between here and Tuesday’s row. Core routine after.' },
+  friUpperMaint: { name: 'Upper Body Day (Maintenance)', focus: 'Friday — fewer sets, hold your weight steady', main: [bench('2 × 8'), 'Straight arm pulldowns — 2 × 12', 'Banded rows — 2 × 12–15', 'Band pull-aparts — 2 × 15', 'Dumbbell curls — 2 × 10', 'Lateral raises — 2 × 12–15', 'Front raises — 2 × 12–15'], note: 'Peak running week, and the day before your 90-minute long run. Fewer sets protects recovery. Core routine after.' },
+};
 
-        // Core is the same lower-back/hip routine every strength day (Monday,
-        // Wednesday, Friday), fixed for the whole cycle with a single target
-        // regardless of phase or deload \u2014 it's cheap enough that trimming it
-        // in step with the main lifts isn't worth the added complexity.
-        // Displayed once at the end of the page rather than inside every
-        // strength card.
-        const CORE_ROUTINE = [
-            'Pelvic tilt \u2014 10\u201312',
-            'Bridge \u2014 10\u201312',
-            'Dead bug \u2014 8\u201310/side',
-            'Lateral leg raise \u2014 10\u201312/side',
-            'Clamshells \u2014 10\u201312/side',
-            'Side plank \u2014 20\u201330 sec/side',
-            'Donkey kicks \u2014 10\u201312/side',
-            'Push-ups \u2014 10\u201312'
-        ];
+const QUALITY = {
+  w2: { name: '5K Intervals', main: '6 × 2 min at 5K effort (9:45–10:10/mi), 90 sec walk/jog between', note: 'Your first quality session in a while. Stop at five reps if the last one would need to be forced.' },
+  w3: { name: '5K Intervals', main: '4 × 4 min at 5K effort (9:45–10:10/mi), 2 min jog between', note: 'Longer reps at the same effort. Aim to run the last rep as strong as the first.' },
+  w4: { name: '5K Sharpener', main: '6 × 1 min at 5K effort, 1 min jog between; quick but relaxed', note: 'Three days before the 5K. This keeps your legs sharp without tiring them; it should feel easy to finish.' },
+  w6: { name: '10K Pace', main: '3 × 10 min at 10K effort (11:15–11:30/mi), 2 min jog between', note: 'This is your 10K race pace. Practice settling into it and holding it, not pushing past it.' },
+  w7: { name: '10K Sharpener', main: '2 × 10 min at 10K effort (11:15–11:30/mi), 2 min jog between', note: 'Final tune-up three days before the race. Trim to 2 × 8 min if Monday felt sluggish.' },
+};
 
-        const STRETCH_ROUTINE = [
-            'Child\u2019s pose \u2014 30\u201345 sec',
-            'Figure four \u2014 30 sec/side',
-            'Knee-to-chest \u2014 20\u201330 sec/side, then both knees together',
-            'Supine spinal twist \u2014 20\u201330 sec/side',
-            'Standing hamstring stretch (heel on step, back straight, hinge from hips) \u2014 20\u201330 sec/side'
-        ];
+const LONG = {
+  dress: { name: 'Dress Rehearsal', main: '40 min easy, 25 min at 10K effort (11:15–11:30/mi), 15 min easy', note: 'Wear your race-day shoes and clothes, eat your race-day breakfast, and use the walk interval you plan to race with.' },
+};
 
-        const STRENGTH = {
-            monBuild: {
-                name: 'Squat Day', focus: 'Monday \u2014 barbell squat + row, single-leg accessory',
-                main: [
-                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 3 \u00d7 5</li></ul>',
-                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
-                    'Bulgarian split squat \u2014 3 \u00d7 8\u201310/leg',
-                ],
-                note: 'Squat and deadlift are always split across Monday/Wednesday, so the same muscles aren\u2019t loaded twice in one session. Row lives here rather than Friday to spread pulling volume across two days. Bench moved to Friday.'
-            },
-            monBuildDeload: {
-                name: 'Squat Day \u2014 Deload Week', focus: 'Monday \u2014 one set lighter across the board',
-                main: [
-                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
-                    'Bulgarian split squat \u2014 2 \u00d7 8/leg',
-                ],
-                note: 'Deload week \u2014 fewer sets, in step with the lighter running week.'
-            },
-            monPeak: {
-                name: 'Squat Day (Maintenance)', focus: 'Monday \u2014 fewer sets, hold your weight steady',
-                main: [
-                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
-                    'Bulgarian split squat \u2014 2 \u00d7 8/leg',
-                ],
-                note: 'Peak phase \u2014 the long run is climbing toward its highest mileage, so skip adding weight this week even if last session felt easy. Fewer sets protects recovery.'
-            },
-            monPost5k: {
-                name: 'Squat Day \u2014 Light', focus: 'Monday \u2014 one set lighter across the board',
-                main: [
-                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
-                    'Bulgarian split squat \u2014 2 \u00d7 8/leg',
-                ],
-                note: 'Lighter session the day after the Big Bad Wolfe 5K, not a scheduled deload \u2014 mileage this week still builds. Keep it conservative so your legs recover before Tuesday\u2019s run.'
-            },
-            monTaper: {
-                name: 'Squat Day (Taper)', focus: 'Monday \u2014 light pass',
-                main: [
-                    'Squat<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 1 \u00d7 5, light</li></ul>',
-                    'Row<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
-                    'Bulgarian split squat \u2014 1 \u00d7 8/leg, light',
-                ],
-                note: 'Light pass, low sets, just enough to keep the pattern alive going into race week.'
-            },
-            wedBuild: {
-                name: 'Deadlift Day', focus: 'Wednesday \u2014 barbell deadlift at moderate intensity + accessories',
-                main: [
-                    'Lunges \u2014 1 \u00d7 10/leg',
-                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 3 \u00d7 5</li></ul>',
-                    'Farmer\u2019s carry \u2014 3 trips (30\u201340m or 30\u201340 sec)',
-                    'Dumbbell overhead press \u2014 3 \u00d7 8',
-                ],
-                note: 'Deadlift stays moderate by design. Squat and deadlift are always split across days so the same muscles aren\u2019t loaded twice. Follows the day\u2019s easy run, done first on fresh legs.'
-            },
-            wedBuildDeload: {
-                name: 'Deadlift Day \u2014 Deload Week', focus: 'Wednesday \u2014 one set lighter across the board',
-                main: [
-                    'Lunges \u2014 1 \u00d7 10/leg',
-                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
-                    'Dumbbell overhead press \u2014 2 \u00d7 8',
-                ],
-                note: 'Deload week \u2014 fewer sets, in step with the lighter running week.'
-            },
-            wedPeak: {
-                name: 'Deadlift Day (Maintenance)', focus: 'Wednesday \u2014 fewer sets, hold your weight steady',
-                main: [
-                    'Lunges \u2014 1 \u00d7 10/leg',
-                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 2 \u00d7 5</li></ul>',
-                    'Farmer\u2019s carry \u2014 2 trips (30\u201340m or 30\u201340 sec)',
-                    'Dumbbell overhead press \u2014 2 \u00d7 8',
-                ],
-                note: 'Peak phase \u2014 the long run is at its highest mileage, so skip adding weight this week.'
-            },
-            wedTaper: {
-                name: 'Deadlift Day (Taper)', focus: 'Wednesday \u2014 light pass',
-                main: [
-                    'Lunges \u2014 1 \u00d7 8/leg',
-                    'Deadlift<ul class="strength-list"><li>Empty bar \u2014 1 \u00d7 8\u201310</li><li>~50% \u2014 1 \u00d7 5</li><li>~75% \u2014 1 \u00d7 3</li><li>Working sets \u2014 1 \u00d7 5, light</li></ul>',
-                    'Farmer\u2019s carry \u2014 1 trip, light',
-                    'Dumbbell overhead press \u2014 1 \u00d7 8, light',
-                ],
-                note: 'Light pass, low sets, just enough to keep the pattern alive.'
-            },
-            friStandard: {
-                name: 'Upper Body Day', focus: 'Friday \u2014 no leg loading',
-                main: [
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 3 \u00d7 8</li></ul>',
-                    'Straight arm pulldowns \u2014 3 \u00d7 12',
-                    'Banded rows \u2014 3 \u00d7 12\u201315',
-                    'Band pull-aparts \u2014 3 \u00d7 15',
-                    'Dumbbell curls \u2014 3 \u00d7 10\u201312',
-                    'Lateral raises \u2014 3 \u00d7 12\u201315',
-                    'Front raises \u2014 3 \u00d7 12\u201315',
-                ],
-                note: 'Bench moved here from Monday. No leg loading, so soreness doesn\u2019t land on Saturday\u2019s long run. Pulling volume is split between here and Monday\u2019s row. Drops to a lighter pass at Weeks 4 and 8 alongside the deload, and matches Deload volume during Peak (Week 10).'
-            },
-            friBuildDeload: {
-                name: 'Upper Body Day \u2014 Deload Week', focus: 'Friday \u2014 one set lighter across the board',
-                main: [
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
-                    'Straight arm pulldowns \u2014 2 \u00d7 12',
-                    'Banded rows \u2014 2 \u00d7 12\u201315',
-                    'Band pull-aparts \u2014 2 \u00d7 15',
-                    'Dumbbell curls \u2014 2 \u00d7 10',
-                    'Lateral raises \u2014 2 \u00d7 12\u201315',
-                    'Front raises \u2014 2 \u00d7 12\u201315',
-                ],
-                note: 'Deload week \u2014 one set lighter, since elbows and shoulders still accumulate fatigue over the cycle.'
-            },
-            friPeak: {
-                name: 'Upper Body Day (Maintenance)', focus: 'Friday \u2014 fewer sets, hold your weight steady',
-                main: [
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 2 \u00d7 8</li></ul>',
-                    'Straight arm pulldowns \u2014 2 \u00d7 12',
-                    'Banded rows \u2014 2 \u00d7 12\u201315',
-                    'Band pull-aparts \u2014 2 \u00d7 15',
-                    'Dumbbell curls \u2014 2 \u00d7 10',
-                    'Lateral raises \u2014 2 \u00d7 12\u201315',
-                    'Front raises \u2014 2 \u00d7 12\u201315',
-                ],
-                note: 'Peak phase \u2014 the long run is at its highest mileage, so skip adding weight this week. Fewer sets protects recovery, matching Deload week volume.'
-            },
-            friTaper: {
-                name: 'Upper Body Day (Taper)', focus: 'Friday \u2014 light pass',
-                main: [
-                    'Bench<ul class="strength-list"><li>Light (~50%) \u2014 1 \u00d7 5</li><li>Working sets \u2014 1 \u00d7 8, light</li></ul>',
-                    'Straight arm pulldowns \u2014 1 \u00d7 12, light',
-                    'Banded rows \u2014 1 \u00d7 12\u201315, light',
-                    'Band pull-aparts \u2014 1 \u00d7 15, light',
-                    'Dumbbell curls \u2014 1 \u00d7 10, light',
-                    'Lateral raises \u2014 1 \u00d7 12\u201315, light',
-                    'Front raises \u2014 1 \u00d7 12\u201315, light',
-                ],
-                note: 'Light pass. Race week itself drops strength work entirely \u2014 that\u2019s the real taper, not this week.'
-            },
-        };
+const RACES = {
+  r5k: { name: '5K', role: 'Controlled Progression', goal: '33:00–34:30, the same shape as your Sep 27 run (34:50) with four more weeks of training behind you.', warmup: '10 min easy; the easy first half finishes the job.', effort: 'First 1.5 mi easy, about 12:30–13:00/mi. Next mile moderate and steady, about 11:00/mi. Last 0.6 mi hard.', pacing: 'Progressive, not even. Start deliberately slow and finish with real intensity.', fueling: 'Normal pre-run routine. Familiar breakfast 2–3 hours before; nothing new.', note: 'A faster finish than Sep 27 is the sign the plan is working. Monday is an easy recovery run.' },
+  r10k: { name: '10K', role: 'Goal Race', goal: '70:00–75:00 (11:15–12:05/mi).', warmup: '5–10 min easy; the first mile finishes the job.', effort: 'Miles 1–2 relaxed at about 12:00. Miles 3–5 at 11:15–11:30. Then whatever is left for the last 1.2 mi.', pacing: 'Slight negative split. If you use walk breaks, use the interval you practiced on the Nov 7 dress rehearsal.', fueling: 'Familiar breakfast 2–3 hours before. Dress as if it were 15°F warmer than the forecast and shed a throwaway layer at the start.', note: 'The light Thursday and Friday rest are the taper. Trust them.' },
+};
 
-        const RACES = {
-            4: {
-                name: 'Big Bad Wolfe 5K', role: 'Tempo Run',
-                goal: 'Use this as a progressive tempo effort rather than an all-out race: start conservatively and build so the last half mile is genuinely hard. This is a fitness-building session, not a time trial, so there\u2019s no pace to predict from it, just practice running comfortably hard when tired.',
-                warmup: '10\u201315 min easy walk/jog, run/walk ratio, plus a few relaxed strides \u2014 enough to feel warm.',
-                effort: 'Mile 1: light, conversational effort \u2014 deliberately holding back. Mile 2: moderate, comfortably working. Final 0.5\u20130.6 mi: build to a strong, hard effort, finishing with real intensity.',
-                pacing: 'Progressive build, not an even effort \u2014 the whole point is starting light and finishing hard rather than holding a constant pace throughout.',
-                fueling: 'Normal pre-run routine \u2014 nothing new. Short enough that no special fueling is needed beyond normal hydration.',
-                note: 'This lands in a deload week \u2014 Saturday is a full rest day beforehand, and Monday\u2019s strength session afterward is already built lighter to account for today\u2019s effort.'
-            },
-            12: {
-                name: 'Johnstown Turkey Trot Half Marathon', role: 'Goal Race',
-                goal: 'Race the half marathon at a genuine race effort for the full 13.1 \u2014 faster than the easy pace used in training. This cycle built the aerobic base and durability all season; race day is where that fitness gets spent, not banked. Your Week 8 Magic Mile test gives a data-driven starting point for goal pace (roughly Magic Mile pace \u00d7 1.2 for half-marathon effort) rather than guessing.',
-                warmup: '10\u201315 min easy walk, done well before the start so there\u2019s time to use the bathroom and get to the corral without rushing. Nothing hard \u2014 save the legs.',
-                effort: 'Miles 1\u20133: settle in close to goal pace, but stay controlled \u2014 resist the adrenaline urge to go out faster than that. Miles 4\u20139: hold a strong, sustainable effort here; this is the biggest chunk of the race and where discipline matters most. Miles 10\u201313.1: this is where the race actually happens \u2014 push to whatever effort you can sustain to the finish, informed by how the first 9 miles felt.',
-                pacing: 'Even effort or a slight negative split, since this is a race, not a training run \u2014 but the first mile still shouldn\u2019t be an all-out effort. If Week 8\u2019s Magic Mile predicted a pace, use it as the target rather than winging it; adjust your run/walk ratio (shorter walks, longer runs) if goal pace calls for it.',
-                fueling: 'Whatever water/fuel strategy feels comfortable on long runs this cycle \u2014 nothing new on race day. Same breakfast timing, same hydration plan.',
-                note: 'Trust the taper. Volume held at peak through Week 10, then dropped for Weeks 11\u201312 \u2014 that can feel like lost fitness, but it isn\u2019t \u2014 it\u2019s the plan working as intended. The taper protects the freshness you\u2019ll need to actually race, not just finish.'
-            },
-        };
+const CORE_ROUTINE = ['Pelvic tilt — 10–12', 'Bridge — 10–12', 'Dead bug — 8–10/side', 'Lateral leg raise — 10–12/side', 'Clamshells — 10–12/side', 'Side plank — 20–30 sec/side', 'Donkey kicks — 10–12/side', 'Push-ups — 10–12'];
+const STRETCH_ROUTINE = ['Child’s pose — 30–45 sec', 'Figure four — 30 sec/side', 'Knee-to-chest — 20–30 sec/side, then both knees together', 'Supine spinal twist — 20–30 sec/side', 'Standing hamstring stretch (heel on step, back straight, hinge from hips) — 20–30 sec/side'];
 
-        function getRace(wk) {
-            return RACES[wk] || null;
-        }
+const LIFT_ICON = '<span class="lift-icon"><svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>';
+const norm = v => (typeof v === 'object' && v !== null) ? v : { min: v, tag: 'easy' };
+const hint = '<span class="expand-hint">details</span>';
+const btn = (idx, day) => `tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${day}"`;
 
-        function getStrength(key) {
-            if (!key) return null;
-            return STRENGTH[key];
-        }
+function runCell(v) {
+  const r = norm(v);
+  return `<td class="day-cell"><span class="mi">${r.min} min</span><span class="tag">${r.tag}</span>${r.note ? `<span class="cell-note">${r.note}</span>` : ''}</td>`;
+}
+function wedCell(v, idx) {
+  const r = norm(v);
+  if (!r.q) return runCell(v);
+  return `<td class="day-cell quality-cell is-clickable" ${btn(idx, 'wed')}><span class="mi">${r.min} min</span><span class="tag">quality</span><span class="session-name">${QUALITY[r.q].name}</span>${hint}</td>`;
+}
+function satCell(v, idx) {
+  if (v.r) { const race = RACES[v.r]; return `<td class="day-cell race-day-cell is-clickable" ${btn(idx, 'sat')}><span class="mi">${v.min} min</span><span class="tag">${race.name} race</span>${hint}</td>`; }
+  if (v.long) { return `<td class="day-cell long-run is-clickable" ${btn(idx, 'sat')}><span class="mi">${v.min} min</span><span class="tag">long run</span><span class="session-name">${LONG[v.long].name}</span>${hint}</td>`; }
+  return `<td class="day-cell long-run"><span class="mi">${v.min} min</span><span class="tag">${v.tag}</span>${v.note ? `<span class="cell-note">${v.note}</span>` : ''}</td>`;
+}
+function liftCell(key, idx, day) {
+  if (!key) return `<td class="day-cell rest">Rest<span class="cell-note">No strength</span></td>`;
+  return `<td class="day-cell strength-cell is-clickable" ${btn(idx, day)}>${LIFT_ICON}<span class="session-name">${STRENGTH[key].name}</span>${hint}</td>`;
+}
+function detail(idx, day, cls, title, rows, note) {
+  return `<tr class="detail-row${cls === 'strength-detail-inner' ? ' strength-detail' : ''}" id="detail-${idx}-${day}"><td colspan="9"><div class="detail-inner ${cls}"><h4>${title}</h4><div class="detail-grid">${rows.map(([k, v]) => `<div class="k">${k}</div><div class="v">${v}</div>`).join('')}</div><div class="detail-note">${note}</div></div></td></tr>`;
+}
+function liftDetail(key, idx, day, label) {
+  if (!key) return '';
+  const s = STRENGTH[key];
+  return detail(idx, day, 'strength-detail-inner', `${label} Strength — ${s.name}`, [['Focus', s.focus], ['Main set', `<ul class="strength-list">${s.main.map(m => `<li>${m}</li>`).join('')}</ul>`]], s.note);
+}
 
-        // Exercise selection is now fixed per day (squat day Monday, deadlift
-        // day Wednesday, arms-and-back Friday) rather than alternating week to
-        // week, so this is just a pass-through \u2014 kept so the rest of the
-        // render code (which calls resolveStrengthText on every main-set line
-        // and note) doesn't need to change.
-        function resolveStrengthText(str, wk) {
-            return str;
-        }
+const phaseClass = { 'Rebuild': 'is-base', 'Endurance': 'is-base', 'Peak': 'is-peak', '5K Race': 'is-race', '10K Race': 'is-race' };
+let html = '';
+plan.forEach((w, idx) => {
+  html += `<tr class="plan-row${w.race ? ' plan-race-row' : ''}">
+    <td class="col-week"><div class="wk-num">WK ${String(w.wk).padStart(2, '0')}</div><div class="wk-date">${w.date}</div><span class="wk-phase ${phaseClass[w.phase] || ''}">${w.phase}</span></td>
+    ${runCell(w.mon)}${liftCell(w.lift.tue, idx, 'tue')}${wedCell(w.wed, idx)}${runCell(w.thu)}${liftCell(w.lift.fri, idx, 'fri')}${satCell(w.sat, idx)}
+    <td class="day-cell rest">Rest</td>
+    <td class="day-cell total-cell"><span class="mi">${w.total}</span></td></tr>`;
+  html += liftDetail(w.lift.tue, idx, 'tue', 'Tuesday');
+  const wq = norm(w.wed);
+  if (wq.q) { const q = QUALITY[wq.q]; html += detail(idx, 'wed', '', `Wednesday — ${q.name}`, [['Warm-up', WU], ['Main set', q.main], ['Cool-down', CD]], q.note); }
+  html += liftDetail(w.lift.fri, idx, 'fri', 'Friday');
+  if (w.sat.r) { const r = RACES[w.sat.r]; html += detail(idx, 'sat', 'race-detail-inner', `${r.name} — ${r.role}`, [['Goal', r.goal], ['Warm-up', r.warmup], ['Effort', r.effort], ['Pacing', r.pacing], ['Fueling', r.fueling]], r.note); }
+  if (w.sat.long) { const l = LONG[w.sat.long]; html += detail(idx, 'sat', 'long-detail-inner', `Saturday — ${l.name}`, [['Session', l.main]], l.note); }
+});
+document.getElementById('planBody').innerHTML = html;
 
-        function isTaperWeek(w) {
-            return w.phase === 'Taper';
-        }
-
-
-        // Used on weeks where the long run is shifted onto Friday (e.g. to make
-        // room for a Sunday race). Pairs Friday's usual strength session with
-        // the long run itself, the same way Monday/Wednesday already pair
-        // strength with an easy run.
-        function friLongRunCell(mileageValue, strengthKey, idx, dayAbbr) {
-            const s = getStrength(strengthKey);
-            if (!s) {
-                return `<td class="day-cell long-run"><span class="mi">${mileageValue}</span><span class="tag">long run</span></td>`;
-            }
-            return `
-        <td class="day-cell strength-cell long-run" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">${mileageValue}</span><span class="tag">long run</span>
-          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
-          <span class="session-name">${s.name}</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-        }
-
-        function dayCell(value, opts = {}) {
-            if (value === undefined || value === null) {
-                return `<td class="day-cell walk-cell">Walk</td>`;
-            }
-            if (value === 'rest') {
-                return `<td class="day-cell rest">Rest</td>`;
-            }
-            if (value === 'xt') {
-                return `<td class="day-cell"><span class="mi">30 min</span><span class="tag">cross-training</span></td>`;
-            }
-            const tag = opts.tag || '';
-            const cls = opts.cls || '';
-            return `<td class="day-cell ${cls}"><span class="mi">${value} min</span>${tag ? `<span class="tag">${tag}</span>` : ''}</td>`;
-        }
-
-        function strengthCell(strengthKey, idx, dayAbbr, extraTag) {
-            const s = getStrength(strengthKey);
-            if (!s) {
-                return `<td class="day-cell walk-cell">Rest</td>`;
-            }
-            return `
-        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
-          <span class="session-name">${s.name}</span>
-          ${extraTag ? `<span class="tag">${extraTag}</span>` : ''}
-          <span class="expand-hint">details</span>
-        </td>`;
-        }
-
-        const EASY_TAG = 'easy';
-
-        function runStrengthCell(mileageValue, strengthKey, idx, dayAbbr, effortTag) {
-            const s = getStrength(strengthKey);
-            const tag = effortTag || EASY_TAG;
-            if (mileageValue === undefined || mileageValue === null) {
-                return `<td class="day-cell walk-cell">Walk</td>`;
-            }
-            if (mileageValue === 'rest') {
-                return `<td class="day-cell rest">Rest</td>`;
-            }
-            if (mileageValue === 'xt') {
-                if (!s) {
-                    return `<td class="day-cell"><span class="mi">30 min</span><span class="tag">cross-training</span></td>`;
-                }
-                return `
-        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">30 min</span><span class="tag">cross-training</span>
-          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
-          <span class="session-name">${s.name}</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-            }
-            if (!s) {
-                return `<td class="day-cell"><span class="mi">${mileageValue} min</span><span class="tag">${tag}</span></td>`;
-            }
-            return `
-        <td class="day-cell strength-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">${mileageValue} min</span><span class="tag">${tag}</span>
-          <span class="lift-icon"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>
-          <span class="session-name">${s.name}</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-        }
-
-        function easyRunCell(minutesValue) {
-            if (minutesValue === undefined || minutesValue === null) {
-                return `<td class="day-cell walk-cell">Walk</td>`;
-            }
-            if (minutesValue === 'rest') {
-                return `<td class="day-cell rest">Rest</td>`;
-            }
-            return `<td class="day-cell"><span class="mi">${minutesValue} min</span><span class="tag">${EASY_TAG}</span></td>`;
-        }
-
-        function raceCell(value, raceName, wk, idx, dayAbbr) {
-            const race = getRace(wk);
-            if (!race) {
-                return `<td class="day-cell race-day-cell"><span class="mi">${value} min</span><span class="tag">${raceName}</span></td>`;
-            }
-            return `
-        <td class="day-cell race-day-cell is-clickable" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${dayAbbr}">
-          <span class="mi">${value} min</span><span class="tag">${raceName}</span>
-          <span class="expand-hint">details</span>
-        </td>`;
-        }
-
-        const tbody = document.getElementById('planBody');
-        let rowsHtml = '';
-
-        plan.forEach((w, idx) => {
-            const isRaceWeek = !!w.race;
-            const rowClasses = ['plan-row'];
-            if (isRaceWeek) rowClasses.push('plan-race-row');
-
-            const monCell = strengthCell(w.strength ? w.strength.mon : null, idx, 'Mon');
-            const tueCellHtml = w.magicMile
-                ? `
-        <td class="day-cell magic-mile-cell" tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="Tue">
-          <span class="mi">${w.tue} min</span><span class="tag">magic mile</span>
-          <span class="session-name">Magic Mile Test</span>
-          <span class="expand-hint">details</span>
-        </td>`
-                : easyRunCell(w.tue);
-            const wedHasRun = w.wed !== undefined && w.wed !== null;
-            const wedCell = wedHasRun
-                ? runStrengthCell(w.wed, w.strength ? w.strength.wed : null, idx, 'Wed', 'easy \u00b7 optional')
-                : strengthCell(w.strength ? w.strength.wed : null, idx, 'Wed');
-            const thuCell = easyRunCell(w.thu);
-            const friHasLongRun = w.friLongRun && w.fri !== undefined && w.fri !== null;
-            const friHasEasyRun = !w.friLongRun && w.fri !== undefined && w.fri !== null;
-            const friHasStrength = w.strength && w.strength.fri;
-            const friCellHtml = friHasLongRun
-                ? (friHasStrength
-                    ? friLongRunCell(w.fri, w.strength.fri, idx, 'Fri')
-                    : dayCell(w.fri, { tag: 'long run', cls: 'long-run' }))
-                : (friHasEasyRun
-                    ? runStrengthCell(w.fri, w.strength ? w.strength.fri : null, idx, 'Fri')
-                    : strengthCell(w.strength ? w.strength.fri : null, idx, 'Fri'));
-
-            let satCell, sunCell;
-            if (isRaceWeek) {
-                satCell = raceCell(w.sat, w.raceShort || w.race, w.wk, idx, 'Sat');
-                sunCell = dayCell(w.sun);
-            } else {
-                satCell = dayCell(w.sat, { tag: w.sat ? 'long run' : '', cls: 'long-run' });
-                sunCell = w.sunRace
-                    ? raceCell(w.sun, w.sunRace, w.wk, idx, 'Sun')
-                    : dayCell(w.sun);
-            }
-
-            const phaseSlug = w.phase.toLowerCase().replace(/\s+/g, '-');
-            const phaseClassMap = { 'deload': 'is-deload', 'taper': 'is-taper', 'race-week': 'is-race', 'rehab': 'is-rehab' };
-            const phaseClass = phaseClassMap[phaseSlug] || '';
-
-            const totalCell = wedHasRun
-                ? `<td class="day-cell total-cell"><span class="mi">${w.total}\u2013${w.total + w.wed} min</span></td>`
-                : `<td class="day-cell total-cell"><span class="mi">${w.total} min</span></td>`;
-
-            const monStrength = getStrength(w.strength ? w.strength.mon : null);
-            const wedStrength = getStrength(w.strength ? w.strength.wed : null);
-            const friStrength = getStrength(w.strength ? w.strength.fri : null);
-
-            function strengthDetailRow(s, dayKey, dayLabel) {
-                if (!s) return '';
-                const mainResolved = s.main.map(item => resolveStrengthText(item, w.wk));
-                const noteResolved = resolveStrengthText(s.note, w.wk);
-                return `
-        <tr class="detail-row strength-detail" id="detail-${idx}-${dayKey}">
-          <td colspan="9">
-            <div class="detail-inner strength-detail-inner">
-              <h4>${dayLabel} Strength &mdash; ${s.name}</h4>
-              <div class="detail-grid">
-                <div class="k">Focus</div><div class="v">${s.focus}</div>
-                ${mainResolved.length ? `<div class="k">Main set</div><div class="v"><ul class="strength-list">${mainResolved.map(item => `<li>${item}</li>`).join('')}</ul></div>` : ''}
-              </div>
-              <div class="detail-note">${noteResolved}</div>
-            </div>
-          </td>
-        </tr>`;
-            }
-
-            function magicMileDetailRow(dayKey) {
-                if (!w.magicMile) return '';
-                const mm = magicMilePrescription(w.tue);
-                return `
-        <tr class="detail-row strength-detail" id="detail-${idx}-${dayKey}">
-          <td colspan="9">
-            <div class="detail-inner strength-detail-inner">
-              <h4>${mm.name}</h4>
-              <div class="detail-grid">
-                <div class="k">Warm-up</div><div class="v">${mm.warmup}</div>
-                <div class="k">Test mile</div><div class="v">${mm.main}</div>
-                <div class="k">Cool-down</div><div class="v">${mm.cooldown}</div>
-              </div>
-              <div class="detail-note">${mm.note}</div>
-            </div>
-          </td>
-        </tr>`;
-            }
-
-            function raceDetailRow(dayKey) {
-                const race = getRace(w.wk);
-                if (!race) return '';
-                return `
-        <tr class="detail-row race-detail" id="detail-${idx}-${dayKey}">
-          <td colspan="9">
-            <div class="detail-inner race-detail-inner">
-              <h4>${race.name} &mdash; ${race.role}</h4>
-              <div class="detail-grid">
-                <div class="k">Goal</div><div class="v">${race.goal}</div>
-                <div class="k">Warm-up</div><div class="v">${race.warmup}</div>
-                <div class="k">Effort</div><div class="v">${race.effort}</div>
-                <div class="k">Pacing</div><div class="v">${race.pacing}</div>
-                <div class="k">Fueling</div><div class="v">${race.fueling}</div>
-              </div>
-              <div class="detail-note">${race.note}</div>
-            </div>
-          </td>
-        </tr>`;
-            }
-
-            rowsHtml += `
-        <tr class="${rowClasses.join(' ')}">
-          <td class="col-week">
-            <div class="wk-num">WK ${String(w.wk).padStart(2, '0')}</div>
-            <div class="wk-date">${w.date}</div>
-            <span class="wk-phase ${phaseClass}">${w.phase}</span>
-            ${w.race ? `<div class="race-flag">${w.race}</div>` : ''}
-          </td>
-          ${monCell}
-          ${tueCellHtml}
-          ${wedCell}
-          ${thuCell}
-          ${friCellHtml}
-          ${satCell}
-          ${sunCell}
-          ${totalCell}
-        </tr>
-        ${strengthDetailRow(monStrength, 'mon', 'Monday')}
-        ${magicMileDetailRow('tue')}
-        ${strengthDetailRow(wedStrength, 'wed', 'Wednesday')}
-        ${strengthDetailRow(friStrength, 'fri', 'Friday')}
-        ${isRaceWeek ? raceDetailRow('sat') : (w.sunRace ? raceDetailRow('sun') : '')}
-      `;
-        });
-
-        tbody.innerHTML = rowsHtml;
-
-        document.querySelectorAll('[data-idx][data-day]').forEach(cell => {
-            cell.addEventListener('click', () => toggleDetail(cell));
-            cell.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggleDetail(cell);
-                }
-            });
-        });
-
-        function closeAllDetails(exceptRow) {
-            document.querySelectorAll('.detail-row.open').forEach(row => {
-                if (row === exceptRow) return;
-                row.classList.remove('open');
-            });
-            document.querySelectorAll('[data-idx][data-day]').forEach(c => {
-                if (c.getAttribute('aria-expanded') === 'true') {
-                    c.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-
-        function toggleDetail(cell) {
-            const idx = cell.getAttribute('data-idx');
-            const dayKey = cell.getAttribute('data-day').toLowerCase();
-            const row = document.getElementById(`detail-${idx}-${dayKey}`);
-            if (!row) return;
-            const isOpen = row.classList.contains('open');
-            closeAllDetails(isOpen ? null : row);
-            row.classList.toggle('open', !isOpen);
-            cell.setAttribute('aria-expanded', String(!isOpen));
-        }
-
-        document.getElementById('coreRoutineList').innerHTML =
-            CORE_ROUTINE.map(item => `<li>${item}</li>`).join('');
-
-        document.getElementById('stretchRoutineList').innerHTML =
-            STRETCH_ROUTINE.map(item => `<li>${item}</li>`).join('');
-
-        document.getElementById('runWalkRatio').textContent = RUN_WALK_RATIO;
-    </script>
+function toggle(cell) {
+  const row = document.getElementById(`detail-${cell.dataset.idx}-${cell.dataset.day}`);
+  if (!row) return;
+  const open = row.classList.contains('open');
+  document.querySelectorAll('.detail-row.open').forEach(r => r.classList.remove('open'));
+  document.querySelectorAll('[data-idx][aria-expanded="true"]').forEach(c => c.setAttribute('aria-expanded', 'false'));
+  if (!open) { row.classList.add('open'); cell.setAttribute('aria-expanded', 'true'); }
+}
+document.querySelectorAll('[data-idx][data-day]').forEach(cell => {
+  cell.addEventListener('click', () => toggle(cell));
+  cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(cell); } });
+});
+document.getElementById('coreRoutineList').innerHTML = CORE_ROUTINE.map(i => `<li>${i}</li>`).join('');
+document.getElementById('stretchRoutineList').innerHTML = STRETCH_ROUTINE.map(i => `<li>${i}</li>`).join('');
+document.getElementById('runWalkRatio').textContent = RUN_WALK_RATIO;
+</script>
 </body>
 
 </html>

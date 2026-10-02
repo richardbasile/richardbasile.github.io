@@ -22,6 +22,11 @@
   --amber-wash: #F5EEDF;
   --graphite: #6B6B6B;
   --graphite-soft: #8A8578;
+  --crimson-deep: #A82A38;
+  --lift: #5B7A4A;
+  --lift-deep: #44593A;
+  --lift-wash: #EEF1EA;
+  --lift-hover: #DBE2D2;
 
   /* Type */
   --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
@@ -950,12 +955,12 @@ article a:hover, article a:focus-visible { text-decoration-color: var(--crimson)
 }
 .legend-item { display: flex; align-items: center; gap: 7px; }
 .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-.legend-dot.easy { background: var(--graphite-soft); }
-.legend-dot.quality { background: var(--crimson); }
-.legend-dot.long { background: var(--ink); }
-.legend-dot.race { background: var(--crimson-tint); border: 1px solid var(--crimson); }
+.legend-dot.easy { background: #fff; border: 1px solid var(--paper-line); }
+.legend-dot.quality { background: var(--crimson-wash); border: 1px solid var(--crimson-tint); }
+.legend-dot.long { background: var(--paper-warm); border: 1px solid var(--paper-line); }
+.legend-dot.race { background: var(--crimson); }
 .legend-dot.rest { background: var(--paper); border: 1px solid var(--paper-line); }
-.legend-dot.strength { background: #5B7A4A; }
+.legend-dot.strength { background: var(--lift); }
 .legend-hint { font-style: italic; color: var(--graphite-soft); font-size: 0.78rem; }
 
 /* ---------- weekly grid table ---------- */
@@ -1017,12 +1022,12 @@ td.day-cell .tag {
 td.day-cell.rest { color: var(--graphite-soft); font-style: italic; font-size: 0.8rem; }
 td.day-cell.walk-cell { color: var(--graphite-soft); font-style: italic; font-size: 0.8rem; background: var(--paper); }
 td.day-cell.blank { background: repeating-linear-gradient(135deg, transparent 0 6px, var(--paper) 6px 7px); }
-td.day-cell.long-run { background: var(--paper); }
+td.day-cell.long-run { background: var(--paper-warm); }
 td.day-cell.race-day-cell { background: var(--crimson); }
 td.day-cell.race-day-cell .mi { color: var(--paper); }
 td.day-cell.race-day-cell .tag { color: var(--paper); font-weight: 600; }
 td.day-cell.race-day-cell.is-clickable { cursor: pointer; position: relative; transition: background 0.15s ease; }
-td.day-cell.race-day-cell.is-clickable:hover { background: #A82A38; }
+td.day-cell.race-day-cell.is-clickable:hover { background: var(--crimson-deep); }
 td.day-cell.race-day-cell.is-clickable:focus-visible { outline: 2px solid var(--paper); outline-offset: -2px; }
 td.day-cell.race-day-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--paper); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; opacity: 0.85; }
 .race-detail-inner { border-left: 3px solid var(--crimson) !important; }
@@ -1055,15 +1060,15 @@ td.day-cell.magic-mile-cell .session-name { display: block; font-size: 0.68rem; 
 td.day-cell.magic-mile-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--crimson); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
 
 /* ---------- strength cells ---------- */
-td.day-cell.strength-cell { background: #EEF1EA; cursor: pointer; position: relative; transition: background 0.15s ease; }
-td.day-cell.strength-cell:hover { background: #DBE2D2; }
-td.day-cell.strength-cell:focus-visible { outline: 2px solid #5B7A4A; outline-offset: -2px; }
-td.day-cell.strength-cell .lift-icon { display: flex; justify-content: center; font-size: 1.05rem; color: #5B7A4A; line-height: 1; }
+td.day-cell.strength-cell { background: var(--lift-wash); cursor: pointer; position: relative; transition: background 0.15s ease; }
+td.day-cell.strength-cell:hover { background: var(--lift-hover); }
+td.day-cell.strength-cell:focus-visible { outline: 2px solid var(--lift); outline-offset: -2px; }
+td.day-cell.strength-cell .lift-icon { display: flex; justify-content: center; font-size: 1.05rem; color: var(--lift); line-height: 1; }
 td.day-cell.strength-cell .lift-icon svg { display: block; }
-td.day-cell.strength-cell .session-name { display: block; font-size: 0.68rem; color: #44593A; font-weight: 500; margin-top: 3px; line-height: 1.25; }
-td.day-cell.strength-cell .expand-hint { display: block; font-size: 0.68rem; color: #5B7A4A; margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
-.strength-detail-inner { border-left: 3px solid #5B7A4A !important; }
-.strength-detail-inner h4 { color: #44593A !important; }
+td.day-cell.strength-cell .session-name { display: block; font-size: 0.68rem; color: var(--lift-deep); font-weight: 500; margin-top: 3px; line-height: 1.25; }
+td.day-cell.strength-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--lift); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
+.strength-detail-inner { border-left: 3px solid var(--lift) !important; }
+.strength-detail-inner h4 { color: var(--lift-deep) !important; }
 .strength-list { margin: 0; padding-left: 18px; font-family: var(--font-sans); text-align: left; }
 .strength-list li { margin-bottom: 3px; }
 
@@ -1071,7 +1076,7 @@ tr.race-row td { background-color: var(--crimson-wash); }
 tr.race-row td.col-week { background-color: var(--crimson-tint); border-left: 3px solid var(--crimson); }
 tr.race-row td.thu-strides-cell { background-color: var(--crimson-wash) !important; }
 tr.race-row td.race-day-cell { background-color: var(--crimson) !important; }
-tr.race-row td.race-day-cell.is-clickable:hover { background-color: #A82A38 !important; }
+tr.race-row td.race-day-cell.is-clickable:hover { background-color: var(--crimson-deep) !important; }
 tr.race-row td.race-day-cell.is-clickable:focus-visible { outline: 2px solid var(--paper); outline-offset: -2px; }
 
 /* ---------- expanded detail row ---------- */
@@ -1085,6 +1090,9 @@ tr.detail-row td { background: var(--paper); padding: 0; border-right: none !imp
   background: #fff;
   border-radius: 0 var(--radius) var(--radius) 0;
   text-align: left;
+  position: sticky;
+  left: 10px;
+  max-width: min(760px, calc(100vw - 80px));
 }
 .detail-inner h4 { margin: 0 0 10px; font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--crimson); text-transform: none; letter-spacing: normal; }
 .detail-grid { display: grid; grid-template-columns: 86px 1fr; gap: 6px 14px; font-size: 0.85rem; max-width: 700px; text-align: left; }
@@ -1550,4 +1558,136 @@ table#planTable.grid-plan th.col-week, table#planTable.grid-plan td.col-week { w
 @media print {
   @page { size: portrait; margin: 12mm; }
   .month-card { break-inside: avoid; }
+}
+
+/* ==========================================================================
+   Fall Race Plan additions
+   New component classes for the 5K + 10K plan page. Changes to existing
+   rules above: --crimson-deep and --lift-* tokens added to :root (replacing
+   hard-coded hex in the strength-cell and race-day hover rules), legend-dot
+   colors now match the grid cells, td.day-cell.long-run uses --paper-warm,
+   and .detail-inner stays pinned (sticky) when the grid scrolls sideways.
+   ========================================================================== */
+
+/* ---------- race bibs (two-race header) ---------- */
+.race-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap-md);
+}
+.race-bib {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 16px;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--crimson-wash);
+  border-left: 3px solid var(--crimson);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.race-bib .dist {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 0.9;
+  color: var(--crimson);
+  grid-row: span 3;
+}
+.race-bib .date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.race-bib .goal { font-family: var(--font-mono); font-weight: 500; color: var(--ink); }
+.race-bib .how { font-family: var(--font-sans); font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ---------- plan race-week row (renamed from .race-row to avoid the calendar component) ---------- */
+tr.plan-race-row td { background-color: var(--crimson-wash); }
+tr.plan-race-row td.col-week { background-color: var(--crimson-tint); border-left: 3px solid var(--crimson); }
+tr.plan-race-row td.race-day-cell { background-color: var(--crimson) !important; }
+tr.plan-race-row td.race-day-cell.is-clickable:hover { background-color: var(--crimson-deep) !important; }
+tr.plan-race-row td.race-day-cell.is-clickable:focus-visible { outline: 2px solid var(--paper); outline-offset: -2px; }
+
+/* ---------- quality run cell (Wednesday intervals / pace work) ---------- */
+td.day-cell.quality-cell {
+  background: var(--crimson-wash);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s ease;
+}
+td.day-cell.quality-cell:hover { background: var(--crimson-tint); }
+td.day-cell.quality-cell:focus-visible { outline: 2px solid var(--crimson); outline-offset: -2px; }
+td.day-cell.quality-cell .mi { color: var(--crimson); }
+td.day-cell.quality-cell .session-name { display: block; font-size: 0.68rem; color: var(--crimson); font-weight: 500; margin-top: 2px; line-height: 1.25; }
+td.day-cell.quality-cell .expand-hint { display: block; font-size: 0.68rem; color: var(--crimson); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
+
+/* ---------- clickable long run (dress rehearsal) ---------- */
+td.day-cell.long-run.is-clickable { cursor: pointer; transition: background 0.15s ease; }
+td.day-cell.long-run.is-clickable:hover { background: var(--paper-line); }
+td.day-cell.long-run.is-clickable:focus-visible { outline: 2px solid var(--ink-soft); outline-offset: -2px; }
+td.day-cell.long-run .session-name { display: block; font-size: 0.68rem; color: var(--ink-soft); font-weight: 500; margin-top: 2px; line-height: 1.25; }
+td.day-cell.long-run .expand-hint { display: block; font-size: 0.68rem; color: var(--ink-soft); margin-top: 4px; text-decoration: underline; text-decoration-style: dotted; }
+.long-detail-inner { border-left: 3px solid var(--ink-soft) !important; }
+.long-detail-inner h4 { color: var(--ink) !important; }
+
+/* ---------- in-cell note (date-specific instructions) ---------- */
+td.day-cell .cell-note {
+  display: block;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--graphite);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* ---------- notes under the grid ---------- */
+.grid-notes {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.grid-notes li { padding-left: 18px; position: relative; }
+.grid-notes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  background: var(--crimson);
+  border-radius: 50%;
+}
+.grid-notes strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- reference tables (effort guide, strength schedule) ---------- */
+.ref-shell { overflow-x: auto; }
+.ref-shell .threshold-table { min-width: 520px; margin: 0; }
+.threshold-table td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.threshold-table tr.lift-week td:first-child { color: var(--lift-deep); }
+
+/* ---------- core routine two-column layout ---------- */
+.core-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap-lg);
+}
+.core-cols > * { min-width: 0; }
+
+@media (max-width: 640px) {
+  .page .body { padding: 0 var(--gap-md) var(--gap-lg); }
+  .detail-grid { grid-template-columns: 1fr; gap: 2px 0; }
+  .detail-grid .k { margin-top: 8px; }
+  .print-btn { bottom: 16px; right: 16px; padding: 10px 16px; }
+}
+
+@media print {
+  tr.detail-row { display: none !important; }
 }
