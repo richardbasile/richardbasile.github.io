@@ -5,27 +5,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Plan - Richard Basile</title>
-    <meta name="description" content="7-week 5K + 10K build: running by day in minutes, Tuesday/Friday strength, and race-day plans for Oct 31 and Nov 21.">
+    <meta name="description"
+        content="Oct 2026 – Feb 2027 plan: a 7-week 10K build with a 5K run as a 10K-pace workout and the 10K as a B race, a recovery week, then a 12-week build to the Timbuk 22K trail race (A race) on Feb 21, 2027. Running by day in minutes plus Tuesday/Friday strength.">
     <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=block" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=block"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <style>
         /* Page-specific rules; everything else comes from the shared style.css. */
         table#planTable.grid-plan th:not(.col-week),
-        table#planTable.grid-plan td.day-cell { width: calc((100% - 150px) / 8); }
-        table#planTable.grid-plan th { text-align: center; }
-        table#planTable.grid-plan th.col-week { text-align: left; }
-        .core-routine-heading { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 6px; opacity: 0.75; }
-        .core-cols .strength-list { font-size: 1rem; color: var(--ink-soft); }
-        .strength-list .strength-list { margin-top: 4px; padding-left: 1.25rem; }
-        .intro-text strong { color: var(--ink); font-weight: 600; }
-        .race-pair { margin-top: var(--gap-md); }
+        table#planTable.grid-plan td.day-cell {
+            width: calc((100% - 150px) / 8);
+        }
+
+        table#planTable.grid-plan th {
+            text-align: center;
+        }
+
+        table#planTable.grid-plan th.col-week {
+            text-align: left;
+        }
+
+        .core-routine-heading {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin: 0 0 6px;
+            opacity: 0.75;
+        }
+
+        .core-cols .strength-list {
+            font-size: 1rem;
+            color: var(--ink-soft);
+        }
+
+        .strength-list .strength-list {
+            margin-top: 4px;
+            padding-left: 1.25rem;
+        }
+
+        .intro-text strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .race-pair {
+            margin-top: var(--gap-md);
+        }
+
+        /* Race names in the grid use the same white as the cell's time and "RACE" label. */
+        table#planTable td.race-day-cell span.session-name {
+            color: #fff !important;
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body>
+    <!--
+==========================================================================
+PLANNING CONTEXT: SLUMP PREVENTION (for future editing sessions)
+Written Oct 3, 2026 from Garmin activities Jan 1 - Sep 29, 2026
+(112 runs, ~340 mi, ~71.5 h; two Feb treadmill walks at HR ~90 excluded).
+==========================================================================
+
+2026 HISTORY IN BRIEF
+- Best stretch: Apr-May, 4 runs/week, peak weeks 200-214 min, 91-min long
+  run (May 23), two interval sessions (May 13, May 20). Lighthouse 5K
+  Jun 3: 29:11 (9:25/mi, HR 162).
+- Since late June most runs are run/walk at true easy effort: ~13:00-13:15/mi,
+  HR ~140, cadence ~145-150 (vs ~153-160 continuous running in Apr-May).
+  That shift is a change in method, not lost fitness.
+- Sep 27 5K (progression, not all-out): 34:50, avg 11:18/mi, HR 154.
+- Highest week since May before this plan: 162 min; longest run: 69 min.
+
+SLUMPS (weeks of 0-1 runs) AND WHAT CAME IN THE ~10 DAYS BEFORE
+- Jan 27-Feb 7: only easy back-to-back days; trail 10K (95 min) was 16 days
+  earlier. Two treadmill walks + a 17-min run afterward suggest illness or a
+  minor ache. Does not fit the pattern.
+- Feb 17-Mar 13: four hard efforts in 7 days (tempo Feb 8, HR 156 Feb 10,
+  HR 152 Feb 12, sprints Feb 14). No easy days between them.
+- Apr 13-20 (small dip): hard back-to-back days Apr 1-2 and Apr 8-9
+  (HR 152-158, max 179-180), then a 30-day long-run high Apr 11; volume
+  up 45% then 19%.
+- Jun 14-21: Outer Banks trip (5K race Jun 3, 79-min hilly run Jun 6), then
+  back-to-back easy days and a hard run Jun 13 (HR 159).
+- Jul 28-Aug 16: Leelanau trip, 30-day long-run high Jul 23 (64 min), easy
+  back-to-backs Jul 26-27. Afterward a 15-min run and cadence 135-143
+  (Aug 11-20), which points to something physical.
+- Sep 20-26: hard Friday Sep 11 (HR 157) straight into Saturday's long run,
+  then a 69-min long run Sep 19 (max HR 184). Strength training had just
+  started. Then 8 days off before the Sep 27 5K.
+
+WHAT THE DATA DOES AND DOESN'T SHOW
+- An early read ("slumps follow any two of: long-run high, hard effort,
+  back-to-back days") was OVERSTATED. Those pairings also came before good
+  weeks with no slump: Jan 7-11, Apr 21-25, May 13-16, May 20-23, Aug 26-30.
+- Better-supported thread: hard efforts WITHOUT an easy day after them
+  (Feb, Apr, Sep). In May the day after each workout was genuinely easy
+  (HR 141-146) and the biggest load of the year caused no slump.
+- Travel came right before the Jun and Jul slumps (dip starts after
+  returning home). January was probably illness, which watch data can't see.
+- All of this is inferred from run data only; no sleep, illness, work or
+  strength logs were available.
+
+PREVENTION RULES BUILT INTO THIS PLAN (revised Oct 3, 2026)
+Primary rules, based on the better-supported causes:
+1. Every hard effort (race, dress rehearsal, hill session) is followed by an
+   easy day or rest. Races and rehearsals fall on Sat/Sun with rest after;
+   Thursday after Wednesday's run stays under ~140 HR and is the first run
+   to cut.
+2. Plan around travel and holidays: down week at Christmas; expect a dip
+   right after trips home.
+3. Floor, not a cliff: a squeezed or travel week is at least two 20-min easy
+   runs. Never a zero week (restarting from zero turned dips into slumps).
+4. Warning signs (visible in grid notes): easy-run HR creeping up, cadence
+   well below 147-150, or cutting a run short -> repeat the current week and
+   swap its hard session for an easy run.
+5. Speed waits for a base. Readiness check before weekly quality work:
+   6+ weeks in a row with no missed week, steady ~150+ min/week, easy runs
+   under ~140 HR. Strides are allowed during base.
+6. The plan adapts: minutes are a ceiling, not a target. Five check-ins
+   (Oct 24, Nov 7, Nov 28, Jan 9, Feb 6) decide continue vs adjust; see the
+   visible Check-ins section.
+Normal structure, not hard rules: long runs grow ~10 min at a time with a
+down week every 3-4 weeks.
+
+DELIBERATELY NOT RULES (overstated; Richard pushed back as too cautious)
+- "One new stress per week" and "hold after every long-run jump" came from
+  the overstated pairing theory. Consecutive 10-min increases in EASY long
+  runs, or a hill session plus a new long-run high in the same week, are
+  fine as long as each hard effort gets an easy day after it.
+- "Skip strength weight increases in long-run-high weeks" was considered and
+  dropped: evidence was one coincidence (strength started just before the
+  Sep slump).
+- Do not re-tighten the winter block (Weeks 14-18: 110, 90, 120, 120, 130;
+  peak week 255) on these grounds; the check-ins and the Jan 9 fallback cap
+  are the safeguards instead.
+
+STRUCTURE DECISIONS (agreed with Richard, Oct 3, 2026)
+- Run Mon/Wed/Thu/Sat; strength Tue (lower, squat/deadlift alternating,
+  2-3 reps in reserve) and Fri (upper only); Sunday rest.
+- Fall block: Wednesdays are easy + strides (no interval sessions); 10K-pace
+  practice comes only from the 5K's middle mile and the Nov 7 dress rehearsal.
+- Wednesday is a medium run, at least ~50% of Saturday's long run.
+- Long run at or under ~50% of the week's running time.
+- Race roles: Haskins Hustle 5K = 10K-pace workout; Johnstown Turkey Trot 10K
+  = B race; Timbuk 22K = A race (distance and effort, not speed; estimate
+  2:50-3:15, refine from the Feb 6 rehearsal pace x 13.7 mi).
+- Winter fallback: if a week is missed or he feels flat by mid-January, cap
+  the long run at 120 min and peak week at ~230 min (Weeks 16-18 at 240-255
+  are above his biggest week ever, 214 min).
+- Run/walk: no fixed ratio. Richard uses walk breaks as suits the day;
+  don't prescribe or focus on intervals.
+==========================================================================
+-->
+
     <div class="page page--wide">
         <div class="body">
             <div class="site-shell">
@@ -35,16 +174,46 @@
                 </nav>
 
                 <header class="masthead" style="margin-bottom: 0;">
-                    <p class="header-meta">7-Week 5K + 10K Build &middot; Oct 5 &ndash; Nov 21, 2026</p>
+                    <p class="header-meta">10K Build, then Timbuk 22K &middot; Oct 5, 2026 &ndash; Feb 21, 2027</p>
                     <h1>Training <em>Plan</em></h1>
                 </header>
 
                 <div class="section">
                     <div class="section-label">Overview</div>
-                    <p class="intro-text">Weekly training by day, prescribed in minutes. Running days are Monday, Wednesday, Thursday and Saturday; strength days are Tuesday and Friday; Sunday is rest. Running time builds from 145 to 195 minutes, rising no more than about 10% a week. Easy and long runs can use your run/walk method (<span id="runWalkRatio"></span>), and time includes walk breaks. Tap any shaded cell for the session details.</p>
+                    <p class="intro-text">Weekly training by day, prescribed in minutes. Running days are Monday,
+                        Wednesday, Thursday and Saturday; strength days are Tuesday and Friday; Sunday is rest. The
+                        <strong>Haskins Hustle 5K is a 10K-pace workout</strong>, not a race: no taper, no extra rest
+                        afterward. The <strong>Johnstown Turkey Trot 10K is a B race</strong> that closes the fall
+                        block, so Week 6 is the peak and Week 7 a short taper. Wednesdays are easy runs with strides;
+                        10K-pace practice comes from the 5K&rsquo;s middle mile and the Nov 7 dress rehearsal. Wednesday
+                        is a medium run at least half the length of Saturday&rsquo;s long run, and the long run stays at
+                        or under about half the week&rsquo;s running time. Running time builds from 145 to 195 minutes,
+                        all of it easy apart from the races and the Nov 7 dress rehearsal. Use walk breaks however suits
+                        the day; walk time counts toward the minutes. The minutes are a ceiling, not a target: repeating
+                        a week is fine, and an easy week is not a reason to add time. Five check-ins along the way
+                        decide whether to continue or adjust. Tap any shaded cell for the session details.</p>
+                    <p class="intro-text">After the 10K, <strong>Week 8 is a recovery week</strong>, then a 12-week
+                        build to the <strong>Timbuk 22K, the A race</strong>. The point of Timbuk is covering the
+                        distance at a steady effort, not speed. It&rsquo;s two loops of a hilly 11K course in Granville,
+                        on a Sunday in February. Expect about 2:50&ndash;3:15 on your feet (around 3:00 if the course is
+                        dry and the winter goes well), so the winter block is about time on feet and climbing strength.
+                        The hill repeats build strength for the course&rsquo;s climbs, not speed. Weeks 9&ndash;14 are
+                        easy base running with long runs moving onto hilly trails; <strong>hill repeats start on
+                            Wednesdays in Week 15 only if you pass the readiness check</strong> in the grid notes. Long
+                        runs grow 10 minutes at a time to a 130-minute race rehearsal on Feb 6, with down weeks at
+                        Christmas and mid-January. Weeks 16&ndash;18 (240&ndash;255 minutes) are above your biggest week
+                        ever; if you&rsquo;ve missed a week or feel flat by mid-January, cap the long run at 120 minutes
+                        and the peak week at about 230.</p>
                     <div class="race-pair">
-                        <div class="race-bib"><span class="dist">5K</span><span class="date">Sat Oct 31</span><span class="goal">Goal 33:00&ndash;34:30</span><span class="how">Controlled progression: easy, moderate, hard</span></div>
-                        <div class="race-bib"><span class="dist">10K</span><span class="date">Sat Nov 21</span><span class="goal">Goal 70:00&ndash;75:00</span><span class="how">Steady effort, 11:15&ndash;12:05 /mi</span></div>
+                        <div class="race-bib"><span class="dist">5K</span><span class="date">Haskins Hustle &middot; Sat
+                                Oct 31</span><span class="goal">No time goal</span><span class="how">10K-pace workout:
+                                easy, 10K pace, 5K effort</span></div>
+                        <div class="race-bib"><span class="dist">10K</span><span class="date">Johnstown Turkey Trot
+                                &middot; Sat Nov 21</span><span class="goal">Goal 70:00&ndash;75:00</span><span
+                                class="how">Steady effort, 11:15&ndash;12:05 /mi</span></div>
+                        <div class="race-bib"><span class="dist">22K</span><span class="date">Timbuk Winter Challenge
+                                &middot; Sun Feb 21</span><span class="goal">Finish strong</span><span
+                                class="how">Distance and effort, not speed; est. 2:50&ndash;3:15</span></div>
                     </div>
                 </div>
 
@@ -52,7 +221,7 @@
                     <div class="section-label">Weekly Grid</div>
                     <div class="legend-row">
                         <span class="legend-item"><span class="legend-dot easy"></span>Easy</span>
-                        <span class="legend-item"><span class="legend-dot quality"></span>Quality</span>
+                        <span class="legend-item"><span class="legend-dot quality"></span>Hills</span>
                         <span class="legend-item"><span class="legend-dot long"></span>Long run</span>
                         <span class="legend-item"><span class="legend-dot race"></span>Race</span>
                         <span class="legend-item"><span class="legend-dot strength"></span>Strength</span>
@@ -76,22 +245,130 @@
                             <tbody id="planBody"></tbody>
                         </table>
                     </div>
+                    <!-- Grid notes below implement the slump-prevention rules; see PLANNING CONTEXT comment at the top of <body>. -->
                     <ul class="grid-notes">
-                        <li><strong>Wednesday quality:</strong> every session starts with 10 min easy plus 4 strides and ends with 5&ndash;10 min easy. Run the reps continuously.</li>
-                        <li><strong>Missed a run?</strong> Skip it rather than doubling up. Lost a week to illness or travel? Repeat the previous week&rsquo;s long run before moving on.</li>
+                        <li><strong>Wednesday strides:</strong> in the last 10 minutes, run 4&ndash;6 strides of 20
+                            seconds, quick and relaxed, with a full walk-back recovery. Everything else is easy.</li>
+                        <li><strong>Thursday:</strong> it follows Wednesday&rsquo;s medium run, so keep it under about
+                            140 HR. It&rsquo;s the first run to cut if your legs feel heavy.</li>
+                        <li><strong>After a race or a hard Saturday:</strong> Sunday is rest and Monday stays short and
+                            easy.</li>
+                        <li><strong>Warning signs:</strong> easy-run HR creeping up, cadence well below your usual
+                            147&ndash;150, or cutting a run short. Any of these means repeating the current week instead
+                            of moving on, and swapping that week&rsquo;s hard session for an easy run.</li>
+                        <li><strong>Squeezed week?</strong> The minimum is two 20-minute easy runs. A week never drops
+                            to zero.</li>
+                        <li><strong>Ready for hills (Week 15)?</strong> Only if you&rsquo;ve had six or more weeks in a
+                            row with no missed week and easy runs staying under about 140 HR. If not, run those
+                            Wednesdays all easy; the rest of the plan works the same.</li>
+                        <li><strong>Long runs of 90 minutes or more:</strong> practice fueling. Take something at
+                            30&ndash;45 minutes and every 30&ndash;45 minutes after, so race day uses what you&rsquo;ve
+                            tested.</li>
+                        <li><strong>Missed a run?</strong> Skip it rather than doubling up. Lost a week to illness or
+                            travel? Repeat the previous week&rsquo;s long run before moving on.</li>
                     </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Check-ins</div>
+                    <p class="intro-text">The plan adapts as you go. At each check-in, decide whether to continue as
+                        written or adjust. Between check-ins, the warning signs in the grid notes can trigger the same
+                        adjustment: repeat the current week instead of moving on.</p>
+                    <div class="ref-shell">
+                        <table class="threshold-table">
+                            <thead>
+                                <tr>
+                                    <th>When</th>
+                                    <th>Check</th>
+                                    <th>Going well</th>
+                                    <th>If not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sat Oct 24 &middot; Wk 3</td>
+                                    <td>First new long-run high (80 min)</td>
+                                    <td>Continue as written</td>
+                                    <td>Keep the long run at 80 through Week 6</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Nov 7 &middot; Wk 5</td>
+                                    <td>Dress rehearsal: 25 min at 10K effort</td>
+                                    <td>Aim for about 72 min at the 10K</td>
+                                    <td>Aim for 74&ndash;75; keep Week 6&rsquo;s long run at 80</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Nov 28 &middot; Wk 8</td>
+                                    <td>How the fall went overall</td>
+                                    <td>Start the winter as written (160 min)</td>
+                                    <td>Start a step lower and repeat the early base weeks</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Jan 9 &middot; Wk 14</td>
+                                    <td>Hill readiness check</td>
+                                    <td>Hills start in Week 15</td>
+                                    <td>Wednesdays stay easy; cap the long run at 120 and peak week near 230</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Feb 6 &middot; Wk 18</td>
+                                    <td>Race rehearsal pace &times; 13.7 mi</td>
+                                    <td>That&rsquo;s your Timbuk estimate</td>
+                                    <td>Taper as written; Timbuk is about the distance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="section">
                     <div class="section-label">Effort Guide</div>
                     <div class="ref-shell">
                         <table class="threshold-table">
-                            <thead><tr><th>Effort</th><th>Pace / mi</th><th>Heart rate</th><th>How it feels</th></tr></thead>
+                            <thead>
+                                <tr>
+                                    <th>Effort</th>
+                                    <th>Pace / mi</th>
+                                    <th>Heart rate</th>
+                                    <th>How it feels</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr><td>Easy</td><td class="num">13:00&ndash;14:00</td><td class="num">under 145</td><td>Full sentences; walk breaks welcome</td></tr>
-                                <tr><td>10K effort</td><td class="num">11:15&ndash;11:30</td><td class="num">150&ndash;158</td><td>Short phrases</td></tr>
-                                <tr><td>5K effort</td><td class="num">9:45&ndash;10:10</td><td class="num">160&ndash;168</td><td>A few words at a time</td></tr>
-                                <tr><td>Strides</td><td class="num">20 sec</td><td class="num">&mdash;</td><td>Quick and relaxed, not a sprint</td></tr>
+                                <tr>
+                                    <td>Easy</td>
+                                    <td class="num">13:00&ndash;14:00</td>
+                                    <td class="num">under 145</td>
+                                    <td>Full sentences; walk breaks welcome</td>
+                                </tr>
+                                <tr>
+                                    <td>10K effort</td>
+                                    <td class="num">11:15&ndash;11:30</td>
+                                    <td class="num">150&ndash;158</td>
+                                    <td>Short phrases</td>
+                                </tr>
+                                <tr>
+                                    <td>5K effort</td>
+                                    <td class="num">9:45&ndash;10:10</td>
+                                    <td class="num">160&ndash;168</td>
+                                    <td>A few words at a time</td>
+                                </tr>
+                                <tr>
+                                    <td>Hill repeats</td>
+                                    <td class="num">45&ndash;90 sec uphill</td>
+                                    <td class="num">160&ndash;168 by the top</td>
+                                    <td>Strong but controlled; walk down</td>
+                                </tr>
+                                <tr>
+                                    <td>Power hike</td>
+                                    <td class="num">&mdash;</td>
+                                    <td class="num">under 150</td>
+                                    <td>Steep climbs on trail runs and race day; quick, short steps</td>
+                                </tr>
+                                <tr>
+                                    <td>Strides</td>
+                                    <td class="num">20 sec</td>
+                                    <td class="num">&mdash;</td>
+                                    <td>Quick and relaxed, not a sprint</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -99,18 +376,55 @@
 
                 <div class="section">
                     <div class="section-label">Strength Plan</div>
-                    <p class="intro-text">Your Monday/Wednesday/Friday split condensed to two days around the running. <strong>Tuesday</strong> is the lower-body day, alternating squat weeks and deadlift weeks so your legs take only one heavy lift a week. It lands 24 hours before Wednesday&rsquo;s quality run, so keep 2&ndash;3 reps in reserve on every working set and never grind a rep. Bulgarian split squats are out for this cycle because single-leg work leaves the most soreness. <strong>Friday</strong> stays upper body only, with no leg loading before Saturday&rsquo;s long run. Overhead press moves to Tuesday so pressing is split across both days.</p>
+                    <p class="intro-text"><strong>Tuesday</strong> is lower body, alternating squat weeks and deadlift
+                        weeks, plus rows, overhead press and carries. <strong>Friday</strong> is upper body only, so
+                        nothing loads your legs before Saturday&rsquo;s long run. Keep 2&ndash;3 reps in reserve on
+                        every working set. Tap any strength cell in the grid for the full session.</p>
                     <div class="ref-shell">
                         <table class="threshold-table">
-                            <thead><tr><th>Week</th><th>Tuesday</th><th>Friday</th><th>Volume</th></tr></thead>
+                            <thead>
+                                <tr>
+                                    <th>Weeks</th>
+                                    <th>Phase</th>
+                                    <th>Approach</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr class="lift-week"><td>1 &middot; Oct 11</td><td>Squat Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
-                                <tr class="lift-week"><td>2 &middot; Oct 18</td><td>Deadlift Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
-                                <tr class="lift-week"><td>3 &middot; Oct 25</td><td>Squat Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
-                                <tr class="lift-week"><td>4 &middot; Nov 1</td><td>Deadlift Day (light)</td><td>Rest</td><td>2 sets, lighter weight</td></tr>
-                                <tr class="lift-week"><td>5 &middot; Nov 8</td><td>Squat Day</td><td>Upper Body Day</td><td>3 working sets</td></tr>
-                                <tr class="lift-week"><td>6 &middot; Nov 15</td><td>Deadlift Day (maintenance)</td><td>Upper Body Day (maintenance)</td><td>2 sets, hold weight</td></tr>
-                                <tr class="lift-week"><td>7 &middot; Nov 22</td><td>Squat Day (race week)</td><td>Rest</td><td>1 light set</td></tr>
+                                <tr class="lift-week">
+                                    <td>1&ndash;3</td>
+                                    <td>Fall build</td>
+                                    <td>3 working sets; add weight</td>
+                                </tr>
+                                <tr class="lift-week">
+                                    <td>4&ndash;5</td>
+                                    <td>Fall hold</td>
+                                    <td>3 working sets; hold weight</td>
+                                </tr>
+                                <tr class="lift-week">
+                                    <td>6&ndash;7</td>
+                                    <td>Peak and 10K</td>
+                                    <td>2 sets, then one light set; no Friday in race week</td>
+                                </tr>
+                                <tr class="lift-week">
+                                    <td>8</td>
+                                    <td>Recovery</td>
+                                    <td>Light Tuesday; Friday optional</td>
+                                </tr>
+                                <tr class="lift-week">
+                                    <td>9&ndash;14</td>
+                                    <td>Winter base</td>
+                                    <td>3 working sets plus step-ups; add weight. Christmas week lighter, no Friday</td>
+                                </tr>
+                                <tr class="lift-week">
+                                    <td>15&ndash;17</td>
+                                    <td>Hills</td>
+                                    <td>3 working sets; hold weight</td>
+                                </tr>
+                                <tr class="lift-week">
+                                    <td>18&ndash;20</td>
+                                    <td>Peak, taper and 22K</td>
+                                    <td>2 sets, then one light set; no Friday in race week</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -118,14 +432,164 @@
 
                 <div class="section">
                     <div class="section-label">Core Routine</div>
-                    <p class="intro-text">The same lower-back and hip stability routine follows every strength session, and it doesn&rsquo;t scale down in light weeks. On race-week Fridays, when there&rsquo;s no lifting, do the stretches only.</p>
+                    <p class="intro-text">The same lower-back and hip stability routine follows every strength session,
+                        and it doesn&rsquo;t scale down in light weeks. On the Fridays before the 10K and the 22K, and
+                        on Christmas, when there&rsquo;s no lifting, do the stretches only.</p>
                     <div class="core-cols">
-                        <div><p class="core-routine-heading">Routine (2&ndash;3 circuits)</p><ul class="strength-list" id="coreRoutineList"></ul></div>
-                        <div><p class="core-routine-heading">Stretches (hold, mild tension only)</p><ul class="strength-list" id="stretchRoutineList"></ul></div>
+                        <div>
+                            <p class="core-routine-heading">Routine (2&ndash;3 circuits)</p>
+                            <ul class="strength-list" id="coreRoutineList"></ul>
+                        </div>
+                        <div>
+                            <p class="core-routine-heading">Stretches (hold, mild tension only)</p>
+                            <ul class="strength-list" id="stretchRoutineList"></ul>
+                        </div>
                     </div>
                 </div>
 
-                <footer class="site-footer">Built from your Garmin activities, Jan 1 &ndash; Sep 29, 2026.</footer>
+                <div class="section">
+                    <div class="section-label">2027 Races</div>
+                    <p class="intro-text">This plan builds to Timbuk. The rest of the 2027 season is listed here for
+                        reference.</p>
+                    <div class="ref-shell">
+                        <table class="threshold-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Race</th>
+                                    <th>Distance</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sun Feb 21</td>
+                                    <td>Timbuk Winter Challenge 22K</td>
+                                    <td class="num">13.67 mi</td>
+                                    <td>Licking County</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Apr 3</td>
+                                    <td>Franklinton 10 Miler</td>
+                                    <td class="num">10.00 mi</td>
+                                    <td>Franklin County</td>
+                                </tr>
+                                <tr>
+                                    <td>Sun Jul 11</td>
+                                    <td>Run Wild 5K</td>
+                                    <td class="num">3.10 mi</td>
+                                    <td>Delaware County</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Sep 11</td>
+                                    <td>Sunbury 10K</td>
+                                    <td class="num">6.20 mi</td>
+                                    <td>Delaware County</td>
+                                </tr>
+                                <tr>
+                                    <td>Sun Sep 26</td>
+                                    <td>Big Bad Wolfe Run 10 Miler</td>
+                                    <td class="num">10.00 mi</td>
+                                    <td>Franklin County</td>
+                                </tr>
+                                <tr>
+                                    <td>Sat Nov 13</td>
+                                    <td>Run to Feed the Hungry Half Marathon</td>
+                                    <td class="num">13.10 mi</td>
+                                    <td>Franklin County</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">2027 Season Outline</div>
+                    <p class="intro-text">A proposed shape for the year. Timbuk and the Run to Feed the Hungry Half are
+                        the goal races; the others are checkpoints. Speed and strength take the spring once the winter
+                        base is solid, and the summer and fall build to a half-marathon PR.</p>
+                    <div class="ref-shell">
+                        <table class="threshold-table">
+                            <thead>
+                                <tr>
+                                    <th>Dates</th>
+                                    <th>Cycle</th>
+                                    <th>Focus</th>
+                                    <th>Ends with</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nov 30 &ndash; Feb 21</td>
+                                    <td>Timbuk build</td>
+                                    <td>Easy base, then hills; long runs to 130 min. Strength: add weight, step-ups.
+                                    </td>
+                                    <td>Timbuk 22K: distance and effort</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 22 &ndash; Mar 7</td>
+                                    <td>Recovery</td>
+                                    <td>Easy, about 60% of peak volume. Light strength.</td>
+                                    <td>&mdash;</td>
+                                </tr>
+                                <tr>
+                                    <td>Mar 8 &ndash; Apr 4</td>
+                                    <td>Transition</td>
+                                    <td>Long runs hold at 90&ndash;110 min; first quality session if you pass the
+                                        readiness check. Hold weights.</td>
+                                    <td>Franklinton 10 Miler: steady long-run effort</td>
+                                </tr>
+                                <tr>
+                                    <td>Apr 5 &ndash; Jul 11</td>
+                                    <td>Strength and speed</td>
+                                    <td>About 170&ndash;200 min a week; one quality session (5K/10K intervals, hill
+                                        sprints); long runs 75&ndash;90 min. Strength is the main focus: heavier lifting
+                                        plus light power work.</td>
+                                    <td>Run Wild 5K: all-out speed test</td>
+                                </tr>
+                                <tr>
+                                    <td>Jul 12 &ndash; 18</td>
+                                    <td>Recovery</td>
+                                    <td>Easy running, light strength.</td>
+                                    <td>&mdash;</td>
+                                </tr>
+                                <tr>
+                                    <td>Jul 19 &ndash; Sep 26</td>
+                                    <td>Half build</td>
+                                    <td>Volume rebuilds to about 220&ndash;260 min; long runs toward 2:15; tempo and
+                                        half-pace work. Maintenance strength.</td>
+                                    <td>Sunbury 10K: all-out, sets your half goal. Big Bad Wolfe 10 Miler: 8 mi at goal
+                                        half pace, then steady</td>
+                                </tr>
+                                <tr>
+                                    <td>Sep 27 &ndash; Nov 13</td>
+                                    <td>Half sharpening</td>
+                                    <td>Half-pace sessions, a peak long run, two-week taper. Maintenance, then light
+                                        strength.</td>
+                                    <td>Run to Feed the Hungry Half: PR</td>
+                                </tr>
+                                <tr>
+                                    <td>Nov 14 &ndash; Dec 31</td>
+                                    <td>Off-season</td>
+                                    <td>Two easy weeks, then easy base with long runs lengthening. Rebuild strength.
+                                    </td>
+                                    <td>Start of the May 2028 50K build</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="grid-notes">
+                        <li><strong>Speed waits for a base:</strong> quality work starts in March only if your
+                            consistency streak survived the winter. If not, the transition cycle runs longer.</li>
+                        <li><strong>Same rules all year:</strong> a down week every 3&ndash;4 weeks, one hard session a
+                            week with an easy day after it, the two-run minimum in busy weeks, and a recovery week after
+                            each goal race.</li>
+                    </ul>
+                </div>
+
+                <footer class="site-footer">Built from your Garmin activities, Jan 1 &ndash; Sep 29, 2026. Revised Oct
+                    3, 2026: 5K as a 10K-pace workout, 10K as B race, Timbuk 22K as A race; easy medium-length
+                    Wednesdays.</footer>
             </div>
         </div>
     </div>
@@ -133,122 +597,153 @@
     <button class="print-btn no-print" type="button" onclick="window.print()">Print / Save PDF</button>
 
     <script>
-const RUN_WALK_RATIO = '4:00 run / 1:00 walk';
-const WU = '10 min easy plus 4 strides';
-const CD = '5–10 min easy jog or walk';
+        const WU = '10 min easy plus 4 strides';
+        const CD = '5–10 min easy jog or walk';
 
-const plan = [
-  { wk: 1, date: 'Oct 11', phase: 'Rebuild', mon: 30, wed: { min: 30, tag: 'easy + strides' }, thu: 25, sat: { min: 60, tag: 'long run' }, total: '145', lift: { tue: 'tueSquat', fri: 'friUpper' } },
-  { wk: 2, date: 'Oct 18', phase: 'Build', mon: 30, wed: { min: 40, q: 'w2' }, thu: 20, sat: { min: 70, tag: 'long run' }, total: '160', lift: { tue: 'tueDead', fri: 'friUpper' } },
-  { wk: 3, date: 'Oct 25', phase: 'Build', mon: 30, wed: { min: 45, q: 'w3' }, thu: { min: 20, tag: 'easy + strides' }, sat: { min: 80, tag: 'long run', note: 'Last 10 min at 10K effort' }, total: '175', lift: { tue: 'tueSquat', fri: 'friUpper' } },
-  { wk: 4, date: 'Nov 1', phase: '5K Race', race: true, mon: 40, wed: { min: 30, q: 'w4' }, thu: { min: 25, tag: 'easy + strides' }, sat: { min: '~35', r: 'r5k' }, total: '~130', lift: { tue: 'tueDeadLight', fri: null } },
-  { wk: 5, date: 'Nov 8', phase: 'Endurance', mon: { min: 30, tag: 'easy · recovery' }, wed: 40, thu: { min: 30, tag: 'easy + strides' }, sat: { min: 80, long: 'dress' }, total: '180', lift: { tue: 'tueSquat', fri: 'friUpper' } },
-  { wk: 6, date: 'Nov 15', phase: 'Peak', mon: 30, wed: { min: 55, q: 'w6' }, thu: { min: 20, tag: 'easy', note: 'Skip if legs feel flat' }, sat: { min: 90, tag: 'long run', note: 'All easy; longest run' }, total: '195', lift: { tue: 'tueDeadMaint', fri: 'friUpperMaint' } },
-  { wk: 7, date: 'Nov 22', phase: '10K Race', race: true, mon: 40, wed: { min: 40, q: 'w7' }, thu: { min: 25, tag: 'easy + strides' }, sat: { min: '~75', r: 'r10k' }, total: '~180', lift: { tue: 'tueSquatRace', fri: null } },
-];
+        // Weekly data. Before changing volumes, long runs or adding hard sessions, check the
+        // slump-prevention rules in the PLANNING CONTEXT comment at the top of <body>.
+        const plan = [
+            { wk: 1, date: 'Oct 11', phase: 'Rebuild', mon: 30, wed: { min: 30, tag: 'easy + strides' }, thu: 25, sat: { min: 60, tag: 'long run' }, total: '145', lift: { tue: 'tueSquat', fri: 'friUpper' } },
+            { wk: 2, date: 'Oct 18', phase: 'Build', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'All easy' }, total: '160', lift: { tue: 'tueDead', fri: 'friUpper' } },
+            { wk: 3, date: 'Oct 25', phase: 'Build', mon: 30, wed: { min: 40, tag: 'easy + strides' }, thu: 25, sat: { min: 80, tag: 'long run', note: 'All easy; new long-run high. Check-in' }, total: '175', lift: { tue: 'tueSquat', fri: 'friUpper' } },
+            { wk: 4, date: 'Nov 1', phase: '5K Workout', race: true, mon: 30, wed: { min: 30, tag: 'easy + strides' }, thu: 25, sat: { min: '~45', r: 'r5k' }, total: '~130', lift: { tue: 'tueDeadB', fri: 'friUpper' } },
+            { wk: 5, date: 'Nov 8', phase: 'Endurance', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 80, long: 'dress', note: 'Check-in' }, total: '180', lift: { tue: 'tueSquat', fri: 'friUpper' } },
+            { wk: 6, date: 'Nov 15', phase: 'Peak', mon: 30, wed: { min: 50, tag: 'easy + strides', note: 'Trim to 45 if legs feel flat' }, thu: { min: 25, tag: 'easy', note: 'Skip if legs feel flat' }, sat: { min: 90, tag: 'long run', note: 'All easy; longest run' }, total: '195', lift: { tue: 'tueDeadMaint', fri: 'friUpperMaint' } },
+            { wk: 7, date: 'Nov 22', phase: '10K B Race', race: true, mon: 30, wed: { min: 30, tag: 'easy + strides' }, thu: 20, sat: { min: '~75', r: 'r10k' }, total: '~155', lift: { tue: 'tueSquatRace', fri: null } },
+            { wk: 8, date: 'Nov 29', phase: 'Recovery', mon: null, wed: 30, thu: { min: 20, tag: 'easy', note: 'Optional; Thanksgiving' }, sat: { min: 45, tag: 'easy', note: 'Check-in: review the fall' }, total: '~95', lift: { tue: 'tueRecovery', fri: 'friUpperLight' } },
+            { wk: 9, date: 'Dec 6', phase: 'Base', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'All easy' }, total: '160', lift: { tue: 'tueSquatW', fri: 'friUpper' } },
+            { wk: 10, date: 'Dec 13', phase: 'Base', mon: 30, wed: { min: 40, tag: 'easy + strides' }, thu: 25, sat: { min: 80, tag: 'long run', note: 'All easy' }, total: '175', lift: { tue: 'tueDeadW', fri: 'friUpper' } },
+            { wk: 11, date: 'Dec 20', phase: 'Base', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy' }, total: '190', lift: { tue: 'tueSquatW', fri: 'friUpper' } },
+            { wk: 12, date: 'Dec 27', phase: 'Down Week', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'Christmas week; two-run minimum if travel squeezes it' }, total: '160', lift: { tue: 'tueDeadDown', fri: null } },
+            { wk: 13, date: 'Jan 3', phase: 'Base', mon: 30, wed: { min: 50, tag: 'easy + strides' }, thu: 25, sat: { min: 100, long: 'trail' }, total: '205', lift: { tue: 'tueSquatW', fri: 'friUpper' } },
+            { wk: 14, date: 'Jan 10', phase: 'Base', mon: 30, wed: { min: 55, tag: 'easy + strides' }, thu: 25, sat: { min: 110, long: 'trail', note: 'Check-in: hill readiness' }, total: '220', lift: { tue: 'tueDeadW', fri: 'friUpper' } },
+            { wk: 15, date: 'Jan 17', phase: 'Hills · Down', mon: 30, wed: { min: 45, q: 'h1' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy, hilly route' }, total: '190', lift: { tue: 'tueSquatHold', fri: 'friUpper' } },
+            { wk: 16, date: 'Jan 24', phase: 'Hills', mon: 30, wed: { min: 60, q: 'h2' }, thu: 30, sat: { min: 120, long: 'trail' }, total: '240', lift: { tue: 'tueDeadHold', fri: 'friUpper' } },
+            { wk: 17, date: 'Jan 31', phase: 'Hills', mon: 30, wed: { min: 60, q: 'h3' }, thu: 30, sat: { min: 120, long: 'gear' }, total: '240', lift: { tue: 'tueSquatHold', fri: 'friUpper' } },
+            { wk: 18, date: 'Feb 7', phase: 'Peak', mon: 30, wed: { min: 65, q: 'h4' }, thu: { min: 30, tag: 'easy', note: 'Skip if legs feel flat' }, sat: { min: 130, long: 'rehearsal', note: 'Check-in' }, total: '255', lift: { tue: 'tueDeadMaintW', fri: 'friUpperMaintW' } },
+            { wk: 19, date: 'Feb 14', phase: 'Taper', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy' }, total: '190', lift: { tue: 'tueSquatTaper', fri: 'friUpperMaintW' } },
+            { wk: 20, date: 'Feb 21', phase: '22K A Race', race: true, mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 20, sat: { min: 15, tag: 'shakeout', note: 'Optional, or rest' }, sun: { min: '~210', r: 'r22k' }, total: '~100 + race', lift: { tue: 'tueSquatRace22', fri: null } },
+        ];
 
-const warmSets = '<li>Empty bar — 1 × 8–10</li><li>~50% — 1 × 5</li><li>~75% — 1 × 3</li>';
-const squat = sets => `Squat<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
-const dead = sets => `Deadlift<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
-const row = sets => `Row<ul class="strength-list"><li>Light (~50%) — 1 × 5</li><li>Working sets — ${sets}</li></ul>`;
-const bench = sets => `Bench<ul class="strength-list"><li>Light (~50%) — 1 × 5</li><li>Working sets — ${sets}</li></ul>`;
-const RIR = 'Keep 2–3 reps in reserve on every working set; Wednesday’s quality run is 24 hours away.';
+        const warmSets = '<li>Empty bar — 1 × 8–10</li><li>~50% — 1 × 5</li><li>~75% — 1 × 3</li>';
+        const squat = sets => `Squat<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
+        const dead = sets => `Deadlift<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
+        const row = sets => `Row<ul class="strength-list"><li>Light (~50%) — 1 × 5</li><li>Working sets — ${sets}</li></ul>`;
+        const bench = sets => `Bench<ul class="strength-list"><li>Light (~50%) — 1 × 5</li><li>Working sets — ${sets}</li></ul>`;
+        const STEP = sets => `Step-ups (knee-height box) — ${sets}`;
+        const RIR = 'Keep 2–3 reps in reserve on every working set; Wednesday’s medium run is 24 hours away.';
 
-const STRENGTH = {
-  tueSquat: { name: 'Squat Day', focus: 'Tuesday — squat, row, overhead press, carry', main: [squat('3 × 5'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `${RIR} Squat and deadlift alternate weeks, so your legs take one heavy lift per week. Core routine after.` },
-  tueDead: { name: 'Deadlift Day', focus: 'Tuesday — deadlift at moderate intensity, row, press, carry', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('3 × 5'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `Deadlift stays moderate by design. ${RIR} Core routine after.` },
-  tueDeadLight: { name: 'Deadlift Day — Light', focus: 'Tuesday — 5K race week, one set fewer and lighter', main: ['Lunges — 1 × 8/leg, as a warm-up', dead('2 × 5 at about 80% of your usual working weight'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8', 'Farmer’s carry — 2 trips'], note: 'Four days before the 5K. Enough to keep the pattern, light enough that nothing is sore by Saturday. No Friday session this week. Core routine after.' },
-  tueDeadMaint: { name: 'Deadlift Day (Maintenance)', focus: 'Tuesday — fewer sets, hold your weight steady', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('2 × 5'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8', 'Farmer’s carry — 2 trips'], note: 'Peak running week: 3 × 10 min at 10K effort tomorrow and 90 minutes on Saturday. Don’t add weight even if last session felt easy. Core routine after.' },
-  tueSquatRace: { name: 'Squat Day (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 × 5, light'), row('1 × 8, light'), 'Dumbbell overhead press — 1 × 8, light'], note: 'Just enough to keep the pattern alive. This is the last lifting before the 10K; Friday is off. Core routine after.' },
-  friUpper: { name: 'Upper Body Day', focus: 'Friday — no leg loading', main: [bench('3 × 8'), 'Straight arm pulldowns — 3 × 12', 'Banded rows — 3 × 12–15', 'Band pull-aparts — 3 × 15', 'Dumbbell curls — 3 × 10–12', 'Lateral raises — 3 × 12–15', 'Front raises — 3 × 12–15'], note: 'No leg loading, so nothing carries into Saturday’s long run. Pulling volume is split between here and Tuesday’s row. Core routine after.' },
-  friUpperMaint: { name: 'Upper Body Day (Maintenance)', focus: 'Friday — fewer sets, hold your weight steady', main: [bench('2 × 8'), 'Straight arm pulldowns — 2 × 12', 'Banded rows — 2 × 12–15', 'Band pull-aparts — 2 × 15', 'Dumbbell curls — 2 × 10', 'Lateral raises — 2 × 12–15', 'Front raises — 2 × 12–15'], note: 'Peak running week, and the day before your 90-minute long run. Fewer sets protects recovery. Core routine after.' },
-};
+        const STRENGTH = {
+            tueSquat: { name: 'Squat Day', focus: 'Tuesday — squat, row, overhead press, carry', main: [squat('3 × 5'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `${RIR} Squat and deadlift alternate weeks, so your legs take one heavy lift per week. Core routine after.` },
+            tueDead: { name: 'Deadlift Day', focus: 'Tuesday — deadlift at moderate intensity, row, press, carry', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('3 × 5'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `Deadlift stays moderate by design. ${RIR} Core routine after.` },
+            tueDeadB: { name: 'Deadlift Day', focus: 'Tuesday — 5K workout week, normal session at your Week 2 weight', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('3 × 5 at your Week 2 weight'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: 'The 5K is a workout, so it gets no strength taper. Hold your Week 2 deadlift weight and keep 3 reps in reserve so nothing is sore by Saturday. Core routine after.' },
+            tueDeadMaint: { name: 'Deadlift Day (Maintenance)', focus: 'Tuesday — fewer sets, hold your weight steady', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('2 × 5'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8', 'Farmer’s carry — 2 trips'], note: 'Peak running week: your 90-minute long run is on Saturday. Don’t add weight even if last session felt easy. Core routine after.' },
+            tueSquatRace: { name: 'Squat Day (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 × 5, light'), row('1 × 8, light'), 'Dumbbell overhead press — 1 × 8, light'], note: 'Just enough to keep the pattern alive. This is the last lifting before the 10K; Friday is off. Core routine after.' },
+            tueRecovery: { name: 'Light Squat Day', focus: 'Tuesday — recovery week after the 10K', main: [squat('2 × 5, light'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8'], note: 'An easy pass to get moving again; nothing should feel hard. Core routine after.' },
+            tueSquatW: { name: 'Squat Day', focus: 'Tuesday — winter base: add weight, step-ups back in', main: [squat('3 × 5'), STEP('2 × 8/leg, bodyweight to start'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `With no hard running yet, add weight in small jumps when every set moves well. Step-ups build hill strength; add load only after two easy sessions at bodyweight. ${RIR} Core routine after.` },
+            tueDeadW: { name: 'Deadlift Day', focus: 'Tuesday — winter base: add weight, step-ups back in', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('3 × 5'), STEP('2 × 8/leg'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips (30–40 m or 30–40 sec)'], note: `Deadlift stays moderate; add weight in small jumps only when all sets move well. Jan 5 is the last session with an increase. ${RIR} Core routine after.` },
+            tueDeadDown: { name: 'Deadlift Day (Down Week)', focus: 'Tuesday — Christmas week, fewer sets, hold weight', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('2 × 5'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8'], note: 'Down week: hold your weight and skip the step-ups. No Friday session this week. Core routine after.' },
+            tueSquatHold: { name: 'Squat Day (Hold)', focus: 'Tuesday — hold weights from here on', main: [squat('3 × 5, hold weight'), STEP('2 × 8/leg, hold load'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips'], note: 'Hill repeats start tomorrow, so weights hold from here on. Keep 2–3 reps in reserve and the step-ups light. Core routine after.' },
+            tueDeadHold: { name: 'Deadlift Day (Hold)', focus: 'Tuesday — hold weights', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('3 × 5, hold weight'), STEP('2 × 8/leg, hold load'), row('3 × 8'), 'Dumbbell overhead press — 3 × 8', 'Farmer’s carry — 3 trips'], note: 'Hill repeats tomorrow. Hold your weights and keep 2–3 reps in reserve. Core routine after.' },
+            tueDeadMaintW: { name: 'Deadlift Day (Maintenance)', focus: 'Tuesday — peak week, fewer sets, hold weight', main: ['Lunges — 1 × 10/leg, as a warm-up', dead('2 × 5'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8', 'Farmer’s carry — 2 trips'], note: 'Peak week: hill repeats tomorrow and the 130-minute rehearsal on Saturday. Step-ups are done for this block. Core routine after.' },
+            tueSquatTaper: { name: 'Squat Day (Taper)', focus: 'Tuesday — taper week, fewer sets, hold weight', main: [squat('2 × 5, hold weight'), row('2 × 8'), 'Dumbbell overhead press — 2 × 8'], note: 'One week out from the 22K. Enough to keep the pattern; nothing should be sore by the weekend. Core routine after.' },
+            tueSquatRace22: { name: 'Squat Day (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 × 5, light'), row('1 × 8, light'), 'Dumbbell overhead press — 1 × 8, light'], note: 'Last lifting before the 22K; Friday is off. Core routine after.' },
+            friUpperLight: { name: 'Upper Body (Optional)', focus: 'Friday — recovery week, optional', main: [bench('2 × 8, light'), 'Banded rows — 2 × 12–15', 'Band pull-aparts — 2 × 15'], note: 'Skip it if the holiday week is busy. Core routine after.' },
+            friUpperMaintW: { name: 'Upper Body Day (Maintenance)', focus: 'Friday — fewer sets, hold your weight steady', main: [bench('2 × 8'), 'Straight arm pulldowns — 2 × 12', 'Banded rows — 2 × 12–15', 'Band pull-aparts — 2 × 15', 'Dumbbell curls — 2 × 10', 'Lateral raises — 2 × 12–15', 'Front raises — 2 × 12–15'], note: 'Fewer sets protects recovery heading into the 22K. Core routine after.' },
+            friUpper: { name: 'Upper Body Day', focus: 'Friday — no leg loading', main: [bench('3 × 8'), 'Straight arm pulldowns — 3 × 12', 'Banded rows — 3 × 12–15', 'Band pull-aparts — 3 × 15', 'Dumbbell curls — 3 × 10–12', 'Lateral raises — 3 × 12–15', 'Front raises — 3 × 12–15'], note: 'No leg loading, so nothing carries into Saturday’s long run. Pulling volume is split between here and Tuesday’s row. Core routine after.' },
+            friUpperMaint: { name: 'Upper Body Day (Maintenance)', focus: 'Friday — fewer sets, hold your weight steady', main: [bench('2 × 8'), 'Straight arm pulldowns — 2 × 12', 'Banded rows — 2 × 12–15', 'Band pull-aparts — 2 × 15', 'Dumbbell curls — 2 × 10', 'Lateral raises — 2 × 12–15', 'Front raises — 2 × 12–15'], note: 'Peak running week, and the day before your 90-minute long run. Fewer sets protects recovery. Core routine after.' },
+        };
 
-const QUALITY = {
-  w2: { name: '5K Intervals', main: '6 × 2 min at 5K effort (9:45–10:10/mi), 90 sec walk/jog between', note: 'Your first quality session in a while. Stop at five reps if the last one would need to be forced.' },
-  w3: { name: '5K Intervals', main: '4 × 4 min at 5K effort (9:45–10:10/mi), 2 min jog between', note: 'Longer reps at the same effort. Aim to run the last rep as strong as the first.' },
-  w4: { name: '5K Sharpener', main: '6 × 1 min at 5K effort, 1 min jog between; quick but relaxed', note: 'Three days before the 5K. This keeps your legs sharp without tiring them; it should feel easy to finish.' },
-  w6: { name: '10K Pace', main: '3 × 10 min at 10K effort (11:15–11:30/mi), 2 min jog between', note: 'This is your 10K race pace. Practice settling into it and holding it, not pushing past it.' },
-  w7: { name: '10K Sharpener', main: '2 × 10 min at 10K effort (11:15–11:30/mi), 2 min jog between', note: 'Final tune-up three days before the race. Trim to 2 × 8 min if Monday felt sluggish.' },
-};
+        const QUALITY = {
+            h1: { name: 'Hill Intro', wu: '15 min easy on rolling terrain', main: '6 × 45 sec uphill at strong effort (HR 160–168 by the top), walk back down', cd: 'Rest of the run easy', note: 'Only if you’ve passed the readiness check in the grid notes; otherwise run all 45 minutes easy. Down week, so this is a gentle start.' },
+            h2: { name: 'Hill Repeats', wu: '15 min easy on rolling terrain', main: '8 × 45 sec uphill at strong effort, walk back down', cd: 'Rest of the run easy', note: 'Strong but controlled: you should be able to run one more. Thursday stays easy.' },
+            h3: { name: 'Hill Repeats', wu: '15 min easy on rolling terrain', main: '6 × 90 sec uphill at strong but controlled effort, walk back down', cd: 'Rest of the run easy', note: 'Longer climbs, like the course. Keep the effort steady from the bottom to the top rather than surging.' },
+            h4: { name: 'Hill Repeats', wu: '15 min easy on rolling terrain', main: '6 × 90 sec uphill at strong but controlled effort, walk back down', cd: 'Rest of the run easy', note: 'Last hill session of the block. Saturday is the race rehearsal, so stop at five reps if your legs feel heavy.' },
+        };
 
-const LONG = {
-  dress: { name: 'Dress Rehearsal', main: '40 min easy, 25 min at 10K effort (11:15–11:30/mi), 15 min easy', note: 'Wear your race-day shoes and clothes, eat your race-day breakfast, and use the walk interval you plan to race with.' },
-};
+        const LONG = {
+            trail: { name: 'Trail Long Run', main: 'All easy on hilly trails. Run the flats and descents; power hike any climb you can’t run at easy effort.', note: 'Practice fueling: take something at 30–45 minutes and every 30–45 minutes after. Note what sits well.' },
+            gear: { name: 'Gear & Fuel Practice', main: '120 min easy on hilly trails, in the shoes, traction and layers you plan to race in.', note: 'Hold at 120 rather than adding time. Fuel exactly as you plan to on race day, and test traction on snow if there is any.' },
+            rehearsal: { name: 'Race Rehearsal', main: '130 min on hilly trails at planned race effort: easy running on flats and descents, power hiking on climbs. Second half no harder than the first.', note: 'Longest run of the block, 15 days before the race. Use race-day breakfast, fueling, gear and walk breaks. Note your average pace: multiplied by 13.7 mi, it’s your Timbuk estimate.' },
+            dress: { name: 'Dress Rehearsal', main: '40 min easy, 25 min at 10K effort (11:15–11:30/mi), 15 min easy', note: 'Wear your race-day shoes and clothes, eat your race-day breakfast, and use walk breaks the way you plan to on race day.' },
+        };
 
-const RACES = {
-  r5k: { name: '5K', role: 'Controlled Progression', goal: '33:00–34:30, the same shape as your Sep 27 run (34:50) with four more weeks of training behind you.', warmup: '10 min easy; the easy first half finishes the job.', effort: 'First 1.5 mi easy, about 12:30–13:00/mi. Next mile moderate and steady, about 11:00/mi. Last 0.6 mi hard.', pacing: 'Progressive, not even. Start deliberately slow and finish with real intensity.', fueling: 'Normal pre-run routine. Familiar breakfast 2–3 hours before; nothing new.', note: 'A faster finish than Sep 27 is the sign the plan is working. Monday is an easy recovery run.' },
-  r10k: { name: '10K', role: 'Goal Race', goal: '70:00–75:00 (11:15–12:05/mi).', warmup: '5–10 min easy; the first mile finishes the job.', effort: 'Miles 1–2 relaxed at about 12:00. Miles 3–5 at 11:15–11:30. Then whatever is left for the last 1.2 mi.', pacing: 'Slight negative split. If you use walk breaks, use the interval you practiced on the Nov 7 dress rehearsal.', fueling: 'Familiar breakfast 2–3 hours before. Dress as if it were 15°F warmer than the forecast and shed a throwaway layer at the start.', note: 'The light Thursday and Friday rest are the taper. Trust them.' },
-};
+        const RACES = {
+            r5k: { name: 'Haskins Hustle 5K', tag: 'workout', role: '10K-Pace Workout', goal: 'No time goal. The workout is holding the middle mile on 10K pace and finishing strong; expect about 35–36 minutes as a result, not a target.', warmup: '10 min easy jog before the start, so the easy first 1.5 mi isn’t spent warming up.', effort: 'First 1.5 mi at 12:00–12:30, under about 150 HR. Next mile at 10K pace, 11:15–11:30: practice settling into it with a race crowd around you. Last 0.6 mi at 5K effort, about 9:45–10:00.', pacing: 'Progressive, not even. If the 10K-pace mile drifts faster than 11:15, ease off; that discipline is the point of the race.', fueling: 'Normal pre-run routine. Familiar breakfast 2–3 hours before; nothing new.', note: 'Walk or jog home afterward; no formal cool-down needed. No taper before and no extra rest after: Monday is a normal easy run.' },
+            r10k: { name: 'Johnstown Turkey Trot 10K', role: 'B Race', goal: '70:00–75:00 (11:15–12:05/mi). Set your target after the Nov 7 dress rehearsal: about 72:00 if the 25 min at 10K effort stayed at or under ~155 HR and felt controlled, 74:00–75:00 if it was a struggle.', warmup: '5–10 min easy; the first mile finishes the job.', effort: 'Miles 1–2 relaxed at about 12:00. Miles 3–5 at 11:15–11:30. Then whatever is left for the last 1.2 mi.', pacing: 'Slight negative split. If you use walk breaks, use what’s been working.', fueling: 'Familiar breakfast 2–3 hours before. Dress as if it were 15°F warmer than the forecast and shed a throwaway layer at the start.', note: 'The shorter Wednesday, short Thursday and Friday rest are the taper. Trust them.' },
+        };
 
-const CORE_ROUTINE = ['Pelvic tilt — 10–12', 'Bridge — 10–12', 'Dead bug — 8–10/side', 'Lateral leg raise — 10–12/side', 'Clamshells — 10–12/side', 'Side plank — 20–30 sec/side', 'Donkey kicks — 10–12/side', 'Push-ups — 10–12'];
-const STRETCH_ROUTINE = ['Child’s pose — 30–45 sec', 'Figure four — 30 sec/side', 'Knee-to-chest — 20–30 sec/side, then both knees together', 'Supine spinal twist — 20–30 sec/side', 'Standing hamstring stretch (heel on step, back straight, hinge from hips) — 20–30 sec/side'];
+        RACES.r22k = { name: 'Timbuk 22K', role: 'A Race · Distance and Effort', goal: 'Cover 22K at a steady effort and finish strong. Time doesn’t matter, but expect about 2:50–3:15 on your feet. Refine it after the Feb 6 rehearsal: your average pace for those 130 minutes × 13.7 mi is your race-day estimate (about 13:00/mi means 3:00 is on).', warmup: '5–10 min of easy walking and jogging; the first loop finishes the job.', effort: 'Loop 1 conservative: easy running on flats and descents, power hike the climbs. Loop 2 at the same effort. A strong, steady second loop is the win, not a faster finish.', pacing: 'Even effort, not even pace. Hills swing pace a lot, so go by breathing and HR, and keep loop 2 within a few minutes of loop 1.', fueling: 'Familiar breakfast 2–3 hours before. Fuel from 30–45 min and every 30–45 min after, as practiced. Dress for wind and sleet, and use traction if the course is snowy or icy.', note: 'Saturday is rest or a 15-minute shakeout. Follow it with an easy week.' };
 
-const LIFT_ICON = '<span class="lift-icon"><svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>';
-const norm = v => (typeof v === 'object' && v !== null) ? v : { min: v, tag: 'easy' };
-const hint = '<span class="expand-hint">details</span>';
-const btn = (idx, day) => `tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${day}"`;
+        const CORE_ROUTINE = ['Pelvic tilt — 10–12', 'Bridge — 10–12', 'Dead bug — 8–10/side', 'Lateral leg raise — 10–12/side', 'Clamshells — 10–12/side', 'Side plank — 20–30 sec/side', 'Donkey kicks — 10–12/side', 'Push-ups — 10–12'];
+        const STRETCH_ROUTINE = ['Child’s pose — 30–45 sec', 'Figure four — 30 sec/side', 'Knee-to-chest — 20–30 sec/side, then both knees together', 'Supine spinal twist — 20–30 sec/side', 'Standing hamstring stretch (heel on step, back straight, hinge from hips) — 20–30 sec/side'];
 
-function runCell(v) {
-  const r = norm(v);
-  return `<td class="day-cell"><span class="mi">${r.min} min</span><span class="tag">${r.tag}</span>${r.note ? `<span class="cell-note">${r.note}</span>` : ''}</td>`;
-}
-function wedCell(v, idx) {
-  const r = norm(v);
-  if (!r.q) return runCell(v);
-  return `<td class="day-cell quality-cell is-clickable" ${btn(idx, 'wed')}><span class="mi">${r.min} min</span><span class="tag">quality</span><span class="session-name">${QUALITY[r.q].name}</span>${hint}</td>`;
-}
-function satCell(v, idx) {
-  if (v.r) { const race = RACES[v.r]; return `<td class="day-cell race-day-cell is-clickable" ${btn(idx, 'sat')}><span class="mi">${v.min} min</span><span class="tag">${race.name} race</span>${hint}</td>`; }
-  if (v.long) { return `<td class="day-cell long-run is-clickable" ${btn(idx, 'sat')}><span class="mi">${v.min} min</span><span class="tag">long run</span><span class="session-name">${LONG[v.long].name}</span>${hint}</td>`; }
-  return `<td class="day-cell long-run"><span class="mi">${v.min} min</span><span class="tag">${v.tag}</span>${v.note ? `<span class="cell-note">${v.note}</span>` : ''}</td>`;
-}
-function liftCell(key, idx, day) {
-  if (!key) return `<td class="day-cell rest">Rest<span class="cell-note">No strength</span></td>`;
-  return `<td class="day-cell strength-cell is-clickable" ${btn(idx, day)}>${LIFT_ICON}<span class="session-name">${STRENGTH[key].name}</span>${hint}</td>`;
-}
-function detail(idx, day, cls, title, rows, note) {
-  return `<tr class="detail-row${cls === 'strength-detail-inner' ? ' strength-detail' : ''}" id="detail-${idx}-${day}"><td colspan="9"><div class="detail-inner ${cls}"><h4>${title}</h4><div class="detail-grid">${rows.map(([k, v]) => `<div class="k">${k}</div><div class="v">${v}</div>`).join('')}</div><div class="detail-note">${note}</div></div></td></tr>`;
-}
-function liftDetail(key, idx, day, label) {
-  if (!key) return '';
-  const s = STRENGTH[key];
-  return detail(idx, day, 'strength-detail-inner', `${label} Strength — ${s.name}`, [['Focus', s.focus], ['Main set', `<ul class="strength-list">${s.main.map(m => `<li>${m}</li>`).join('')}</ul>`]], s.note);
-}
+        const LIFT_ICON = '<span class="lift-icon"><svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>';
+        const norm = v => (typeof v === 'object' && v !== null) ? v : { min: v, tag: 'easy' };
+        const hint = '<span class="expand-hint">details</span>';
+        const btn = (idx, day) => `tabindex="0" role="button" aria-expanded="false" data-idx="${idx}" data-day="${day}"`;
 
-const phaseClass = { 'Rebuild': 'is-base', 'Endurance': 'is-base', 'Peak': 'is-peak', '5K Race': 'is-race', '10K Race': 'is-race' };
-let html = '';
-plan.forEach((w, idx) => {
-  html += `<tr class="plan-row${w.race ? ' plan-race-row' : ''}">
+        function runCell(v) {
+            if (v === null) return `<td class="day-cell rest">Rest</td>`;
+            const r = norm(v);
+            return `<td class="day-cell"><span class="mi">${r.min} min</span><span class="tag">${r.tag}</span>${r.note ? `<span class="cell-note">${r.note}</span>` : ''}</td>`;
+        }
+        function wedCell(v, idx) {
+            const r = norm(v);
+            if (!r.q) return runCell(v);
+            return `<td class="day-cell quality-cell is-clickable" ${btn(idx, 'wed')}><span class="mi">${r.min} min</span><span class="tag">quality</span><span class="session-name">${QUALITY[r.q].name}</span>${hint}</td>`;
+        }
+        function satCell(v, idx, day = 'sat') {
+            if (v.r) { const race = RACES[v.r]; return `<td class="day-cell race-day-cell is-clickable" ${btn(idx, day)}><span class="mi">${v.min} min</span><span class="tag">${race.tag || 'race'}</span><span class="session-name">${race.name}</span>${hint}</td>`; }
+            if (v.long) { return `<td class="day-cell long-run is-clickable" ${btn(idx, 'sat')}><span class="mi">${v.min} min</span><span class="tag">long run</span><span class="session-name">${LONG[v.long].name}</span>${v.note ? `<span class="cell-note">${v.note}</span>` : ''}${hint}</td>`; }
+            return `<td class="day-cell long-run"><span class="mi">${v.min} min</span><span class="tag">${v.tag}</span>${v.note ? `<span class="cell-note">${v.note}</span>` : ''}</td>`;
+        }
+        function liftCell(key, idx, day) {
+            if (!key) return `<td class="day-cell rest">Rest<span class="cell-note">No strength</span></td>`;
+            return `<td class="day-cell strength-cell is-clickable" ${btn(idx, day)}>${LIFT_ICON}<span class="session-name">${STRENGTH[key].name}</span>${hint}</td>`;
+        }
+        function detail(idx, day, cls, title, rows, note) {
+            return `<tr class="detail-row${cls === 'strength-detail-inner' ? ' strength-detail' : ''}" id="detail-${idx}-${day}"><td colspan="9"><div class="detail-inner ${cls}"><h4>${title}</h4><div class="detail-grid">${rows.map(([k, v]) => `<div class="k">${k}</div><div class="v">${v}</div>`).join('')}</div><div class="detail-note">${note}</div></div></td></tr>`;
+        }
+        function liftDetail(key, idx, day, label) {
+            if (!key) return '';
+            const s = STRENGTH[key];
+            return detail(idx, day, 'strength-detail-inner', `${label} Strength — ${s.name}`, [['Focus', s.focus], ['Main set', `<ul class="strength-list">${s.main.map(m => `<li>${m}</li>`).join('')}</ul>`]], s.note);
+        }
+
+        const phaseClass = { 'Rebuild': 'is-base', 'Endurance': 'is-base', 'Recovery': 'is-base', 'Base': 'is-base', 'Down Week': 'is-base', 'Hills · Down': 'is-base', 'Taper': 'is-base', 'Peak': 'is-peak', 'Hills': 'is-peak', '5K Workout': 'is-race', '10K B Race': 'is-race', '22K A Race': 'is-race' };
+        let html = '';
+        plan.forEach((w, idx) => {
+            html += `<tr class="plan-row${w.race ? ' plan-race-row' : ''}">
     <td class="col-week"><div class="wk-num">WK ${String(w.wk).padStart(2, '0')}</div><div class="wk-date">${w.date}</div><span class="wk-phase ${phaseClass[w.phase] || ''}">${w.phase}</span></td>
     ${runCell(w.mon)}${liftCell(w.lift.tue, idx, 'tue')}${wedCell(w.wed, idx)}${runCell(w.thu)}${liftCell(w.lift.fri, idx, 'fri')}${satCell(w.sat, idx)}
-    <td class="day-cell rest">Rest</td>
+    ${w.sun ? satCell(w.sun, idx, 'sun') : '<td class="day-cell rest">Rest</td>'}
     <td class="day-cell total-cell"><span class="mi">${w.total}</span></td></tr>`;
-  html += liftDetail(w.lift.tue, idx, 'tue', 'Tuesday');
-  const wq = norm(w.wed);
-  if (wq.q) { const q = QUALITY[wq.q]; html += detail(idx, 'wed', '', `Wednesday — ${q.name}`, [['Warm-up', WU], ['Main set', q.main], ['Cool-down', CD]], q.note); }
-  html += liftDetail(w.lift.fri, idx, 'fri', 'Friday');
-  if (w.sat.r) { const r = RACES[w.sat.r]; html += detail(idx, 'sat', 'race-detail-inner', `${r.name} — ${r.role}`, [['Goal', r.goal], ['Warm-up', r.warmup], ['Effort', r.effort], ['Pacing', r.pacing], ['Fueling', r.fueling]], r.note); }
-  if (w.sat.long) { const l = LONG[w.sat.long]; html += detail(idx, 'sat', 'long-detail-inner', `Saturday — ${l.name}`, [['Session', l.main]], l.note); }
-});
-document.getElementById('planBody').innerHTML = html;
+            html += liftDetail(w.lift.tue, idx, 'tue', 'Tuesday');
+            const wq = norm(w.wed);
+            if (wq.q) { const q = QUALITY[wq.q]; html += detail(idx, 'wed', '', `Wednesday — ${q.name}`, [['Warm-up', q.wu || WU], ['Main set', q.main], ['Cool-down', q.cd || CD]], q.note); }
+            html += liftDetail(w.lift.fri, idx, 'fri', 'Friday');
+            if (w.sat.r) { const r = RACES[w.sat.r]; html += detail(idx, 'sat', 'race-detail-inner', `${r.name} — ${r.role}`, [['Goal', r.goal], ['Warm-up', r.warmup], ['Effort', r.effort], ['Pacing', r.pacing], ['Fueling', r.fueling]], r.note); }
+            if (w.sun && w.sun.r) { const r = RACES[w.sun.r]; html += detail(idx, 'sun', 'race-detail-inner', `${r.name} — ${r.role}`, [['Goal', r.goal], ['Warm-up', r.warmup], ['Effort', r.effort], ['Pacing', r.pacing], ['Fueling', r.fueling]], r.note); }
+            if (w.sat.long) { const l = LONG[w.sat.long]; html += detail(idx, 'sat', 'long-detail-inner', `Saturday — ${l.name}`, [['Session', l.main]], l.note); }
+        });
+        document.getElementById('planBody').innerHTML = html;
 
-function toggle(cell) {
-  const row = document.getElementById(`detail-${cell.dataset.idx}-${cell.dataset.day}`);
-  if (!row) return;
-  const open = row.classList.contains('open');
-  document.querySelectorAll('.detail-row.open').forEach(r => r.classList.remove('open'));
-  document.querySelectorAll('[data-idx][aria-expanded="true"]').forEach(c => c.setAttribute('aria-expanded', 'false'));
-  if (!open) { row.classList.add('open'); cell.setAttribute('aria-expanded', 'true'); }
-}
-document.querySelectorAll('[data-idx][data-day]').forEach(cell => {
-  cell.addEventListener('click', () => toggle(cell));
-  cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(cell); } });
-});
-document.getElementById('coreRoutineList').innerHTML = CORE_ROUTINE.map(i => `<li>${i}</li>`).join('');
-document.getElementById('stretchRoutineList').innerHTML = STRETCH_ROUTINE.map(i => `<li>${i}</li>`).join('');
-document.getElementById('runWalkRatio').textContent = RUN_WALK_RATIO;
-</script>
+        function toggle(cell) {
+            const row = document.getElementById(`detail-${cell.dataset.idx}-${cell.dataset.day}`);
+            if (!row) return;
+            const open = row.classList.contains('open');
+            document.querySelectorAll('.detail-row.open').forEach(r => r.classList.remove('open'));
+            document.querySelectorAll('[data-idx][aria-expanded="true"]').forEach(c => c.setAttribute('aria-expanded', 'false'));
+            if (!open) { row.classList.add('open'); cell.setAttribute('aria-expanded', 'true'); }
+        }
+        document.querySelectorAll('[data-idx][data-day]').forEach(cell => {
+            cell.addEventListener('click', () => toggle(cell));
+            cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(cell); } });
+        });
+        document.getElementById('coreRoutineList').innerHTML = CORE_ROUTINE.map(i => `<li>${i}</li>`).join('');
+        document.getElementById('stretchRoutineList').innerHTML = STRETCH_ROUTINE.map(i => `<li>${i}</li>`).join('');
+    </script>
 </body>
 
 </html>
