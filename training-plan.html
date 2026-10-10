@@ -38,6 +38,19 @@
             opacity: 0.75;
         }
 
+        .core-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap-md, 24px);
+            margin-top: var(--gap-md, 24px);
+        }
+
+        @media (max-width: 640px) {
+            .core-cols {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .core-cols .strength-list {
             font-size: 1rem;
             color: var(--ink-soft);
@@ -148,7 +161,7 @@ DELIBERATELY NOT RULES (overstated; Richard pushed back as too cautious)
   are the safeguards instead.
 
 STRUCTURE DECISIONS (agreed with Richard, Oct 3, 2026)
-- Run Mon/Wed/Thu/Sat; strength Tue (lower, squat/deadlift alternating,
+- Run Mon/Wed/Thu/Sat; strength Tue (lower, squat + deadlift every week since Oct 10,
   2-3 reps in reserve) and Fri (upper only); Sunday rest.
 - Fall block: Wednesdays are easy + strides (no interval sessions); 10K-pace
   practice comes only from the 5K's middle mile and the Nov 7 dress rehearsal.
@@ -183,9 +196,23 @@ REVISION, OCT 5, 2026 (agreed with Richard)
   longest run of the block. Walk breaks on race day are planned.
 - Core + stretching (SI joint focus) moved to Mon/Wed/Fri, after the run
   on Mon/Wed and after lifting Fri; all bodyweight there. Loaded step-ups
-  + lateral step-downs live on Tuesday (Friday stays no leg loading).
+  and lateral step-downs dropped from Tuesday Oct 10 (Friday stays no leg loading).
   Richard prefers donkey kicks over bird dogs; half frog over butterfly
   (full frog felt good once but was painful at first, so half frog chosen).
+
+ADDITION, OCT 10, 2026 (Richard's call)
+- Bodyweight leg routine (hip-flexion pulses, Bulgarian split squats,
+  step-ups, single-leg RDLs, single-leg calf raises, bodyweight squats),
+  twice a week: Mon and Thu after the run, 1-2 easy rounds.
+- Loaded step-ups removed from all Tuesday sessions (bodyweight step-ups
+  in the leg routine replace them). Lateral step-downs also dropped.
+- Thu session is 2 days before the long run, so keep it light. Skipped on
+  race-week Thursdays (Wks 4, 7, 20), Thu of Wks 6 and 18 (60-min goal run,
+  rehearsal), Week 8, Monday after a race, and heavy-leg days.
+  Friday still no leg loading.
+- With step-ups/step-downs gone, Tuesday does BOTH squat and deadlift
+  every week (Richard's call): squat 3x5 first, deadlift moderate after,
+  dropping to 2 sets in hold/hill weeks and 1-2 in peak/taper/race weeks.
 ==========================================================================
 -->
 
@@ -285,6 +312,8 @@ REVISION, OCT 5, 2026 (agreed with Richard)
                         <li><strong>Thursday:</strong> it follows Wednesday&rsquo;s run, so keep it under about 140 HR.
                             In Weeks 1&ndash;7 it repeats an earlier step of the ladder. It&rsquo;s the first run to cut
                             if your legs feel heavy.</li>
+                        <li><strong>Monday and Thursday:</strong> after the run, do the bodyweight leg routine (see Core
+                            &amp; Leg Routines below). Friday stays free of leg work so Saturday starts fresh.</li>
                         <li><strong>After a race or a hard Saturday:</strong> Sunday is rest and Monday stays short and
                             easy.</li>
                         <li><strong>Warning signs:</strong> easy-run HR creeping up, cadence well below your usual
@@ -357,8 +386,9 @@ REVISION, OCT 5, 2026 (agreed with Richard)
 
                 <div class="section">
                     <div class="section-label">Strength Plan</div>
-                    <p class="intro-text"><strong>Tuesday</strong> is lower body, alternating squat weeks and deadlift
-                        weeks, plus loaded step-ups and lateral step-downs, rows, overhead press and carries.
+                    <p class="intro-text"><strong>Tuesday</strong> is lower body: squat and deadlift every week (squat
+                        first
+                        as the main lift, deadlift after at moderate weight), plus rows, overhead press and carries.
                         <strong>Friday</strong> is upper body only, so
                         nothing loads your legs before Saturday&rsquo;s long run. Keep 2&ndash;3 reps in reserve on
                         every working set. Tap any strength cell in the grid for the full session.
@@ -376,7 +406,7 @@ REVISION, OCT 5, 2026 (agreed with Richard)
                                 <tr class="lift-week">
                                     <td>1&ndash;3</td>
                                     <td>Fall build</td>
-                                    <td>3 working sets; add weight. Loaded step-ups and step-downs start</td>
+                                    <td>3 working sets; add weight</td>
                                 </tr>
                                 <tr class="lift-week">
                                     <td>4&ndash;5</td>
@@ -396,7 +426,7 @@ REVISION, OCT 5, 2026 (agreed with Richard)
                                 <tr class="lift-week">
                                     <td>9&ndash;14</td>
                                     <td>Winter base</td>
-                                    <td>3 working sets; add weight, including step-ups. Christmas week lighter, no
+                                    <td>3 working sets; add weight. Christmas week lighter, no
                                         Friday</td>
                                 </tr>
                                 <tr class="lift-week">
@@ -415,10 +445,27 @@ REVISION, OCT 5, 2026 (agreed with Richard)
                 </div>
 
                 <div class="section">
+                    <div class="section-label">Core &amp; Leg Routines</div>
+                    <p class="intro-text"><strong>Core</strong> goes after the run on Monday and Wednesday and after
+                        lifting on Friday. <strong>The leg routine</strong> goes after the run on <strong>Monday and
+                            Thursday</strong> (before core on Monday) and is all bodyweight. It replaces the loaded
+                        step-ups that used to be on Tuesday. Do 1&ndash;2 easy rounds, stopping each set with a few reps
+                        left: Thursday&rsquo;s session is two days before the long run, so it should never leave you
+                        sore. Skip it on Thursday of race weeks (Weeks 4, 7 and 20) and before the big Saturdays (Week
+                        6&rsquo;s
+                        60-minute run and Week 18&rsquo;s rehearsal), in the Week 8 recovery week, on Monday after a
+                        race,
+                        and any day your legs feel heavy.</p>
+                    <div class="core-cols">
                         <div>
                             <p class="core-routine-heading">Core Routine (2&ndash;3 circuits)</p>
                             <ul class="strength-list" id="coreRoutineList"></ul>
                         </div>
+                        <div>
+                            <p class="core-routine-heading">Leg Routine (Mon &amp; Thu, 1&ndash;2 rounds)</p>
+                            <ul class="strength-list" id="legRoutineList"></ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="section">
@@ -496,7 +543,7 @@ REVISION, OCT 5, 2026 (agreed with Richard)
                                 <tr>
                                     <td>Nov 30 &ndash; Feb 21</td>
                                     <td>Timbuk build</td>
-                                    <td>Easy base, then hills; long runs to 130 min. Strength: add weight, step-ups.
+                                    <td>Easy base, then hills; long runs to 130 min. Strength: add weight.
                                     </td>
                                     <td>Timbuk 22K: distance and effort</td>
                                 </tr>
@@ -561,13 +608,6 @@ REVISION, OCT 5, 2026 (agreed with Richard)
                     </ul>
                 </div>
 
-                <footer class="site-footer">Built from your Garmin activities, Jan 1 &ndash; Sep 29, 2026. Revised Oct
-                    3, 2026: 5K as a 10K-pace workout, 10K as B race, Timbuk 22K as A race; easy medium-length
-                    Wednesdays. Revised Oct 5, 2026: Weeks 1&ndash;7 rebuilt as a run/walk ladder to 60 minutes
-                    continuous; 5K as an easy checkpoint; goal for the fall is finishing both races safely. Also Oct 5:
-                    core routine and stretching moved to
-                    Monday/Wednesday/Friday with SI-focused additions; loaded step-ups and step-downs on Tuesdays from
-                    Week 1.</footer>
             </div>
         </div>
     </div>
@@ -583,53 +623,48 @@ REVISION, OCT 5, 2026 (agreed with Richard)
         const plan = [
             // Weeks 1-7: run/walk ladder (agreed Oct 5, 2026). Minutes include walk breaks between
             // intervals but not the walk warm-up/cool-down (5 min Wks 1-2, 4 min Wks 3-4, 3 min Wks 5-7).
-            { wk: 1, date: 'Oct 11', phase: 'Rebuild', mon: { min: 35, tag: '12 x (2 run / 1 walk)' }, wed: { min: 39, tag: '10 x (3 run / 1 walk)' }, thu: { min: 35, tag: '12 x (2 run / 1 walk)', note: 'Active recovery' }, sat: { min: 47, tag: '8 x (5 run / 1 walk)' }, total: '156', lift: { tue: 'tueSquat', fri: 'friUpper' } },
-            { wk: 2, date: 'Oct 18', phase: 'Build', mon: { min: 41, tag: '7 x (5 run / 1 walk)' }, wed: { min: 44, tag: '5 x (8 run / 1 walk)' }, thu: { min: 39, tag: '10 x (3 run / 1 walk)', note: 'Active recovery' }, sat: { min: 51, tag: '4 x (12 run / 1 walk)' }, total: '175', lift: { tue: 'tueDead', fri: 'friUpper' } },
-            { wk: 3, date: 'Oct 25', phase: 'Build', mon: { min: 43, tag: '4 x (10 run / 1 walk)' }, wed: { min: 49, tag: '3 x (15 run / 2 walk)' }, thu: { min: 41, tag: '7 x (5 run / 1 walk)', note: 'Active recovery' }, sat: { min: 54, tag: '20 run, 2 walk, 20 run, 2 walk, 10 run', note: 'First stacked run. Check-in' }, total: '187', lift: { tue: 'tueSquat', fri: 'friUpper' } },
-            { wk: 4, date: 'Nov 1', phase: '5K Checkpoint', race: true, mon: { min: 38, tag: '3 x (12 run / 1 walk)' }, wed: { min: 32, tag: '3 x (10 run / 1 walk)' }, thu: { min: 29, tag: '5 x (5 run / 1 walk)', note: 'Active recovery' }, sat: { min: '~40', r: 'r5k' }, total: '~140', lift: { tue: 'tueDeadB', fri: 'friUpper' } },
-            { wk: 5, date: 'Nov 8', phase: 'Endurance', mon: { min: 32, tag: '2 x (15 run / 2 walk)', note: 'Active recovery after the 5K' }, wed: { min: 47, tag: '30 run, 2 walk, 15 run' }, thu: { min: 32, tag: '3 x (10 run / 1 walk)', note: 'Active recovery' }, sat: { min: 57, tag: '40 run, 2 walk, 15 run', note: '40 min continuous. Check-in' }, total: '168', lift: { tue: 'tueSquat', fri: 'friUpper' } },
-            { wk: 6, date: 'Nov 15', phase: 'Peak', mon: { min: 49, tag: '3 x (15 run / 2 walk)' }, wed: { min: 57, tag: '45 run, 2 walk, 10 run' }, thu: { min: 32, tag: '2 x (15 run / 2 walk)', note: 'Active recovery; skip if legs feel flat' }, sat: { min: 60, tag: '60 continuous', note: 'Goal run: 60 minutes continuous' }, total: '198', lift: { tue: 'tueDeadMaint', fri: 'friUpperMaint' } },
-            { wk: 7, date: 'Nov 22', phase: '10K B Race', race: true, mon: { min: 30, tag: '30 continuous', note: 'Taper begins' }, wed: { min: 32, tag: '3 x (10 run / 1 walk)' }, thu: { min: 20, tag: '20 continuous', note: 'Active recovery; rest Friday' }, sat: { min: '~75', r: 'r10k' }, total: '~157', lift: { tue: 'tueSquatRace', fri: null } },
+            { wk: 1, date: 'Oct 11', phase: 'Rebuild', mon: { min: 35, tag: '12 x (2 run / 1 walk)' }, wed: { min: 39, tag: '10 x (3 run / 1 walk)' }, thu: { min: 35, tag: '12 x (2 run / 1 walk)', note: 'Active recovery' }, sat: { min: 47, tag: '8 x (5 run / 1 walk)' }, total: '156', lift: { tue: 'tueBuild', fri: 'friUpper' } },
+            { wk: 2, date: 'Oct 18', phase: 'Build', mon: { min: 41, tag: '7 x (5 run / 1 walk)' }, wed: { min: 44, tag: '5 x (8 run / 1 walk)' }, thu: { min: 39, tag: '10 x (3 run / 1 walk)', note: 'Active recovery' }, sat: { min: 51, tag: '4 x (12 run / 1 walk)' }, total: '175', lift: { tue: 'tueBuild', fri: 'friUpper' } },
+            { wk: 3, date: 'Oct 25', phase: 'Build', mon: { min: 43, tag: '4 x (10 run / 1 walk)' }, wed: { min: 49, tag: '3 x (15 run / 2 walk)' }, thu: { min: 41, tag: '7 x (5 run / 1 walk)', note: 'Active recovery' }, sat: { min: 54, tag: '20 run, 2 walk, 20 run, 2 walk, 10 run', note: 'First stacked run. Check-in' }, total: '187', lift: { tue: 'tueBuild', fri: 'friUpper' } },
+            { wk: 4, date: 'Nov 1', phase: '5K Checkpoint', race: true, mon: { min: 38, tag: '3 x (12 run / 1 walk)' }, wed: { min: 32, tag: '3 x (10 run / 1 walk)' }, thu: { min: 29, tag: '5 x (5 run / 1 walk)', note: 'Active recovery' }, sat: { min: '~40', r: 'r5k' }, total: '~140', lift: { tue: 'tueCheckpoint', fri: 'friUpper' } },
+            { wk: 5, date: 'Nov 8', phase: 'Endurance', mon: { min: 32, tag: '2 x (15 run / 2 walk)', note: 'Active recovery after the 5K' }, wed: { min: 47, tag: '30 run, 2 walk, 15 run' }, thu: { min: 32, tag: '3 x (10 run / 1 walk)', note: 'Active recovery' }, sat: { min: 57, tag: '40 run, 2 walk, 15 run', note: '40 min continuous. Check-in' }, total: '168', lift: { tue: 'tueHoldFall', fri: 'friUpper' } },
+            { wk: 6, date: 'Nov 15', phase: 'Peak', mon: { min: 49, tag: '3 x (15 run / 2 walk)' }, wed: { min: 57, tag: '45 run, 2 walk, 10 run' }, thu: { min: 32, tag: '2 x (15 run / 2 walk)', note: 'Active recovery; skip if legs feel flat' }, sat: { min: 60, tag: '60 continuous', note: 'Goal run: 60 minutes continuous' }, total: '198', lift: { tue: 'tueMaint', fri: 'friUpperMaint' } },
+            { wk: 7, date: 'Nov 22', phase: '10K B Race', race: true, mon: { min: 30, tag: '30 continuous', note: 'Taper begins' }, wed: { min: 32, tag: '3 x (10 run / 1 walk)' }, thu: { min: 20, tag: '20 continuous', note: 'Active recovery; rest Friday' }, sat: { min: '~75', r: 'r10k' }, total: '~157', lift: { tue: 'tueRace', fri: null } },
             { wk: 8, date: 'Nov 29', phase: 'Recovery', mon: null, wed: 30, thu: { min: 20, tag: 'easy', note: 'Optional; Thanksgiving' }, sat: { min: 45, tag: 'easy', note: 'Check-in: review the fall' }, total: '~95', lift: { tue: 'tueRecovery', fri: 'friUpperLight' } },
-            { wk: 9, date: 'Dec 6', phase: 'Base', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'All easy' }, total: '160', lift: { tue: 'tueSquatW', fri: 'friUpper' } },
-            { wk: 10, date: 'Dec 13', phase: 'Base', mon: 30, wed: { min: 40, tag: 'easy + strides' }, thu: 25, sat: { min: 80, tag: 'long run', note: 'All easy' }, total: '175', lift: { tue: 'tueDeadW', fri: 'friUpper' } },
-            { wk: 11, date: 'Dec 20', phase: 'Base', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy' }, total: '190', lift: { tue: 'tueSquatW', fri: 'friUpper' } },
-            { wk: 12, date: 'Dec 27', phase: 'Down Week', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'Christmas week; two-run minimum if travel squeezes it' }, total: '160', lift: { tue: 'tueDeadDown', fri: null } },
-            { wk: 13, date: 'Jan 3', phase: 'Base', mon: 30, wed: { min: 50, tag: 'easy + strides' }, thu: 25, sat: { min: 100, long: 'trail' }, total: '205', lift: { tue: 'tueSquatW', fri: 'friUpper' } },
-            { wk: 14, date: 'Jan 10', phase: 'Base', mon: 30, wed: { min: 55, tag: 'easy + strides' }, thu: 25, sat: { min: 110, long: 'trail', note: 'Check-in: hill readiness' }, total: '220', lift: { tue: 'tueDeadW', fri: 'friUpper' } },
-            { wk: 15, date: 'Jan 17', phase: 'Hills · Down', mon: 30, wed: { min: 45, q: 'h1' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy, hilly route' }, total: '190', lift: { tue: 'tueSquatHold', fri: 'friUpper' } },
-            { wk: 16, date: 'Jan 24', phase: 'Hills', mon: 30, wed: { min: 60, q: 'h2' }, thu: 30, sat: { min: 120, long: 'trail' }, total: '240', lift: { tue: 'tueDeadHold', fri: 'friUpper' } },
-            { wk: 17, date: 'Jan 31', phase: 'Hills', mon: 30, wed: { min: 60, q: 'h3' }, thu: 30, sat: { min: 120, long: 'gear' }, total: '240', lift: { tue: 'tueSquatHold', fri: 'friUpper' } },
-            { wk: 18, date: 'Feb 7', phase: 'Peak', mon: 30, wed: { min: 65, q: 'h4' }, thu: { min: 30, tag: 'easy', note: 'Skip if legs feel flat' }, sat: { min: 130, long: 'rehearsal', note: 'Check-in' }, total: '255', lift: { tue: 'tueDeadMaintW', fri: 'friUpperMaintW' } },
-            { wk: 19, date: 'Feb 14', phase: 'Taper', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy' }, total: '190', lift: { tue: 'tueSquatTaper', fri: 'friUpperMaintW' } },
-            { wk: 20, date: 'Feb 21', phase: '22K A Race', race: true, mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 20, sat: { min: 15, tag: 'shakeout', note: 'Optional, or rest' }, sun: { min: '~210', r: 'r22k' }, total: '~100 + race', lift: { tue: 'tueSquatRace22', fri: null } },
+            { wk: 9, date: 'Dec 6', phase: 'Base', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'All easy' }, total: '160', lift: { tue: 'tueBuildW', fri: 'friUpper' } },
+            { wk: 10, date: 'Dec 13', phase: 'Base', mon: 30, wed: { min: 40, tag: 'easy + strides' }, thu: 25, sat: { min: 80, tag: 'long run', note: 'All easy' }, total: '175', lift: { tue: 'tueBuildW', fri: 'friUpper' } },
+            { wk: 11, date: 'Dec 20', phase: 'Base', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy' }, total: '190', lift: { tue: 'tueBuildW', fri: 'friUpper' } },
+            { wk: 12, date: 'Dec 27', phase: 'Down Week', mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 25, sat: { min: 70, tag: 'long run', note: 'Christmas week; two-run minimum if travel squeezes it' }, total: '160', lift: { tue: 'tueDown', fri: null } },
+            { wk: 13, date: 'Jan 3', phase: 'Base', mon: 30, wed: { min: 50, tag: 'easy + strides' }, thu: 25, sat: { min: 100, long: 'trail' }, total: '205', lift: { tue: 'tueBuildW', fri: 'friUpper' } },
+            { wk: 14, date: 'Jan 10', phase: 'Base', mon: 30, wed: { min: 55, tag: 'easy + strides' }, thu: 25, sat: { min: 110, long: 'trail', note: 'Check-in: hill readiness' }, total: '220', lift: { tue: 'tueBuildW', fri: 'friUpper' } },
+            { wk: 15, date: 'Jan 17', phase: 'Hills · Down', mon: 30, wed: { min: 45, q: 'h1' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy, hilly route' }, total: '190', lift: { tue: 'tueHold', fri: 'friUpper' } },
+            { wk: 16, date: 'Jan 24', phase: 'Hills', mon: 30, wed: { min: 60, q: 'h2' }, thu: 30, sat: { min: 120, long: 'trail' }, total: '240', lift: { tue: 'tueHold', fri: 'friUpper' } },
+            { wk: 17, date: 'Jan 31', phase: 'Hills', mon: 30, wed: { min: 60, q: 'h3' }, thu: 30, sat: { min: 120, long: 'gear' }, total: '240', lift: { tue: 'tueHold', fri: 'friUpper' } },
+            { wk: 18, date: 'Feb 7', phase: 'Peak', mon: 30, wed: { min: 65, q: 'h4' }, thu: { min: 30, tag: 'easy', note: 'Skip if legs feel flat' }, sat: { min: 130, long: 'rehearsal', note: 'Check-in' }, total: '255', lift: { tue: 'tueMaintW', fri: 'friUpperMaintW' } },
+            { wk: 19, date: 'Feb 14', phase: 'Taper', mon: 30, wed: { min: 45, tag: 'easy + strides' }, thu: 25, sat: { min: 90, tag: 'long run', note: 'All easy' }, total: '190', lift: { tue: 'tueTaper', fri: 'friUpperMaintW' } },
+            { wk: 20, date: 'Feb 21', phase: '22K A Race', race: true, mon: 30, wed: { min: 35, tag: 'easy + strides' }, thu: 20, sat: { min: 15, tag: 'shakeout', note: 'Optional, or rest' }, sun: { min: '~210', r: 'r22k' }, total: '~100 + race', lift: { tue: 'tueRace22', fri: null } },
         ];
 
         const warmSets = '<li>Empty bar — 1 x 8-10</li><li>~50% — 1 x 5</li><li>~75% — 1 x 3</li>';
         const squat = sets => `Squat<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
-        const dead = sets => `Deadlift<ul class="strength-list">${warmSets}<li>Working sets — ${sets}</li></ul>`;
+        const dead = sets => `Deadlift<ul class="strength-list"><li>~50% — 1 x 5</li><li>~75% — 1 x 3</li><li>Working sets — ${sets}</li></ul>`;
         const row = sets => `Row<ul class="strength-list"><li>Light (~50%) — 1 x 5</li><li>Working sets — ${sets}</li></ul>`;
         const bench = sets => `Bench<ul class="strength-list"><li>Light (~50%) — 1 x 5</li><li>Working sets — ${sets}</li></ul>`;
-        const STEP = sets => `Step-ups, dumbbells at your sides — ${sets}`;
-        const STEPDOWN = sets => `Lateral step-downs — ${sets}`;
-        const STEPNOTE = 'Step-ups: start with dumbbells that make the last 2-3 reps of 10 hard (about 10-20 lb per hand). After 3 x 12 clean for two sessions, add ~5 lb per hand and drop back to 8. Raise the step only after the load is settled. Drive through the top heel and keep your hips level.';
         const RIR = 'Keep 2-3 reps in reserve on every working set; Wednesday’s medium run is 24 hours away.';
 
         const STRENGTH = {
-            tueSquat: { name: 'Squat Day', focus: 'Tuesday — squat, single-leg work, row, overhead press, carry', main: [squat('3 x 5'), STEP('3 x 8-12/leg'), STEPDOWN('2 x 8/leg, slow lowering'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `${RIR} Squat and deadlift alternate weeks, so your legs take one heavy lift per week. ${STEPNOTE}` },
-            tueDead: { name: 'Deadlift Day', focus: 'Tuesday — deadlift at moderate intensity, single-leg work, row, press, carry', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('3 x 5'), STEP('3 x 8-12/leg'), STEPDOWN('2 x 8/leg, slow lowering'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `Deadlift stays moderate by design. ${RIR} ${STEPNOTE}` },
-            tueDeadB: { name: 'Deadlift Day', focus: 'Tuesday — 5K checkpoint week, normal session at your Week 2 weight', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('3 x 5 at your Week 2 weight'), STEP('3 x 8-12/leg, hold load'), STEPDOWN('2 x 8/leg'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: 'The 5K is a checkpoint, not a race, so it gets no strength taper. Hold your Week 2 deadlift weight and your step-up load, and keep 3 reps in reserve so nothing is sore by Saturday.' },
-            tueDeadMaint: { name: 'Deadlift Day (Maintenance)', focus: 'Tuesday — fewer sets, hold your weight steady', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('2 x 5'), STEP('2 x 8-10/leg, hold load'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8', 'Farmer’s carry — 2 trips'], note: 'Peak running week: your 60-minute continuous run is on Saturday. Don’t add weight even if last session felt easy.' },
-            tueSquatRace: { name: 'Squat Day (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 x 5, light'), row('1 x 8, light'), 'Dumbbell overhead press — 1 x 8, light'], note: 'Just enough to keep the pattern alive. This is the last lifting before the 10K; Friday is off.' },
-            tueRecovery: { name: 'Light Squat Day', focus: 'Tuesday — recovery week after the 10K', main: [squat('2 x 5, light'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8'], note: 'An easy pass to get moving again; nothing should feel hard.' },
-            tueSquatW: { name: 'Squat Day', focus: 'Tuesday — winter base: add weight', main: [squat('3 x 5'), STEP('3 x 8-12/leg'), STEPDOWN('2 x 8/leg, slow lowering'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `With no hard running yet, add weight in small jumps when every set moves well. Step-ups also build hill strength. ${RIR} ${STEPNOTE}` },
-            tueDeadW: { name: 'Deadlift Day', focus: 'Tuesday — winter base: add weight', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('3 x 5'), STEP('3 x 8-12/leg'), STEPDOWN('2 x 8/leg, slow lowering'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `Deadlift stays moderate; add weight in small jumps only when all sets move well. Jan 5 is the last session with an increase. ${RIR}` },
-            tueDeadDown: { name: 'Deadlift Day (Down Week)', focus: 'Tuesday — Christmas week, fewer sets, hold weight', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('2 x 5'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8'], note: 'Down week: hold your weight and skip the step-ups. No Friday session this week.' },
-            tueSquatHold: { name: 'Squat Day (Hold)', focus: 'Tuesday — hold weights from here on', main: [squat('3 x 5, hold weight'), STEP('3 x 8-10/leg, hold load'), STEPDOWN('2 x 8/leg'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips'], note: 'Hill repeats start tomorrow, so weights hold from here on. Keep 2-3 reps in reserve and hold the step-up load.' },
-            tueDeadHold: { name: 'Deadlift Day (Hold)', focus: 'Tuesday — hold weights', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('3 x 5, hold weight'), STEP('3 x 8-10/leg, hold load'), STEPDOWN('2 x 8/leg'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips'], note: 'Hill repeats tomorrow. Hold your weights and keep 2-3 reps in reserve.' },
-            tueDeadMaintW: { name: 'Deadlift Day (Maintenance)', focus: 'Tuesday — peak week, fewer sets, hold weight', main: ['Lunges — 1 x 10/leg, as a warm-up', dead('2 x 5'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8', 'Farmer’s carry — 2 trips'], note: 'Peak week: hill repeats tomorrow and the 130-minute rehearsal on Saturday. Step-ups are done for this block.' },
-            tueSquatTaper: { name: 'Squat Day (Taper)', focus: 'Tuesday — taper week, fewer sets, hold weight', main: [squat('2 x 5, hold weight'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8'], note: 'One week out from the 22K. Enough to keep the pattern; nothing should be sore by the weekend.' },
-            tueSquatRace22: { name: 'Squat Day (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 x 5, light'), row('1 x 8, light'), 'Dumbbell overhead press — 1 x 8, light'], note: 'Last lifting before the 22K; Friday is off.' },
+            tueBuild: { name: 'Squat + Deadlift', focus: 'Tuesday — squat, moderate deadlift, row, overhead press, carry', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('3 x 5'), dead('3 x 5, moderate'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `${RIR} Squat is the main lift; deadlift stays moderate (well short of a grind) because it follows the squats. Add weight in small jumps when every set moves well. If Wednesday’s run feels flat, drop the deadlift to 2 sets.` },
+            tueCheckpoint: { name: 'Squat + Deadlift', focus: 'Tuesday — 5K checkpoint week, hold your Week 3 weights', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('3 x 5, hold weight'), dead('2 x 5, hold weight'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: 'The 5K is a checkpoint, not a race, so no full taper. Hold your Week 3 weights, take deadlift to 2 sets, and keep 3 reps in reserve so nothing is sore by Saturday.' },
+            tueHoldFall: { name: 'Squat + Deadlift (Hold)', focus: 'Tuesday — hold your weights', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('3 x 5, hold weight'), dead('3 x 5, moderate, hold weight'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `${RIR} Fall hold: same weights as Week 3 while the running ladder climbs toward 40 minutes continuous.` },
+            tueMaint: { name: 'Squat + Deadlift (Maintenance)', focus: 'Tuesday — fewer sets, hold your weight steady', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('2 x 5'), dead('2 x 5, moderate'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8', 'Farmer’s carry — 2 trips'], note: 'Peak running week: your 60-minute continuous run is on Saturday. Don’t add weight even if last session felt easy.' },
+            tueRace: { name: 'Squat + Deadlift (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 x 5, light'), dead('1 x 5, light'), row('1 x 8, light'), 'Dumbbell overhead press — 1 x 8, light'], note: 'Just enough to keep the patterns alive. This is the last lifting before the 10K; Friday is off.' },
+            tueRecovery: { name: 'Light Squat + Deadlift', focus: 'Tuesday — recovery week after the 10K', main: [squat('2 x 5, light'), dead('1 x 5, light'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8'], note: 'An easy pass to get moving again; nothing should feel hard.' },
+            tueBuildW: { name: 'Squat + Deadlift', focus: 'Tuesday — winter base: add weight', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('3 x 5'), dead('3 x 5, moderate'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips (30-40 m or 30-40 sec)'], note: `With no hard running yet, add weight in small jumps when every set moves well; squat leads, deadlift stays moderate. Jan 5 is the last session with an increase. ${RIR}` },
+            tueDown: { name: 'Squat + Deadlift (Down Week)', focus: 'Tuesday — Christmas week, fewer sets, hold weight', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('2 x 5, hold weight'), dead('2 x 5, hold weight'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8'], note: 'Down week: fewer sets, hold your weight. No Friday session this week.' },
+            tueHold: { name: 'Squat + Deadlift (Hold)', focus: 'Tuesday — hold weights', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('3 x 5, hold weight'), dead('2 x 5, moderate, hold weight'), row('3 x 8'), 'Dumbbell overhead press — 3 x 8', 'Farmer’s carry — 3 trips'], note: 'Hill repeats tomorrow, so weights hold and deadlift drops to 2 sets. Keep 2-3 reps in reserve.' },
+            tueMaintW: { name: 'Squat + Deadlift (Maintenance)', focus: 'Tuesday — peak week, fewer sets, hold weight', main: ['Lunges — 1 x 10/leg, as a warm-up', squat('2 x 5'), dead('1 x 5, moderate'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8', 'Farmer’s carry — 2 trips'], note: 'Peak week: hill repeats tomorrow and the 130-minute rehearsal on Saturday.' },
+            tueTaper: { name: 'Squat + Deadlift (Taper)', focus: 'Tuesday — taper week, fewer sets, hold weight', main: [squat('2 x 5, hold weight'), dead('1 x 5, hold weight'), row('2 x 8'), 'Dumbbell overhead press — 2 x 8'], note: 'One week out from the 22K. Enough to keep the patterns; nothing should be sore by the weekend.' },
+            tueRace22: { name: 'Squat + Deadlift (Race Week)', focus: 'Tuesday — light pass only', main: [squat('1 x 5, light'), dead('1 x 5, light'), row('1 x 8, light'), 'Dumbbell overhead press — 1 x 8, light'], note: 'Last lifting before the 22K; Friday is off.' },
             friUpperLight: { name: 'Upper Body (Optional)', focus: 'Friday — recovery week, optional', main: [bench('2 x 8, light'), 'Banded rows — 2 x 12-15', 'Band pull-aparts — 2 x 15'], note: 'Skip it if the holiday week is busy. Core routine after.' },
             friUpperMaintW: { name: 'Upper Body Day (Maintenance)', focus: 'Friday — fewer sets, hold your weight steady', main: [bench('2 x 8'), 'Straight arm pulldowns — 2 x 12', 'Banded rows — 2 x 12-15', 'Band pull-aparts — 2 x 15', 'Dumbbell curls — 2 x 10', 'Lateral raises — 2 x 12-15', 'Front raises — 2 x 12-15'], note: 'Fewer sets protects recovery heading into the 22K. Core routine after.' },
             friUpper: { name: 'Upper Body Day', focus: 'Friday — no leg loading', main: [bench('3 x 8'), 'Straight arm pulldowns — 3 x 12', 'Banded rows — 3 x 12-15', 'Band pull-aparts — 3 x 15', 'Dumbbell curls — 3 x 10-12', 'Lateral raises — 3 x 12-15', 'Front raises — 3 x 12-15'], note: 'No leg loading, so nothing carries into Saturday’s long run. Pulling volume is split between here and Tuesday’s row. Core routine after.' },
@@ -656,7 +691,25 @@ REVISION, OCT 5, 2026 (agreed with Richard)
 
         RACES.r22k = { name: 'Timbuk 22K', role: 'A Race · Distance and Effort', goal: 'Cover 22K at a steady effort and finish strong. Time doesn’t matter, but expect about 2:50-3:15 on your feet. Refine it after the Feb 6 rehearsal: your average pace for those 130 minutes x 13.7 mi is your race-day estimate (about 13:00/mi means 3:00 is on).', warmup: '5-10 min of easy walking and jogging; the first loop finishes the job.', effort: 'Loop 1 conservative: easy running on flats and descents, power hike the climbs. Loop 2 at the same effort. A strong, steady second loop is the win, not a faster finish.', pacing: 'Even effort, not even pace. Hills swing pace a lot, so go by breathing and HR, and keep loop 2 within a few minutes of loop 1.', fueling: 'Familiar breakfast 2-3 hours before. Fuel from 30-45 min and every 30-45 min after, as practiced. Dress for wind and sleet, and use traction if the course is snowy or icy.', note: 'Saturday is rest or a 15-minute shakeout. Follow it with an easy week.' };
 
-        const CORE_ROUTINE = ['Pelvic tilt — 10-12', 'Single-leg bridge — 8-10/side', 'Dead bug — 8-10/side', 'Side-lying leg raise — 12/side', 'Clamshells — 15/side', 'Donkey kicks — 12-15/side', 'Push-ups — 10-12'];
+        const CORE_ROUTINE = [
+            , 'Pelvic tilt — 10-15'
+            , 'Glute bridge — 10-15'
+            , 'Dead bug — 8-10/side'
+            , 'Lateral leg raise — 12/side'
+            , 'Clamshells — 12-15/side'
+            , 'Donkey kicks — 12-15/side'
+            , 'Push-ups — 10-12'
+        ];
+
+        // Leg routine: bodyweight, Mon/Thu after the run (revised Oct 10, 2026; replaces Tuesday's loaded step-ups).
+        const LEG_ROUTINE = [
+            'Standing bent-knee hip-flexion pulses — 10-15/leg (thigh at hip height, knee at 90°, small controlled pulses)',
+            'Bulgarian split squats — 8-10/leg (back foot on a bench; lower under control, drive through the front foot)',
+            'Step-ups — 8-10/leg, bodyweight (straighten the lead leg, lower slowly)',
+            'Single-leg Romanian deadlifts — 8-10/leg (hinge at the hips, back neutral)',
+            'Single-leg calf raises — 12-15/leg (pause at the top, lower slowly; wall for balance)',
+            'Bodyweight squats — 12-15 (knees track over toes, stand tall)'
+        ];
 
         const LIFT_ICON = '<span class="lift-icon"><svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9v6M2 10v4M7 7v10M20 9v6M22 10v4M17 7v10M7 12h10"/></svg></span>';
         const norm = v => (typeof v === 'object' && v !== null) ? v : { min: v, tag: 'easy' };
@@ -722,6 +775,7 @@ REVISION, OCT 5, 2026 (agreed with Richard)
             cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(cell); } });
         });
         document.getElementById('coreRoutineList').innerHTML = CORE_ROUTINE.map(i => `<li>${i}</li>`).join('');
+        document.getElementById('legRoutineList').innerHTML = LEG_ROUTINE.map(i => `<li>${i}</li>`).join('');
     </script>
 </body>
 
